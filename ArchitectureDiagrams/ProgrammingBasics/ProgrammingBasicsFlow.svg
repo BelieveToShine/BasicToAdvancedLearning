@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 920" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="920" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Programming Basics — Functional Flow (who calls whom, and where control goes back to)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">Read top to bottom. Every solid arrow is a call; every dashed arrow is that call returning to whoever made it.</text>
+
+  <!-- Legend -->
+  <g font-size="11" fill="#333">
+    <line x1="330" y1="64" x2="366" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="372" y="68">Call (→)</text>
+    <line x1="460" y1="64" x2="496" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="502" y="68">Return (←)</text>
+    <rect x="610" y="58" width="14" height="14" rx="2" fill="none" stroke="#e69138" stroke-width="1.5" stroke-dasharray="4 3"/><text x="630" y="68">Branch (alt)</text>
+  </g>
+
+  <!-- Lifeline headers -->
+  <rect x="60" y="80" width="180" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="150" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+
+  <rect x="400" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="510" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">ProgrammingBasicsExample</text>
+  <text x="510" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+
+  <rect x="710" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="820" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">ProgrammingBasicsDemo</text>
+
+  <!-- Lifelines -->
+  <line x1="150" y1="122" x2="150" y2="800" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="510" y1="122" x2="510" y2="800" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="820" y1="122" x2="820" y2="800" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Activation bars -->
+  <rect x="146" y="170" width="8" height="630" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="506" y="190" width="8" height="590" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="816" y="250" width="8" height="76" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="816" y="366" width="8" height="76" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="816" y="482" width="8" height="258" fill="#cfe2f3" stroke="#3d85c6"/>
+
+  <!-- Step 1: Program.cs -> Example -->
+  <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new ProgrammingBasicsExample();  topic.Explain()</text>
+  <line x1="150" y1="190" x2="510" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- Step 2: Example -> Demo (Variables & Data Types) -->
+  <text x="665" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainVariablesAndDataTypes()</text>
+  <line x1="510" y1="250" x2="820" y2="250" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="400" y="266" width="500" height="46" rx="6" fill="#fffbe8" stroke="#f1c232"/>
+  <text x="650" y="282" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">High level: declares one example of each basic C# data type</text>
+  <text x="650" y="298" text-anchor="middle" font-size="9.5" fill="#7f6000">Uses: Console.WriteLine (several times, one per data type)</text>
+  <text x="665" y="320" text-anchor="middle" font-size="10" fill="#555">returns</text>
+  <line x1="820" y1="326" x2="510" y2="326" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <!-- Step 3: Example -> Demo (Operators) -->
+  <text x="665" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainOperators()</text>
+  <line x1="510" y1="366" x2="820" y2="366" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="400" y="382" width="500" height="46" rx="6" fill="#f3effb" stroke="#674ea7"/>
+  <text x="650" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">High level: runs arithmetic, comparison, logical and assignment operators</text>
+  <text x="650" y="414" text-anchor="middle" font-size="9.5" fill="#3d2a6b">Uses: Console.WriteLine (several times, one per result)</text>
+  <text x="665" y="436" text-anchor="middle" font-size="10" fill="#555">returns</text>
+  <line x1="820" y1="442" x2="510" y2="442" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <!-- Step 4: Example -> Demo (Input/Output) -->
+  <text x="665" y="474" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainInputOutput()</text>
+  <line x1="510" y1="482" x2="820" y2="482" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="400" y="498" width="500" height="60" rx="6" fill="#fdebd9" stroke="#e69138"/>
+  <text x="650" y="514" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">High level: asks for two values, converts the typed text safely,</text>
+  <text x="650" y="529" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">then prints one final result</text>
+  <text x="650" y="545" text-anchor="middle" font-size="9.5" fill="#8a5a10">Uses: Console.Write, Console.ReadLine, Console.WriteLine</text>
+
+  <!-- Alt / branch box -->
+  <rect x="400" y="572" width="500" height="140" rx="8" fill="none" stroke="#e69138" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="412" y="590" font-size="10" font-weight="bold" fill="#8a5a10">alt — did int.TryParse(...) succeed?</text>
+  <line x1="400" y1="642" x2="900" y2="642" stroke="#e69138" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="650" y="618" text-anchor="middle" font-size="10" fill="#333">[succeeds] → prints the "next year you'll be …" message</text>
+  <text x="650" y="678" text-anchor="middle" font-size="10" fill="#333">[fails] → prints a "not a valid number" message — no crash</text>
+
+  <text x="665" y="736" text-anchor="middle" font-size="10" fill="#555">returns</text>
+  <line x1="820" y1="742" x2="510" y2="742" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="330" y="774" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="510" y1="780" x2="150" y2="780" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <circle cx="150" cy="800" r="6" fill="#cc0000"/>
+  <text x="164" y="804" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+
+  <text x="40" y="850" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() on ProgrammingBasicsExample, which — one at a
+  time — calls into ProgrammingBasicsDemo for each of the three concepts, waits for it to return, then moves to
+  the next. Nothing runs in parallel; nothing loops.</text>
+  <text x="40" y="875" font-size="10" font-style="italic" fill="#888">Every Demo method talks to the Console (Write/WriteLine/ReadLine) — that interaction is called out on every activation above, not left implicit.</text>
+</svg>
