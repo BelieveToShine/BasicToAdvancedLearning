@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" font-family="Arial, Helvetica, sans-serif">
+  <rect x="0" y="0" width="1280" height="600" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# Methods &amp; Parameters</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">MethodsAndParametersDemo.cs holds the logic. Each box below is one Explain*() method — see Flow/0-Overview.svg for call order.</text>
+
+  <g font-size="10" fill="#333">
+    <rect x="80" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="96" y="72">Method Basics</text>
+    <rect x="230" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="246" y="72">Parameters</text>
+    <rect x="350" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="366" y="72">Optional/Named</text>
+    <rect x="500" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="516" y="72">params</text>
+    <rect x="600" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="616" y="72">Overloading</text>
+  </g>
+
+  <!-- Row 1 -->
+  <rect x="40" y="110" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">1 · Method Basics</text>
+  <text x="220" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainMethodBasics()</text>
+  <rect x="56" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+  <text x="66" y="176" font-size="10" fill="#333">int total = AddNumbers(5, 3);</text>
+  <text x="66" y="192" font-size="10" fill="#333">Greet("Vivek");</text>
+  <text x="220" y="252" text-anchor="middle" font-size="9.5" fill="#7f6000">Parameters go in, a return value</text>
+  <text x="220" y="266" text-anchor="middle" font-size="9.5" fill="#7f6000">(or void) comes back out.</text>
+
+  <rect x="440" y="110" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">2 · Parameters — Value vs ref vs out</text>
+  <text x="620" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainParameters()</text>
+  <rect x="456" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac"/>
+  <text x="466" y="176" font-size="10" fill="#333">DoubleByRef(ref number);</text>
+  <text x="466" y="192" font-size="10" fill="#333">ParseInput("42", out int parsed);</text>
+  <text x="620" y="252" text-anchor="middle" font-size="9.5" fill="#8a5a10">value COPIES; ref/out SHARE the</text>
+  <text x="620" y="266" text-anchor="middle" font-size="9.5" fill="#8a5a10">caller's actual Stack variable.</text>
+
+  <rect x="840" y="110" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="1020" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">3 · Optional &amp; Named Parameters</text>
+  <text x="1020" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainOptionalAndNamedParameters()</text>
+  <rect x="856" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0"/>
+  <text x="866" y="176" font-size="10" fill="#333">BuildGreeting("Vivek");</text>
+  <text x="866" y="192" font-size="10" fill="#333">BuildGreeting(greeting: "Welcome", name: "Vivek");</text>
+  <text x="1020" y="252" text-anchor="middle" font-size="9.5" fill="#274e13">Default values make a parameter</text>
+  <text x="1020" y="266" text-anchor="middle" font-size="9.5" fill="#274e13">skippable; names let you reorder.</text>
+
+  <!-- Row 2 (centered under row 1) -->
+  <rect x="240" y="320" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="420" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">4 · The params Keyword</text>
+  <text x="420" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainParamsKeyword()</text>
+  <rect x="256" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef"/>
+  <text x="266" y="386" font-size="10" fill="#333">Sum(1, 2, 3);</text>
+  <text x="266" y="402" font-size="10" fill="#333">Sum(10, 20, 30, 40);</text>
+  <text x="420" y="462" text-anchor="middle" font-size="9.5" fill="#1a4a73">Any number of arguments —</text>
+  <text x="420" y="476" text-anchor="middle" font-size="9.5" fill="#1a4a73">packed into one array for you.</text>
+
+  <rect x="640" y="320" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="820" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · Method Overloading</text>
+  <text x="820" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainMethodOverloading()</text>
+  <rect x="656" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef"/>
+  <text x="666" y="386" font-size="10" fill="#333">Describe(5);  Describe(5, 10);</text>
+  <text x="666" y="402" font-size="10" fill="#333">Describe("Vivek");</text>
+  <text x="820" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">Same name, different parameter</text>
+  <text x="820" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">lists — resolved by the arguments.</text>
+
+  <text x="40" y="545" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → MethodsAndParametersExample.Explain()</tspan> calls all five methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="565" font-size="10.5" font-style="italic" fill="#888">Every method (1–5) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

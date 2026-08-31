@@ -11,8 +11,12 @@ under `C:\Vivek\Projects\BasicToAdvancedLearning`. Builds clean, 0 warnings/erro
 https://github.com/BelieveToShine/BasicToAdvanceLearning (branch `main`).
 
 **Done this session:**
-- Topic 1 (Programming Basics) and Topic 2 (Control Flow) implemented + explained with diagrams (see
-  table below). `Program.cs` currently runs Topic 2 (`ControlFlowExample`).
+- Topics 1–3 (Programming Basics, Control Flow, Methods & Parameters) implemented + explained with
+  diagrams (see table below). `Program.cs` currently runs Topic 3 (`MethodsAndParametersExample`).
+- Topic 3's `Memory/2-Parameters.svg` breaks from the strict single-snapshot format (three side-by-side
+  mini call/return panels — value vs ref vs out) because a single instant can't show all three modes;
+  this is the second precedent for a locked-shape exception (after the for-loop's slot-reuse insight),
+  used only when the comparison itself IS the teaching point.
 - Settled the runner pattern: `Program.cs` depends only on `ILearningTopic` (`Interfaces/ILearningTopic.cs`),
   never on a concrete topic class — adding a topic never changes `Program.cs`'s shape, and it doubles
   as a live polymorphism example for the juniors.
@@ -27,8 +31,8 @@ https://github.com/BelieveToShine/BasicToAdvanceLearning (branch `main`).
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 3 (Methods & parameters, or whichever is next per the phase table) and follow the
-"Add a new topic" runbook below.
+**Next:** pick Topic 4 (Collections — arrays, List, Dictionary) and follow the "Add a new topic"
+runbook below.
 
 ## Topic tracker
 
@@ -41,7 +45,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 |---|---|---|---|---|
 | 1 | Programming basics — variables, data types, operators, input/output | ✅ | `ProgrammingBasics/` | `ProgrammingBasics.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–3 (VariablesAndDataTypes, Operators, InputOutput) — retrofitted to match the `ControlFlow/` convention |
 | 2 | Control flow — if/else, switch, loops | ✅ | `ControlFlow/` | `ControlFlow.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus one numbered pair per method 1–6 (IfElse, Switch, ForLoop, WhileLoop, DoWhileLoop, Foreach) in `Flow/` and `Memory/` — 15 files total, the reference example for the folder/numbering convention |
-| 3 | Methods & parameters | ⬜ | | |
+| 3 | Methods & parameters | ✅ | `MethodsAndParameters/` | `MethodsAndParameters.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (MethodBasics, Parameters, OptionalAndNamedParameters, ParamsKeyword, MethodOverloading) — Memory/2-Parameters.svg is the topic's key diagram (value vs ref vs out, side by side) |
 | 4 | Collections — arrays, List, Dictionary | ⬜ | | |
 | 5 | OOP — classes, objects, constructors, encapsulation | ⬜ | | |
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ⬜ | | |

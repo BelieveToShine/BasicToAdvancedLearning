@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="460" fill="#ffffff"/>
+  <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Methods &amp; Parameters — Memory: Stack / Heap / Static (high level)</text>
+  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Every method CALL adds its own Stack frame — see Memory/1 through /5 for each one's detailed snapshot.</text>
+
+  <g font-size="11" fill="#333">
+    <rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text>
+    <rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text>
+    <rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text>
+  </g>
+
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — every local/parameter, across all 5 methods</text>
+  <text x="620" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — the one exception</text>
+  <text x="930" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+
+  <rect x="40" y="112" width="400" height="270" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="240" y="134" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Value types + parameter slots, one frame per active call</text>
+  <g font-size="10" fill="#1b3d1b">
+    <rect x="60" y="146" width="360" height="24" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="162">total — MethodBasics(), AddNumbers()</text>
+    <rect x="60" y="174" width="360" height="24" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="190">number, parsed — Parameters() (see Memory/2)</text>
+    <rect x="60" y="202" width="360" height="24" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="218">name, greeting → pointers — OptionalAndNamedParameters()</text>
+    <rect x="60" y="230" width="360" height="24" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="246">numbers → pointer to a Heap array — ParamsKeyword()</text>
+    <rect x="60" y="258" width="360" height="24" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="274">a, b — MethodOverloading()</text>
+  </g>
+  <text x="240" y="366" text-anchor="middle" font-size="9.5" fill="#274e13">Only one method's frame is ever active at once — see the per-method files.</text>
+
+  <rect x="460" y="112" width="320" height="150" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="480" y="130" width="280" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620" y="152" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">the params array</text>
+  <text x="620" y="172" text-anchor="middle" font-size="9.5" fill="#7f4e00">Sum(1, 2, 3) makes C# allocate</text>
+  <text x="620" y="188" text-anchor="middle" font-size="9.5" fill="#7f4e00">a real int[3] on the Heap for you,</text>
+  <text x="620" y="204" text-anchor="middle" font-size="9.5" fill="#7f4e00">even though you never wrote "new"</text>
+  <text x="620" y="228" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">full picture → Memory/4-ParamsKeyword.svg</text>
+
+  <rect x="830" y="112" width="220" height="150" rx="10" fill="#d5c9ea" fill-opacity="0.25" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="940" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
+  <text x="940" y="172" text-anchor="middle" font-size="10" fill="#5b4a7a">No `static` fields or</text>
+  <text x="940" y="188" text-anchor="middle" font-size="10" fill="#5b4a7a">consts in this topic.</text>
+
+  <text x="40" y="410" font-size="10.5" fill="#444"><tspan font-weight="bold">The one exception worth its own picture: ref and out.</tspan> Do they copy, or share the caller's actual Stack slot? See Memory/2-Parameters.svg — the answer is the single most important idea in this topic.</text>
+  <text x="40" y="430" font-size="10" font-style="italic" fill="#888">The other exception: params silently allocates a real array — see Memory/4-ParamsKeyword.svg.</text>
+</svg>

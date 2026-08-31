@@ -74,7 +74,42 @@ Use lifelines instead:
 - End with a small filled **End** marker on the root lifeline (after its final return) plus a one-line
   "where to where, in one line" summary in the footer.
 
-**Routing rule (applies to every Flow diagram, sequence or flowchart): straight lines only, no
+**"Call road" motif — use this instead of a flat box-chain whenever a method's body is mostly a
+SEQUENCE OF CALLS to other methods** (as opposed to branching/looping within itself — those still use
+the flowchart+diamond style, e.g. `ControlFlow/Flow/1-IfElse.svg`). A stack of plain rectangles reads
+as boring and hides the call/return nature; a road with off-ramps makes it visible and is genuinely
+more engaging:
+- A thick horizontal **road** (a bold rounded line, dark fill, dashed lighter centerline for texture)
+  is the method's own execution, running left to right.
+- **Start/End flags** (a pole + triangular pennant, green for Start, red for End) instead of plain
+  ovals — same meaning, more visual interest.
+- Each call is an **off-ramp**: a solid arrow drops straight DOWN from a point on the road into a
+  colour-coded bubble (the callee), labelled `call: Method(args)`. A DASHED return arrow then goes
+  straight down from the bubble, then straight right, then straight UP to a landing point further
+  along the road — an orthogonal "dip down and loop back" shape, never a diagonal. Label the return
+  arrow with what actually comes back (`returns 8`, `returns (void)`, or the specific insight worth
+  calling out — see `MethodsAndParameters/Flow/2-Parameters.svg` for return labels that carry the
+  topic's key point: `returns — number now 20 (shared!)`).
+- Reuse a sub-concept's Memory-diagram colour where it exists — e.g. the purple "aliased" fill from
+  the locked Memory legend on a `ref`/`out` bubble — so the Flow and Memory diagrams visually agree.
+- Number of off-ramps = number of calls that method actually makes; don't pad or invent extra ones.
+- **Label placement: never center a label ON the line it describes.** A label sitting at the same
+  x/y as a stroke it's naming reads as broken — the line shows through the gaps between letters (a
+  real instance: `call: Sum(1, 2, 3)` centered directly on its own vertical arrow looked cut in half).
+  Put the label just to one side or, for the "call:" label on an off-ramp specifically, as a small
+  sign floating just ABOVE the road before the arrow starts — never on the arrow's path itself. A
+  label may brush at most one single character of a line/arrow it crosses; if more than that overlaps,
+  move the label. Before finishing a Flow diagram, check every label's text this way, same as the
+  path-vs-box collision check above.
+- **Encouraged: don't default to the exact same "call road" every time.** The motif above is the fix
+  for flat box-chains, not the only allowed shape — for a future topic, consider other metaphors that
+  fit the content (a relay handoff, a conveyor/assembly line, a subway line with stations, a recipe
+  card with steps and a "results" tray). Pick whatever makes THAT topic's actual mechanics click
+  fastest and looks genuinely inviting — the goal is a learner wanting to look at the picture, not
+  just tolerating it. Keep the hard rules (straight lines, label clearance, real call/return arrows,
+  locked Memory legend) no matter which metaphor you pick.
+
+**Routing rule (applies to every Flow diagram, sequence, road, or flowchart): straight lines only, no
 diagonals, no clipping through a box or oval.** A diagonal connector that crosses other shapes at a
 shallow angle reads as tangled, and one that isn't obviously routed can silently pass *through* a box
 it should avoid — that's a bug, not just a style nit (a real instance: a do-while loop-back path routed

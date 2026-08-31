@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="420" fill="#ffffff"/>
+  <text x="575" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Parameters — Memory: value vs ref vs out, side by side</text>
+  <text x="575" y="42" text-anchor="middle" font-size="11.5" fill="#666">The single most important picture in this topic — purple = "this is the SAME memory slot," not a copy.</text>
+
+  <g font-size="10.5" fill="#333">
+    <rect x="230" y="54" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="250" y="65">Stack (independent copy)</text>
+    <rect x="470" y="54" width="14" height="14" rx="2" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="490" y="65">Same Stack slot (aliased)</text>
+    <rect x="740" y="54" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="760" y="65">Static (unused here)</text>
+  </g>
+
+  <!-- Panel A: VALUE -->
+  <text x="215" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">PASS BY VALUE</text>
+  <rect x="45" y="100" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="215" y="118" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ExplainParameters() frame</text>
+  <rect x="61" y="128" width="308" height="22" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="215" y="143" text-anchor="middle" font-size="9.5" fill="#1b3d1b">number = 10</text>
+
+  <line x1="215" y1="155" x2="215" y2="182" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="215" y="170" text-anchor="middle" font-size="9" fill="#555">a COPY is made</text>
+
+  <rect x="45" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="215" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">TryDoubleByValue(value) frame</text>
+  <rect x="61" y="212" width="308" height="22" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="215" y="227" text-anchor="middle" font-size="9.5" fill="#1b3d1b">value = 10 → 20  (its OWN copy)</text>
+
+  <text x="215" y="264" text-anchor="middle" font-size="10" fill="#333">After return: number is still 10.</text>
+  <text x="215" y="280" text-anchor="middle" font-size="9" font-style="italic" fill="#888">Two separate slots. Changing one never touches the other.</text>
+
+  <!-- Panel B: REF -->
+  <text x="575" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">PASS BY REF</text>
+  <rect x="405" y="100" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="575" y="118" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ExplainParameters() frame</text>
+  <rect x="421" y="128" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="575" y="143" text-anchor="middle" font-size="9.5" fill="#3d2a6b">number = 10 → 20</text>
+
+  <line x1="575" y1="155" x2="575" y2="182" stroke="#674ea7" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="575" y="170" text-anchor="middle" font-size="9" fill="#674ea7">SAME slot, no copy</text>
+
+  <rect x="405" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="575" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">DoubleByRef(ref value) frame</text>
+  <rect x="421" y="212" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="575" y="227" text-anchor="middle" font-size="9.5" fill="#3d2a6b">value IS number — same address</text>
+
+  <text x="575" y="264" text-anchor="middle" font-size="10" fill="#333">After return: number is now 20.</text>
+  <text x="575" y="280" text-anchor="middle" font-size="9" font-style="italic" fill="#888">One slot, two names for it. The purple boxes ARE each other.</text>
+
+  <!-- Panel C: OUT -->
+  <text x="935" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">PASS BY OUT</text>
+  <rect x="765" y="100" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="935" y="118" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ExplainParameters() frame</text>
+  <rect x="781" y="128" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="935" y="143" text-anchor="middle" font-size="9.5" fill="#3d2a6b">parsed — uninitialized → 42</text>
+
+  <line x1="935" y1="155" x2="935" y2="182" stroke="#674ea7" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="935" y="170" text-anchor="middle" font-size="9" fill="#674ea7">SAME slot, MUST assign</text>
+
+  <rect x="765" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="935" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ParseInput(out result) frame</text>
+  <rect x="781" y="212" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="935" y="227" text-anchor="middle" font-size="9.5" fill="#3d2a6b">result IS parsed — same address</text>
+
+  <text x="935" y="264" text-anchor="middle" font-size="10" fill="#333">After return: parsed is now 42.</text>
+  <text x="935" y="280" text-anchor="middle" font-size="9" font-style="italic" fill="#888">Same sharing as ref — but the compiler demands result gets assigned.</text>
+
+  <text x="30" y="330" font-size="10.5" fill="#444"><tspan font-weight="bold">The call site looks almost identical in all three</tspan> — one method name, one argument. What actually happens in memory is invisible unless you know the keyword.</text>
+  <text x="30" y="350" font-size="10" font-style="italic" fill="#888">No Heap or Static involvement anywhere on this page — this entire topic lives on the Stack. That's exactly why it's worth its own diagram.</text>
+</svg>
