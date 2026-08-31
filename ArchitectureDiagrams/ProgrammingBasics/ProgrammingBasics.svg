@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="600" fill="#ffffff"/>
+  <text x="640" y="30" text-anchor="middle" font-size="21" font-weight="bold" fill="#1a237e">C# Programming Basics — Variables, Data Types, Operators &amp; I/O</text>
+  <text x="640" y="52" text-anchor="middle" font-size="12.5" fill="#666">ProgrammingBasicsDemo.cs holds the logic below. Program.cs never calls it directly — see the footer for how the call reaches it.</text>
+
+  <!-- Legend -->
+  <g font-size="11" fill="#333">
+    <rect x="150" y="66" width="13" height="13" rx="2" fill="#ffe599" stroke="#f1c232"/><text x="168" y="77">Variables &amp; Data Types</text>
+    <rect x="380" y="66" width="13" height="13" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="398" y="77">Operators</text>
+    <rect x="500" y="66" width="13" height="13" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="518" y="77">Console Input</text>
+    <rect x="660" y="66" width="13" height="13" rx="2" fill="#9fc5e8" stroke="#3d85c6"/><text x="678" y="77">Console Output</text>
+  </g>
+
+  <!-- column headers -->
+  <text x="190" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a6d3b">1 · Store a typed value</text>
+  <text x="530" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a6d3b">2 · Transform it</text>
+  <text x="870" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a6d3b">3 · Read from the user</text>
+  <text x="1140" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a6d3b">4 · Show the result</text>
+
+  <!-- Stage 1: Variables & Data Types -->
+  <rect x="40" y="100" width="300" height="300" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="190" y="122" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7f6000">Variables &amp; Data Types</text>
+  <text x="190" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainVariablesAndDataTypes()</text>
+
+  <g font-size="10">
+    <rect x="55" y="150" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="164" font-weight="bold" fill="#333">int age = 28;</text>
+    <text x="63" y="179" font-size="8.5" fill="#7f6000">whole numbers</text>
+
+    <rect x="55" y="191" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="205" font-weight="bold" fill="#333">double price = 499.99;</text>
+    <text x="63" y="220" font-size="8.5" fill="#7f6000">fractional, approximate</text>
+
+    <rect x="55" y="232" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="246" font-weight="bold" fill="#333">decimal salary = 55000.50m;</text>
+    <text x="63" y="261" font-size="8.5" fill="#7f6000">exact fractional — use for money</text>
+
+    <rect x="55" y="273" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="287" font-weight="bold" fill="#333">bool isActive = true;</text>
+    <text x="63" y="302" font-size="8.5" fill="#7f6000">true / false only</text>
+
+    <rect x="55" y="314" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="328" font-weight="bold" fill="#333">char grade = 'A';</text>
+    <text x="63" y="343" font-size="8.5" fill="#7f6000">exactly one character</text>
+
+    <rect x="55" y="355" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+    <text x="63" y="369" font-weight="bold" fill="#333">string name = "Vivek";</text>
+    <text x="63" y="384" font-size="8.5" fill="#7f6000">text</text>
+  </g>
+
+  <!-- Stage 2: Operators -->
+  <rect x="380" y="100" width="300" height="300" rx="10" fill="#f3effb" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="530" y="122" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#3d2a6b">Operators</text>
+  <text x="530" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#7a6aa0">ExplainOperators()</text>
+
+  <g font-size="10">
+    <rect x="395" y="150" width="270" height="50" rx="6" fill="#ffffff" stroke="#d9cff0"/>
+    <text x="403" y="166" font-weight="bold" fill="#333">a + b, a - b, a * b, a / b, a % b</text>
+    <text x="403" y="182" font-size="8.5" fill="#3d2a6b">Arithmetic — calculate a result</text>
+
+    <rect x="395" y="208" width="270" height="50" rx="6" fill="#ffffff" stroke="#d9cff0"/>
+    <text x="403" y="224" font-weight="bold" fill="#333">a &gt; b   a == b   a != b</text>
+    <text x="403" y="240" font-size="8.5" fill="#3d2a6b">Comparison — always produces bool</text>
+
+    <rect x="395" y="266" width="270" height="50" rx="6" fill="#ffffff" stroke="#d9cff0"/>
+    <text x="403" y="282" font-weight="bold" fill="#333">hasTicket &amp;&amp; hasId  ||  !hasId</text>
+    <text x="403" y="298" font-size="8.5" fill="#3d2a6b">Logical — combine booleans</text>
+
+    <rect x="395" y="324" width="270" height="50" rx="6" fill="#ffffff" stroke="#d9cff0"/>
+    <text x="403" y="340" font-weight="bold" fill="#333">score += 3;</text>
+    <text x="403" y="356" font-size="8.5" fill="#3d2a6b">Assignment — store or update a value</text>
+  </g>
+
+  <!-- Stage 1 -> Stage 2 -->
+  <line x1="340" y1="250" x2="378" y2="250" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Stage 3: Console Input -->
+  <rect x="760" y="150" width="220" height="90" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="870" y="174" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a5a10">Console Input</text>
+  <text x="870" y="192" text-anchor="middle" font-size="10" fill="#5b3d10">Console.ReadLine()</text>
+  <text x="870" y="208" text-anchor="middle" font-size="9" font-style="italic" fill="#5b3d10">always returns a string</text>
+  <text x="870" y="226" text-anchor="middle" font-size="9" fill="#8a5a10">e.g. "Enter your age: 28"</text>
+
+  <!-- Stage 2 -> Input -->
+  <line x1="680" y1="250" x2="758" y2="195" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <!-- Convert chip -->
+  <rect x="760" y="260" width="220" height="80" rx="10" fill="#ece5f7" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="870" y="284" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">int.TryParse(text, out age)</text>
+  <text x="870" y="302" text-anchor="middle" font-size="9.5" fill="#3d2a6b">string → int, safely</text>
+  <text x="870" y="318" text-anchor="middle" font-size="9" font-style="italic" fill="#7a6aa0">returns false instead of crashing on bad input</text>
+
+  <!-- Input -> Convert -->
+  <line x1="870" y1="240" x2="870" y2="258" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <!-- Stage 4: Console Output -->
+  <rect x="1040" y="205" width="200" height="140" rx="10" fill="#eaf2fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="1140" y="230" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a237e">Console Output</text>
+  <text x="1140" y="250" text-anchor="middle" font-size="10" fill="#123">Console.WriteLine($"...")</text>
+  <text x="1140" y="278" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a7fa6">"Hello Vivek,</text>
+  <text x="1140" y="294" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a7fa6">next year you will be 29."</text>
+  <text x="1140" y="320" text-anchor="middle" font-size="8.5" fill="#5a7fa6">(else: "isn't a valid number")</text>
+
+  <!-- Convert -> Output -->
+  <line x1="980" y1="300" x2="1038" y2="275" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <text x="40" y="470" font-size="11" fill="#444"><tspan font-weight="bold">How Program.cs reaches this:</tspan> Program.cs → new ILearningTopic = ProgrammingBasicsExample() → topic.Explain() → ProgrammingBasicsExample adapts that call into a new ProgrammingBasicsDemo() and calls the three methods above, top-to-bottom.</text>
+  <text x="40" y="490" font-size="11" font-style="italic" fill="#888">Golden rule: Console.ReadLine() always returns a string — always convert (TryParse) before treating input as a number.</text>
+  <text x="40" y="506" font-size="9.5" fill="#aaa">Why the indirection: Program.cs depends only on ILearningTopic, so it stays identical for every future topic — swapping topics is a one-line change.</text>
+</svg>
