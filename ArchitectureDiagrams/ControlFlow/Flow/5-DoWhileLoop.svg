@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="620" fill="#ffffff"/>
+  <text x="450" y="22" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a237e">Do-While Loop — Sub-level Flow (animated)</text>
+  <text x="450" y="42" text-anchor="middle" font-size="12" fill="#666">The ONE real difference from while: the body runs BEFORE the condition is ever checked.</text>
+
+  <ellipse cx="280" cy="100" rx="120" ry="22" fill="#d9ead3" stroke="#38761d" stroke-width="1.5"/>
+  <text x="280" y="105" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">Start: ExplainDoWhileLoop()</text>
+  <line x1="280" y1="122" x2="280" y2="138" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <rect x="180" y="140" width="200" height="40" rx="8" fill="#fbe8e8" stroke="#cc4125" stroke-width="1.5"/>
+  <text x="280" y="164" text-anchor="middle" font-size="10.5" fill="#7a2213">int attempts = 0;</text>
+  <line x1="280" y1="180" x2="280" y2="196" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <rect x="170" y="198" width="220" height="60" rx="8" fill="#fbe8e8" stroke="#cc4125" stroke-width="1.5"/>
+  <text x="280" y="222" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a2213">attempts++;</text>
+  <text x="280" y="240" text-anchor="middle" font-size="9.5" fill="#7a2213">Console.WriteLine($"Attempt #{attempts}");</text>
+  <line x1="280" y1="258" x2="280" y2="274" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <polygon points="280,276 400,316 280,356 160,316" fill="#fce5cd" stroke="#e69138" stroke-width="1.5"/>
+  <text x="280" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">attempts &lt; 3 ?</text>
+
+  <!-- Animated loop-back path — routed OUTSIDE every box and the Start oval, straight lines only -->
+  <text x="440" y="306" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Yes</text>
+  <path d="M400,316 L780,316 L780,58 L150,58 L150,228 L170,228" fill="none" stroke="#8e63ce" stroke-width="2.2" stroke-dasharray="10 6" marker-end="url(#a)">
+    <animate attributeName="stroke-dashoffset" values="16;0" dur="0.6s" repeatCount="indefinite"/>
+  </path>
+  <text x="465" y="50" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5b3d8a">loop back — run the body again (attempts++)</text>
+
+  <line x1="280" y1="356" x2="280" y2="392" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="296" y="378" font-size="10.5" font-weight="bold" fill="#990000">No</text>
+
+  <text x="280" y="404" text-anchor="middle" font-size="10" fill="#333">attempts walks through — same Stack slot each lap:</text>
+
+  <g>
+    <rect x="195" y="414" width="50" height="50" rx="6" fill="#ffffff" stroke="#ccc"/><text x="220" y="444" text-anchor="middle" font-size="13" fill="#666">1</text>
+    <rect x="255" y="414" width="50" height="50" rx="6" fill="#ffffff" stroke="#ccc"/><text x="280" y="444" text-anchor="middle" font-size="13" fill="#666">2</text>
+    <rect x="315" y="414" width="50" height="50" rx="6" fill="#ffffff" stroke="#ccc"/><text x="340" y="444" text-anchor="middle" font-size="13" fill="#666">3</text>
+    <rect y="414" width="50" height="50" rx="6" fill="none" stroke="#cc4125" stroke-width="3">
+      <animate attributeName="x" values="195;255;315;195" keyTimes="0;0.333;0.667;1" calcMode="discrete" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <line x1="280" y1="464" x2="280" y2="498" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <ellipse cx="280" cy="524" rx="120" ry="22" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="280" y="529" text-anchor="middle" font-size="11" font-weight="bold" fill="#990000">End</text>
+
+  <text x="40" y="570" font-size="10.5" fill="#444"><tspan font-weight="bold">Even if attempts started at 3</tspan> (condition already false), the body would still run once before the check ever happens — that guarantee is do-while's whole point.</text>
+  <text x="40" y="588" font-size="10" font-style="italic" fill="#888">Compare with Flow/4-WhileLoop.svg: same loop, but the check moves to before the body instead of after.</text>
+</svg>

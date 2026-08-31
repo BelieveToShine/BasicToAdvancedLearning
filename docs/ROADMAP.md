@@ -7,17 +7,27 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 ## Status snapshot — 2026-08-31
 
 **Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0),
-under `C:\Vivek\Projects\BasicToAdvancedLearning`. Builds clean, 0 warnings/errors.
+under `C:\Vivek\Projects\BasicToAdvancedLearning`. Builds clean, 0 warnings/errors. Pushed to
+https://github.com/BelieveToShine/BasicToAdvanceLearning (branch `main`).
 
 **Done this session:**
-- Topic 1 (Programming Basics) implemented + explained with a diagram (see table below).
+- Topic 1 (Programming Basics) and Topic 2 (Control Flow) implemented + explained with diagrams (see
+  table below). `Program.cs` currently runs Topic 2 (`ControlFlowExample`).
 - Settled the runner pattern: `Program.cs` depends only on `ILearningTopic` (`Interfaces/ILearningTopic.cs`),
   never on a concrete topic class — adding a topic never changes `Program.cs`'s shape, and it doubles
   as a live polymorphism example for the juniors.
 - Found and fixed a real gotcha: a namespace segment literally named `Console` shadows
   `System.Console` (see "Conventions & gotchas" below) — fixed via `<RootNamespace>` in the `.csproj`.
+- Diagram rules matured twice this session — see `docs/rules/diagram-standards.md`: (a) high-level
+  diagrams are a floor, not a ceiling — sub-concepts with their own control shape (loops, especially)
+  get their own Flow/Memory diagrams; (b) every Flow diagram must use straight, right-angle routing
+  only — a diagonal connector caused a real bug (a loop-back path that visibly cut through a box).
+- No GIF tooling on this machine — animated SVG (SMIL) is the standing convention for "show repetition
+  over time" instead.
+- Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
+  to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 2 (Control Flow, or whichever is next per the phase table) and follow the
+**Next:** pick Topic 3 (Methods & parameters, or whichever is next per the phase table) and follow the
 "Add a new topic" runbook below.
 
 ## Topic tracker
@@ -29,8 +39,8 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 
 | # | Topic | Status | Folder | Diagram |
 |---|---|---|---|---|
-| 1 | Programming basics — variables, data types, operators, input/output | ✅ | `ProgrammingBasics/` | `ProgrammingBasics.svg` + `ProgrammingBasicsFlow.svg` + `ProgrammingBasicsMemory.svg` |
-| 2 | Control flow — if/else, switch, loops | ⬜ | | |
+| 1 | Programming basics — variables, data types, operators, input/output | ✅ | `ProgrammingBasics/` | `ProgrammingBasics.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–3 (VariablesAndDataTypes, Operators, InputOutput) — retrofitted to match the `ControlFlow/` convention |
+| 2 | Control flow — if/else, switch, loops | ✅ | `ControlFlow/` | `ControlFlow.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus one numbered pair per method 1–6 (IfElse, Switch, ForLoop, WhileLoop, DoWhileLoop, Foreach) in `Flow/` and `Memory/` — 15 files total, the reference example for the folder/numbering convention |
 | 3 | Methods & parameters | ⬜ | | |
 | 4 | Collections — arrays, List, Dictionary | ⬜ | | |
 | 5 | OOP — classes, objects, constructors, encapsulation | ⬜ | | |
@@ -119,13 +129,16 @@ Repeat this for each topic in the tracker above:
    ILearningTopic topic = new <Topic>Example();
    topic.Explain();
    ```
-4. **Diagrams — all 3 are MANDATORY, no exceptions.** Follow [`docs/rules/diagram-standards.md`](rules/diagram-standards.md)
-   exactly. Create all three under `ArchitectureDiagrams/<Topic>/`:
+4. **Diagrams — MANDATORY, no exceptions.** Follow [`docs/rules/diagram-standards.md`](rules/diagram-standards.md)
+   exactly. Under `ArchitectureDiagrams/<Topic>/`:
    - `<Topic>.svg` — architecture/concept (colour-coded boxes mapped 1:1 to the demo's `ExplainX()` methods)
-   - `<Topic>Flow.svg` — functional flow (Start → ... → End, real branches only)
-   - `<Topic>Memory.svg` — Stack / Heap / Static, using the locked colour legend and real variable
-     names from `<Topic>Demo.cs`
-   A topic is not ✅ until all three exist and are valid XML.
+   - `Flow/0-Overview.svg` + one `Flow/<N>-<Method>.svg` per method (call/return trace, right-angle
+     routing only — no diagonals)
+   - `Memory/0-Overview.svg` + one `Memory/<N>-<Method>.svg` per method (the Main → Explain() →
+     method-frame snapshot, same shape every time, using the locked colour legend and that method's
+     real variable names)
+   `Flow/<N>` and `Memory/<N>` must use the SAME number for the same method. A topic is not ✅ until
+   every method has both files and everything is valid XML.
 5. **Build + run** — `dotnet build` then `dotnet run` from `BasicToAdvancedLearning.Console/`
    (pipe stdin for any `Console.ReadLine()` prompts when testing non-interactively).
 6. **Update this file** — flip the topic's status to ✅, note the folder/diagram paths in the

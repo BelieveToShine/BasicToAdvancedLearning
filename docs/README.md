@@ -15,10 +15,10 @@ docs/README.md          ← you are here
    │        └──> BasicToAdvancedLearning.Console/<TopicFolder>/   ← the lesson code
    │                ├─ <Topic>Demo.cs        (the actual explained concepts + comments)
    │                └─ <Topic>Example.cs     (adapts the demo to ILearningTopic)
-   │        └──> ArchitectureDiagrams/<TopicFolder>/     ← the pictorial explanation (3 files, mandatory)
-   │                ├─ <Topic>.svg           (architecture / concept)
-   │                ├─ <Topic>Flow.svg       (functional flow, start→end)
-   │                └─ <Topic>Memory.svg     (Stack / Heap / Static)
+   │        └──> ArchitectureDiagrams/<TopicFolder>/     ← the pictorial explanation (mandatory)
+   │                ├─ <Topic>.svg               (architecture / concept, one file)
+   │                ├─ Flow/0-Overview.svg + <N>-<Method>.svg per method (call/return trace)
+   │                └─ Memory/0-Overview.svg + <N>-<Method>.svg per method (Stack/Heap/Static snapshot)
    │
    └──> docs/rules/diagram-standards.md   ← the mandatory 3-diagram rule + locked conventions
 ```
@@ -30,8 +30,8 @@ docs/README.md          ← you are here
 | [`ROADMAP.md`](ROADMAP.md) | Living tracker: which topics are done/in-progress/pending, session notes, and the runbook for adding a new topic (folder + namespace + interface + diagram conventions). |
 | `BasicToAdvancedLearning.Console/<Topic>/` | One folder per topic. `<Topic>Demo.cs` holds the actual teaching code with explanatory comments; `<Topic>Example.cs` implements `ILearningTopic` so `Program.cs` never has to change shape. |
 | `BasicToAdvancedLearning.Console/Interfaces/ILearningTopic.cs` | The one contract every topic implements (`Explain()`). Lets `Program.cs` stay a fixed two-line runner regardless of which topic is active. |
-| `ArchitectureDiagrams/<Topic>/` | **Three mandatory diagrams per topic** — see [`docs/rules/diagram-standards.md`](rules/diagram-standards.md): architecture/concept, functional flow, and Stack/Heap/Static memory. Same visual language as the LeadHunter diagrams (colour-coded boxes, legend, arrows = flow) — used to explain the concept to juniors before showing code. |
-| [`rules/diagram-standards.md`](rules/diagram-standards.md) | **Mandatory rule**: no topic is done without all 3 diagrams. Locks the memory-diagram colour legend (Stack/Heap/Static) so it's identical across every topic. |
+| `ArchitectureDiagrams/<Topic>/` | **Mandatory per topic** — see [`docs/rules/diagram-standards.md`](rules/diagram-standards.md): one architecture/concept file, plus a `Flow/` and `Memory/` folder each holding a `0-Overview.svg` and one numbered file **per method** (`Flow/<N>` and `Memory/<N>` share the same number). Same visual language as the LeadHunter diagrams (colour-coded boxes, legend, arrows = flow) — used to explain the concept to juniors before showing code. |
+| [`rules/diagram-standards.md`](rules/diagram-standards.md) | **Mandatory rule**: no topic is done until every method has its own Flow AND Memory diagram. Locks the memory-diagram colour legend and per-method snapshot shape (Stack/Heap/Static) so it's identical across every topic. |
 
 ## Reading order for a new session
 1. `ROADMAP.md` (what's done, what's next) → 2. the current topic's `<Topic>Demo.cs` (the code) →

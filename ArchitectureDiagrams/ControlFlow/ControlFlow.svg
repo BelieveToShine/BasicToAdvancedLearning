@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" font-family="Arial, Helvetica, sans-serif">
+  <rect x="0" y="0" width="1280" height="600" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# Control Flow — Branching &amp; Looping</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">ControlFlowDemo.cs holds the logic. Each box below is one Explain*() method — see Flow/0-Overview.svg for call order.</text>
+
+  <!-- Legend -->
+  <g font-size="10" fill="#333">
+    <rect x="60" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="76" y="72">If/Else</text>
+    <rect x="160" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="176" y="72">Switch</text>
+    <rect x="260" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="276" y="72">For</text>
+    <rect x="340" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="356" y="72">While</text>
+    <rect x="430" y="62" width="12" height="12" rx="2" fill="#fbe8e8" stroke="#cc4125"/><text x="446" y="72">Do-While</text>
+    <rect x="540" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="556" y="72">Foreach</text>
+  </g>
+
+  <!-- Row 1 -->
+  <rect x="40" y="110" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">1 · If / Else If / Else</text>
+  <text x="220" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainIfElse()</text>
+  <rect x="56" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+  <text x="66" y="176" font-size="10" fill="#333">if (temperature &gt; 35) ...</text>
+  <text x="66" y="192" font-size="10" fill="#333">else if (temperature &gt; 20) ...</text>
+  <text x="66" y="208" font-size="10" fill="#333">else ...</text>
+  <text x="220" y="252" text-anchor="middle" font-size="9.5" fill="#7f6000">First TRUE condition wins;</text>
+  <text x="220" y="266" text-anchor="middle" font-size="9.5" fill="#7f6000">everything else is skipped.</text>
+
+  <rect x="440" y="110" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">2 · Switch</text>
+  <text x="620" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainSwitch()</text>
+  <rect x="456" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac"/>
+  <text x="466" y="176" font-size="10" fill="#333">switch (dayNumber)</text>
+  <text x="466" y="192" font-size="10" fill="#333">{ case 3: ... break; ... }</text>
+  <text x="620" y="252" text-anchor="middle" font-size="9.5" fill="#8a5a10">Jumps straight to the matching</text>
+  <text x="620" y="266" text-anchor="middle" font-size="9.5" fill="#8a5a10">case — no fallthrough in C#.</text>
+
+  <rect x="840" y="110" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="1020" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">3 · For Loop</text>
+  <text x="1020" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainForLoop()</text>
+  <rect x="856" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0"/>
+  <text x="866" y="176" font-size="10" fill="#333">for (int i = 1; i &lt;= 5; i++)</text>
+  <text x="866" y="192" font-size="10" fill="#333">{ Console.WriteLine(i); }</text>
+  <text x="1020" y="252" text-anchor="middle" font-size="9.5" fill="#274e13">init → check → body → increment</text>
+  <text x="1020" y="266" text-anchor="middle" font-size="9.5" fill="#274e13">→ check again... (see ForLoopFlow)</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="320" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">4 · While Loop</text>
+  <text x="220" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainWhileLoop()</text>
+  <rect x="56" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef"/>
+  <text x="66" y="386" font-size="10" fill="#333">while (countdown &gt; 0)</text>
+  <text x="66" y="402" font-size="10" fill="#333">{ ...; countdown--; }</text>
+  <text x="220" y="462" text-anchor="middle" font-size="9.5" fill="#1a4a73">Checks BEFORE each run —</text>
+  <text x="220" y="476" text-anchor="middle" font-size="9.5" fill="#1a4a73">can execute zero times.</text>
+
+  <rect x="440" y="320" width="360" height="190" rx="10" fill="#fbe8e8" stroke="#cc4125" stroke-width="1.5"/>
+  <text x="620" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#7a2213">5 · Do-While Loop</text>
+  <text x="620" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b06a5a">ExplainDoWhileLoop()</text>
+  <rect x="456" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0c4ba"/>
+  <text x="466" y="386" font-size="10" fill="#333">do { attempts++; ... }</text>
+  <text x="466" y="402" font-size="10" fill="#333">while (attempts &lt; 3);</text>
+  <text x="620" y="462" text-anchor="middle" font-size="9.5" fill="#7a2213">Checks AFTER each run —</text>
+  <text x="620" y="476" text-anchor="middle" font-size="9.5" fill="#7a2213">always runs at least once.</text>
+
+  <rect x="840" y="320" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1020" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">6 · Foreach Loop</text>
+  <text x="1020" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainForeach()</text>
+  <rect x="856" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef"/>
+  <text x="866" y="386" font-size="10" fill="#333">foreach (string fruit in fruits)</text>
+  <text x="866" y="402" font-size="10" fill="#333">{ Console.WriteLine(fruit); }</text>
+  <text x="1020" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">Walks a collection via its</text>
+  <text x="1020" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">enumerator — no manual index.</text>
+
+  <text x="40" y="545" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → ControlFlowExample.Explain()</tspan> calls all six methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="565" font-size="10.5" font-style="italic" fill="#888">Every method (1–6) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND its own Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>
