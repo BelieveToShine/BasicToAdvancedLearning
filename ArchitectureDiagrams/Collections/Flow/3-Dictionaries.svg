@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+    <marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#888"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="530" fill="#ffffff"/>
+  <text x="450" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Dictionary&lt;TKey, TValue&gt; — Sub-level Flow: a pinboard you search by name</text>
+  <text x="450" y="38" text-anchor="middle" font-size="11" fill="#666">You never ask "what's pinned 3rd?" — you ask "what's pinned under this name?"</text>
+
+  <text x="450" y="58" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="62" x2="450" y2="98" stroke="#333" stroke-width="2"/>
+  <polygon points="450,62 450,80 480,71" fill="#38761d"/>
+
+  <line x1="450" y1="98" x2="450" y2="116" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="112" font-size="9.5" font-weight="bold" fill="#333">phoneBook.Add("Vivek", ...);  phoneBook["Anita"] = ...;</text>
+
+  <!-- The pinboard -->
+  <rect x="250" y="118" width="400" height="102" rx="14" fill="#fdebd9" stroke="#e69138" stroke-width="2"/>
+  <circle cx="365" cy="133" r="7" fill="#cc0000"/>
+  <rect x="290" y="141" width="150" height="60" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1.5"/>
+  <text x="365" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">"Vivek"</text>
+  <text x="365" y="182" text-anchor="middle" font-size="10" fill="#7f4e00">9876543210</text>
+
+  <circle cx="535" cy="133" r="7" fill="#cc0000"/>
+  <rect x="460" y="141" width="150" height="60" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1.5"/>
+  <text x="535" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">"Anita"</text>
+  <text x="535" y="182" text-anchor="middle" font-size="10" fill="#7f4e00">9123456789</text>
+
+  <!-- Query 1: found -->
+  <line x1="315" y1="248" x2="315" y2="204" stroke="#3d85c6" stroke-width="1.8" marker-end="url(#a)"/>
+  <line x1="345" y1="204" x2="345" y2="248" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <rect x="190" y="250" width="280" height="48" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="330" y="270" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Look up: phoneBook["Vivek"]</text>
+  <text x="330" y="286" text-anchor="middle" font-size="9" fill="#1a4a73">found → 9876543210</text>
+
+  <!-- Query 2: not found -->
+  <circle cx="655" cy="204" r="11" fill="#ffffff" stroke="#cc0000" stroke-width="2"/>
+  <text x="655" y="208" text-anchor="middle" font-size="10" font-weight="bold" fill="#cc0000">x</text>
+  <line x1="655" y1="248" x2="655" y2="217" stroke="#3d85c6" stroke-width="1.8" marker-end="url(#a)"/>
+  <line x1="685" y1="217" x2="685" y2="248" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <rect x="520" y="250" width="300" height="48" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="670" y="270" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Check: phoneBook.ContainsKey("Rahul")</text>
+  <text x="670" y="286" text-anchor="middle" font-size="9" fill="#1a4a73">not pinned → false</text>
+
+  <line x1="450" y1="298" x2="450" y2="326" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <rect x="280" y="328" width="340" height="50" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="450" y="348" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">foreach (var contact in phoneBook)</text>
+  <text x="450" y="366" text-anchor="middle" font-size="9" fill="#8a5a10">reads every pin: Vivek → ..., Anita → ...</text>
+
+  <line x1="450" y1="378" x2="450" y2="406" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <text x="450" y="424" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="428" x2="450" y2="468" stroke="#333" stroke-width="2"/>
+  <polygon points="450,428 450,446 480,437" fill="#cc0000"/>
+
+  <text x="30" y="500" font-size="10.5" fill="#444"><tspan font-weight="bold">Two very different answers, same shape of question:</tspan> a lookup either lands on a real pin (returns its value) or lands on nothing (returns false/not-found) — never a crash, never a guess.</text>
+</svg>

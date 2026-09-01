@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="420" fill="#ffffff"/>
+  <text x="500" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Choosing the Right Collection — Sub-level Flow: a fork with three signposts</text>
+  <text x="500" y="38" text-anchor="middle" font-size="11" fill="#666">One question, three roads — pick the signpost that answers "yes" for your situation.</text>
+
+  <text x="500" y="52" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="500" y1="56" x2="500" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="500,56 500,74 530,65" fill="#38761d"/>
+
+  <line x1="500" y1="92" x2="500" y2="110" stroke="#333" stroke-width="1.6"/>
+  <line x1="250" y1="110" x2="750" y2="110" stroke="#333" stroke-width="1.6"/>
+  <line x1="250" y1="110" x2="250" y2="130" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="500" y1="110" x2="500" y2="130" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="750" y1="110" x2="750" y2="130" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <text x="250" y="144" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">Fixed count, never changes?</text>
+  <text x="500" y="144" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">Grows/shrinks over time?</text>
+  <text x="750" y="144" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">Look up by a unique name?</text>
+
+  <!-- Signpost 1: Array -->
+  <polygon points="170,150 290,150 330,180 290,210 170,210" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="230" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">ARRAY</text>
+  <text x="230" y="196" text-anchor="middle" font-size="9" fill="#7f6000">(examScores)</text>
+  <line x1="250" y1="210" x2="250" y2="240" stroke="#333" stroke-width="1.6"/>
+
+  <!-- Signpost 2: List -->
+  <polygon points="420,150 540,150 580,180 540,210 420,210" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="480" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">List&lt;T&gt;</text>
+  <text x="480" y="196" text-anchor="middle" font-size="9" fill="#274e13">(todoList)</text>
+  <line x1="500" y1="210" x2="500" y2="240" stroke="#333" stroke-width="1.6"/>
+
+  <!-- Signpost 3: Dictionary -->
+  <polygon points="670,150 790,150 830,180 790,210 670,210" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="730" y="176" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">Dictionary&lt;K,V&gt;</text>
+  <text x="730" y="196" text-anchor="middle" font-size="9" fill="#8a5a10">(phoneBook)</text>
+  <line x1="750" y1="210" x2="750" y2="240" stroke="#333" stroke-width="1.6"/>
+
+  <!-- Merges to End -->
+  <path d="M250,240 L250,270 L480,270 L480,302" fill="none" stroke="#555" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="500" y1="240" x2="500" y2="302" stroke="#555" stroke-width="1.3" marker-end="url(#a)"/>
+  <path d="M750,240 L750,280 L520,280 L520,302" fill="none" stroke="#555" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <text x="500" y="322" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="500" y1="330" x2="500" y2="370" stroke="#333" stroke-width="2"/>
+  <polygon points="500,330 500,348 530,339" fill="#cc0000"/>
+
+  <text x="30" y="392" font-size="10.5" fill="#444"><tspan font-weight="bold">All three roads are valid</tspan> — this isn't a branch where only one path can ever run, like an if/else. It's a design choice YOU make once, based on what your data actually needs to do.</text>
+</svg>

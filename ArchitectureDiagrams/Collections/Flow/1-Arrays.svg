@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <text x="450" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Arrays — Sub-level Flow: a row of fixed lockers</text>
+  <text x="450" y="38" text-anchor="middle" font-size="11" fill="#666">5 lockers are built once — you can repaint one, but the row never gains or loses a locker.</text>
+
+  <text x="450" y="70" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="74" x2="450" y2="112" stroke="#333" stroke-width="2"/>
+  <polygon points="450,74 450,92 480,83" fill="#38761d"/>
+
+  <line x1="450" y1="112" x2="450" y2="128" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="144" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">int[] examScores = { 85, 92, 78, 60, 95 };</text>
+
+  <!-- Lockers -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="180" y="152" width="100" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+    <text x="230" y="170" text-anchor="middle" font-size="9" fill="#a08321">[0]</text>
+    <text x="230" y="206" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f6000">85</text>
+    <text x="230" y="228" text-anchor="middle" font-size="8" fill="#a08321">score</text>
+
+    <rect x="290" y="152" width="100" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+    <text x="340" y="170" text-anchor="middle" font-size="9" fill="#a08321">[1]</text>
+    <text x="340" y="206" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f6000">92</text>
+    <text x="340" y="228" text-anchor="middle" font-size="8" fill="#a08321">score</text>
+
+    <rect x="400" y="152" width="100" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+    <text x="450" y="170" text-anchor="middle" font-size="9" fill="#a08321">[2]</text>
+    <text x="450" y="206" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f6000">78</text>
+    <text x="450" y="228" text-anchor="middle" font-size="8" fill="#a08321">score</text>
+
+    <rect x="510" y="152" width="100" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+    <text x="560" y="170" text-anchor="middle" font-size="9" fill="#a08321">[3]</text>
+    <text x="560" y="206" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f6000">60</text>
+    <text x="560" y="228" text-anchor="middle" font-size="8" fill="#a08321">score</text>
+
+    <rect x="620" y="152" width="100" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+    <text x="670" y="170" text-anchor="middle" font-size="9" fill="#a08321">[4]</text>
+    <text x="670" y="206" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f6000">95</text>
+    <text x="670" y="228" text-anchor="middle" font-size="8" fill="#a08321">score</text>
+
+    <!-- animated scanning highlight for the foreach -->
+    <rect y="152" width="100" height="90" rx="8" fill="none" stroke="#e69138" stroke-width="3">
+      <animate attributeName="x" values="180;290;400;510;620;180" keyTimes="0;0.2;0.4;0.6;0.8;1" calcMode="discrete" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- correction badge on locker [2] -->
+  <circle cx="488" cy="164" r="15" fill="#ffffff" stroke="#cc0000" stroke-width="2"/>
+  <text x="488" y="168" text-anchor="middle" font-size="10" font-weight="bold" fill="#cc0000">80</text>
+
+  <text x="450" y="266" text-anchor="middle" font-size="10" fill="#333">examScores[2] = 80 — like a teacher's red-pen correction on locker [2]</text>
+  <text x="450" y="286" text-anchor="middle" font-size="10" fill="#333">foreach scans left → right, printing every locker's score</text>
+
+  <line x1="450" y1="296" x2="450" y2="312" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <text x="450" y="326" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="334" x2="450" y2="374" stroke="#333" stroke-width="2"/>
+  <polygon points="450,334 450,352 480,343" fill="#cc0000"/>
+
+  <text x="30" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Notice what's missing:</tspan> there's no "add a 6th locker" step anywhere on this page — arrays simply don't have one. That gap is exactly what List&lt;T&gt; fixes next.</text>
+</svg>

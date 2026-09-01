@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="800" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Collections — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (linked below).</text>
+
+  <g font-size="11" fill="#333">
+    <line x1="380" y1="64" x2="416" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="422" y="68">Call (→)</text>
+    <line x1="530" y1="64" x2="566" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="572" y="68">Return (←)</text>
+  </g>
+
+  <rect x="60" y="80" width="180" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="150" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+
+  <rect x="400" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="510" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">CollectionsExample</text>
+  <text x="510" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+
+  <rect x="710" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="820" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">CollectionsDemo</text>
+
+  <line x1="150" y1="122" x2="150" y2="680" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="510" y1="122" x2="510" y2="680" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="820" y1="122" x2="820" y2="680" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <rect x="146" y="170" width="8" height="510" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="506" y="190" width="8" height="470" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="816" y="190" width="8" height="46" fill="#fffbe8" stroke="#f1c232"/>
+  <rect x="816" y="285" width="8" height="46" fill="#eaf6ea" stroke="#6aa84f"/>
+  <rect x="816" y="380" width="8" height="46" fill="#fdebd9" stroke="#e69138"/>
+  <rect x="816" y="475" width="8" height="46" fill="#e8f4fb" stroke="#3d85c6"/>
+  <rect x="816" y="570" width="8" height="46" fill="#f0eaf7" stroke="#8e63ce"/>
+
+  <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new CollectionsExample();  topic.Explain()</text>
+  <line x1="150" y1="190" x2="510" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <text x="665" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainArrays()</text>
+  <line x1="510" y1="190" x2="820" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="210" text-anchor="middle" font-size="9.5" fill="#7f6000">Fixed-size row of 5 exam scores · Console.WriteLine — see Flow/1-Arrays.svg</text>
+  <text x="665" y="228" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="236" x2="510" y2="236" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="665" y="277" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainLists()</text>
+  <line x1="510" y1="285" x2="820" y2="285" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="305" text-anchor="middle" font-size="9.5" fill="#274e13">A growing/shrinking to-do list · Console.WriteLine — see Flow/2-Lists.svg</text>
+  <text x="665" y="323" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="331" x2="510" y2="331" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="665" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainDictionaries()</text>
+  <line x1="510" y1="380" x2="820" y2="380" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="400" text-anchor="middle" font-size="9.5" fill="#8a5a10">A phone-book lookup by name · Console.WriteLine — see Flow/3-Dictionaries.svg</text>
+  <text x="665" y="418" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="426" x2="510" y2="426" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="665" y="467" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainCollectionSafety()</text>
+  <line x1="510" y1="475" x2="820" y2="475" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="495" text-anchor="middle" font-size="9.5" fill="#1a4a73">Bounds check + TryGetValue · Console.WriteLine — see Flow/4-CollectionSafety.svg</text>
+  <text x="665" y="513" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="521" x2="510" y2="521" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="665" y="562" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainChoosingACollection()</text>
+  <line x1="510" y1="570" x2="820" y2="570" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="590" text-anchor="middle" font-size="9.5" fill="#4a2e73">The decision cheat-sheet · Console.WriteLine — see Flow/5-ChoosingACollection.svg</text>
+  <text x="665" y="608" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="616" x2="510" y2="616" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <text x="330" y="642" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="510" y1="648" x2="150" y2="648" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <circle cx="150" cy="668" r="6" fill="#cc0000"/>
+  <text x="164" y="672" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+
+  <text x="40" y="720" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; CollectionsExample calls all five CollectionsDemo methods one after another, waiting for each to return. The same three examples (scores, to-do list, phone book) are rebuilt fresh inside each method — nothing is shared between them.</text>
+</svg>

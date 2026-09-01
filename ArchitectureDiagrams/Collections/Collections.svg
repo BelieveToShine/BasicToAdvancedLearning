@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" font-family="Arial, Helvetica, sans-serif">
+  <rect x="0" y="0" width="1280" height="600" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# Collections — Arrays, List&lt;T&gt;, Dictionary&lt;K,V&gt;</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">CollectionsDemo.cs holds the logic. Each box below is one Explain*() method — see Flow/0-Overview.svg for call order.</text>
+
+  <g font-size="10" fill="#333">
+    <rect x="80" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="96" y="72">Arrays</text>
+    <rect x="200" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="216" y="72">List&lt;T&gt;</text>
+    <rect x="300" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="316" y="72">Dictionary</text>
+    <rect x="420" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="436" y="72">Safety</text>
+    <rect x="520" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="536" y="72">Choosing</text>
+  </g>
+
+  <!-- Row 1 -->
+  <rect x="40" y="110" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">1 · Arrays</text>
+  <text x="220" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainArrays()</text>
+  <rect x="56" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
+  <text x="66" y="176" font-size="10" fill="#333">int[] examScores = { 85, 92, 78, 60, 95 };</text>
+  <text x="66" y="192" font-size="10" fill="#333">examScores[2] = 80;  foreach (int score in ...)</text>
+  <text x="220" y="252" text-anchor="middle" font-size="9.5" fill="#7f6000">A fixed number of slots, set at</text>
+  <text x="220" y="266" text-anchor="middle" font-size="9.5" fill="#7f6000">creation — 5 in, 5 forever.</text>
+
+  <rect x="440" y="110" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="620" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · List&lt;T&gt;</text>
+  <text x="620" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainLists()</text>
+  <rect x="456" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0"/>
+  <text x="466" y="176" font-size="10" fill="#333">todoList.Add("Buy groceries");</text>
+  <text x="466" y="192" font-size="10" fill="#333">todoList.Insert(1, ...);  todoList.Remove(...);</text>
+  <text x="620" y="252" text-anchor="middle" font-size="9.5" fill="#274e13">Grows and shrinks as you</text>
+  <text x="620" y="266" text-anchor="middle" font-size="9.5" fill="#274e13">Add, Insert, and Remove.</text>
+
+  <rect x="840" y="110" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1020" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Dictionary&lt;TKey, TValue&gt;</text>
+  <text x="1020" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainDictionaries()</text>
+  <rect x="856" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac"/>
+  <text x="866" y="176" font-size="10" fill="#333">phoneBook.Add("Vivek", "9876543210");</text>
+  <text x="866" y="192" font-size="10" fill="#333">phoneBook["Vivek"]  ·  phoneBook.ContainsKey(...)</text>
+  <text x="1020" y="252" text-anchor="middle" font-size="9.5" fill="#8a5a10">Look things up by a unique</text>
+  <text x="1020" y="266" text-anchor="middle" font-size="9.5" fill="#8a5a10">KEY, never by position.</text>
+
+  <!-- Row 2 (centered under row 1) -->
+  <rect x="240" y="320" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="420" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">4 · Collection Safety</text>
+  <text x="420" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainCollectionSafety()</text>
+  <rect x="256" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef"/>
+  <text x="266" y="386" font-size="10" fill="#333">if (index &gt;= 0 &amp;&amp; index &lt; examScores.Length)</text>
+  <text x="266" y="402" font-size="10" fill="#333">phoneBook.TryGetValue("Rahul", out var number)</text>
+  <text x="420" y="462" text-anchor="middle" font-size="9.5" fill="#1a4a73">Check first, so a bad index or a</text>
+  <text x="420" y="476" text-anchor="middle" font-size="9.5" fill="#1a4a73">missing key never crashes you.</text>
+
+  <rect x="640" y="320" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="820" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · Choosing the Right Collection</text>
+  <text x="820" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainChoosingACollection()</text>
+  <rect x="656" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef"/>
+  <text x="666" y="386" font-size="10" fill="#333">Fixed count -&gt; Array. Growing/shrinking -&gt; List&lt;T&gt;.</text>
+  <text x="666" y="402" font-size="10" fill="#333">Lookup by name/id -&gt; Dictionary&lt;K,V&gt;.</text>
+  <text x="820" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">The one-screen cheat-sheet for</text>
+  <text x="820" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">"which collection would you use?"</text>
+
+  <text x="40" y="545" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → CollectionsExample.Explain()</tspan> calls all five methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="565" font-size="10.5" font-style="italic" fill="#888">Every method (1–5) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>
