@@ -7,8 +7,8 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 ## Status snapshot — 2026-08-31
 
 **Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0),
-under `C:\Vivek\Projects\BasicToAdvancedLearning`. Builds clean, 0 warnings/errors. Pushed to
-https://github.com/BelieveToShine/BasicToAdvanceLearning (branch `main`).
+(path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
+https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
 **Done this session:**
 - Topics 1–4 (Programming Basics, Control Flow, Methods & Parameters, Collections) implemented +
@@ -38,6 +38,19 @@ https://github.com/BelieveToShine/BasicToAdvanceLearning (branch `main`).
 **Next:** pick Topic 5 (OOP — classes, objects, constructors, encapsulation) and follow the "Add a
 new topic" runbook below.
 
+**Decisions to settle in the Topic 5 plan (get the human's approval before building)** — the docs
+deliberately do not pre-decide these, so propose an answer for each and ask:
+1. Folder/namespace name (e.g. `OOP` vs `ObjectOrientedProgramming`) — this also fixes the tracker
+   row's `` `<Folder>/` `` cell and the names of topic 6.
+2. The `ExplainX()` method list (the title implies classes/objects, constructors, encapsulation; more
+   — references vs copies, `static` — is a judgement call) and the one running example.
+3. How the Memory diagrams show instance methods/constructors (`this`, an extra frame) — see
+   "Instance methods and constructors" in `rules/diagram-standards.md`. Whether Topic 5 is where the
+   Static column finally gets real content.
+4. Flow-diagram metaphors (Collections already used lockers, filmstrip, pinboard, checkpoints,
+   signpost — pick fresh ones).
+5. Branch name (see `rules/checkin-and-pr.md`).
+
 ## Topic tracker
 
 Phases and topics as agreed with Vivek (freshers track: C# Console → SQL → Web API → React).
@@ -50,7 +63,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 1 | Programming basics — variables, data types, operators, input/output | ✅ | `ProgrammingBasics/` | `ProgrammingBasics.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–3 (VariablesAndDataTypes, Operators, InputOutput) — retrofitted to match the `ControlFlow/` convention |
 | 2 | Control flow — if/else, switch, loops | ✅ | `ControlFlow/` | `ControlFlow.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus one numbered pair per method 1–6 (IfElse, Switch, ForLoop, WhileLoop, DoWhileLoop, Foreach) in `Flow/` and `Memory/` — 15 files total, the reference example for the folder/numbering convention |
 | 3 | Methods & parameters | ✅ | `MethodsAndParameters/` | `MethodsAndParameters.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (MethodBasics, Parameters, OptionalAndNamedParameters, ParamsKeyword, MethodOverloading) — Memory/2-Parameters.svg is the topic's key diagram (value vs ref vs out, side by side) |
-| 4 | Collections — arrays, List, Dictionary | ✅ | `Collections/` | `Collections.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (Arrays, Lists, Dictionaries, CollectionSafety, ChoosingACollection). One running example set (exam scores, to-do list, phone book) threads through all five. Flow diagrams use 4 different metaphors (row of lockers, growing filmstrip, pinboard, security checkpoints, signpost fork) per the "encouraged variety" rule |
+| 4 | Collections — arrays, List, Dictionary | ✅ | `Collections/` | `Collections.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (Arrays, Lists, Dictionaries, CollectionSafety, ChoosingACollection). One running example set (exam scores, to-do list, phone book) threads through all five. Flow diagrams use 5 different metaphors (row of lockers, growing filmstrip, pinboard, security checkpoints, signpost fork) per the "encouraged variety" rule |
 | 5 | OOP — classes, objects, constructors, encapsulation | ⬜ | | |
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ⬜ | | |
 | 7 | Exception handling | ⬜ | | |
@@ -125,13 +138,19 @@ Real lessons found while building this, worth knowing so they're never rediscove
 
 Repeat this for each topic in the tracker above:
 
+0. **Plan first, then wait for approval.** Present: folder/namespace name, the `ExplainX()` method
+   list in call order, the running example, the full diagram file list (exact paths) and any
+   Memory-diagram exceptions. Do not build until the human approves (see `aidlc.md` step 3). Create
+   the working doc `docs/todo/<short-topic-name>.md` and branch (naming: `rules/checkin-and-pr.md`).
+
 1. **Folder + demo class** — create `BasicToAdvancedLearning.Console/<Topic>/<Topic>Demo.cs`.
    Namespace: `BasicToAdvancedLearning.<Topic>` (no `Console` segment — see gotcha #1). One public
    method per sub-concept (e.g. `ExplainX()`), each printing + explaining via comments, called in
    sequence from the adapter.
 2. **Adapter class** — same folder, `<Topic>Example.cs`, namespace `BasicToAdvancedLearning.<Topic>`,
    `internal class <Topic>Example : ILearningTopic` with `Explain()` calling the demo's methods.
-3. **Wire up Program.cs** — change only the two lines:
+3. **Wire up Program.cs** — replace the previous topic's `using` line and the type after `new`; leave
+   everything else (including the explanatory comment and `topic.Explain();`) unchanged:
    ```csharp
    using BasicToAdvancedLearning.<Topic>;
    ILearningTopic topic = new <Topic>Example();
@@ -147,7 +166,15 @@ Repeat this for each topic in the tracker above:
      real variable names)
    `Flow/<N>` and `Memory/<N>` must use the SAME number for the same method. A topic is not ✅ until
    every method has both files and everything is valid XML.
-5. **Build + run** — `dotnet build` then `dotnet run` from `BasicToAdvancedLearning.Console/`
-   (pipe stdin for any `Console.ReadLine()` prompts when testing non-interactively).
-6. **Update this file** — flip the topic's status to ✅, note the folder/diagram paths in the
-   tracker table, and add anything surprising to "Conventions & gotchas".
+5. **Verify — all five layers in [`rules/verification.md`](rules/verification.md)**: build + run
+   (`dotnet build` 0 warnings, then `dotnet run` from `BasicToAdvancedLearning.Console/`; pipe stdin for
+   any `Console.ReadLine()` prompts), `scripts/verify-topic.ps1 -Topic <Topic>` (and `-All -SkipBuild`
+   to confirm older topics still pass), the manual diagram checklist, an independent fresh-context
+   review, and `scripts/verify-docs.ps1`. Fix every FAIL; explain every WARN.
+6. **Update the docs** — in this file flip the topic's Status cell to ✅, put the folder in the
+   Folder cell **exactly as `` `<Folder>/` ``** (backticks + trailing slash — `verify-topic.ps1` finds
+   the row by that text, so don't write the folder in backticks anywhere earlier in the file), note the
+   diagram paths, and add anything surprising to "Conventions & gotchas". Also update the status
+   snapshot and the "Next" paragraph. Then go through the stale-fact checklist in
+   [`rules/verification.md`](rules/verification.md) layer 5 (several docs hard-code "topics 1–N"; the
+   script checks the counts).

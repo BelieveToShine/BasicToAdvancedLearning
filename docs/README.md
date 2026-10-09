@@ -1,45 +1,54 @@
 # BasicToAdvancedLearning Docs — Map
 
-How the docs link together. Read `ROADMAP.md` first when picking this project back up in a new
-session — it says what's done, what's next, and how to add a new topic without re-explaining the
-convention from scratch.
-
-## Link map
+How the docs link together, starting from `CLAUDE.md` (auto-loaded every session). Read
+`ROADMAP.md` when picking the project back up — it says what's done, what's next, and how to add a
+new topic.
 
 ```
-docs/README.md          ← you are here
-   │
-   ├──> docs/ROADMAP.md  ← START HERE each session: status snapshot, topic tracker,
-   │        │               "add a new topic" runbook
-   │        │
-   │        └──> BasicToAdvancedLearning.Console/<TopicFolder>/   ← the lesson code
-   │                ├─ <Topic>Demo.cs        (the actual explained concepts + comments)
-   │                └─ <Topic>Example.cs     (adapts the demo to ILearningTopic)
-   │        └──> ArchitectureDiagrams/<TopicFolder>/     ← the pictorial explanation (mandatory)
-   │                ├─ <Topic>.svg               (architecture / concept, one file)
-   │                ├─ Flow/0-Overview.svg + <N>-<Method>.svg per method (call/return trace)
-   │                └─ Memory/0-Overview.svg + <N>-<Method>.svg per method (Stack/Heap/Static snapshot)
-   │
-   └──> docs/rules/diagram-standards.md   ← the mandatory 3-diagram rule + locked conventions
-```
+CLAUDE.md
+   ├──> docs/basic-to-advanced-learning-overview.md  ← what the product is + how it connects
+   ├──> docs/architecture/overview.md                ← code shape (read before touching code)
+   ├──> docs/aidlc.md                                ← automated per-unit-of-work flow
+   ├──> docs/ROADMAP.md                              ← topic tracker, "add a new topic" runbook, gotchas
+   ├──> docs/rules/README.md                         ← which rule file to read per action
+   │       └──> docs/rules/diagram-standards.md      ← the mandatory 3-diagram rule + locked conventions
+   ├──> docs/rules/verification.md                  ← 5-layer verify + review gate (scripts/ + checklists)
+   ├──> docs/todo/                                   ← living per-task working docs
+   └──> docs/superpowers/specs/README.md             ← spec format + category index
+            └──> learning-topics/                    ← how a lesson topic is built (code + diagrams)
 
-## What each file is for
+BasicToAdvancedLearning.Console/<TopicFolder>/       ← the lesson code
+   ├─ <Topic>Demo.cs        (the actual explained concepts + comments)
+   └─ <Topic>Example.cs     (adapts the demo to ILearningTopic)
+ArchitectureDiagrams/<TopicFolder>/                  ← the pictorial explanation (mandatory)
+   ├─ <Topic>.svg           (architecture / concept, one file)
+   ├─ Flow/0-Overview.svg + <N>-<Method>.svg          (call/return trace per method)
+   └─ Memory/0-Overview.svg + <N>-<Method>.svg        (Stack/Heap/Static snapshot per method)
+```
 
 | File | Purpose |
 |---|---|
-| [`ROADMAP.md`](ROADMAP.md) | Living tracker: which topics are done/in-progress/pending, session notes, and the runbook for adding a new topic (folder + namespace + interface + diagram conventions). |
-| `BasicToAdvancedLearning.Console/<Topic>/` | One folder per topic. `<Topic>Demo.cs` holds the actual teaching code with explanatory comments; `<Topic>Example.cs` implements `ILearningTopic` so `Program.cs` never has to change shape. |
-| `BasicToAdvancedLearning.Console/Interfaces/ILearningTopic.cs` | The one contract every topic implements (`Explain()`). Lets `Program.cs` stay a fixed two-line runner regardless of which topic is active. |
-| `ArchitectureDiagrams/<Topic>/` | **Mandatory per topic** — see [`docs/rules/diagram-standards.md`](rules/diagram-standards.md): one architecture/concept file, plus a `Flow/` and `Memory/` folder each holding a `0-Overview.svg` and one numbered file **per method** (`Flow/<N>` and `Memory/<N>` share the same number). Same visual language as the LeadHunter diagrams (colour-coded boxes, legend, arrows = flow) — used to explain the concept to juniors before showing code. |
-| [`rules/diagram-standards.md`](rules/diagram-standards.md) | **Mandatory rule**: no topic is done until every method has its own Flow AND Memory diagram. Locks the memory-diagram colour legend and per-method snapshot shape (Stack/Heap/Static) so it's identical across every topic. |
+| `../CLAUDE.md` | Session entry point + mandatory workflow. |
+| [`basic-to-advanced-learning-overview.md`](basic-to-advanced-learning-overview.md) | Read first: what the repo teaches, who for, whole-system picture. |
+| [`architecture/overview.md`](architecture/overview.md) | Projects/folders, `ILearningTopic` pattern, where each kind of file lives, code gotchas. |
+| [`aidlc.md`](aidlc.md) | How a unit of work runs end to end (the automated loop). |
+| [`ROADMAP.md`](ROADMAP.md) | Living tracker: topic status, session notes, the runbook for adding a topic, conventions & gotchas. |
+| [`rules/README.md`](rules/README.md) | Rules index (action → rule file). |
+| [`rules/coding-standards.md`](rules/coding-standards.md), [`spec-docs.md`](rules/spec-docs.md), [`checkin-and-pr.md`](rules/checkin-and-pr.md), [`database.md`](rules/database.md), [`jira.md`](rules/jira.md), [`diagrams.md`](rules/diagrams.md) | The per-action rule files (code, specs, check-in/PR, DB, tracker, diagram summary) — which one to read when is in `rules/README.md`. |
+| [`rules/diagram-standards.md`](rules/diagram-standards.md) | **Mandatory**: every method gets its own Flow AND Memory diagram; locks the memory colour legend and snapshot shape. |
+| [`rules/verification.md`](rules/verification.md) | **Mandatory gate**: build+run, `scripts/verify-topic.ps1`, manual diagram checklist, independent fresh-context review, `scripts/verify-docs.ps1`. Also the acceptance test for the docs themselves. |
+| [`superpowers/specs/README.md`](superpowers/specs/README.md) | Spec format + category index (what feature docs exist). |
+| [`todo/`](todo/README.md) | Per-task working docs; folded into specs at check-in, then archived. |
+| `scripts/verify-topic.ps1`, `scripts/verify-docs.ps1` | Automated cross-checks (PowerShell 5.1+, no extra installs). Topic check: diagram set vs call order, XML, routing, locked colours, variable names, wiring, tracker. Docs check: links, indexing, hygiene, open TODOs. |
+| `BasicToAdvancedLearning.Console/Interfaces/ILearningTopic.cs` | The one contract every topic implements (`Explain()`), keeping `Program.cs` a fixed two-line runner. |
 
-## Reading order for a new session
-1. `ROADMAP.md` (what's done, what's next) → 2. the current topic's `<Topic>Demo.cs` (the code) →
-3. the matching `ArchitectureDiagrams/<Topic>/<Topic>.svg` (the picture) → 4. do the work →
-5. update `ROADMAP.md`.
+## Reading order for a task
+CLAUDE.md → overview → architecture → the matching spec (and `ROADMAP.md` for topic work) → do work →
+update spec + roadmap → `rules/checkin-and-pr.md`.
 
 ## Where new things slot in
 - **A new topic** → follow the "Add a new topic" runbook in `ROADMAP.md`. It becomes a new row in
   the roadmap table plus a new folder under the console project and under `ArchitectureDiagrams/`.
 - **A gotcha or convention worth keeping** (like the `Console` namespace clash) → add it to the
   "Conventions & gotchas" section of `ROADMAP.md` so it's never rediscovered the hard way twice.
+- **A new rule** → the matching file under `rules/`, and a row in `rules/README.md` if it's a new file.

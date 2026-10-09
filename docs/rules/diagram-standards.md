@@ -33,12 +33,44 @@ ArchitectureDiagrams/<Topic>/
 for the same method, so the two folders line up — `Flow/3-ForLoop.svg` and `Memory/3-ForLoop.svg` are
 always about the same method. Number in the order `<Topic>Example.Explain()` actually calls them.
 
-All diagrams are flat, hand-authored SVG (no external tools/libraries), same base conventions as the
-existing LeadHunter diagrams: `viewBox` sized to content, `font-family="Arial, Helvetica, sans-serif"`,
+All diagrams are flat, hand-authored SVG (no external tools/libraries) with these base conventions:
+`viewBox` sized to content, `font-family="Arial, Helvetica, sans-serif"`,
 a title + one-line subtitle, a colour legend, rounded-rect boxes, arrows via one `<marker>`, footer
 notes for anything that doesn't fit in a box. Validate every SVG is well-formed XML before calling it
-done (`System.Xml.XmlDocument.Load` in PowerShell, or equivalent) — a broken SVG fails silently in a
-browser.
+done (`scripts/verify-topic.ps1` does this) — a broken SVG fails silently in a browser.
+
+### How to author a new SVG (start from a copy — never from a blank page)
+1. Copy the nearest existing file of the same kind and rewrite its content, keeping its `<svg>`
+   header, `<defs>`/`<marker id="a">`, white background `<rect>`, title/subtitle/legend skeleton and
+   footer pattern verbatim:
+   - Memory per-method → `ArchitectureDiagrams/Collections/Memory/1-Arrays.svg` (has the Heap-with-pointer
+     case) or `ControlFlow/Memory/1-IfElse.svg` (value types only, empty-Heap note).
+   - Flow per-method → the closest metaphor in `Collections/Flow/` or `ControlFlow/Flow/`; loops → `ControlFlow/Flow/3-ForLoop.svg`.
+   - Architecture → `Collections/Collections.svg`. Overviews → the matching `0-Overview.svg`.
+2. Layout skeleton (from `Collections/Memory/1-Arrays.svg`): `viewBox="0 0 1050 <h>"`; title at
+   `y=26` (19px, bold), subtitle `y=46` (12px, grey), legend swatches row at `y=60`, content below,
+   italic footer text near the bottom. Flow diagrams use a narrower `0 0 900 <h>` with title `y=20`.
+   Use these as defaults; size the `viewBox` height to the content.
+3. Title format: `<Topic> — <Method> — Memory: Stack / Heap / Static` (Memory) or
+   `<Topic> — Sub-level Flow: <metaphor>` (Flow). Subtitle says what instant/idea is shown.
+4. Work out box sizes from the longest text: ~6px per character at 11px Arial. If a label doesn't fit,
+   shorten it or widen the box — never let text cross a border.
+5. After drawing, trace every connector's coordinates against every box (and oval) bounding box by
+   hand; `verify-topic.ps1` only catches diagonals, not collisions or overflow. Open the SVG in a
+   browser and tick the layer-3 checklist in `verification.md`.
+
+### Instance methods and constructors (Memory diagrams for OOP and later topics)
+The locked shape has exactly 3 frames (`<Method>`, `Explain()`, `Main`), which fits static-style demo
+methods. For code that runs *inside* an object (instance methods, constructors, property setters):
+- Default: keep the 3 locked frames. Draw each object as a Heap box listing its **fields with their
+  real values**; the Stack local holds a pointer into it. Carry `this` and the constructor's work as a
+  footer sentence — the shape stays identical to every other method's.
+- Only when a single diagram's whole point is the instance frame itself (e.g. "what `this` is during
+  a constructor"), a 4th stacked frame for that call, plus a `this` arrow into the Heap, is allowed on
+  **that one** Memory diagram. Treat it as a locked-shape exception: say why in the footer and record
+  it in `ROADMAP.md` session notes and the `verification.md` accepted-exceptions list.
+- This is a default, not a final decision: confirm it in the topic plan (see `ROADMAP.md`, "Decisions
+  to settle in the Topic 5 plan").
 
 ## 1. Architecture / concept diagram (`<Topic>/<Topic>.svg`)
 
