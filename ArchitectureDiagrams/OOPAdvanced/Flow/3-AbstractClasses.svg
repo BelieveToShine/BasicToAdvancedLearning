@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="700" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Abstract Classes — Sub-level Flow: a form with a blank to fill in</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The template fixes what every transaction has and must do, but cannot be used until a child fills in the blank.</text>
+  <text x="450" y="58" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="62" x2="450" y2="100" stroke="#333" stroke-width="2"/>
+  <polygon points="450,62 450,80 480,71" fill="#38761d"/>
+  <line x1="450" y1="100" x2="450" y2="118" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="230" y="120" width="440" height="100" rx="10" fill="#ffffff" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="450" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#990000">abstract class Transaction — the template</text>
+  <text x="450" y="162" text-anchor="middle" font-size="10" fill="#333">_amount — filled in by the constructor</text>
+  <text x="450" y="182" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">Apply(Account account)  =  ________  (the blank)</text>
+  <text x="450" y="202" text-anchor="middle" font-size="9.5" font-style="italic" fill="#cc0000">new Transaction(100m) will not compile: it is a draft</text>
+  <polyline points="350,220 350,250 250,250 250,280" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="550,220 550,250 650,250 650,280" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="270" text-anchor="middle" font-size="9.5" fill="#555">inherits, then fills in the blank</text>
+  <rect x="100" y="282" width="300" height="76" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="250" y="304" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">DepositTransaction : Transaction</text>
+  <text x="250" y="324" text-anchor="middle" font-size="10" fill="#333">Apply = account.Deposit(Amount)</text>
+  <text x="250" y="342" text-anchor="middle" font-size="9" font-style="italic" fill="#555">the blank, filled in</text>
+  <rect x="500" y="282" width="300" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="650" y="304" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">WithdrawalTransaction : Transaction</text>
+  <text x="650" y="324" text-anchor="middle" font-size="10" fill="#333">Apply = account.Withdraw(Amount)</text>
+  <text x="650" y="342" text-anchor="middle" font-size="9" font-style="italic" fill="#555">the blank, filled in differently</text>
+  <polyline points="250,358 250,388 180,388 180,410" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="630,358 630,388 450,388 450,410" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="670,358 670,388 720,388 720,410" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="412" width="240" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="180" y="436" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">new DepositTransaction(200m)</text>
+  <text x="180" y="456" text-anchor="middle" font-size="9.5" fill="#333">Deposited 200 → balance 700</text>
+  <rect x="330" y="412" width="240" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="450" y="436" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">new WithdrawalTransaction(900m)</text>
+  <text x="450" y="456" text-anchor="middle" font-size="9.5" fill="#333">refused → balance 700</text>
+  <rect x="600" y="412" width="240" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="720" y="436" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">new WithdrawalTransaction(100m)</text>
+  <text x="720" y="456" text-anchor="middle" font-size="9.5" fill="#333">Withdrew 100 → balance 600</text>
+  <polyline points="180,476 180,502 450,502" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="450" y1="476" x2="450" y2="502" stroke="#333" stroke-width="1.6"/>
+  <polyline points="720,476 720,502 450,502" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="450" y1="502" x2="450" y2="522" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="536" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="544" x2="450" y2="584" stroke="#333" stroke-width="2"/>
+  <polygon points="450,544 450,562 480,553" fill="#cc0000"/>
+  <text x="30" y="620" font-size="10.5" fill="#444"><tspan font-weight="bold">The foreach just calls transaction.Apply(account):</tspan> it neither knows nor cares which child it is holding.</text>
+  <text x="30" y="638" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints one result line per transaction — three lines. An abstract method has no body; a child that forgets to override it will not compile.</text>
+</svg>

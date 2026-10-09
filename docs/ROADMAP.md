@@ -10,7 +10,21 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
-**Done this session (Topic 5 — OOP):**
+**Done this session (Topic 6 — OOP advanced):**
+- Topic 6 implemented + explained with 11 diagrams (see the tracker row below). The bank thread continues
+  with its own small family in the OOPAdvanced folder so Topic 5's code stays untouched: `Account` (base) →
+  `SavingsAccount`, `CurrentAccount`; `Transaction` (abstract) → `DepositTransaction`,
+  `WithdrawalTransaction`; `IInterestBearing` (interface) ← `SavingsAccount`, `FixedDeposit`. `Program.cs`
+  now runs Topic 6 (`OOPAdvancedExample`).
+- Topic 6 decisions (all five from the old plan list were settled): folder/namespace `OOPAdvanced`; methods
+  `Inheritance`, `Polymorphism`, `AbstractClasses`, `Interfaces`; Memory diagrams keep the locked 3 frames —
+  a derived object is ONE Heap box with the parent's fields and its own captioned separately, and an array
+  or variable typed as a parent/interface is only pointers; abstract classes and interfaces never get a Heap
+  box. Flow metaphors: a family tree, a universal remote, a form with a blank, a wall socket and plugs.
+- Memory diagrams here are the first to show an array of pointers aimed at objects of DIFFERENT classes
+  (`Memory/2`, `3`, `4`), and the first to draw a field-level split between inherited and added fields.
+
+**Earlier session (Topic 5 — OOP):**
 - Topic 5 implemented + explained with 13 diagrams (see the tracker row below): running example is a
   `BankAccount` (`BankAccount.cs`), plus a static `Bank` class (`Bank.cs`) that only the last method uses.
   `Program.cs` now runs Topic 5 (`OOPExample`).
@@ -53,19 +67,20 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 6 (OOP advanced — inheritance, polymorphism, interfaces, abstract classes) and
-follow the "Add a new topic" runbook below.
+**Next:** pick Topic 7 (Exception handling) and follow the "Add a new topic" runbook below.
 
-**Decisions to settle in the Topic 6 plan (get the human's approval before building)** — the docs
+**Decisions to settle in the Topic 7 plan (get the human's approval before building)** — the docs
 deliberately do not pre-decide these, so propose an answer for each and ask:
-1. Folder/namespace name (e.g. `OOPAdvanced` — `OOP` is taken by Topic 5).
-2. The `ExplainX()` method list (title implies inheritance, polymorphism, abstract classes, interfaces;
-   `virtual`/`override`, `base`, `sealed` are judgement calls) and the running example — extending
-   Topic 5's `BankAccount` into account types (savings, current) is the natural thread.
-3. How the Memory diagrams show one derived object (base + derived fields in a single Heap box) and a
-   variable typed as the base class pointing at it. Interface/abstract types never get their own Heap box.
-4. Flow-diagram metaphors (Topic 5 used blueprint-and-stamp, assembly line, teller window, house keys,
-   noticeboard; Collections used lockers, filmstrip, pinboard, checkpoints, signpost — pick fresh ones).
+1. Folder/namespace name (e.g. `ExceptionHandling`).
+2. The `ExplainX()` method list (title implies try/catch, finally, throwing, custom exceptions; `using`
+   and exception filters are judgement calls) and the running example — Topics 5 and 6 left TODO comments
+   that "exceptions arrive in Topic 7", so reworking a `Withdraw` that today returns `false` into one that
+   throws is the natural thread (use a new class; don't edit earlier topics).
+3. How Memory diagrams show an exception object on the Heap and the call stack unwinding — the locked shape
+   has exactly 3 frames; unwinding may need a deeper stack on ONE diagram, which is a recorded exception
+   (see "Instance methods and constructors" in `rules/diagram-standards.md` for the precedent).
+4. Flow-diagram metaphors (used so far: lockers, filmstrip, pinboard, checkpoints, signpost, blueprint-and-stamp,
+   assembly line, teller window, house keys, noticeboard, family tree, remote, form, wall socket — pick fresh ones).
 5. Branch name (see `rules/checkin-and-pr.md`).
 
 ## Topic tracker
@@ -82,7 +97,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 3 | Methods & parameters | ✅ | `MethodsAndParameters/` | `MethodsAndParameters.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (MethodBasics, Parameters, OptionalAndNamedParameters, ParamsKeyword, MethodOverloading) — Memory/2-Parameters.svg is the topic's key diagram (value vs ref vs out, side by side) |
 | 4 | Collections — arrays, List, Dictionary | ✅ | `Collections/` | `Collections.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (Arrays, Lists, Dictionaries, CollectionSafety, ChoosingACollection). One running example set (exam scores, to-do list, phone book) threads through all five. Flow diagrams use 5 different metaphors (row of lockers, growing filmstrip, pinboard, security checkpoints, signpost fork) per the "encouraged variety" rule |
 | 5 | OOP — classes, objects, constructors, encapsulation | ✅ | `OOP/` | `OOP.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (ClassesAndObjects, Constructors, Encapsulation, ReferencesVsCopies, StaticMembers) — 13 files. One running example (a `BankAccount`, plus a static `Bank`) threads through all five. Flow diagrams use 5 fresh metaphors (blueprint and stamp, assembly line, teller window and vault, house keys, town noticeboard). `Memory/5-StaticMembers.svg` is the first diagram with real Static content; `Memory/4-ReferencesVsCopies.svg` is the key one (two pointers, one object) |
-| 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ⬜ | | |
+| 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ✅ | `OOPAdvanced/` | `OOPAdvanced.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (Inheritance, Polymorphism, AbstractClasses, Interfaces) — 11 files. One running family (`Account` → `SavingsAccount`/`CurrentAccount`; abstract `Transaction`; interface `IInterestBearing` with `SavingsAccount` and `FixedDeposit`) threads through all four. Flow diagrams use 4 fresh metaphors (family tree, universal remote, form with a blank, wall socket and plugs). `Memory/1-Inheritance.svg` is the key one (parent + own fields in one Heap box); `Memory/2`–`4` show arrays of pointers to different classes |
 | 7 | Exception handling | ⬜ | | |
 | 8 | File I/O basics | ⬜ | | |
 | 9 | LINQ fundamentals | ⬜ | | |
@@ -159,6 +174,12 @@ Real lessons found while building this, worth knowing so they're never rediscove
 6. **Memory-diagram truths worth keeping straight:** `const` members are not stored in Static (the compiler
    pastes their value into each use) — use `static`/`static readonly` for anything a Memory diagram puts in
    Static; identical string literals are interned, so two objects built from `"Anita"` point at ONE Heap string.
+7. **A child can only use what its parent lets it see.** Topic 6's `Account` keeps `_balance` as a `protected`
+   field so `SavingsAccount` can read it; `private` would hide it from the child. (In larger real projects a
+   `protected` property is usually preferred over a `protected` field — the lesson keeps the field so the
+   Memory diagram can name it.) A child class also calls `: base(...)` to run the parent's constructor first.
+8. **Each topic builds its own classes.** Topic 6 does not inherit from Topic 5's `BankAccount`; it makes
+   `Account` so earlier topics never change. Keep names distinct across topics (`BankAccount` vs `Account`).
 
 ## Add a new topic — runbook
 

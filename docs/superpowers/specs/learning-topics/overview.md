@@ -30,11 +30,12 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 3 | Methods & Parameters | `MethodsAndParameters/` | method basics, parameters (value/ref/out), optional & named, `params`, overloading |
 | 4 | Collections | `Collections/` | arrays, `List<T>`, `Dictionary<TKey,TValue>`, collection safety, choosing a collection |
 | 5 | OOP | `OOP/` | classes & objects, constructors (and overloads), encapsulation, references vs copies, static members — running example `BankAccount` (+ static `Bank`) |
+| 6 | OOP Advanced | `OOPAdvanced/` | inheritance, polymorphism (`virtual`/`override`), abstract classes, interfaces — running family `Account` → `SavingsAccount`/`CurrentAccount`, abstract `Transaction`, `IInterestBearing` |
 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `OOPExample`); change the type after `new` to run another.
+  one topic (currently `OOPAdvancedExample`); change the type after `new` to run another.
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -49,6 +50,9 @@ None. There are no config keys, environment variables, or connection strings yet
   `<Topic>Demo.cs` convention.
 - Topic 5's helper classes (`BankAccount.cs`, `Bank.cs`) sit beside `OOPDemo.cs`; they define no `ExplainX()`
   methods, so the verify script still finds the demo. Their `Describe()` output is what the lesson prints.
+- Topic 6's classes live in several files beside `OOPAdvancedDemo.cs` (`Account.cs`, `SavingsAccount.cs`,
+  `CurrentAccount.cs`, `Transaction.cs` — which also holds its two concrete children —, `IInterestBearing.cs`,
+  `FixedDeposit.cs`); none defines an `ExplainX()` method.
 - Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
   as the polymorphism teaching example).
 

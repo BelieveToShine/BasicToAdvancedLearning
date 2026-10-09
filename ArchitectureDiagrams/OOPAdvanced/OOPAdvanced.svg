@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="560" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# OOP Advanced — Inheritance, Polymorphism, Abstract Classes, Interfaces</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">OOPAdvancedDemo.cs holds the logic; Account.cs, Transaction.cs and friends are the running example. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="150" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="166" y="72">Inheritance</text></g>
+  <g font-size="10" fill="#333"><rect x="290" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="306" y="72">Polymorphism</text></g>
+  <g font-size="10" fill="#333"><rect x="440" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="456" y="72">Abstract Classes</text></g>
+  <g font-size="10" fill="#333"><rect x="600" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="616" y="72">Interfaces</text></g>
+  <rect x="30" y="100" width="290" height="250" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="175" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Inheritance</text>
+  <text x="175" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainInheritance()</text>
+  <rect x="42" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="50" y="168" font-size="9" fill="#333">public class SavingsAccount : Account, …</text>
+  <text x="50" y="190" font-size="9" fill="#333">savings.Deposit(500m);  // inherited from Account</text>
+  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">A child reuses everything its parent has</text>
+  <text x="175" y="284" text-anchor="middle" font-size="9.5" fill="#1a4a73">and adds its own extras.</text>
+  <rect x="340" y="100" width="290" height="250" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="485" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Polymorphism</text>
+  <text x="485" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainPolymorphism()</text>
+  <rect x="352" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="360" y="168" font-size="9" fill="#333">foreach (Account account in accounts)</text>
+  <text x="360" y="190" font-size="9" fill="#333">account.MonthlyFee()  →  0, 10, 5</text>
+  <text x="485" y="268" text-anchor="middle" font-size="9.5" fill="#274e13">One call — the real object decides</text>
+  <text x="485" y="284" text-anchor="middle" font-size="9.5" fill="#274e13">which override runs.</text>
+  <rect x="650" y="100" width="290" height="250" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="795" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Abstract Classes</text>
+  <text x="795" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainAbstractClasses()</text>
+  <rect x="662" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="670" y="168" font-size="9" fill="#333">public abstract string Apply(Account account);</text>
+  <text x="670" y="190" font-size="9" fill="#333">new WithdrawalTransaction(900m)</text>
+  <text x="795" y="268" text-anchor="middle" font-size="9.5" fill="#8a5a10">A template that cannot be built; every</text>
+  <text x="795" y="284" text-anchor="middle" font-size="9.5" fill="#8a5a10">child must fill in the blank.</text>
+  <rect x="960" y="100" width="290" height="250" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1105" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">4 · Interfaces</text>
+  <text x="1105" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainInterfaces()</text>
+  <rect x="972" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="980" y="168" font-size="9" fill="#333">new FixedDeposit(6000m, 8m)</text>
+  <text x="980" y="190" font-size="9" fill="#333">earner.MonthlyInterest()  →  5, 40</text>
+  <text x="1105" y="268" text-anchor="middle" font-size="9.5" fill="#4a2e73">A contract any class can sign, even</text>
+  <text x="1105" y="284" text-anchor="middle" font-size="9.5" fill="#4a2e73">classes from different families.</text>
+  <text x="40" y="395" font-size="11" fill="#444"><tspan font-weight="bold">The family the lesson builds:</tspan> Account (parent) → SavingsAccount, CurrentAccount · Transaction (abstract) → DepositTransaction, WithdrawalTransaction · IInterestBearing ← SavingsAccount, FixedDeposit.</text>
+  <text x="40" y="440" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → OOPAdvancedExample.Explain()</tspan> calls all four methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="460" font-size="10.5" font-style="italic" fill="#888">Every method (1–4) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>
