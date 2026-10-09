@@ -73,7 +73,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 deliberately do not pre-decide these, so propose an answer for each and ask:
 1. Folder/namespace name (e.g. `ExceptionHandling`).
 2. The `ExplainX()` method list (title implies try/catch, finally, throwing, custom exceptions; `using`
-   and exception filters are judgement calls) and the running example — Topics 5 and 6 left TODO comments
+   and exception filters are judgement calls) and the running example — Topic 5's `BankAccount` carries a comment
    that "exceptions arrive in Topic 7", so reworking a `Withdraw` that today returns `false` into one that
    throws is the natural thread (use a new class; don't edit earlier topics).
 3. How Memory diagrams show an exception object on the Heap and the call stack unwinding — the locked shape

@@ -19,6 +19,8 @@ Plan, decisions and status for Topic 6. Once shipped, the behaviour is folded in
 
 ## Status
 - [x] Code: demo, adapter, six class/interface files, `Program.cs` wired
-- [x] 11 diagrams drawn and rendered
+- [x] 11 diagrams: `verify-topic.ps1 -Topic OOPAdvanced` = 0 FAIL / 0 WARN; layer 3 done with headless Chromium PNG
+      renders (no Edge here) viewed one by one — `OOPAdvanced.svg`, `Flow/0`–`Flow/4`, `Memory/0`–`Memory/4`, 11 of 11
 - [x] Docs: ROADMAP tracker + snapshot + gotchas, learning-topics spec, overview, architecture
-- [ ] Verification layers 1–5 and the check-in — see the report given at the end of the session
+- [x] Layer 4: one fresh-context subagent review of the two commits before the push; its should-fix items
+      (ROADMAP wording, heading-banner footnote) were fixed in a follow-up commit
