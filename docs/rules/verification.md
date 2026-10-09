@@ -29,7 +29,7 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
 - **FAIL** blocks check-in. **WARN** must each be either fixed or explained in the PR/working doc.
 - It derives the expected diagram list from the *order `Explain()` calls the demo methods*, so a
   renamed/reordered method that leaves stale diagrams is caught.
-- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 10 WARN. Your change must not add to
+- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 11 WARN. Your change must not add to
   this list; anything else is yours to fix or explain.
   - *Accepted exceptions (don't "fix"):*
     - `Memory/2-Parameters.svg` (MethodsAndParameters): three-panel value/ref/out layout, so no Heap
@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
     - `OOP/Memory/4-ReferencesVsCopies.svg`: red `#cc0000` stroke on the shared Heap object (emphasises one
       object, two pointers). The locked fills are intact, so no WARN — intent recorded here.
     - `OOP/Memory/5-StaticMembers.svg`: wider Static column and a 1060px viewBox to hold real static fields.
-    - `Program.cs does not currently run <Topic>Example` (4 WARNs, one per older topic): only the
+    - `Program.cs does not currently run <Topic>Example` (5 WARNs, one per older topic): only the
       active topic is wired; it only matters for the topic being finished.
   - *Known gaps in older topics (candidate cleanups, not blockers for new work):*
     - `Collections/Flow/4-CollectionSafety.svg`: two lines drift 1px off straight.
