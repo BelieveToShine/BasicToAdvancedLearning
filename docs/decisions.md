@@ -13,6 +13,7 @@ section 4 first. Never edit or delete an entry — add a new one that supersedes
 | D3 | 2026-10-09 | Asked for a review-recommendations file + governance set-up after the Topic 5 review | one-off | `review-recommendations.md`, `rules/governance.md` |
 
 | D4 | 2026-10-09 | "commit this as a rules commit on a branch" — the governance / review-recommendations / render-script set-up | one-off (commit on a branch only; **not** a push, **not** a merge) | branch `rules/governance-and-review` |
+| D5 | 2026-10-09 | "push it to master" — the `rules/governance-and-review` branch (`6458b23`) | one-off (that push only; does **not** answer Q1) | `master` fast-forwarded and pushed. **Deviation:** no independent layer-4 review was run on this change before the push (governance §8); only `verify-docs.ps1` (0 FAIL) was run. |
 
 ## Open questions awaiting the owner
 | ID | Question | Why it matters | Status |
