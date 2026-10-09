@@ -141,6 +141,12 @@ more engaging:
   just tolerating it. Keep the hard rules (straight lines, label clearance, real call/return arrows,
   locked Memory legend) no matter which metaphor you pick.
 
+**Metaphor Flows (decided, see `../decisions.md` D7).** The strict points above (no variable names in notes,
+a dashed return for every call) govern the sequence-style `Flow/0-Overview.svg`. A per-method metaphor Flow
+may name the variable a result lands in, and may show a `new` as the object arriving at its tray or house
+instead of a dashed return arrow. It must still show — or footnote — every real `Console.*` call the method
+makes, and keep the routing and label rules below.
+
 **Routing rule (applies to every Flow diagram, sequence, road, or flowchart): straight lines only, no
 diagonals, no clipping through a box or oval.** A diagonal connector that crosses other shapes at a
 shallow angle reads as tangled, and one that isn't obviously routed can silently pass *through* a box
@@ -170,7 +176,11 @@ methods are worth a closer look, but it never replaces the per-method files.
 |---|---|---|---|
 | Stack | `#b6d7a8` | `#6aa84f` | Value-type locals + reference-type *pointers* (the variable slot itself), one frame per active method call |
 | Heap | `#f9cb9c` | `#e69138` | The actual object data a reference-type variable points to (strings, arrays, class instances, `List<>`, etc.) |
-| Static | `#d5c9ea` | `#674ea7` | `static` fields/consts — one copy for the whole type, lives for the program's lifetime |
+| Static | `#d5c9ea` | `#674ea7` | `static` fields — one copy for the whole type, lives for the program's lifetime (a `const` is not stored here: the compiler pastes its value into each use) |
+
+**Sanctioned variations (keep the fills; these are recorded, not accidents):** a red `#cc0000` stroke on one Heap
+object to emphasise sharing (Topic 5 `Memory/4`: two pointers, one object), and a wider Static column when the
+method actually puts `static` fields in it (Topic 5 `Memory/5`).
 
 **Per-method snapshot layout (locked shape — every `Memory/<N>-<Method>.svg` uses this):**
 - **Stack** column: a call stack of exactly 3 frames, always in this order top-to-bottom —
@@ -186,10 +196,11 @@ methods are worth a closer look, but it never replaces the per-method files.
   (*"No Heap usage here — `<var>` is a value type, entirely on the Stack."*) — don't just omit the
   column, the ABSENCE of Heap usage is itself something worth a learner seeing method after method.
   If it does have one, draw one box per object a Stack arrow points to, showing its real content.
-- **Static** column: always present, always the same empty-state note until some method actually
-  uses a `static` member (first done in Topic 5's `Memory/5-StaticMembers.svg`, where the column widens to
-  hold the type's static fields — a `static` pointer field arrows into the Heap like any other pointer) — keeping this box identical across every single diagram (not just every
-  topic) is what lets a learner compare any two Memory diagrams and immediately recognise the shape.
+- **Static** column: always present, and the same empty-state note until some method actually uses a
+  `static` member. Keeping that box identical across every diagram (not just every topic) is what lets a
+  learner compare any two Memory diagrams and recognise the shape. Topic 5's `Memory/5-StaticMembers.svg` is
+  the first to populate it: the column widens to hold the type's static fields, and a `static` pointer field
+  arrows into the Heap like any other pointer.
 
 Use **real variable names from that method**, not placeholders — the whole value of this diagram is a
 learner matching a name they just saw in code to a box in the picture. Where a method has a genuinely

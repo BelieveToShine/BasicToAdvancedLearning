@@ -34,6 +34,9 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
   - *Accepted exceptions (don't "fix"):*
     - `Memory/2-Parameters.svg` (MethodsAndParameters): three-panel value/ref/out layout, so no Heap
       colour and no Main/Explain frames (3 WARNs) — see `ROADMAP.md` session notes.
+    - `OOP/Memory/4-ReferencesVsCopies.svg`: red `#cc0000` stroke on the shared Heap object (emphasises one
+      object, two pointers). The locked fills are intact, so no WARN — intent recorded here.
+    - `OOP/Memory/5-StaticMembers.svg`: wider Static column and a 1060px viewBox to hold real static fields.
     - `Program.cs does not currently run <Topic>Example` (4 WARNs, one per older topic): only the
       active topic is wired; it only matters for the topic being finished.
   - *Known gaps in older topics (candidate cleanups, not blockers for new work):*

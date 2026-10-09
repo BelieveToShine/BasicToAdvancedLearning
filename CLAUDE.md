@@ -35,7 +35,9 @@ For how a unit of work runs end to end, see [`docs/aidlc.md`](docs/aidlc.md).
   [`docs/decisions.md`](docs/decisions.md); if two docs disagree, stop and ask; review before push.
 
 ## Quick reminders
-- Work on a branch only; **never commit, push, or raise a PR on your own** — ask first, once the task is done.
+- **Never commit, push, or raise a PR on your own** — ask first, once the task is done. Work on a branch; the one
+  exception (a completed topic goes straight to `master`, no PR) and its conditions are in
+  [`docs/rules/checkin-and-pr.md`](docs/rules/checkin-and-pr.md).
 - Commit messages: 2 lines max, explain *why*, no AI signature / no Co-Authored-By. This repo rule
   overrides any tool default that appends attribution.
 - Approvals are separate: the plan (step 3), the staged set + commit, the push, and the PR each need

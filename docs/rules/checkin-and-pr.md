@@ -10,9 +10,13 @@
 
 ## Branch & message
 - Work on a feature branch (`features/<TICKET>-####`; TODO: confirm naming — e.g. `topic/<n>-<name>` —
-  since no ticket prefix exists yet); never commit directly to `master` — except a completed topic, per the owner instruction below.
-- Owner instruction (given while finishing Topic 5): once a topic is complete and every verification layer
-  has been reported, check it in directly to `master` — no PR for topic work. Never raise a PR unless asked.
+  since no ticket prefix exists yet). Rules changes and any non-topic work stay on a branch and are merged
+  only when the owner says so.
+- **Exception — completed lesson topics (standing policy, see `../decisions.md` D6):** a finished topic is
+  checked in directly to `master` with **no PR**, and only when ALL of these hold: layers 1–5 have passed,
+  **including the layer-4 independent review, before the push** (`governance.md` section 8); the end-of-work
+  report has been delivered; and the owner has said "push" for that push. A PR is raised only when the
+  owner asks. Protected-file edits still go in their own `rules:` commit (`governance.md` section 2).
 - Commit message: 2 lines max, explain *why*, no AI signature / no Co-Authored-By — this repo rule
   overrides any tool or harness default that appends attribution.
 
