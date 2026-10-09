@@ -24,7 +24,8 @@ Working doc for Topic 5. Shipped: behaviour is folded into `ROADMAP.md` and
 
 ## Status
 - [x] Code: demo, adapter, helper classes, `Program.cs` wired
-- [x] 13 diagrams: all 13 rendered with headless Chromium (`render-diagrams.ps1` needs Edge, unavailable in that
-      environment) and viewed in their final form; verified by `verify-topic.ps1 -Topic OOP` (0 FAIL, 0 WARN)
+- [x] 13 diagrams: `verify-topic.ps1 -Topic OOP` = 0 FAIL / 0 WARN. Layer 3 was done with headless Chromium
+      PNG renders (not `render-diagrams.ps1`, which needs Edge) viewed one by one: `OOP.svg`, `Flow/0`–`Flow/5`
+      and `Memory/0`–`Memory/5` — 13 of 13 viewed, each after its last edit. Animations were not watched in motion.
 - [x] Docs: ROADMAP tracker + snapshot + gotchas, learning-topics spec, overview, architecture, rules
-- [x] Verification layers 1–5 (see the report given at check-in; layer 4 ran as a fresh-context subagent review)
+- [x] Verification layers 1–5 (layer 4 = two fresh-context subagent reviews: one of the original topic, one of the follow-up fix commits)
