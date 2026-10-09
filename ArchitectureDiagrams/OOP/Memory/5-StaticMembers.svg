@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 450" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1060" height="450" fill="#ffffff"/>
+  <text x="530.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Static Members — Memory: Stack / Heap / Static</text>
+  <text x="530.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainStaticMembers() is running, after both Bank.OpenAccount calls. The Static column finally has content.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="620" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="930.0" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="264" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="124" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">OOPDemo.ExplainStaticMembers() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">anitaAccount → pointer  (BankAccount)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">raviAccount → pointer  (BankAccount)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">openedCount = 2</text>
+  <rect x="50" y="252" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="272" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">OOPExample.Explain()</text>
+  <text x="220" y="288" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="312" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="450" y="118" width="220" height="104" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankAccount — anitaAccount's</text>
+  <rect x="462" y="150" width="196" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="470" y="167" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
+  <rect x="462" y="180" width="196" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="470" y="197" font-size="10" fill="#7f4e00">_balance = 500</text>
+  <rect x="450" y="238" width="220" height="104" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="260" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankAccount — raviAccount's</text>
+  <rect x="462" y="270" width="196" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="470" y="287" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
+  <rect x="462" y="300" width="196" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="470" y="317" font-size="10" fill="#7f4e00">_balance = 1200</text>
+  <rect x="700" y="148" width="90" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="745.0" y="167" text-anchor="middle" font-size="10" fill="#7f4e00">"Anita"</text>
+  <rect x="700" y="268" width="90" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="745.0" y="287" text-anchor="middle" font-size="10" fill="#7f4e00">"Ravi"</text>
+  <rect x="700" y="215" width="90" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="745.0" y="234" text-anchor="middle" font-size="10" fill="#7f4e00">"KeyBank"</text>
+  <line x1="670" y1="163" x2="698" y2="163" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="670" y1="283" x2="698" y2="283" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,159 420,159 420,140 448,140" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 432,189 432,260 448,260" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="830" y="118" width="200" height="140" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="930.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Bank — static members</text>
+  <rect x="842" y="150" width="176" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="850" y="167" font-size="10" fill="#3d2a6b">_accountsOpened = 2</text>
+  <rect x="842" y="217" width="176" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="850" y="234" font-size="10" fill="#3d2a6b">Name → pointer (string)</text>
+  <line x1="830" y1="230" x2="792" y2="230" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="930.0" y="200" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">one copy, whole program</text>
+  <text x="40" y="396" font-size="10.5" fill="#444"><tspan font-weight="bold">Bank's two static members exist ONCE, in the Static region </tspan>— not inside either account. Both OpenAccount calls bumped the same _accountsOpened, so it reads 2.</text>
+  <text x="40" y="414" font-size="10" font-style="italic" fill="#888">openedCount = 2 is a plain int COPY on the Stack: it will not change if more accounts open later. (const members are not stored here at all — the compiler pastes their value in.)</text>
+</svg>

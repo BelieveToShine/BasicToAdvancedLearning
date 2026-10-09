@@ -4,7 +4,7 @@ How each unit of work (a new lesson topic, a fix, a doc change) runs, using the 
 in this repo. Human approval is needed at the plan, the commit, the push and the PR (each separately); everything else is automated.
 
 1. **Work item in** — a `<TICKET>-####` id if a tracker is wired up (TODO: ticket prefix + tracker not
-   decided yet), otherwise the next row in the [`ROADMAP.md`](ROADMAP.md) topic table (e.g. "Topic 5 — OOP").
+   decided yet), otherwise the next row in the [`ROADMAP.md`](ROADMAP.md) topic table (e.g. "Topic 6 — OOP advanced").
 2. **Spec-first read** — overview → architecture → the matching spec + rules (not the whole codebase).
 3. **Plan + scope** — work item + spec → an implementation plan. For a topic this is: the `ExplainX()`
    method list, the running example threaded through them, and the diagram list (1 architecture +

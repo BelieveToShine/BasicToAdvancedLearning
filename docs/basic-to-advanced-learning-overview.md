@@ -14,8 +14,8 @@ Planned track (see [`ROADMAP.md`](ROADMAP.md) for per-topic status):
 5. React frontend — 21–25
 6. Full-stack integration — 26–28
 
-Currently done: topics 1–4 (Programming Basics, Control Flow, Methods & Parameters, Collections).
-Next: topic 5 (OOP).
+Currently done: topics 1–5 (Programming Basics, Control Flow, Methods & Parameters, Collections, OOP).
+Next: topic 6 (OOP advanced — inheritance, polymorphism, interfaces, abstract classes).
 
 ## Whole-system architecture
 ```

@@ -10,7 +10,9 @@
 
 ## Branch & message
 - Work on a feature branch (`features/<TICKET>-####`; TODO: confirm naming — e.g. `topic/<n>-<name>` —
-  since no ticket prefix exists yet); never commit directly to `master`.
+  since no ticket prefix exists yet); never commit directly to `master` — except a completed topic, per the owner instruction below.
+- Owner instruction (given while finishing Topic 5): once a topic is complete and every verification layer
+  has been reported, check it in directly to `master` — no PR for topic work. Never raise a PR unless asked.
 - Commit message: 2 lines max, explain *why*, no AI signature / no Co-Authored-By — this repo rule
   overrides any tool or harness default that appends attribution.
 

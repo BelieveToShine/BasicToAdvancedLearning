@@ -16,6 +16,8 @@ cannot be run is reported as skipped — never silently assumed to pass.
 dotnet build                                          # 0 errors AND 0 warnings
 dotnet run --project BasicToAdvancedLearning.Console  # pipe stdin if the topic calls Console.ReadLine()
 ```
+(On a machine that only has a newer .NET runtime than the project's `net9.0`, set `DOTNET_ROLL_FORWARD=Major`
+before `dotnet run`; the scripts also run under PowerShell 7 as `pwsh -NoProfile -File scripts/<script>.ps1`.)
 (Written to work in PowerShell 5.1 and Git Bash alike — don't chain with `&&`, PowerShell 5.1 rejects it.)
 Read the real output against what the code comments and diagrams claim. A green build alone is not done.
 
@@ -27,12 +29,12 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
 - **FAIL** blocks check-in. **WARN** must each be either fixed or explained in the PR/working doc.
 - It derives the expected diagram list from the *order `Explain()` calls the demo methods*, so a
   renamed/reordered method that leaves stale diagrams is caught.
-- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 9 WARN. Your change must not add to
+- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 10 WARN. Your change must not add to
   this list; anything else is yours to fix or explain.
   - *Accepted exceptions (don't "fix"):*
     - `Memory/2-Parameters.svg` (MethodsAndParameters): three-panel value/ref/out layout, so no Heap
       colour and no Main/Explain frames (3 WARNs) — see `ROADMAP.md` session notes.
-    - `Program.cs does not currently run <Topic>Example` (3 WARNs, one per older topic): only the
+    - `Program.cs does not currently run <Topic>Example` (4 WARNs, one per older topic): only the
       active topic is wired; it only matters for the topic being finished.
   - *Known gaps in older topics (candidate cleanups, not blockers for new work):*
     - `Collections/Flow/4-CollectionSafety.svg`: two lines drift 1px off straight.

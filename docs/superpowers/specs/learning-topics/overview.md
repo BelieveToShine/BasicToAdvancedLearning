@@ -29,11 +29,12 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 2 | Control Flow | `ControlFlow/` | if/else, switch, for, while, do-while, foreach |
 | 3 | Methods & Parameters | `MethodsAndParameters/` | method basics, parameters (value/ref/out), optional & named, `params`, overloading |
 | 4 | Collections | `Collections/` | arrays, `List<T>`, `Dictionary<TKey,TValue>`, collection safety, choosing a collection |
+| 5 | OOP | `OOP/` | classes & objects, constructors (and overloads), encapsulation, references vs copies, static members — running example `BankAccount` (+ static `Bank`) |
 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `CollectionsExample`); change the type after `new` to run another.
+  one topic (currently `OOPExample`); change the type after `new` to run another.
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -46,10 +47,15 @@ None. There are no config keys, environment variables, or connection strings yet
 - `Program.cs` runs one topic at a time — no menu to pick a topic at runtime.
 - Topic 1 file names (`ProgrammingBasics.cs`, `ProgrammingBasicsExample.cs`) predate the
   `<Topic>Demo.cs` convention.
+- Topic 5's helper classes (`BankAccount.cs`, `Bank.cs`) sit beside `OOPDemo.cs`; they define no `ExplainX()`
+  methods, so the verify script still finds the demo. Their `Describe()` output is what the lesson prints.
 - Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
   as the polymorphism teaching example).
 
 ## Real bugs found & fixed (as general lessons)
+- **Static state on the class being taught leaks into every earlier diagram.** A shared counter on
+  `BankAccount` would have forced Topic 5's methods 1–4 to show a non-empty Static column. Lesson: put
+  `static` state on its own type so a diagram's Static column is empty exactly where the code leaves it empty.
 - **A namespace segment named like a BCL type shadows it.** `...Console.<Topic>` made unqualified
   `Console.*` resolve to the namespace. Fixed with `<RootNamespace>` in the `.csproj`. Lesson: don't
   name namespace segments after types you call unqualified.

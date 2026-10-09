@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="420" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Classes &amp; Objects — Memory: Stack / Heap / Static</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainClassesAndObjects() is running, right after anitaAccount.Deposit(250m).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="650" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="975" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">OOPDemo.ExplainClassesAndObjects() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">anitaAccount → pointer  (BankAccount)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">raviAccount → pointer  (BankAccount)</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">OOPExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="260" height="104" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankAccount — anitaAccount's object</text>
+  <rect x="472" y="150" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="167" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
+  <rect x="472" y="180" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="197" font-size="10" fill="#7f4e00">_balance = 750</text>
+  <rect x="460" y="238" width="260" height="104" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="260" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankAccount — raviAccount's object</text>
+  <rect x="472" y="270" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="287" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
+  <rect x="472" y="300" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="317" font-size="10" fill="#7f4e00">_balance = 1200</text>
+  <rect x="780" y="148" width="110" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="835.0" y="167" text-anchor="middle" font-size="10" fill="#7f4e00">"Anita"</text>
+  <rect x="780" y="268" width="110" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="835.0" y="287" text-anchor="middle" font-size="10" fill="#7f4e00">"Ravi"</text>
+  <line x1="720" y1="163" x2="778" y2="163" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="720" y1="283" x2="778" y2="283" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,159 420,159 420,140 458,140" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 432,189 432,260 458,260" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="930" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="975" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="975" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="366" font-size="10.5" fill="#444"><tspan font-weight="bold">Two `new` calls = two separate objects on the Heap. </tspan>Each holds its OWN _ownerName and _balance — that's why Deposit(250m) turned Anita's 500 into 750 and left Ravi's 1200 alone.</text>
+  <text x="40" y="384" font-size="10" font-style="italic" fill="#888">Inside Deposit, the hidden `this` is just a copy of the pointer in anitaAccount — it tells the method WHICH object's _balance to change.</text>
+</svg>

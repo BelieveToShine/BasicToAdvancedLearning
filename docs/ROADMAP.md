@@ -4,15 +4,33 @@ Tracks what's done, what's next, and how to add a topic without re-explaining th
 scratch. Update this file whenever a topic starts, finishes, or the plan changes — see
 [`README.md`](README.md) for how this fits the rest of the docs.
 
-## Status snapshot — 2026-08-31
+## Status snapshot — 2026-10-09
 
 **Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0),
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
-**Done this session:**
+**Done this session (Topic 5 — OOP):**
+- Topic 5 implemented + explained with 13 diagrams (see the tracker row below): running example is a
+  `BankAccount` (`BankAccount.cs`), plus a static `Bank` class (`Bank.cs`) that only the last method uses.
+  `Program.cs` now runs Topic 5 (`OOPExample`).
+- Topic 5 decisions (all five from the old plan list were settled): folder/namespace `OOP`; methods
+  `ClassesAndObjects`, `Constructors`, `Encapsulation`, `ReferencesVsCopies`, `StaticMembers`; Memory
+  diagrams keep the locked 3 frames and show each object as a Heap box listing its real field values
+  (`this` and constructor chaining are carried as footer sentences — no 4th-frame exception was needed);
+  Static gets real content in `Memory/5-StaticMembers.svg` only; Flow metaphors are a blueprint-and-stamp,
+  an assembly line, a teller window in front of a vault, house keys, and a town noticeboard.
+- `static` state lives in a separate `Bank` class on purpose, so methods 1–4 truly leave Static empty
+  and `Memory/5` is where the Static column finally comes alive (its Static column is wider than the
+  shared 90px empty-state box — not a frame change, just room for content).
+- `Memory/4-ReferencesVsCopies.svg` shows two stack pointers into ONE Heap object, and both objects
+  pointing at a single shared `"Anita"` string (identical literals are interned).
+- The Flow diagrams use animated SMIL for the one thing that needs motion each: the ticket rolling along
+  the constructor belt, the pulsing "same house" note, the ticking counter.
+
+**Earlier sessions (Topics 1–4):**
 - Topics 1–4 (Programming Basics, Control Flow, Methods & Parameters, Collections) implemented +
-  explained with diagrams (see table below). `Program.cs` currently runs Topic 4 (`CollectionsExample`).
+  explained with diagrams (see table below). Topic 4's runner was `CollectionsExample`.
 - Collections' Memory/0-Overview.svg makes a deliberate point of INVERTING the usual framing: every
   earlier topic treated the Heap as the exception worth calling out; here the Heap is the rule
   (every array/List/Dictionary variable is just a Stack pointer) and Memory/5 is the exception
@@ -35,20 +53,19 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 5 (OOP — classes, objects, constructors, encapsulation) and follow the "Add a
-new topic" runbook below.
+**Next:** pick Topic 6 (OOP advanced — inheritance, polymorphism, interfaces, abstract classes) and
+follow the "Add a new topic" runbook below.
 
-**Decisions to settle in the Topic 5 plan (get the human's approval before building)** — the docs
+**Decisions to settle in the Topic 6 plan (get the human's approval before building)** — the docs
 deliberately do not pre-decide these, so propose an answer for each and ask:
-1. Folder/namespace name (e.g. `OOP` vs `ObjectOrientedProgramming`) — this also fixes the tracker
-   row's `` `<Folder>/` `` cell and the names of topic 6.
-2. The `ExplainX()` method list (the title implies classes/objects, constructors, encapsulation; more
-   — references vs copies, `static` — is a judgement call) and the one running example.
-3. How the Memory diagrams show instance methods/constructors (`this`, an extra frame) — see
-   "Instance methods and constructors" in `rules/diagram-standards.md`. Whether Topic 5 is where the
-   Static column finally gets real content.
-4. Flow-diagram metaphors (Collections already used lockers, filmstrip, pinboard, checkpoints,
-   signpost — pick fresh ones).
+1. Folder/namespace name (e.g. `OOPAdvanced` — `OOP` is taken by Topic 5).
+2. The `ExplainX()` method list (title implies inheritance, polymorphism, abstract classes, interfaces;
+   `virtual`/`override`, `base`, `sealed` are judgement calls) and the running example — extending
+   Topic 5's `BankAccount` into account types (savings, current) is the natural thread.
+3. How the Memory diagrams show one derived object (base + derived fields in a single Heap box) and a
+   variable typed as the base class pointing at it. Interface/abstract types never get their own Heap box.
+4. Flow-diagram metaphors (Topic 5 used blueprint-and-stamp, assembly line, teller window, house keys,
+   noticeboard; Collections used lockers, filmstrip, pinboard, checkpoints, signpost — pick fresh ones).
 5. Branch name (see `rules/checkin-and-pr.md`).
 
 ## Topic tracker
@@ -64,7 +81,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 2 | Control flow — if/else, switch, loops | ✅ | `ControlFlow/` | `ControlFlow.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus one numbered pair per method 1–6 (IfElse, Switch, ForLoop, WhileLoop, DoWhileLoop, Foreach) in `Flow/` and `Memory/` — 15 files total, the reference example for the folder/numbering convention |
 | 3 | Methods & parameters | ✅ | `MethodsAndParameters/` | `MethodsAndParameters.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (MethodBasics, Parameters, OptionalAndNamedParameters, ParamsKeyword, MethodOverloading) — Memory/2-Parameters.svg is the topic's key diagram (value vs ref vs out, side by side) |
 | 4 | Collections — arrays, List, Dictionary | ✅ | `Collections/` | `Collections.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (Arrays, Lists, Dictionaries, CollectionSafety, ChoosingACollection). One running example set (exam scores, to-do list, phone book) threads through all five. Flow diagrams use 5 different metaphors (row of lockers, growing filmstrip, pinboard, security checkpoints, signpost fork) per the "encouraged variety" rule |
-| 5 | OOP — classes, objects, constructors, encapsulation | ⬜ | | |
+| 5 | OOP — classes, objects, constructors, encapsulation | ✅ | `OOP/` | `OOP.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (ClassesAndObjects, Constructors, Encapsulation, ReferencesVsCopies, StaticMembers) — 13 files. One running example (a `BankAccount`, plus a static `Bank`) threads through all five. Flow diagrams use 5 fresh metaphors (blueprint and stamp, assembly line, teller window and vault, house keys, town noticeboard). `Memory/5-StaticMembers.svg` is the first diagram with real Static content; `Memory/4-ReferencesVsCopies.svg` is the key one (two pointers, one object) |
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ⬜ | | |
 | 7 | Exception handling | ⬜ | | |
 | 8 | File I/O basics | ⬜ | | |
@@ -133,6 +150,15 @@ Real lessons found while building this, worth knowing so they're never rediscove
    explanatory comments) and has no knowledge of `ILearningTopic`. `<Topic>Example.cs` is a thin
    adapter that implements `ILearningTopic.Explain()` and calls into the demo class. Keeps the
    teaching code free of "runner" plumbing.
+4. **Helper classes get their own files beside the demo.** Topic 5's `BankAccount.cs` and `Bank.cs` sit in
+   `OOP/` next to `OOPDemo.cs`. `verify-topic.ps1` finds the demo as the non-`*Example.cs` file that defines
+   the public `ExplainX()` methods, so helper files must not define any.
+5. **Don't put `static` state on the class that earlier methods are teaching.** A static counter on
+   `BankAccount` would have made Topic 5's methods 1–4 show a populated Static column. Keeping it on a
+   separate `Bank` class means Static is genuinely empty until method 5 touches it.
+6. **Memory-diagram truths worth keeping straight:** `const` members are not stored in Static (the compiler
+   pastes their value into each use) — use `static`/`static readonly` for anything a Memory diagram puts in
+   Static; identical string literals are interned, so two objects built from `"Anita"` point at ONE Heap string.
 
 ## Add a new topic — runbook
 

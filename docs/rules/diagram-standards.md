@@ -69,8 +69,8 @@ methods. For code that runs *inside* an object (instance methods, constructors, 
   a constructor"), a 4th stacked frame for that call, plus a `this` arrow into the Heap, is allowed on
   **that one** Memory diagram. Treat it as a locked-shape exception: say why in the footer and record
   it in `ROADMAP.md` session notes and the `verification.md` accepted-exceptions list.
-- This is a default, not a final decision: confirm it in the topic plan (see `ROADMAP.md`, "Decisions
-  to settle in the Topic 5 plan").
+- Confirmed in Topic 5: the default was used for every method (no 4th-frame exception). Objects are Heap
+  boxes listing real field values; `this` and constructor chaining (`: this(...)`) ride in the footer.
 
 ## 1. Architecture / concept diagram (`<Topic>/<Topic>.svg`)
 
@@ -186,8 +186,9 @@ methods are worth a closer look, but it never replaces the per-method files.
   (*"No Heap usage here — `<var>` is a value type, entirely on the Stack."*) — don't just omit the
   column, the ABSENCE of Heap usage is itself something worth a learner seeing method after method.
   If it does have one, draw one box per object a Stack arrow points to, showing its real content.
-- **Static** column: always present, always the same empty-state note until some topic actually
-  introduces a `static` field — keeping this box identical across every single diagram (not just every
+- **Static** column: always present, always the same empty-state note until some method actually
+  uses a `static` member (first done in Topic 5's `Memory/5-StaticMembers.svg`, where the column widens to
+  hold the type's static fields — a `static` pointer field arrows into the Heap like any other pointer) — keeping this box identical across every single diagram (not just every
   topic) is what lets a learner compare any two Memory diagrams and immediately recognise the shape.
 
 Use **real variable names from that method**, not placeholders — the whole value of this diagram is a

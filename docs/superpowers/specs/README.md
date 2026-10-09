@@ -6,7 +6,7 @@ never seen this repo should open one folder and be productive without re-derivin
 ## Category index
 | Category | Covers |
 |---|---|
-| [learning-topics/](learning-topics/overview.md) | How a lesson topic is built: demo + adapter code, the runner, and the mandatory diagram set. Covers topics 1–4 as shipped. |
+| [learning-topics/](learning-topics/overview.md) | How a lesson topic is built: demo + adapter code, the runner, and the mandatory diagram set. Covers topics 1–5 as shipped. |
 
 Add a row whenever a new category folder is created (e.g. a Web API or React category when those
 phases start).

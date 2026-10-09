@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 450" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="450" fill="#ffffff"/>
+  <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">OOP — Memory: Stack / Heap / Static (high level)</text>
+  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Objects always live on the Heap and variables are only pointers — and this topic finally puts something in Static.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers, plus a few plain values</text>
+  <text x="630" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — every BankAccount actually lives here</text>
+  <text x="950" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC — Bank, used once</text>
+  <rect x="40" y="112" width="380" height="262" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local — each method's own frame, one at a time</text>
+  <rect x="56" y="144" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="161" font-size="10" font-weight="bold" fill="#1b3d1b">anitaAccount, raviAccount → 2 pointers</text>
+  <text x="66" y="175" font-size="8.5" fill="#3f6b3f">ExplainClassesAndObjects()</text>
+  <rect x="56" y="188" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="205" font-size="10" font-weight="bold" fill="#1b3d1b">3 pointers: full-, empty-, clampedAccount</text>
+  <text x="66" y="219" font-size="8.5" fill="#3f6b3f">ExplainConstructors()</text>
+  <rect x="56" y="232" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="249" font-size="10" font-weight="bold" fill="#1b3d1b">account → pointer, plus 3 bool values inline</text>
+  <text x="66" y="263" font-size="8.5" fill="#3f6b3f">ExplainEncapsulation()</text>
+  <rect x="56" y="276" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="293" font-size="10" font-weight="bold" fill="#1b3d1b">accountA, accountB, accountC → 3 pointers</text>
+  <text x="66" y="307" font-size="8.5" fill="#3f6b3f">ExplainReferencesVsCopies()</text>
+  <rect x="56" y="320" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="337" font-size="10" font-weight="bold" fill="#1b3d1b">2 pointers, plus openedCount = 2 inline</text>
+  <text x="66" y="351" font-size="8.5" fill="#3f6b3f">ExplainStaticMembers()</text>
+  <rect x="450" y="112" width="380" height="262" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">The real objects — this is where the data is</text>
+  <rect x="466" y="144" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="170" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">BankAccount — _ownerName pointer + _balance</text>
+  <text x="640" y="188" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/1, 2, 3 and 5: one object per `new`</text>
+  <rect x="466" y="216" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">ONE BankAccount, TWO pointers pointing at it</text>
+  <text x="640" y="260" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/4-ReferencesVsCopies.svg</text>
+  <rect x="466" y="288" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="314" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">string — owner names, and "KeyBank"</text>
+  <text x="640" y="332" text-anchor="middle" font-size="8.5" fill="#a06a1f">a reference type too: _ownerName holds a pointer to it</text>
+  <rect x="860" y="112" width="200" height="262" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="960" y="134" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Bank (static class)</text>
+  <rect x="872" y="148" width="176" height="30" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="882" y="167" font-size="10" fill="#3d2a6b">_accountsOpened = 2</text>
+  <rect x="872" y="186" width="176" height="30" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="882" y="205" font-size="10" fill="#3d2a6b">Name → "KeyBank"</text>
+  <text x="960" y="246" text-anchor="middle" font-size="9.5" fill="#5b4a7a">ONE copy for the whole program —</text>
+  <text x="960" y="262" text-anchor="middle" font-size="9.5" fill="#5b4a7a">not one per account.</text>
+  <text x="960" y="300" text-anchor="middle" font-size="9.5" fill="#5b4a7a">Only ExplainStaticMembers() uses it:</text>
+  <text x="960" y="316" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">see Memory/5-StaticMembers.svg</text>
+  <text x="960" y="346" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5b4a7a">Methods 1–4 leave Static empty.</text>
+  <text x="40" y="404" font-size="10.5" fill="#444"><tspan font-weight="bold">An object variable is never the object.</tspan> Variables like anitaAccount hold only a pointer; the fields (_ownerName, _balance) sit in the Heap box it points to — which is why `accountB = accountA` copies just the pointer.</text>
+  <text x="40" y="424" font-size="10" font-style="italic" fill="#888">A static member is the opposite: it belongs to the type, so there is exactly one copy in Static, however many accounts exist.</text>
+</svg>
