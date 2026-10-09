@@ -22,7 +22,8 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 ## A. Findings from the Topic 5 review
 
 ### R1 — Direct-to-`master` rule added without a verifiable owner decision  `BLOCKER`
-- **Status:** needs-owner
+- **Status:** fixed
+- **Result:** owner chose standing policy (D6); `checkin-and-pr.md` is the single source, `CLAUDE.md` and `aidlc.md` link to it, "Owner instruction" wording removed
 - **Where:** `docs/rules/checkin-and-pr.md` lines 13–15 ("never commit directly to `master` — except a
   completed topic, per the owner instruction below" + "Owner instruction (given while finishing
   Topic 5): … check it in directly to `master` — no PR for topic work").
@@ -43,7 +44,8 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
   files disagreeing; `scripts/verify-docs.ps1` passes.
 
 ### R2 — Wrong cross-reference in a Flow diagram  `SHOULD-FIX`
-- **Status:** open
+- **Status:** fixed
+- **Result:** footer now cites Topic 3's pass-by-value `int` (verified in `MethodsAndParametersDemo.cs`)
 - **Where:** `ArchitectureDiagrams/OOP/Flow/4-ReferencesVsCopies.svg` line 54 (footer): "Compare int in
   Topic 1, where = really did copy the value".
 - **Evidence:** `ProgrammingBasics/ProgrammingBasics.cs` has no int-to-int copy (it declares `int a = 10;
@@ -54,7 +56,8 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
   (`scripts/render-diagrams.ps1 -Topic OOP -Only 'Flow/4*'`) and confirm the footer still fits.
 
 ### R3 — Memory/4 breaks the locked legend colour without recording it  `SHOULD-FIX`
-- **Status:** open
+- **Status:** fixed
+- **Result:** both variations recorded in `verification.md` accepted exceptions and `diagram-standards.md` "Sanctioned variations"
 - **Where:** `ArchitectureDiagrams/OOP/Memory/4-ReferencesVsCopies.svg` line 29: shared Heap box stroke
   `#cc0000` instead of the locked Heap stroke `#e69138`. Also `Memory/5-StaticMembers.svg` uses
   `viewBox` width 1060 and a widened Static box (mentioned only as a note in `ROADMAP.md`).
@@ -68,7 +71,8 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 - **Verify by:** exceptions list names both files; `verify-topic.ps1 -Topic OOP` still 0 FAIL/0 WARN.
 
 ### R4 — Unverified "rendered in a browser and checked" claim  `SHOULD-FIX`
-- **Status:** open
+- **Status:** fixed
+- **Result:** all 13 OOP diagrams rendered with headless Chromium (Edge not available here) and viewed; wording in the archived working doc corrected
 - **Where:** `docs/todo/archive/oop.md` line 27.
 - **Evidence:** nothing records which of the 13 diagrams were viewed. In the 2026-10-09 review only 4
   (Memory 1/4/5, Flow 2) were rendered and viewed; all were fine, the other 9 are text-checked only.
@@ -78,7 +82,8 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 - **Verify by:** the line names the script and the count; the count is true.
 
 ### R5 — Flow diagrams don't follow the written Flow rules  `SHOULD-FIX` (decide direction)
-- **Status:** open
+- **Status:** fixed
+- **Result:** owner chose amend-the-rule (D7); `diagram-standards.md` section 2 "Metaphor Flows"
 - **Where:** `OOP/Flow/1-ClassesAndObjects.svg`, `2-Constructors.svg`, `4-ReferencesVsCopies.svg`.
 - **Evidence:** `rules/diagram-standards.md` says Flow notes name no variables (those belong to Memory)
   and every call has a matching return; these three put variable names in the body (`anitaAccount`,
@@ -92,27 +97,31 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 - **Verify by:** rule text and the OOP diagrams agree; older Flow diagrams are not now "violations".
 
 ### R6 — Run-on sentence in diagram-standards  `NIT`
-- **Status:** open
+- **Status:** fixed
+- **Result:** Static-column bullet split into sentences
 - **Where:** `docs/rules/diagram-standards.md` line 189 onward (the Static-column bullet).
 - **Suggested fix:** split into 2–3 sentences; keep the content (empty note until a method uses a `static`
   member; first done in Topic 5 `Memory/5`; Static column may widen to hold fields).
 - **Verify by:** reads cleanly; no content lost.
 
 ### R7 — Flow/5 first step only noted, not drawn  `NIT`
-- **Status:** open
+- **Status:** fixed
+- **Result:** `Console.WriteLine(… Bank.Name …)` is now a drawn step reading from the board
 - **Where:** `OOP/Flow/5-StaticMembers.svg` line 12 ("first (not drawn): Bank.Name is read straight…").
 - **Suggested fix:** draw the `Console.WriteLine(Bank.Name)` step as a real stop on the route, or leave
   as is and say why in the footer. Low priority.
 
 ### R8 — Flow/4 box fed from only one object  `NIT`
-- **Status:** open
+- **Status:** fixed
+- **Result:** second feeder arrow from object #1 into the `accountA, accountC` box (right-angle routing; render checked)
 - **Where:** `OOP/Flow/4-ReferencesVsCopies.svg` — the `ReferenceEquals(accountA, accountC)` box is fed
   only from object #2 although it compares A and C.
 - **Suggested fix:** add a second feeder arrow (right-angle routing only) or relabel. Re-run
   `verify-topic.ps1` (diagonal check) and re-render.
 
 ### R9 — Learner comments skip three syntax points  `NIT`
-- **Status:** open
+- **Status:** fixed
+- **Result:** comments added for `?:`, `=>` and `ReferenceEquals`
 - **Where:** `OOP/BankAccount.cs` line 22 (`? :` ternary), lines 32/34 (`=>` expression-bodied
   members), `OOP/OOPDemo.cs` lines 87–88 (unqualified `ReferenceEquals`).
 - **Suggested fix:** add a one-line comment at each saying what the symbol means in plain words

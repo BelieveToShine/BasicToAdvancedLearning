@@ -19,6 +19,7 @@ public class BankAccount
     public BankAccount(string ownerName, decimal openingBalance)
     {
         _ownerName = ownerName;
+        // `a ? b : c` is "if a then b, otherwise c" in one line: a negative opening balance becomes NoMoney.
         _balance = openingBalance < NoMoney ? NoMoney : openingBalance;
     }
 
@@ -29,6 +30,7 @@ public class BankAccount
     }
 
     // Read-only PROPERTIES: callers can look at the data but cannot assign to it.
+    // `=> _ownerName` means "this property simply hands back the field" (Balance below does the same).
     public string Owner => _ownerName;
 
     public decimal Balance => _balance;

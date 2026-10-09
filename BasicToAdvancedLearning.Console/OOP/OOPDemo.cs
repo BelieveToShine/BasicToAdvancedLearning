@@ -84,6 +84,7 @@ public class OOPDemo
 
         // `new` is the only thing that builds a second, independent object.
         BankAccount accountC = new BankAccount("Anita", 500m);
+        // ReferenceEquals asks "are these two variables pointing at the very same object?"
         Console.WriteLine($"Same object? accountA & accountB: {ReferenceEquals(accountA, accountB)}");
         Console.WriteLine($"Same object? accountA & accountC: {ReferenceEquals(accountA, accountC)}");
         Console.WriteLine($"accountC is untouched: {accountC.Describe()}");

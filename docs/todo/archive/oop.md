@@ -24,6 +24,7 @@ Working doc for Topic 5. Shipped: behaviour is folded into `ROADMAP.md` and
 
 ## Status
 - [x] Code: demo, adapter, helper classes, `Program.cs` wired
-- [x] 13 diagrams, rendered in a browser and checked
+- [x] 13 diagrams: all 13 rendered with headless Chromium (`render-diagrams.ps1` needs Edge, unavailable in that
+      environment) and viewed in their final form; verified by `verify-topic.ps1 -Topic OOP` (0 FAIL, 0 WARN)
 - [x] Docs: ROADMAP tracker + snapshot + gotchas, learning-topics spec, overview, architecture, rules
-- [x] Verification layers 1–5 (see the report given at check-in)
+- [x] Verification layers 1–5 (see the report given at check-in; layer 4 ran as a fresh-context subagent review)
