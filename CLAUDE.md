@@ -28,6 +28,11 @@ For how a unit of work runs end to end, see [`docs/aidlc.md`](docs/aidlc.md).
 - Diagrams (mandatory 3 per topic) → [`docs/rules/diagrams.md`](docs/rules/diagrams.md), which points to
   the full [`docs/rules/diagram-standards.md`](docs/rules/diagram-standards.md)
 - Verifying / reviewing work → [`docs/rules/verification.md`](docs/rules/verification.md)
+- **Changing a rule, this file, `docs/aidlc.md` or a script; recording an owner decision; writing "verified" in
+  a report → [`docs/rules/governance.md`](docs/rules/governance.md) (read it at the start of every session).**
+  Short version: a feature task never justifies editing a rule — *propose* it in
+  [`docs/review-recommendations.md`](docs/review-recommendations.md) instead; owner decisions live only in
+  [`docs/decisions.md`](docs/decisions.md); if two docs disagree, stop and ask; review before push.
 
 ## Quick reminders
 - Work on a branch only; **never commit, push, or raise a PR on your own** — ask first, once the task is done.

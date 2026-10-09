@@ -10,7 +10,7 @@ BasicToAdvancedLearning.Console/            ← the only project today (net9.0 c
    └─ <TopicFolder>/
         ├─ <Topic>Demo.cs                      (the lesson: public ExplainX() per sub-concept)
         └─ <Topic>Example.cs                   (internal ILearningTopic adapter calling the demo)
-scripts/                                        ← verify-topic.ps1, verify-docs.ps1 (see docs/rules/verification.md)
+scripts/                                        ← verify-topic.ps1, verify-docs.ps1, render-diagrams.ps1 (see docs/rules/verification.md)
 ArchitectureDiagrams/<TopicFolder>/            ← mandatory SVGs per topic (see rules/diagram-standards.md)
 docs/                                          ← this documentation tree
 ```

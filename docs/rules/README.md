@@ -12,3 +12,4 @@ Rules are mandatory and override default behaviour.
 | Look something up in the issue tracker | [jira.md](jira.md) |
 | Create or edit a diagram | [diagrams.md](diagrams.md) → [diagram-standards.md](diagram-standards.md) |
 | Verify or review finished work | [verification.md](verification.md) |
+| Change a rule / CLAUDE.md / a script, record an owner decision, or write "verified" in a report | [governance.md](governance.md) |

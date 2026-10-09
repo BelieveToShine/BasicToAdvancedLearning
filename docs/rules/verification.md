@@ -47,7 +47,13 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
 - When a check proves wrong or too loose, fix the script in the same change (like rules, it grows).
 
 ## Layer 3 — Manual diagram checklist (per diagram)
-Open each SVG in a browser and tick:
+Render the diagrams and LOOK at each one — don't tick from the source text:
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render-diagrams.ps1 -Topic <Topic>    # PNGs in %TEMP%\bta-render\<Topic>
+```
+Open every PNG (the image reader works on them) or the SVG in a browser, and tick. In the report state
+exactly how many diagrams you viewed; any you did not view are "not visually verified"
+(`rules/governance.md` §7). Checklist:
 - [ ] Title + one-line subtitle + a legend are present; Arial; viewBox fits the content (no clipping).
 - [ ] Every label's text fits inside its box; no text overlaps other text.
 - [ ] No label sits on the line it describes (a label may brush at most one character of a line).
@@ -84,6 +90,13 @@ The author reviewing their own work shares its blind spots. Before the PR, start
 > 4. Check the `ROADMAP.md` tracker row (✅, `` `<Folder>/` `` cell), the learning-topics spec table,
 >    and the other hard-coded "topics 1–N" claims were updated.
 > 5. Check the learner-facing comments are accurate and the running example is consistent.
+> 6. **Audit protected-file edits** (`git show --stat`, and `git diff` of `CLAUDE.md`, `docs/rules/**`,
+>    `docs/aidlc.md`, `scripts/*.ps1`, `docs/decisions.md`): was anything loosened (an approval, a layer, a
+>    check, a branch/PR requirement)? Does any rule cite an "owner instruction" with no matching entry in
+>    `docs/decisions.md`? Do any two docs now contradict each other (grep `master`, `PR`, `approval`)?
+>    Were those edits in their own `rules:` commit and reported? Quote everything you flag.
+> 7. Check every "verified/checked/rendered" claim in the commit message and working doc says how and
+>    what it covered (`rules/governance.md` §7).
 > Report each finding as **blocker / should-fix / nit**: file, what's wrong, evidence. End with a
 > one-line verdict.
 
@@ -115,6 +128,12 @@ Then read, as a human, the files the work should have touched and confirm each o
 - [ ] `docs/architecture/overview.md` — updated if a folder/project/convention changed.
 - [ ] `docs/todo/` working doc moved to `archive/` after shipping.
 - [ ] Open `TODO:` items either resolved or knowingly left (the script lists them all).
+
+## Order: review before push
+Layers 1–5, **including the independent layer-4 review**, finish before anything is pushed to a shared
+branch or a PR is opened (see `rules/governance.md` §8). A review done after the push is reported as a
+deviation, not as a pass. Verification does not authorise the push — that is a separate approval
+(`rules/checkin-and-pr.md`).
 
 ## After syncing with `master`
 If merging/pulling `master` changed anything: re-run layers 1, 2 and 5. Re-run layer 4 only if the merge

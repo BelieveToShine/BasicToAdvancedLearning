@@ -70,6 +70,27 @@ $shipped = [regex]::Matches((Get-Content -Encoding UTF8 (Join-Path $specRoot 'le
 if ($shipped -ne $doneNumbers.Count) { Fail "learning-topics/overview.md shipped-topics table has $shipped rows but ROADMAP has $($doneNumbers.Count) done topics" }
 if (-not $fails) { Pass "docs agree: $($doneNumbers.Count) topic(s) done (highest #$doneMax)" }
 
+Write-Host "`n=== Governance: protected files and open review items ===" -ForegroundColor Cyan
+$protected = @('CLAUDE.md', 'docs/rules/', 'docs/aidlc.md', 'docs/decisions.md', 'scripts/')
+foreach ($need in @('docs/decisions.md', 'docs/rules/governance.md', 'docs/review-recommendations.md')) {
+    if (-not (Test-Path (Join-Path $repo $need))) { Fail "missing governance file: $need" }
+}
+$changed = @()
+if (Get-Command git -ErrorAction SilentlyContinue) {
+    Push-Location $repo
+    try {
+        $changed += @(git status --porcelain 2>$null | ForEach-Object { $_.Substring(3).Trim('"') })
+        $changed += @(git diff --name-only HEAD~1 HEAD 2>$null)
+    } finally { Pop-Location }
+}
+$hits = $changed | ForEach-Object { $_.Replace('\', '/') } | Where-Object { $p = $_; $protected | Where-Object { $p -like "$_*" } } | Sort-Object -Unique
+if ($hits) {
+    Warn "protected file(s) changed in the working tree or last commit - confirm each was explicitly requested by the owner, is in its own 'rules:' commit, and is reported (rules/governance.md): $($hits -join ', ')"
+} else { Pass 'no protected-file changes in the working tree or last commit' }
+$reviewText = Get-Content -Encoding UTF8 (Join-Path $repo 'docs/review-recommendations.md') -Raw
+$openItems  = [regex]::Matches($reviewText, '(?m)^- \*\*Status:\*\* (open|needs-owner)').Count
+if ($openItems -gt 0) { Warn "$openItems open/needs-owner item(s) in docs/review-recommendations.md" } else { Pass 'no open review items' }
+
 Write-Host "`n=== Hygiene ===" -ForegroundColor Cyan
 foreach ($f in $mdFiles) { if ($f.Name -match '\d{4}-\d{2}-\d{2}') { Fail "date in file name: $($f.Name)" } }
 foreach ($f in Get-ChildItem $specRoot -Recurse -Filter '*.md') {
