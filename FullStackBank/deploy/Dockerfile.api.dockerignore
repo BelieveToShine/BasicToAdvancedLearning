@@ -1,0 +1,4 @@
+# Files Docker must not send to the build (Docker reads <Dockerfile name>.dockerignore next to the Dockerfile).
+# bin/ and obj/ hold build output from your own machine; sending them is slow and can break the in-container build.
+bin/
+obj/

@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicToAdvancedLearning.Console", "BasicToAdvancedLearning.Console\BasicToAdvancedLearning.Console.csproj", "{2817413C-E46D-4312-80A8-F14CABB085EA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FullStackBank", "FullStackBank", "{B71632CB-91B6-C0F1-F3CF-54AAE7CB4742}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{5C884456-11F4-1062-A5C2-601FCBAE4F22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullStackBank.Api", "FullStackBank\Api\FullStackBank.Api.csproj", "{E6D4792B-A402-40DE-A283-A1E0BEC80030}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,24 @@ Global
 		{2817413C-E46D-4312-80A8-F14CABB085EA}.Release|x64.Build.0 = Release|Any CPU
 		{2817413C-E46D-4312-80A8-F14CABB085EA}.Release|x86.ActiveCfg = Release|Any CPU
 		{2817413C-E46D-4312-80A8-F14CABB085EA}.Release|x86.Build.0 = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|x64.Build.0 = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Debug|x86.Build.0 = Debug|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|x64.ActiveCfg = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|x64.Build.0 = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C884456-11F4-1062-A5C2-601FCBAE4F22} = {B71632CB-91B6-C0F1-F3CF-54AAE7CB4742}
+		{E6D4792B-A402-40DE-A283-A1E0BEC80030} = {5C884456-11F4-1062-A5C2-601FCBAE4F22}
 	EndGlobalSection
 EndGlobal

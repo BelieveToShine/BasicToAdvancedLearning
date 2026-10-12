@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- The "real" bank API that the full-stack lessons (Phase 5/6) call. It is its OWN program: a deployed
+       API keeps running by itself, separate from the console lessons. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>FullStackBank.Api</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Same pinned versions as BasicToAdvancedLearning.Console.csproj, so every clone restores exactly what was tested.
+       Design is only needed to GENERATE migrations (dotnet ef), so it is a build-time-only dependency. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.20">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.20" />
+  </ItemGroup>
+
+</Project>

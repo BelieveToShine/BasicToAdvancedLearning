@@ -1,0 +1,83 @@
+# docker-compose.yml - the whole bank on one machine: database + API + web site.
+# Run from this folder:   cp .env.example .env   (edit the passwords)   then   docker compose up --build
+# See README.md for the guide. Four services, started in this order:
+#   db       SQL Server 2022                       (stays running)
+#   db-init  creates the database, schema, app login, demo data   (runs once, then exits)
+#   api      the ASP.NET Core API                  (stays running, only reachable inside the compose network)
+#   web      nginx: React files + forwards /api to api   (stays running, the only service published to your computer)
+
+name: fullstackbank   # project name = prefix of container/volume/network names; override with -p <name>
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"                                   # required by Microsoft's licence terms
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Copy .env.example to .env and set MSSQL_SA_PASSWORD}
+    volumes:
+      - sqldata:/var/opt/mssql                           # the database files live in a named volume, not in the container
+    # No "ports:" on purpose: only containers on this compose network can reach SQL Server (the host: nothing).
+    healthcheck:
+      # Ask the server a real question. $$ = a literal $ for the shell INSIDE the container (compose would
+      # otherwise substitute it from .env while reading this file).
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q \"SELECT 1\" -b -o /dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s                                  # failures during the first seconds do not count
+
+  db-init:
+    image: mcr.microsoft.com/mssql/server:2022-latest    # reused only because it contains sqlcmd
+    depends_on:
+      db:
+        condition: service_healthy                       # wait until SQL Server answers queries
+    restart: "no"                                        # a one-shot job: run once, exit
+    environment:
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?}
+      APP_DB_USER: ${APP_DB_USER:?}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?}
+      DB_NAME: ${DB_BASE_NAME:-Bank}_FullStackBank       # must match what the API computes (see BankDatabase.cs)
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-false}
+    volumes:
+      - ./db:/db:ro                                      # the SQL scripts, read-only
+    entrypoint: ["/bin/bash", "/db/init.sh"]
+
+  api:
+    build:
+      context: ../Api                                    # only the API project is sent to the build
+      dockerfile: ../deploy/Dockerfile.api               # relative to the context
+    depends_on:
+      db-init:
+        condition: service_completed_successfully        # database must be created and migrated first
+    environment:
+      # The secret enters the container HERE, at run time - never in the image. The API appends "_FullStackBank".
+      BTAL_SQLSERVER: Server=db,1433;User Id=${APP_DB_USER:?};Password=${APP_DB_PASSWORD:?};TrustServerCertificate=True;Initial Catalog=${DB_BASE_NAME:-Bank}
+    # No "ports:": the browser never talks to the API directly, only through nginx.
+    healthcheck:
+      # The aspnet image has no curl or wget, but it has bash, which can open a TCP connection by itself.
+      # Healthy = GET /health answers "200" (the API's /health also opens a connection to the database).
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /health HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n' >&3 && head -n 1 <&3 | grep -q ' 200 '"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  web:
+    build:
+      context: ../..                                     # the repository root (needs frontend/ AND deploy/nginx.conf)
+      dockerfile: FullStackBank/deploy/Dockerfile.web
+    depends_on:
+      api:
+        condition: service_healthy                       # nginx starts after the API reports healthy
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:80"                 # only YOUR computer (127.0.0.1) : nginx's port 80; to let other machines in, remove "127.0.0.1:"
+    healthcheck:
+      # busybox wget ships in the nginx:alpine image. 127.0.0.1, not "localhost": localhost can resolve to the IPv6
+      # address ::1, and this nginx only listens on IPv4.
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  sqldata:    # survives `docker compose down`; deleted by `docker compose down -v`

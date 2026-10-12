@@ -1,0 +1,8 @@
+# The build context is the whole repository, so say what is ALLOWED in (everything else is ignored):
+# only the React app and the nginx config. node_modules/ and dist/ from your own machine stay out - the image
+# runs its own `npm ci` and `npm run build`.
+*
+!frontend
+!FullStackBank/deploy/nginx.conf
+**/node_modules
+**/dist

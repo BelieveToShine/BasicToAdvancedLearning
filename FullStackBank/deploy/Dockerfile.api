@@ -1,0 +1,44 @@
+# Dockerfile.api - the API as a container image. Build context: FullStackBank/Api (see docker-compose.yml).
+#
+# MULTI-STAGE build: stage 1 has the whole .NET SDK (compiler, NuGet, ~1 GB) and produces the published files;
+# stage 2 starts again from the small ASP.NET *runtime* image and copies only the published files. The SDK
+# never ships, so the final image is smaller and has fewer things an attacker could use.
+
+# ---- stage 1: build -------------------------------------------------------------------------------------------
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+
+# Copy ONLY the project file first and restore packages. Docker caches each step ("layer"); as long as the .csproj
+# does not change, this slow download step is reused on the next build even when your C# files changed.
+COPY FullStackBank.Api.csproj ./
+RUN dotnet restore
+
+# Now the source code, then compile + publish in Release mode into /out. UseAppHost=false: we start the app with
+# `dotnet FullStackBank.Api.dll`, so the extra native launcher file is not needed.
+COPY . ./
+RUN dotnet publish FullStackBank.Api.csproj -c Release --no-restore -o /out /p:UseAppHost=false
+
+# ---- stage 2: run ---------------------------------------------------------------------------------------------
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+WORKDIR /app
+COPY --from=build /out ./
+
+# Production is the default environment of a published app; set explicitly so the intent is visible. In Production
+# the API does NOT create/migrate the database (Program.cs does that only in Development) - docker-compose.yml
+# runs the database set-up as a separate step.
+ENV ASPNETCORE_ENVIRONMENT=Production
+# Listen on all interfaces of the container, port 8080. Program.cs would otherwise fall back to
+# http://localhost:5080, which nothing outside the container can reach. 8080 (not 80) because a non-root user
+# is not allowed to open ports below 1024 by default.
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+
+# NO SECRETS HERE. The connection string (with its password) is not in the image: it arrives at run time as the
+# environment variable BTAL_SQLSERVER, set by docker-compose.yml from your .env file. Anyone who gets this image
+# gets no password.
+
+# Run as a normal user, not root. The official ASP.NET images already contain a user called "app" (its numeric id
+# is in $APP_UID); if the app were hacked, the attacker would not be root inside the container.
+USER $APP_UID
+
+ENTRYPOINT ["dotnet", "FullStackBank.Api.dll"]
