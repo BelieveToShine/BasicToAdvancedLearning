@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1040" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1040" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Update and delete — Sub-level Flow: find the row, change it, ask the database</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">PUT and DELETE share the same first step (Find) and the same last step (SaveChanges); only the middle differs.</text>
+  <text x="145" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="145" y1="54" x2="145" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="145,54 145,72 175,63" fill="#38761d"/>
+  <line x1="145" y1="92" x2="145" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="104" width="210" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="145.0" y="125.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">PUT /api/accounts/{id}</text>
+  <text x="145.0" y="141.0" text-anchor="middle" font-size="9.0" fill="#555">Replace(id, request)</text>
+  <rect x="330" y="104" width="210" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="435.0" y="125.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">DELETE /api/accounts/{id}</text>
+  <text x="435.0" y="141.0" text-anchor="middle" font-size="9.0" fill="#555">Delete(id)</text>
+  <polyline points="145,154 145,182 285,182 285,208" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="435,154 435,182 285,182" fill="none" stroke="#333" stroke-width="1.6"/>
+  <rect x="160" y="208" width="250" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="285.0" y="229.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">_db.Accounts.Find(id)</text>
+  <text x="285.0" y="245.0" text-anchor="middle" font-size="9.0" fill="#555">loads the row and tracks it</text>
+  <line x1="285" y1="258" x2="285" y2="288" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="285,288 405,338 285,388 165,338" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="285" y="341" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">row found?</text>
+  <line x1="405" y1="338" x2="560" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="485" y="330" text-anchor="middle" font-size="9" font-weight="bold" fill="#990000">no</text>
+  <rect x="560" y="306" width="300" height="64" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="710.0" y="334.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">404 NotFound + ProblemDetails</text>
+  <text x="710.0" y="350.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">PUT /99 · DELETE /3 (the second time)</text>
+  <polyline points="285,388 285,412 150,412 150,432" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="285,412 420,412 420,432" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="215" y="404" text-anchor="middle" font-size="9" font-weight="bold" fill="#555">PUT</text>
+  <text x="355" y="404" text-anchor="middle" font-size="9" font-weight="bold" fill="#555">DELETE</text>
+  <rect x="40" y="432" width="220" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="150.0" y="452.0" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">copy the 3 fields onto</text>
+  <text x="150.0" y="468.0" text-anchor="middle" font-size="8.5" fill="#555">the tracked entity (full replace)</text>
+  <text x="150.0" y="484.0" text-anchor="middle" font-size="8.5" fill="#555">account.Balance = request.Balance …</text>
+  <rect x="320" y="432" width="200" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="420.0" y="460.0" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">_db.Accounts.Remove(account)</text>
+  <text x="420.0" y="476.0" text-anchor="middle" font-size="8.5" fill="#555">marks the row to be deleted</text>
+  <polyline points="150,496 150,526 285,526 285,548" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="420,496 420,526 285,526" fill="none" stroke="#333" stroke-width="1.6"/>
+  <rect x="140" y="548" width="290" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="285.0" y="572.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">TrySave()  -&gt;  SaveChanges()</text>
+  <text x="285.0" y="588.0" text-anchor="middle" font-size="9.0" fill="#555">EF sends UPDATE (changed columns) or DELETE</text>
+  <rect x="600" y="548" width="260" height="56" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="730.0" y="566" text-anchor="middle" font-size="10" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server</text>
+  <text x="730.0" y="584" text-anchor="middle" font-size="9" fill="#333">runs the UPDATE or DELETE</text>
+  <line x1="430" y1="576" x2="600" y2="576" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="515" y="568" text-anchor="middle" font-size="9" fill="#555">T-SQL</text>
+  <line x1="285" y1="604" x2="285" y2="640" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="285,640 405,690 285,740 165,690" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="285" y="687" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">SQL Server</text>
+  <text x="285" y="699" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">accepts it?</text>
+  <line x1="405" y1="690" x2="560" y2="690" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="485" y="682" text-anchor="middle" font-size="9" font-weight="bold" fill="#990000">no</text>
+  <rect x="560" y="650" width="300" height="80" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="710.0" y="670.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">409 Conflict + ProblemDetails</text>
+  <text x="710.0" y="686.0" text-anchor="middle" font-size="9.0" fill="#555">error 547: a foreign key blocks it</text>
+  <text x="710.0" y="702.0" text-anchor="middle" font-size="9.0" fill="#555">nothing changed in the database</text>
+  <text x="710.0" y="718.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">DELETE /1 (account 1 has transactions)</text>
+  <line x1="285" y1="740" x2="285" y2="776" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="293" y="764" font-size="9" font-weight="bold" fill="#274e13">yes</text>
+  <rect x="140" y="776" width="290" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="285.0" y="800.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">204 NoContent (empty body)</text>
+  <text x="285.0" y="816.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">PUT /2 · DELETE /3</text>
+  <line x1="285" y1="832" x2="285" y2="856" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="285" y="870" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="285" y1="878" x2="285" y2="918" stroke="#333" stroke-width="2"/>
+  <polygon points="285,878 285,896 315,887" fill="#cc0000"/>
+  <text x="30" y="960" font-size="10.5" fill="#444"><tspan font-weight="bold">Same pattern as Create, one level up:</tspan> find the row (404 if missing), change it, and let the database have the last word (409 if it refuses).</text>
+  <text x="30" y="978" font-size="10" font-style="italic" fill="#888">Also in this method: ShowRawDeleteRefused() sends the same DELETE with no API in between and prints "error number 547"; Console.WriteLine prints the status</text>
+  <text x="30" y="996" font-size="10" font-style="italic" fill="#888">lines, a recap line for 204 and one for 409, and SqlLab.Show prints the Accounts and Transactions rows at the end.</text>
+  <text x="30" y="1014" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and the "=== title ===" banner (two more Console.WriteLine calls, not drawn).</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 890" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1380" height="890" fill="#ffffff"/>
+  <text x="690.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Dependency injection — Memory: Stack / Heap / Static</text>
+  <text x="690.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainDependencyInjection() is running, after the Singleton scenario finished and before ShowScopedStore() is called.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="790" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1325.0" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="9.9" font-weight="bold" fill="#274e13">WebApiBasicsDemo.ExplainDependencyInjection() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">builder → pointer  (WebApplicationBuilder)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">WebApiBasicsExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="137" width="290" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplicationBuilder — builder</text>
+  <rect x="472" y="169" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="186" font-size="10" fill="#7f4e00">Services: StoreAccountsController</text>
+  <rect x="472" y="199" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="216" font-size="10" fill="#7f4e00">Services: IAccountStore (Singleton)</text>
+  <rect x="460" y="247" width="290" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="269" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="279" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="296" font-size="10" fill="#7f4e00">BaseAddress → "http://127.0.0.1:&lt;port&gt;"</text>
+  <rect x="472" y="309" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="326" font-size="10" fill="#7f4e00">Client → pointer (HttpClient)</text>
+  <rect x="472" y="339" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="356" font-size="10" fill="#7f4e00">_app → pointer (WebApplication)</text>
+  <rect x="790" y="300" width="330" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient</text>
+  <rect x="802" y="332" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="349" font-size="10" fill="#7f4e00">BaseAddress = the same address</text>
+  <text x="804" y="373" font-size="8.5" font-style="italic" fill="#a06a1f">(handler and timeouts not shown)</text>
+  <line x1="750" y1="322" x2="788" y2="322" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="398" width="330" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="420" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplication — the running server</text>
+  <rect x="802" y="430" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="447" font-size="10" fill="#7f4e00">endpoints: GET and POST api/accounts</text>
+  <rect x="802" y="460" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="477" font-size="10" fill="#7f4e00">Services → pointer (the DI container)</text>
+  <polyline points="750,352 772,352 772,420 788,420" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="520" width="330" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DI container (the service provider)</text>
+  <rect x="802" y="552" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="569" font-size="10" fill="#7f4e00">IAccountStore → InMemoryAccountStore</text>
+  <rect x="802" y="582" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="599" font-size="10" fill="#7f4e00">lifetime: Singleton — one instance, kept</text>
+  <rect x="802" y="612" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="629" font-size="10" fill="#7f4e00">instance → pointer (the store below)</text>
+  <line x1="955" y1="494" x2="955" y2="518" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="963" y="512" font-size="9" font-style="italic" fill="#555">Services</text>
+  <rect x="790" y="672" width="330" height="142" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="694" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">InMemoryAccountStore — the ONE singleton</text>
+  <rect x="802" y="704" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="721" font-size="10" fill="#7f4e00">AC-1001, Savings, 500</text>
+  <rect x="802" y="734" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="751" font-size="10" fill="#7f4e00">AC-1002, Current, 1200</text>
+  <rect x="802" y="764" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="781" font-size="10" fill="#7f4e00">AC-1003, Savings, 0</text>
+  <text x="804" y="805" font-size="8.5" font-style="italic" fill="#a06a1f">(made on the first request; the POST added AC-1003)</text>
+  <line x1="955" y1="646" x2="955" y2="670" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="963" y="664" font-size="9" font-style="italic" fill="#555">instance</text>
+  <rect x="460" y="397" width="290" height="96" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="605.0" y="417" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network</text>
+  <text x="474" y="437" font-size="9.5" font-weight="bold" fill="#333333">Last request: GET /api/accounts</text>
+  <text x="474" y="453" font-size="9.5" font-weight="bold" fill="#333333">Last response: 200, 3 accounts</text>
+  <text x="474" y="469" font-size="9.5" fill="#333333">Only bytes cross the network.</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 440,189 440,269 458,269" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1280" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1325" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1325" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="838" font-size="10.5" fill="#444"><tspan font-weight="bold">The controller never wrote new InMemoryAccountStore(): the DI container made the store and passed it in. </tspan>Registered as Singleton, the container keeps that one store.</text>
+  <text x="40" y="856" font-size="10" font-style="italic" fill="#888">That is why the POSTed AC-1003 was still there for the next request. The controller objects of the three requests are gone; the store is not.</text>
+</svg>

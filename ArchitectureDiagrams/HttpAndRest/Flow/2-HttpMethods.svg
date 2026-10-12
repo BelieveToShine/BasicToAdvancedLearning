@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="950" height="600" fill="#ffffff"/>
+  <text x="475.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">HTTP methods — Sub-level Flow: four counters at a service desk</text>
+  <text x="475.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each counter is asked twice with the same request. The ledger under each name is how many accounts the server holds.</text>
+  <text x="105" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="105" y1="54" x2="105" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="105,54 105,72 135,63" fill="#38761d"/>
+  <line x1="105" y1="92" x2="105" y2="130" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="130" width="150" height="200" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="105" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a4a73">GET  ×2</text>
+  <text x="105" y="168" text-anchor="middle" font-size="9" fill="#333">/api/accounts/1</text>
+  <text x="105" y="192" text-anchor="middle" font-size="9" fill="#333">reads account 1</text>
+  <text x="105" y="207" text-anchor="middle" font-size="9" fill="#333">SAFE: changes nothing</text>
+  <rect x="45" y="252" width="120" height="30" rx="6" fill="#ffffff" stroke="#3d85c6" stroke-width="1"/>
+  <text x="105" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">accounts: 3 → 3</text>
+  <text x="105" y="304" text-anchor="middle" font-size="8.5" font-style="italic" fill="#555">Console.WriteLine ×4</text>
+  <line x1="180" y1="230" x2="215" y2="230" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="215" y="130" width="150" height="200" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="290" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">POST  ×2</text>
+  <text x="290" y="168" text-anchor="middle" font-size="9" fill="#333">/api/accounts</text>
+  <text x="290" y="192" text-anchor="middle" font-size="9" fill="#333">creates a NEW account</text>
+  <text x="290" y="207" text-anchor="middle" font-size="9" fill="#333">each time: ids 4 and 5</text>
+  <text x="290" y="222" text-anchor="middle" font-size="9" fill="#333">NOT idempotent</text>
+  <rect x="230" y="252" width="120" height="30" rx="6" fill="#ffffff" stroke="#6aa84f" stroke-width="1"/>
+  <text x="290" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">accounts: 3 → 5</text>
+  <text x="290" y="304" text-anchor="middle" font-size="8.5" font-style="italic" fill="#555">Console.WriteLine ×3</text>
+  <line x1="365" y1="230" x2="400" y2="230" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="400" y="130" width="150" height="200" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="475" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a10">PUT  ×2</text>
+  <text x="475" y="168" text-anchor="middle" font-size="9" fill="#333">/api/accounts/2</text>
+  <text x="475" y="192" text-anchor="middle" font-size="9" fill="#333">replaces account 2</text>
+  <text x="475" y="207" text-anchor="middle" font-size="9" fill="#333">same body twice,</text>
+  <text x="475" y="222" text-anchor="middle" font-size="9" fill="#333">same result: idempotent</text>
+  <rect x="415" y="252" width="120" height="30" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1"/>
+  <text x="475" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">accounts: 5 → 5</text>
+  <text x="475" y="304" text-anchor="middle" font-size="8.5" font-style="italic" fill="#555">Console.WriteLine ×3</text>
+  <line x1="550" y1="230" x2="585" y2="230" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="585" y="130" width="150" height="200" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="660" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f6000">DELETE  ×2</text>
+  <text x="660" y="168" text-anchor="middle" font-size="9" fill="#333">/api/accounts/3</text>
+  <text x="660" y="192" text-anchor="middle" font-size="9" fill="#333">204, then 404</text>
+  <text x="660" y="207" text-anchor="middle" font-size="9" fill="#333">gone either way:</text>
+  <text x="660" y="222" text-anchor="middle" font-size="9" fill="#333">idempotent</text>
+  <rect x="600" y="252" width="120" height="30" rx="6" fill="#ffffff" stroke="#f1c232" stroke-width="1"/>
+  <text x="660" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">accounts: 5 → 4</text>
+  <text x="660" y="304" text-anchor="middle" font-size="8.5" font-style="italic" fill="#555">Console.WriteLine ×3</text>
+  <line x1="735" y1="230" x2="770" y2="230" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="770" y="130" width="150" height="200" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="845" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#990000">DELETE  ×1</text>
+  <text x="845" y="168" text-anchor="middle" font-size="9" fill="#333">/api/accounts</text>
+  <text x="845" y="192" text-anchor="middle" font-size="9" fill="#333">the collection offers</text>
+  <text x="845" y="207" text-anchor="middle" font-size="9" fill="#333">GET and POST only:</text>
+  <text x="845" y="222" text-anchor="middle" font-size="9" fill="#333">405 + Allow header</text>
+  <rect x="785" y="252" width="120" height="30" rx="6" fill="#ffffff" stroke="#cc0000" stroke-width="1"/>
+  <text x="845" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">accounts: 4 → 4</text>
+  <text x="845" y="304" text-anchor="middle" font-size="8.5" font-style="italic" fill="#555">Console.WriteLine ×2</text>
+  <line x1="845" y1="330" x2="845" y2="368" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="845" y="374" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="845" y1="382" x2="845" y2="422" stroke="#333" stroke-width="2"/>
+  <polygon points="845,382 845,400 875,391" fill="#cc0000"/>
+  <rect x="30" y="400" width="560" height="124" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="310" y="420" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Two words to tell apart</text>
+  <text x="46" y="440" font-size="9.5" fill="#333">SAFE: the request only reads, so the server's data does not change (GET).</text>
+  <text x="46" y="458" font-size="9.5" fill="#333">IDEMPOTENT: doing it twice leaves the server in the same state as doing it once.</text>
+  <text x="46" y="476" font-size="9.5" fill="#333">GET, PUT and DELETE are idempotent here; POST is not (two calls, two new accounts).</text>
+  <text x="46" y="494" font-size="9.5" fill="#333">DELETE's second reply differs (404), but the server's DATA ends up the same.</text>
+  <text x="46" y="512" font-size="9.5" font-style="italic" fill="#555">CountAccounts() asks GET /api/accounts to get each ledger number.</text>
+  <text x="30" y="556" font-size="10.5" fill="#444"><tspan font-weight="bold">These are promises the server's author keeps,</tspan> not something HTTP enforces: this server follows them because it was written that way.</text>
+  <text x="30" y="574" font-size="10" font-style="italic" fill="#888">Each Send helper prints one line: METHOD path -&gt; status. Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line and the title), not drawn.</text>
+</svg>

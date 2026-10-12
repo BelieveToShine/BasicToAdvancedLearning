@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 654" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="654" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">SQL CRUD — Memory: Stack / Heap / Static (high level)</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">The program's memory holds only a few row-count ints and one SQL string; the rows themselves live in SQL Server, outside .NET.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — a few plain ints, one pointer</text>
+  <text x="660" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — one string</text>
+  <text x="1195" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="232" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local, in each method's own frame</text>
+  <rect x="56" y="144" width="348" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="159" font-size="9.5" font-weight="bold" fill="#1b3d1b">oneRow, twoRows → 2 ints (row counts)</text>
+  <text x="66" y="172" font-size="8.5" fill="#3f6b3f">ExplainInsertRows()</text>
+  <rect x="56" y="182" width="348" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="197" font-size="9.5" font-weight="bold" fill="#1b3d1b">emailsChanged, everyRow → 2 ints</text>
+  <text x="66" y="210" font-size="8.5" fill="#3f6b3f">ExplainUpdateRows()</text>
+  <rect x="56" y="220" width="348" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="235" font-size="9.5" font-weight="bold" fill="#1b3d1b">ledgerRows, accountRows, customerRows → 3 ints</text>
+  <text x="66" y="248" font-size="8.5" fill="#3f6b3f">ExplainDeleteRows()</text>
+  <rect x="56" y="258" width="348" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="273" font-size="9.5" font-weight="bold" fill="#1b3d1b">(no locals)  ·  (no locals)</text>
+  <text x="66" y="286" font-size="8.5" fill="#3f6b3f">ExplainTransactions()  ·  ExplainSafeHabits()</text>
+  <rect x="56" y="296" width="348" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="311" font-size="9.5" font-weight="bold" fill="#1b3d1b">transfer → pointer; repaired = 1 inline</text>
+  <text x="66" y="324" font-size="8.5" fill="#3f6b3f">ExplainXactAbort()</text>
+  <rect x="450" y="112" width="380" height="232" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Only one local points here</text>
+  <rect x="466" y="144" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="170" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">string — the transfer's T-SQL text</text>
+  <text x="640" y="188" text-anchor="middle" font-size="8.5" fill="#a06a1f">see Memory/5-XactAbort.svg</text>
+  <text x="640" y="240" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a06a1f">Every other SQL string is passed straight into</text>
+  <text x="640" y="256" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a06a1f">SqlLab.Run / Show; no local keeps it.</text>
+  <text x="640" y="300" text-anchor="middle" font-size="9.5" fill="#7f4e00">Row counts and balances never come here:</text>
+  <text x="640" y="316" text-anchor="middle" font-size="9.5" fill="#7f4e00">the data stays in SQL Server (box below).</text>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <rect x="40" y="380" width="1190" height="212" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="635.0" y="400" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: the bank tables at the end of the lesson</text>
+  <text x="635.0" y="415" text-anchor="middle" font-size="9" font-style="italic" fill="#666">Every CRUD statement and transaction in methods 1-6 changed these rows; none of them is ever stored in the Stack, Heap or Static.</text>
+  <text x="54" y="434" font-size="10" font-weight="bold" fill="#1a237e">The bank after the whole lesson</text>
+  <rect x="54" y="442" width="258" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="61" y="456" font-size="9.5" font-weight="bold" fill="#333">Customers</text>
+  <rect x="55" y="464" width="256" height="16" fill="#ececec"/>
+  <text x="61" y="475.5" font-size="9" font-weight="bold" fill="#444">CustomerId</text>
+  <text x="133" y="475.5" font-size="9" font-weight="bold" fill="#444">FullName</text>
+  <text x="200" y="475.5" font-size="9" font-weight="bold" fill="#444">Email</text>
+  <text x="61" y="491.5" font-size="9" fill="#222">1</text>
+  <text x="133" y="491.5" font-size="9" fill="#222">Asha Rao</text>
+  <text x="200" y="491.5" font-size="9" fill="#222">asha.rao@example.com</text>
+  <text x="61" y="507.5" font-size="9" fill="#222">2</text>
+  <text x="133" y="507.5" font-size="9" fill="#222">Ben Carter</text>
+  <text x="200" y="507.5" font-size="9" fill="#222">ben@example.com</text>
+  <text x="61" y="523.5" font-size="9" fill="#222">3</text>
+  <text x="133" y="523.5" font-size="9" fill="#222">Chen Li</text>
+  <text x="200" y="523.5" font-size="9" fill="#222">chen@example.com</text>
+  <line x1="54" y1="480" x2="312" y2="480" stroke="#bbb" stroke-width="1"/>
+  <rect x="324" y="442" width="360" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="331" y="456" font-size="9.5" font-weight="bold" fill="#333">Accounts</text>
+  <rect x="325" y="464" width="358" height="16" fill="#ececec"/>
+  <text x="331" y="475.5" font-size="9" font-weight="bold" fill="#444">AccountId</text>
+  <text x="397" y="475.5" font-size="9" font-weight="bold" fill="#444">CustomerId</text>
+  <text x="469" y="475.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="558" y="475.5" font-size="9" font-weight="bold" fill="#444">AccountType</text>
+  <text x="636" y="475.5" font-size="9" font-weight="bold" fill="#444">Balance</text>
+  <text x="331" y="491.5" font-size="9" fill="#222">1</text>
+  <text x="397" y="491.5" font-size="9" fill="#222">1</text>
+  <text x="469" y="491.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="558" y="491.5" font-size="9" fill="#222">Savings</text>
+  <text x="636" y="491.5" font-size="9" fill="#222">260.00</text>
+  <text x="331" y="507.5" font-size="9" fill="#222">2</text>
+  <text x="397" y="507.5" font-size="9" fill="#222">2</text>
+  <text x="469" y="507.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="558" y="507.5" font-size="9" fill="#222">Current</text>
+  <text x="636" y="507.5" font-size="9" fill="#222">250.00</text>
+  <text x="331" y="523.5" font-size="9" fill="#222">3</text>
+  <text x="397" y="523.5" font-size="9" fill="#222">3</text>
+  <text x="469" y="523.5" font-size="9" fill="#222">SAV-3001</text>
+  <text x="558" y="523.5" font-size="9" fill="#222">Savings</text>
+  <text x="636" y="523.5" font-size="9" fill="#222">10.00</text>
+  <line x1="324" y1="480" x2="684" y2="480" stroke="#bbb" stroke-width="1"/>
+  <rect x="696" y="442" width="205" height="124" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="703" y="456" font-size="9.5" font-weight="bold" fill="#333">Transactions (the ledger)</text>
+  <rect x="697" y="464" width="203" height="16" fill="#ececec"/>
+  <text x="703" y="475.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="792" y="475.5" font-size="9" font-weight="bold" fill="#444">Kind</text>
+  <text x="859" y="475.5" font-size="9" font-weight="bold" fill="#444">Amount</text>
+  <text x="703" y="491.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="792" y="491.5" font-size="9" fill="#222">Deposit</text>
+  <text x="859" y="491.5" font-size="9" fill="#222">500.00</text>
+  <text x="703" y="507.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="792" y="507.5" font-size="9" fill="#222">Withdrawal</text>
+  <text x="859" y="507.5" font-size="9" fill="#222">200.00</text>
+  <text x="703" y="523.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="792" y="523.5" font-size="9" fill="#222">Deposit</text>
+  <text x="859" y="523.5" font-size="9" fill="#222">200.00</text>
+  <text x="703" y="539.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="792" y="539.5" font-size="9" fill="#222">Withdrawal</text>
+  <text x="859" y="539.5" font-size="9" fill="#222">50.00</text>
+  <text x="703" y="555.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="792" y="555.5" font-size="9" fill="#222">Deposit</text>
+  <text x="859" y="555.5" font-size="9" fill="#222">50.00</text>
+  <line x1="696" y1="480" x2="901" y2="480" stroke="#bbb" stroke-width="1"/>
+  <text x="40" y="614" font-size="10.5" fill="#444"><tspan font-weight="bold">C# sends text; SQL Server changes rows.</tspan> The ints on the Stack are only the "rows affected" numbers SqlLab.Run returned.</text>
+  <text x="40" y="634" font-size="10" font-style="italic" fill="#888">The dashed grey box is the same recorded addition to the locked 3-column shape that Topic 8 uses for the disk. Customer 4, account 4 and their ledger row existed only inside method 3.</text>
+</svg>

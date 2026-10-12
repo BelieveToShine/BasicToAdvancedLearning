@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 934" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="934" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Foreign keys — Sub-level Flow: a bouncer with a guest list</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">An account may only be linked to a customer who is on the list, and a listed customer cannot be removed while accounts point at them.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="520" y="52" width="340" height="730" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">SQL Server (outside .NET) — two tables</text>
+  <text x="690" y="84" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">the guest list (Customers) and the bouncer (the foreign key)</text>
+  <rect x="60" y="104" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="126" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">DropAllTables(); Execute(createCustomers);</text>
+  <text x="210" y="143" text-anchor="middle" font-size="9.5" fill="#555">fresh Customers table with a primary key</text>
+  <line x1="210" y1="162" x2="210" y2="204" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="186" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "(Starting fresh...)", SQL text</text>
+  <rect x="540" y="104" width="300" height="58" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="690" y="123" text-anchor="middle" font-size="9.5" fill="#333">Customers: empty</text>
+  <text x="690" y="139" text-anchor="middle" font-size="9.5" fill="#333">(the guest list)</text>
+  <line x1="360" y1="124" x2="538" y2="124" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="118" text-anchor="middle" font-size="9.5" fill="#555">builds the guest list</text>
+  <line x1="538" y1="150" x2="362" y2="150" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="146" text-anchor="middle" font-size="9.5" fill="#555">-1</text>
+  <rect x="60" y="204" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="226" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Execute(createAccounts);</text>
+  <text x="210" y="243" text-anchor="middle" font-size="9.5" fill="#555">Accounts.CustomerId  FOREIGN KEY -&gt; Customers</text>
+  <line x1="210" y1="262" x2="210" y2="304" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="286" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL text</text>
+  <rect x="540" y="204" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="690" y="223" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">bouncer: FK_Accounts_Customers</text>
+  <text x="690" y="239" text-anchor="middle" font-size="9.5" fill="#333">checks every account against the list</text>
+  <line x1="360" y1="224" x2="538" y2="224" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="218" text-anchor="middle" font-size="9.5" fill="#555">posts the bouncer</text>
+  <line x1="538" y1="250" x2="362" y2="250" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="246" text-anchor="middle" font-size="9.5" fill="#555">-1</text>
+  <rect x="60" y="304" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="326" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Execute(customers);  Execute(accounts);</text>
+  <text x="210" y="343" text-anchor="middle" font-size="9.5" fill="#555">3 customers, then 3 accounts (Asha has two)</text>
+  <line x1="210" y1="362" x2="210" y2="404" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="386" font-size="9" font-style="italic" fill="#555">Console.WriteLine: SQL text (twice)</text>
+  <rect x="540" y="304" width="300" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="690" y="323" text-anchor="middle" font-size="9.5" fill="#333">Asha: ACC-1001, ACC-1002</text>
+  <text x="690" y="339" text-anchor="middle" font-size="9.5" fill="#333">Ben: ACC-2001</text>
+  <text x="690" y="355" text-anchor="middle" font-size="9.5" fill="#333">Chen: no account yet</text>
+  <line x1="360" y1="324" x2="538" y2="324" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="318" text-anchor="middle" font-size="9.5" fill="#555">inserts, parent first</text>
+  <line x1="538" y1="350" x2="362" y2="350" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="346" text-anchor="middle" font-size="9.5" fill="#555">3 rows, then 3 rows</text>
+  <rect x="60" y="404" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="426" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Query(accounts JOIN customers);</text>
+  <text x="210" y="443" text-anchor="middle" font-size="9.5" fill="#555">each account shown with its owner</text>
+  <line x1="210" y1="462" x2="210" y2="504" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="486" font-size="9" font-style="italic" fill="#555">Console.WriteLine: message, SQL text, grid</text>
+  <rect x="540" y="404" width="300" height="58" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="690" y="423" text-anchor="middle" font-size="9.5" fill="#333">one customer -&gt; many accounts</text>
+  <text x="690" y="439" text-anchor="middle" font-size="9.5" fill="#333">(one-to-many)</text>
+  <line x1="360" y1="424" x2="538" y2="424" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="418" text-anchor="middle" font-size="9.5" fill="#555">sends SELECT ... JOIN</text>
+  <line x1="538" y1="450" x2="362" y2="450" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="446" text-anchor="middle" font-size="9.5" fill="#555">a grid: 3 rows</text>
+  <rect x="60" y="504" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="526" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Refused(INSERT account for customer 99);</text>
+  <text x="210" y="543" text-anchor="middle" font-size="9.5" fill="#555">99 is not on the guest list</text>
+  <line x1="210" y1="562" x2="210" y2="604" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="586" font-size="9" font-style="italic" fill="#555">Console.WriteLine: message, SQL text, error line (547)</text>
+  <rect x="540" y="504" width="300" height="58" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="690" y="523" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">bouncer says NO: no customer 99</text>
+  <text x="690" y="539" text-anchor="middle" font-size="9.5" fill="#333">the account is not stored</text>
+  <line x1="360" y1="524" x2="538" y2="524" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="518" text-anchor="middle" font-size="9.5" fill="#555">account for customer 99</text>
+  <line x1="538" y1="550" x2="362" y2="550" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="546" text-anchor="middle" font-size="9.5" fill="#555">error number 547</text>
+  <rect x="60" y="604" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="626" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Refused(DELETE customer 1);</text>
+  <text x="210" y="643" text-anchor="middle" font-size="9.5" fill="#555">Asha still owns two accounts</text>
+  <line x1="210" y1="662" x2="210" y2="704" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="686" font-size="9" font-style="italic" fill="#555">Console.WriteLine: message, SQL text, error line (547)</text>
+  <rect x="540" y="604" width="300" height="58" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="690" y="623" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">bouncer says NO: 2 accounts</text>
+  <text x="690" y="639" text-anchor="middle" font-size="9.5" fill="#333">point at customer 1</text>
+  <line x1="360" y1="624" x2="538" y2="624" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="618" text-anchor="middle" font-size="9.5" fill="#555">remove customer 1</text>
+  <line x1="538" y1="650" x2="362" y2="650" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="646" text-anchor="middle" font-size="9.5" fill="#555">error number 547</text>
+  <rect x="60" y="704" width="300" height="58" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="726" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">int deleted = Execute(DELETE Chen);</text>
+  <text x="210" y="743" text-anchor="middle" font-size="9.5" fill="#555">Chen has no accounts: nothing points at him</text>
+  <text x="218" y="786" font-size="9" font-style="italic" fill="#555">Console.WriteLine: SQL text, "Deleting Chen ... worked"</text>
+  <rect x="540" y="704" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="690" y="723" text-anchor="middle" font-size="9.5" fill="#333">Chen Li removed</text>
+  <text x="690" y="739" text-anchor="middle" font-size="9.5" fill="#333">Customers: Asha, Ben</text>
+  <line x1="360" y1="724" x2="538" y2="724" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="718" text-anchor="middle" font-size="9.5" fill="#555">remove Chen</text>
+  <line x1="538" y1="750" x2="362" y2="750" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="746" text-anchor="middle" font-size="9.5" fill="#555">1 (row deleted)</text>
+  <line x1="210" y1="762" x2="210" y2="802" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="814" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="822" x2="210" y2="862" stroke="#333" stroke-width="2"/>
+  <polygon points="210,822 210,840 240,831" fill="#cc0000"/>
+  <text x="30" y="884" font-size="10.5" fill="#444"><tspan font-weight="bold">The foreign key guards both doors: </tspan>no account for a missing customer, and no deleting a customer who still has accounts. Both refusals are error 547.</text>
+  <text x="30" y="902" font-size="10" font-style="italic" fill="#888">Execute / Query / Refused print the SQL first, one Console.WriteLine per line ("sql&gt; ..."); Query then prints a grid, Refused an error line.</text>
+  <text x="30" y="920" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading() (a blank line and a title: 2 Console.WriteLine calls, not drawn).</text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 754" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="754" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Related data — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainRelatedData() is running, after the Select query was read, just before "Select used 1 command." is printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="825" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="384" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="244" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">EfCoreCrudDemo.ExplainRelatedData() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">spy → pointer  (SqlSpy)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">context → pointer  (BankContext)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">plain → pointer  (List&lt;Customer&gt;)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">withAccounts → pointer  (List&lt;Customer&gt;)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">accountsFound = 3  (N+1 loop total)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">summaries → pointer  (List of anonymous)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">c, s: foreach variables — out of scope now</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">EfCoreCrudExample.Explain()</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="432" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="452" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="468" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="260" height="80" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlSpy — spy</text>
+  <rect x="470" y="146" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="160" font-size="9.5" fill="#7f4e00">Count = 1  (the Select query)</text>
+  <rect x="470" y="168" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="182" font-size="9.5" fill="#7f4e00">Print = false</text>
+  <rect x="460" y="212" width="260" height="73" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="232" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankContext — context</text>
+  <rect x="470" y="240" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="254" font-size="9.5" fill="#7f4e00">tracks nothing</text>
+  <text x="472" y="274" font-size="8.5" font-style="italic" fill="#a06a1f">0 entries: AsNoTracking / Select not tracked</text>
+  <rect x="460" y="299" width="260" height="117" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="319" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;Customer&gt; — plain  (Count = 3)</text>
+  <rect x="470" y="327" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="341" font-size="9.5" fill="#7f4e00">[0] Asha Rao: Accounts.Count = 0</text>
+  <rect x="470" y="349" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="363" font-size="9.5" fill="#7f4e00">[1] Ben Carter: Accounts.Count = 0</text>
+  <rect x="470" y="371" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="385" font-size="9.5" fill="#7f4e00">[2] Chen Li: Accounts.Count = 0</text>
+  <text x="472" y="405" font-size="8.5" font-style="italic" fill="#a06a1f">no Include: the Accounts lists were never loaded</text>
+  <rect x="460" y="430" width="260" height="117" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="450" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;Customer&gt; — withAccounts  (3)</text>
+  <rect x="470" y="458" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="472" font-size="9.5" fill="#7f4e00">[0] Asha Rao: Accounts.Count = 1</text>
+  <rect x="470" y="480" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="494" font-size="9.5" fill="#7f4e00">[1] Ben Carter: Accounts.Count = 2</text>
+  <rect x="470" y="502" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="516" font-size="9.5" fill="#7f4e00">[2] Chen Li: Accounts.Count = 0</text>
+  <text x="472" y="536" font-size="8.5" font-style="italic" fill="#a06a1f">Include joined the accounts in</text>
+  <rect x="460" y="561" width="260" height="117" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="581" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;anonymous&gt; — summaries  (3)</text>
+  <rect x="470" y="589" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="603" font-size="9.5" fill="#7f4e00">[0] { Asha Rao, 1, 500.00 }</text>
+  <rect x="470" y="611" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="625" font-size="9.5" fill="#7f4e00">[1] { Ben Carter, 2, 1250.00 }</text>
+  <rect x="470" y="633" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="647" font-size="9.5" fill="#7f4e00">[2] { Chen Li, 0, 0.00 }</text>
+  <text x="472" y="667" font-size="8.5" font-style="italic" fill="#a06a1f">FullName, AccountCount, TotalBalance only</text>
+  <rect x="800" y="118" width="390" height="145" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="995.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: the rows these queries read</text>
+  <text x="814" y="158" font-size="9.5" font-weight="bold" fill="#333333">Customers: 1 Asha Rao · 2 Ben Carter · 3 Chen Li</text>
+  <text x="814" y="173" font-size="9.5" font-weight="bold" fill="#333333">Accounts (AccountId | CustomerId | AccountNumber | Balance)</text>
+  <text x="814" y="188" font-size="9.5" fill="#333333">1 | 1 | ACC-1001 | 500.00</text>
+  <text x="814" y="203" font-size="9.5" fill="#333333">2 | 2 | ACC-2001 | 250.00</text>
+  <text x="814" y="218" font-size="9.5" fill="#333333">3 | 2 | ACC-2002 | 1000.00</text>
+  <text x="814" y="233" font-size="9.5" fill="#333333">Chen Li has no account rows: nothing to join, so</text>
+  <text x="814" y="248" font-size="9.5" fill="#333333">his list is empty either way.</text>
+  <polyline points="378,159 446,159 446,134 458,134" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 439,189 439,228 458,228" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 432,219 432,315 458,315" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 425,249 425,446 458,446" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 411,309 411,577 458,577" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="702" font-size="10.5" fill="#444"><tspan font-weight="bold">Two lists of the same three customers, built differently: plain has empty Accounts lists, withAccounts has them filled. </tspan>The data in SQL Server is identical.</text>
+  <text x="40" y="720" font-size="10" font-style="italic" fill="#888">accountsFound is just a number: the N+1 loop's 4 commands (1 + 3) left nothing behind but that count. The foreach variables c and s lived only inside their loops, so they are gone at this instant.</text>
+</svg>

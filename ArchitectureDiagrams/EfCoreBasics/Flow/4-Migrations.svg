@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="820" fill="#ffffff"/>
+  <text x="480.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Migrations — Sub-level Flow: numbered work orders and a site register</text>
+  <text x="480.0" y="38" text-anchor="middle" font-size="11" fill="#666">Migrate() reads the register, runs the work orders that are not ticked off yet, and ticks each one. A second call finds nothing to do.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="124.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">ResetTables();</text>
+  <text x="210.0" y="139.0" text-anchor="middle" font-size="9" fill="#555">clear the site (SqlLab.Run)</text>
+  <text x="440" y="114" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="128" x2="520" y2="128" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="96" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="116.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="131.5" text-anchor="middle" font-size="9" fill="#333">drops Accounts, Customers,</text>
+  <text x="680.0" y="146.5" text-anchor="middle" font-size="9" fill="#333">__EFMigrationsHistory if they exist</text>
+  <line x1="210" y1="156" x2="210" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="190" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="214.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">context.Database.GetMigrations() …</text>
+  <text x="210.0" y="229.0" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine × 3: found / applied / pending</text>
+  <text x="440" y="204" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="218" x2="520" y2="218" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="186" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="206.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="221.5" text-anchor="middle" font-size="9" fill="#333">work orders in the code: InitialCreate</text>
+  <text x="680.0" y="236.5" text-anchor="middle" font-size="9" fill="#333">applied: (none)   pending: InitialCreate</text>
+  <line x1="210" y1="246" x2="210" y2="290" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="290" width="300" height="56" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210.0" y="314.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">context.Database.Migrate();</text>
+  <text x="210.0" y="329.0" text-anchor="middle" font-size="9" fill="#555">runs InitialCreate.Up()</text>
+  <text x="440" y="304" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="318" x2="520" y2="318" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="286" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="306.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="321.5" text-anchor="middle" font-size="9" fill="#333">creates the register table, CREATE TABLE</text>
+  <text x="680.0" y="336.5" text-anchor="middle" font-size="9" fill="#333">Customers and Accounts, then ticks the order</text>
+  <line x1="210" y1="346" x2="210" y2="390" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="390" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="414.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">GetAppliedMigrations / GetPendingMigrations</text>
+  <text x="210.0" y="429.0" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine × 2</text>
+  <text x="440" y="404" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="418" x2="520" y2="418" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="386" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="406.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="421.5" text-anchor="middle" font-size="9" fill="#333">applied: InitialCreate</text>
+  <text x="680.0" y="436.5" text-anchor="middle" font-size="9" fill="#333">pending: (none)</text>
+  <line x1="210" y1="446" x2="210" y2="480" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="480" width="300" height="56" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210.0" y="504.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">context.Database.Migrate();  (again)</text>
+  <text x="210.0" y="519.0" text-anchor="middle" font-size="9" fill="#555">no output</text>
+  <text x="440" y="494" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="508" x2="520" y2="508" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="476" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="496.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="511.5" text-anchor="middle" font-size="9" fill="#333">register shows InitialCreate ticked,</text>
+  <text x="680.0" y="526.5" text-anchor="middle" font-size="9" fill="#333">so no work order runs</text>
+  <line x1="210" y1="536" x2="210" y2="570" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="570" width="300" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="594.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">SqlLab.Show × 2</text>
+  <text x="210.0" y="609.0" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine × 2 headings, then two grids</text>
+  <text x="440" y="584" text-anchor="middle" font-size="9" fill="#777">asks / changes</text>
+  <line x1="360" y1="598" x2="520" y2="598" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="520" y="566" width="320" height="64" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="680.0" y="586.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET)</text>
+  <text x="680.0" y="601.5" text-anchor="middle" font-size="9" fill="#333">lists the three table names</text>
+  <text x="680.0" y="616.5" text-anchor="middle" font-size="9" fill="#333">and the 1 row in __EFMigrationsHistory</text>
+  <line x1="210" y1="626" x2="210" y2="664" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="678" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="686" x2="210" y2="726" stroke="#333" stroke-width="2"/>
+  <polygon points="210,686 210,704 240,695" fill="#cc0000"/>
+  <text x="30" y="750" font-size="10.5" fill="#444"><tspan font-weight="bold">The migration file is the work order; __EFMigrationsHistory is the register:</tspan> without a ticked row, Migrate() would try to run InitialCreate again.</text>
+  <text x="30" y="768" font-size="10" font-style="italic" fill="#888">The migration id starts with the time the file was created (20261012172636_InitialCreate), so work orders run in the order they were made.</text>
+  <text x="30" y="786" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 676" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="676" fill="#ffffff"/>
+  <text x="640.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Create endpoint — Memory: Stack / Heap / Static</text>
+  <text x="640.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainCreateEndpoint() is running, right after the last POST (the duplicate AccountNumber) returned 409.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="800" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1225" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="324" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="184" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">WebApiCrudDemo.ExplainCreateEndpoint() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">openAccount → pointer  (CreateAccountRequest)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">created → pointer  (ApiReply)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">badRequest → pointer  (CreateAccountRequest)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">unknownOwner → pointer  (CreateAccountRequest)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">duplicateNumber → pointer  (CreateAccountRequest)</text>
+  <rect x="50" y="312" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">WebApiCrudExample.Explain()</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="480" y="144" width="330" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="645.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">CreateAccountRequest — openAccount</text>
+  <rect x="492" y="176" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="193" font-size="10" fill="#7f4e00">3 · "ACC-1004" · "Current" · 20</text>
+  <rect x="480" y="222" width="330" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="645.0" y="244" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — created</text>
+  <rect x="492" y="254" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="271" font-size="10" fill="#7f4e00">StatusCode = 201</text>
+  <rect x="492" y="284" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="301" font-size="10" fill="#7f4e00">Body → pointer (string)</text>
+  <rect x="492" y="314" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="331" font-size="10" fill="#7f4e00">LocationPath → pointer (string)</text>
+  <rect x="480" y="360" width="330" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="645.0" y="382" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">CreateAccountRequest — badRequest</text>
+  <rect x="492" y="392" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="409" font-size="10" fill="#7f4e00">1 · "A1" · "Gold" · -5</text>
+  <rect x="480" y="438" width="330" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="645.0" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">CreateAccountRequest — unknownOwner</text>
+  <rect x="492" y="470" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="487" font-size="10" fill="#7f4e00">99 · "ACC-2000" · "Savings" · 0</text>
+  <rect x="480" y="516" width="330" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="645.0" y="538" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">CreateAccountRequest — duplicateNumber</text>
+  <rect x="492" y="548" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="565" font-size="10" fill="#7f4e00">2 · "ACC-1001" · "Savings" · 0</text>
+  <rect x="870" y="278" width="290" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1015.0" y="297.0" text-anchor="middle" font-size="10" fill="#7f4e00">"{"accountId":4,"customerName":…}"</text>
+  <rect x="870" y="316" width="290" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1015.0" y="335.0" text-anchor="middle" font-size="10" fill="#7f4e00">"/api/accounts/4"</text>
+  <polyline points="810,297 840,297 840,293.0 868,293.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="810,327 840,327 840,331.0 868,331.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="870" y="390" width="300" height="124" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1020.0" y="410" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: Accounts</text>
+  <text x="884" y="430" font-size="9.5" font-weight="bold" fill="#333333">AccountId | CustomerId | AccountNumber</text>
+  <text x="884" y="446" font-size="9.5" fill="#333333">1 | 1 | ACC-1001   (Asha, Savings 500.00)</text>
+  <text x="884" y="462" font-size="9.5" fill="#333333">2 | 2 | ACC-1002   (Ben, Current 1200.50)</text>
+  <text x="884" y="478" font-size="9.5" fill="#333333">3 | 3 | ACC-1003   (Chen, Savings 75.00)</text>
+  <text x="884" y="494" font-size="9.5" fill="#333333">4 | 3 | ACC-1004   (Chen, Current 20.00)</text>
+  <polyline points="378,159 462,159 462,166 478,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 456,189 456,244 478,244" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 450,219 450,382 478,382" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 444,249 444,460 478,460" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 438,279 438,538 478,538" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1180" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1225" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1225" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="606" font-size="10.5" fill="#444"><tspan font-weight="bold">Only ONE of the four POSTs created a row — and only that reply was kept in a variable (created: 201 + the Location path). </tspan>The other three answers (400, 400, 409) were printed and dropped.</text>
+  <text x="40" y="624" font-size="10" font-style="italic" fill="#888">Request fields are shown inline as CustomerId · AccountNumber · AccountType · Balance (the three strings are really pointers to their own string objects).</text>
+  <text x="40" y="642" font-size="10" font-style="italic" fill="#888">Outside .NET, the database holds the 4 accounts: the three bad requests added nothing.</text>
+</svg>

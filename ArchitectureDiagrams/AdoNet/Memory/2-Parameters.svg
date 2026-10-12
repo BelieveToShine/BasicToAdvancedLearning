@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 744" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="744" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Parameters — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainParameters() is running, inside the safeCommand block, just after the stored name was read back and printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="850" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="384" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="244" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">AdoNetDemo.ExplainParameters() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">connection → pointer  (SqlConnection)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">insert, rowsAffected = 1 — block ended, gone</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">attackerInput → pointer  (string)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">unsafeSql → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">unsafeCommand — block ended, gone</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">safeCommand → pointer  (SqlCommand)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">storedName → pointer  (string)</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">AdoNetExample.Explain()</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="432" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="452" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="468" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="137" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlConnection — connection</text>
+  <rect x="472" y="169" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="186" font-size="10" fill="#7f4e00">State = Open</text>
+  <text x="474" y="210" font-size="8.5" font-style="italic" fill="#a06a1f">(its line to the server: see the grey box)</text>
+  <rect x="460" y="239" width="300" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="258.0" text-anchor="middle" font-size="10" fill="#7f4e00">"Ravi'); DROP TABLE dbo.ScratchVictim; --"</text>
+  <rect x="460" y="279" width="300" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="298.0" text-anchor="middle" font-size="10" fill="#7f4e00">"INSERT … VALUES ('Ravi'); DROP TABLE …; --')"</text>
+  <rect x="460" y="325" width="300" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="347" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlCommand — safeCommand</text>
+  <rect x="472" y="357" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="374" font-size="10" fill="#7f4e00">Parameters["@name"] → pointer</text>
+  <rect x="472" y="387" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="404" font-size="10" fill="#7f4e00">CommandText → pointer (string)</text>
+  <rect x="460" y="441" width="300" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="460.0" text-anchor="middle" font-size="10" fill="#7f4e00">"Ravi'); DROP TABLE dbo.ScratchVictim; --"</text>
+  <text x="466" y="488" font-size="9.5" font-style="italic" fill="#a06a1f">↑ a new string: a copy read back from the server</text>
+  <rect x="850" y="350" width="300" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1000.0" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlParameter — @name</text>
+  <rect x="862" y="382" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="870" y="399" font-size="10" fill="#7f4e00">ParameterName = "@name"</text>
+  <rect x="862" y="412" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="870" y="429" font-size="10" fill="#7f4e00">Value → pointer (string)</text>
+  <line x1="760" y1="370" x2="848" y2="370" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="850,425 812,425 812,254.0 762,254.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="850" y="470" width="310" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1005.0" y="489.0" text-anchor="middle" font-size="10" fill="#7f4e00">"SELECT TOP (1) Name FROM … WHERE Name = @name"</text>
+  <polyline points="760,400 800,400 800,485 848,485" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="850" y="530" width="330" height="138" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1015.0" y="550" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server</text>
+  <text x="864" y="570" font-size="9.5" font-weight="bold" fill="#333333">dbo.Customers: 4 rows (… and Dana O'Neil)</text>
+  <text x="864" y="586" font-size="9.5" font-weight="bold" fill="#333333">dbo.ScratchNames: 2 rows</text>
+  <text x="864" y="602" font-size="9.5" fill="#333333">• Ravi — stored by the glued INSERT</text>
+  <text x="864" y="618" font-size="9.5" fill="#333333">• Ravi'); DROP TABLE dbo.ScratchVictim; --</text>
+  <text x="864" y="634" font-size="9.5" fill="#333333">  ↑ this row came from the parameter: plain text</text>
+  <text x="864" y="650" font-size="9.5" font-weight="bold" fill="#333333">dbo.ScratchVictim: exists — re-created, empty</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 452,219 452,254.0 458,254.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 444,249 444,294.0 458,294.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 436,309 436,347 458,347" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,339 428,339 428,456.0 458,456.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="692" font-size="10.5" fill="#444"><tspan font-weight="bold">The parameter's Value points at the SAME string as attackerInput, and SQL Server receives it as DATA, not as SQL text. </tspan>storedName is a different string object holding equal text.</text>
+  <text x="40" y="710" font-size="10" font-style="italic" fill="#888">unsafeSql was glued together from pieces, so the server read the attacker's text as SQL and ran the DROP TABLE. Both scratch tables are dropped by the last line of the method.</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+  <text x="600" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Web API basics — Memory: Stack / Heap / Static (high level)</text>
+  <text x="600" y="46" text-anchor="middle" font-size="12" fill="#666">Server and client are ordinary objects in one program's memory; the HTTP request and response travel outside it, as bytes.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers only</text>
+  <text x="730" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — the server, the client and the services</text>
+  <text x="1105" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="262" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local, in each method's own frame</text>
+  <rect x="56" y="144" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="158" font-size="10" font-weight="bold" fill="#1b3d1b">builder, app, server, request, response, body</text>
+  <text x="66" y="170" font-size="8.5" fill="#3f6b3f">ExplainControllerAndAction()</text>
+  <rect x="56" y="180" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="194" font-size="10" font-weight="bold" fill="#1b3d1b">builder, server → 2 pointers</text>
+  <text x="66" y="206" font-size="8.5" fill="#3f6b3f">ExplainRouting()</text>
+  <rect x="56" y="216" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="230" font-size="10" font-weight="bold" fill="#1b3d1b">builder, server → 2 pointers</text>
+  <text x="66" y="242" font-size="8.5" fill="#3f6b3f">ExplainModelBinding()</text>
+  <rect x="56" y="252" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="266" font-size="10" font-weight="bold" fill="#1b3d1b">builder, server → 2 pointers</text>
+  <text x="66" y="278" font-size="8.5" fill="#3f6b3f">ExplainActionResults()</text>
+  <rect x="56" y="288" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="302" font-size="10" font-weight="bold" fill="#1b3d1b">builder, server → 2 pointers</text>
+  <text x="66" y="314" font-size="8.5" fill="#3f6b3f">ExplainDependencyInjection()</text>
+  <rect x="56" y="324" width="348" height="32" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="338" font-size="10" font-weight="bold" fill="#1b3d1b">builder, server → 2 pointers</text>
+  <text x="66" y="350" font-size="8.5" fill="#3f6b3f">ExplainServiceLifetimes()</text>
+  <rect x="450" y="112" width="560" height="262" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="730" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Everything the server and client are made of</text>
+  <rect x="466" y="144" width="528" height="48" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="730" y="164" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">RunningServer → HttpClient + WebApplication</text>
+  <text x="730" y="181" text-anchor="middle" font-size="8.5" fill="#a06a1f">the app holds the route table: URL template → action (Memory/1, 2)</text>
+  <rect x="466" y="200" width="528" height="48" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="730" y="220" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">The DI container (service provider)</text>
+  <text x="730" y="237" text-anchor="middle" font-size="8.5" fill="#a06a1f">registrations + the Singleton instances it keeps (Memory/5, 6)</text>
+  <rect x="466" y="256" width="528" height="48" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="730" y="276" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">Per-request objects: controller, bound values</text>
+  <text x="730" y="293" text-anchor="middle" font-size="8.5" fill="#a06a1f">made for ONE request, then unreferenced; not shown in the snapshots</text>
+  <rect x="466" y="312" width="528" height="48" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="730" y="332" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">Strings: URLs, JSON bodies, the response text</text>
+  <text x="730" y="349" text-anchor="middle" font-size="8.5" fill="#a06a1f">the response holds its bytes (HttpContent); the body string is a separate decoded copy</text>
+  <rect x="1030" y="112" width="150" height="262" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="1105" y="134" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Used twice</text>
+  <text x="1105" y="160" text-anchor="middle" font-size="9" fill="#5b4a7a">Memory/4: the controller's</text>
+  <text x="1105" y="174" text-anchor="middle" font-size="9" fill="#5b4a7a">static Accounts list</text>
+  <text x="1105" y="204" text-anchor="middle" font-size="9" fill="#5b4a7a">Memory/6: the shared</text>
+  <text x="1105" y="218" text-anchor="middle" font-size="9" fill="#5b4a7a">Probe._created counter</text>
+  <text x="1105" y="258" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">Other methods leave</text>
+  <text x="1105" y="272" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">Static empty.</text>
+  <rect x="450" y="394" width="730" height="84" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="815" y="416" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — the network</text>
+  <text x="466" y="438" font-size="9.5" fill="#333">The HTTP request and response are bytes on a connection: "GET /api/accounts HTTP/1.1" going out, "200" + the JSON text coming back.</text>
+  <text x="466" y="456" font-size="9.5" font-style="italic" fill="#777">They are never in the Stack, Heap or Static. Every Memory diagram in this topic draws them as a dashed grey box.</text>
+  <text x="40" y="508" font-size="10.5" fill="#444"><tspan font-weight="bold">A controller is short-lived, a Singleton is not.</tspan> The container makes a new controller for every request and decides how long each service it hands in lives.</text>
+  <text x="40" y="528" font-size="10" font-style="italic" fill="#888">The extra dashed box and the populated Static column in Memory/4 and 6 are recorded additions to the locked shape; Stack, Heap and Static keep their colours and the 3 frames.</text>
+</svg>

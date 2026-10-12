@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 492" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="492" fill="#ffffff"/>
+  <text x="600.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Primary keys — Memory: Stack / Heap / Static</text>
+  <text x="600.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainPrimaryKeys() is running, right after SQL Server refused the row with the taken id.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1145" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.3" font-weight="bold" fill="#274e13">RelationalConceptsDemo.ExplainPrimaryKeys() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">createCustomers → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">forceDuplicateId → pointer  (string)</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">RelationalConceptsExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="163.0" text-anchor="middle" font-size="10" fill="#7f4e00">CREATE TABLE Customers ( CustomerId INT IDENTITY(1,1) … )</text>
+  <rect x="460" y="184" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="203.0" text-anchor="middle" font-size="10" fill="#7f4e00">SET IDENTITY_INSERT Customers ON; INSERT … (1, …)</text>
+  <text x="800" y="204" font-size="9" font-style="italic" fill="#a06a1f">← SQL text, shortened</text>
+  <rect x="460" y="260" width="600" height="156" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="760.0" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: table Customers (PRIMARY KEY PK_Customers on CustomerId)</text>
+  <text x="476" y="302" font-size="10" font-weight="bold" fill="#333333">Customers</text>
+  <text x="1044" y="302" text-anchor="end" font-size="9" font-style="italic" fill="#777777">CustomerId: unique, never NULL, numbered by IDENTITY</text>
+  <text x="476" y="319" font-size="9.5" font-weight="bold" fill="#555555">CustomerId</text>
+  <text x="566" y="319" font-size="9.5" font-weight="bold" fill="#555555">FullName</text>
+  <text x="676" y="319" font-size="9.5" font-weight="bold" fill="#555555">Email</text>
+  <line x1="476" y1="323" x2="1044" y2="323" stroke="#aaaaaa" stroke-width="1"/>
+  <text x="476" y="336" font-size="9.5" fill="#333333">1</text>
+  <text x="566" y="336" font-size="9.5" fill="#333333">Asha Rao</text>
+  <text x="676" y="336" font-size="9.5" fill="#333333">asha@example.com</text>
+  <text x="476" y="352" font-size="9.5" fill="#333333">2</text>
+  <text x="566" y="352" font-size="9.5" fill="#333333">Ben Carter</text>
+  <text x="676" y="352" font-size="9.5" fill="#333333">ben@example.com</text>
+  <text x="476" y="368" font-size="9.5" fill="#333333">3</text>
+  <text x="566" y="368" font-size="9.5" fill="#333333">Chen Li</text>
+  <text x="676" y="368" font-size="9.5" fill="#333333">chen@example.com</text>
+  <text x="476" y="384" font-size="9.5" fill="#333333">4</text>
+  <text x="566" y="384" font-size="9.5" fill="#333333">Asha Rao</text>
+  <text x="676" y="384" font-size="9.5" fill="#333333">asha.rao@other.example</text>
+  <text x="476" y="408" font-size="9.5" font-weight="bold" fill="#cc0000">Refused (error 2627), never stored:  1 | Impostor | impostor@example.com   (id 1 already in use)</text>
+  <line x1="378" y1="159" x2="458" y2="159.0" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 432,189 432,199.0 458,199.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1100" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="440" font-size="10.5" fill="#444"><tspan font-weight="bold">The key rule is enforced by SQL Server, not by C#. </tspan>The Impostor INSERT left .NET as a string and was rejected over there; only the error number came back.</text>
+  <text x="40" y="458" font-size="10" font-style="italic" fill="#888">Two rows share the name Asha Rao but have different ids (1 and 4): the id, not the name, identifies a row. The four stored rows are the whole table.</text>
+</svg>

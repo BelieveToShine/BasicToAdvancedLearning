@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="720" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">What is OpenAPI? — Sub-level Flow: asking a restaurant for its MENU</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The OpenAPI document is the menu: it lists every dish (operation) but does not cook one. Reading it runs nothing.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="122.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">using RunningServer server = BankApi.Start();</text>
+  <text x="210.0" y="137.0" text-anchor="middle" font-size="9.5" fill="#555">open the restaurant (start the API)</text>
+  <rect x="520" y="100" width="320" height="270" rx="10" fill="#f4f4f4" stroke="#555555" stroke-width="1.5"/>
+  <text x="680.0" y="122" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">the API server = the restaurant</text>
+  <text x="680.0" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">(in this process; its port is not printed)</text>
+  <rect x="540" y="160" width="280" height="80" rx="8" fill="#ffffff" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="680" y="182" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">the MENU  =  OpenAPI document</text>
+  <text x="680" y="200" text-anchor="middle" font-size="9.5" fill="#333">served by UseSwagger() at</text>
+  <text x="680" y="216" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">/swagger/v1/swagger.json</text>
+  <text x="680" y="232" text-anchor="middle" font-size="9" font-style="italic" fill="#555">lists dishes, does not cook them</text>
+  <rect x="540" y="270" width="280" height="80" rx="8" fill="#ffffff" stroke="#e69138" stroke-width="1.5"/>
+  <text x="680" y="292" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">the KITCHEN  =  controller actions</text>
+  <text x="680" y="312" text-anchor="middle" font-size="9.5" fill="#333">GET / POST / DELETE on /api/accounts…</text>
+  <text x="680" y="330" text-anchor="middle" font-size="9" font-style="italic" fill="#555">not touched by this method</text>
+  <line x1="360" y1="125" x2="520" y2="125" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="117" text-anchor="middle" font-size="9.5" fill="#555">starts it</text>
+  <line x1="210" y1="150" x2="210" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="190" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="217.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">ApiClientHelpers.Send(GET, OpenApiPath)</text>
+  <text x="210.0" y="232.0" text-anchor="middle" font-size="9.5" fill="#555">ask for the menu</text>
+  <line x1="360" y1="205" x2="520" y2="205" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="197" text-anchor="middle" font-size="9.5" fill="#555">GET /swagger/v1/swagger.json</text>
+  <line x1="520" y1="238" x2="362" y2="238" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="230" text-anchor="middle" font-size="9.5" fill="#555">the menu (JSON text)</text>
+  <text x="218" y="272" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "GET … -&gt; 200 (…)"</text>
+  <line x1="210" y1="250" x2="210" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="300" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="327.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">JsonDocument.Parse(reply.Body)</text>
+  <text x="210.0" y="342.0" text-anchor="middle" font-size="9.5" fill="#555">read the menu as data</text>
+  <text x="218" y="382" font-size="9" font-style="italic" fill="#555">Console.WriteLine ×2: "openapi:", "info:"</text>
+  <line x1="210" y1="360" x2="210" y2="410" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="410" width="300" height="80" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="2"/>
+  <text x="210.0" y="440.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">foreach path → foreach verb</text>
+  <text x="210.0" y="454.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">GetProperty("paths").EnumerateObject()</text>
+  <text x="210.0" y="468.0" text-anchor="middle" font-size="9.5" fill="#555">one menu line per operation</text>
+  <polyline points="360,470 400,470 400,430 362,430" fill="none" stroke="#e69138" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="408" y="454" text-anchor="start" font-size="9.5" fill="#555">next</text>
+  <text x="218" y="512" font-size="9" font-style="italic" fill="#555">Console.WriteLine: a path line + a line per verb</text>
+  <line x1="210" y1="490" x2="210" y2="540" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="540" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="566.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">Console.WriteLine: "5 operations in total…"</text>
+  <line x1="210" y1="584" x2="210" y2="604" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="626" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="634" x2="210" y2="674" stroke="#333" stroke-width="2"/>
+  <polygon points="210,634 210,652 240,643" fill="#cc0000"/>
+  <text x="30" y="690" font-size="10.5" fill="#444"><tspan font-weight="bold">Reading the menu is not eating: </tspan>the lesson only looks inside the JSON; no account is created, changed or deleted.</text>
+</svg>

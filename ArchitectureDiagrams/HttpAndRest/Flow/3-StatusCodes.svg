@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="675" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Status codes — Sub-level Flow: one request, four possible doors</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The first digit of the status code tells you which door the reply came out of.</text>
+  <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="450,54 450,72 480,63" fill="#38761d"/>
+  <line x1="450" y1="92" x2="450" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="250" y="100" width="400" height="62" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="118" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send eight requests, one at a time</text>
+  <text x="450.0" y="135" text-anchor="middle" font-size="9" fill="#333">Send(...) prints one line each: METHOD path -&gt; code</text>
+  <text x="450.0" y="150" text-anchor="middle" font-size="9" fill="#333">noRedirectClient is used for the redirect one</text>
+  <polyline points="450,162 450,190" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="120,190 780,190" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="120" y1="190" x2="120" y2="220" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="340" y1="190" x2="340" y2="220" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="560" y1="190" x2="560" y2="220" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="780" y1="190" x2="780" y2="220" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="25" y="222" width="190" height="150" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="120" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">2xx  It worked</text>
+  <text x="120" y="262" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">200 OK</text>
+  <text x="120" y="276" text-anchor="middle" font-size="8.5" fill="#555">GET /api/accounts/1</text>
+  <text x="120" y="289" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">201 Created</text>
+  <text x="120" y="303" text-anchor="middle" font-size="8.5" fill="#555">POST /api/accounts</text>
+  <text x="120" y="316" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">204 No Content</text>
+  <text x="120" y="330" text-anchor="middle" font-size="8.5" fill="#555">DELETE /api/accounts/3</text>
+  <rect x="245" y="222" width="190" height="150" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="340" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">3xx  Look elsewhere</text>
+  <text x="340" y="262" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">301 Moved Permanently</text>
+  <text x="340" y="276" text-anchor="middle" font-size="8.5" fill="#555">GET /api/old-accounts</text>
+  <text x="340" y="289" text-anchor="middle" font-size="8.5" fill="#555">Location: /api/accounts</text>
+  <text x="340" y="302" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">printed from the header</text>
+  <text x="340" y="315" text-anchor="middle" font-size="8.5" fill="#555">not followed: the client</text>
+  <text x="340" y="328" text-anchor="middle" font-size="8.5" fill="#555">has redirects turned off</text>
+  <rect x="465" y="222" width="190" height="150" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">4xx  Fix the request</text>
+  <text x="560" y="262" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">400 Bad Request</text>
+  <text x="560" y="276" text-anchor="middle" font-size="8.5" fill="#555">POST with a bad body</text>
+  <text x="560" y="289" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">404 Not Found</text>
+  <text x="560" y="303" text-anchor="middle" font-size="8.5" fill="#555">GET /api/accounts/999</text>
+  <text x="560" y="316" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">415 Unsupported Media Type</text>
+  <text x="560" y="330" text-anchor="middle" font-size="8.5" fill="#555">POST with a text/plain body</text>
+  <rect x="685" y="222" width="190" height="150" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="780" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#990000">5xx  Server failed</text>
+  <text x="780" y="262" text-anchor="middle" font-size="9" font-weight="bold" fill="#222">500 Internal Server Error</text>
+  <text x="780" y="276" text-anchor="middle" font-size="8.5" fill="#555">GET /api/crash</text>
+  <text x="780" y="289" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">the server code threw</text>
+  <text x="780" y="302" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">body not printed: a long</text>
+  <text x="780" y="315" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">error report in Development</text>
+  <line x1="560" y1="372" x2="560" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="395" y="420" width="330" height="72" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="438" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Then: notFound.EnsureSuccessStatusCode()</text>
+  <text x="560.0" y="455" text-anchor="middle" font-size="9" fill="#333">HttpClient did NOT throw for the 404 by itself;</text>
+  <text x="560.0" y="470" text-anchor="middle" font-size="9" fill="#333">this call turns it into an HttpRequestException</text>
+  <text x="560.0" y="485" text-anchor="middle" font-size="9" fill="#333">catch → Console.WriteLine: StatusCode = 404</text>
+  <line x1="560" y1="492" x2="560" y2="540" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="560" y1="554" x2="560" y2="594" stroke="#333" stroke-width="2"/>
+  <polygon points="560,554 560,572 590,563" fill="#cc0000"/>
+  <rect x="40" y="420" width="320" height="72" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="200" y="440" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Reading the first digit</text>
+  <text x="52" y="458" font-size="9" fill="#333">2 success · 3 redirect · 4 the request was wrong</text>
+  <text x="52" y="474" font-size="9" fill="#333">5 the server failed on a request that may be fine</text>
+  <text x="30" y="620" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where:</tspan> eight requests go out, each reply comes back through the door its code names; HttpClient reports all of them as answers, not as errors.</text>
+  <text x="30" y="638" font-size="10" font-style="italic" fill="#888">Console.WriteLine: 8 request lines + 1 Location line + 1 catch line. The 415 line is printed by SendPlainText, the others by Send.</text>
+  <text x="30" y="656" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line and the title), not drawn.</text>
+</svg>

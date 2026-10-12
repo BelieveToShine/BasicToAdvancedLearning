@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 830" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1180" height="830" fill="#ffffff"/>
+  <text x="590.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">SELECT and WHERE — Memory: Stack / Heap / Static</text>
+  <text x="590.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainSelectAndWhere() is running, right after the fifth query (emptyOrHuge) was run and its rows were printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="750" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1125" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="338" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="184" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">SqlBasicsDemo.ExplainSelectAndWhere() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">allColumns → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">twoColumns → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">savings → pointer  (string)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">bigCurrent → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">emptyOrHuge → pointer  (string)</text>
+  <rect x="50" y="312" width="340" height="64" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">SqlBasicsExample.Explain()</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <text x="220" y="366" text-anchor="middle" font-size="9.5" fill="#4c6b4c">local: sqlBasics → pointer (SqlBasicsDemo object, no fields)</text>
+  <rect x="50" y="386" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="406" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="422" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="470" y="150" width="560" height="54" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="167" font-size="9" fill="#7f4e00">SELECT *</text>
+  <text x="480.0" y="179" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="191" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="214" width="560" height="54" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="231" font-size="9" fill="#7f4e00">SELECT AccountNumber, Balance</text>
+  <text x="480.0" y="243" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="255" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="278" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="295" font-size="9" fill="#7f4e00">SELECT AccountNumber, Balance</text>
+  <text x="480.0" y="307" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="319" font-size="9" fill="#7f4e00">WHERE AccountType = 'Savings'</text>
+  <text x="480.0" y="331" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="354" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="371" font-size="9" fill="#7f4e00">SELECT AccountNumber, AccountType, Balance</text>
+  <text x="480.0" y="383" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="395" font-size="9" fill="#7f4e00">WHERE AccountType &lt;&gt; 'Savings' AND Balance &gt; 100</text>
+  <text x="480.0" y="407" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="430" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="447" font-size="9" fill="#7f4e00">SELECT AccountNumber, Balance</text>
+  <text x="480.0" y="459" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="471" font-size="9" fill="#7f4e00">WHERE Balance = 0 OR Balance &gt; 3000</text>
+  <text x="480.0" y="483" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <line x1="750.0" y1="496" x2="750.0" y2="530" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="758.0" y="518" font-size="9" font-style="italic" fill="#555">this text went to SQL Server; rows came back and were printed</text>
+  <rect x="470" y="532" width="610" height="204" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="775.0" y="552" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: the Accounts table and the rows the last query returned</text>
+  <text x="484" y="572" font-size="9" font-style="italic" fill="#555">table Accounts (6 rows) — SQL Server keeps it</text>
+  <rect x="484" y="578" width="62" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="490" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">AccountId</text>
+  <rect x="546" y="578" width="68" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="552" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">CustomerId</text>
+  <rect x="614" y="578" width="84" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="620" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">AccountNumber</text>
+  <rect x="698" y="578" width="73" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="704" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">AccountType</text>
+  <rect x="771" y="578" width="52" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="777" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">Balance</text>
+  <rect x="484" y="594" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="605.5" font-size="9" fill="#222">1</text>
+  <rect x="546" y="594" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="605.5" font-size="9" fill="#222">1</text>
+  <rect x="614" y="594" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="605.5" font-size="9" fill="#222">ACC-1001</text>
+  <rect x="698" y="594" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="605.5" font-size="9" fill="#222">Savings</text>
+  <rect x="771" y="594" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="605.5" font-size="9" fill="#222">1500.00</text>
+  <rect x="484" y="610" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="621.5" font-size="9" fill="#222">2</text>
+  <rect x="546" y="610" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="621.5" font-size="9" fill="#222">1</text>
+  <rect x="614" y="610" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="621.5" font-size="9" fill="#222">ACC-1002</text>
+  <rect x="698" y="610" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="621.5" font-size="9" fill="#222">Current</text>
+  <rect x="771" y="610" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="621.5" font-size="9" fill="#222">250.00</text>
+  <rect x="484" y="626" width="62" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="637.5" font-size="9" fill="#222">3</text>
+  <rect x="546" y="626" width="68" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="637.5" font-size="9" fill="#222">2</text>
+  <rect x="614" y="626" width="84" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="637.5" font-size="9" fill="#222">ACC-2001</text>
+  <rect x="698" y="626" width="73" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="637.5" font-size="9" fill="#222">Savings</text>
+  <rect x="771" y="626" width="52" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="637.5" font-size="9" fill="#222">3200.00</text>
+  <rect x="484" y="642" width="62" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="653.5" font-size="9" fill="#222">4</text>
+  <rect x="546" y="642" width="68" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="653.5" font-size="9" fill="#222">2</text>
+  <rect x="614" y="642" width="84" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="653.5" font-size="9" fill="#222">ACC-2002</text>
+  <rect x="698" y="642" width="73" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="653.5" font-size="9" fill="#222">Current</text>
+  <rect x="771" y="642" width="52" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="653.5" font-size="9" fill="#222">0.00</text>
+  <rect x="484" y="658" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="669.5" font-size="9" fill="#222">5</text>
+  <rect x="546" y="658" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="669.5" font-size="9" fill="#222">3</text>
+  <rect x="614" y="658" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="669.5" font-size="9" fill="#222">ACC-3001</text>
+  <rect x="698" y="658" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="669.5" font-size="9" fill="#222">Current</text>
+  <rect x="771" y="658" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="669.5" font-size="9" fill="#222">800.00</text>
+  <rect x="484" y="674" width="62" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="685.5" font-size="9" fill="#222">6</text>
+  <rect x="546" y="674" width="68" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="552" y="685.5" font-size="9" fill="#222">3</text>
+  <rect x="614" y="674" width="84" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="620" y="685.5" font-size="9" fill="#222">ACC-3002</text>
+  <rect x="698" y="674" width="73" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="704" y="685.5" font-size="9" fill="#222">Savings</text>
+  <rect x="771" y="674" width="52" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="777" y="685.5" font-size="9" fill="#222">0.00</text>
+  <text x="847" y="572" font-size="9" font-style="italic" fill="#555">last query returned (3 rows)</text>
+  <rect x="847" y="578" width="84" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="853" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">AccountNumber</text>
+  <rect x="931" y="578" width="60" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="937" y="589.5" font-size="9" font-weight="bold" fill="#1a3550">Balance</text>
+  <rect x="847" y="594" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="853" y="605.5" font-size="9" fill="#222">ACC-2001</text>
+  <rect x="931" y="594" width="60" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="937" y="605.5" font-size="9" fill="#222">3200.00</text>
+  <rect x="847" y="610" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="853" y="621.5" font-size="9" fill="#222">ACC-2002</text>
+  <rect x="931" y="610" width="60" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="937" y="621.5" font-size="9" fill="#222">0.00</text>
+  <rect x="847" y="626" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="853" y="637.5" font-size="9" fill="#222">ACC-3002</text>
+  <rect x="931" y="626" width="60" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="937" y="637.5" font-size="9" fill="#222">0.00</text>
+  <text x="484" y="710" font-size="9.5" fill="#333">Highlighted in the table: the 3 rows the WHERE let through.</text>
+  <polyline points="378,159 458,159 458,167 468,167" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 450,189 450,231 468,231" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 442,219 442,295 468,295" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 434,249 434,371 468,371" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 426,279 426,447 468,447" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1080" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1125" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1125" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="760" font-size="10.5" fill="#444"><tspan font-weight="bold">Every local is just a pointer to a string — the SQL is only TEXT on the Heap. </tspan>The tables and their rows live in SQL Server, not in these locals.</text>
+  <text x="40" y="778" font-size="10" font-style="italic" fill="#888">SqlLab.Show printed the 3 result rows; it holds them only while printing, so none of the lesson's locals holds a row.</text>
+  <text x="40" y="796" font-size="10" font-style="italic" fill="#888">sqlBasics (in Explain()) points to a field-less SqlBasicsDemo object, not drawn. A """ raw string keeps its line breaks; the indentation before the closing quotes is not part of the text.</text>
+</svg>

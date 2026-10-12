@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1162" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="1162" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">JSON bodies — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainJsonBodies() is running, at its last line, after the broken-JSON request was answered with 400.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="620" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="474" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="334" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">HttpAndRestDemo.ExplainJsonBodies() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">account → pointer  (Account)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">plain → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">webOptions → pointer  (JsonSerializerOptions)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">camel → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">wrongCase → pointer  (Account)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">fromCamel → pointer  (Account)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="62" y="356" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="373" font-size="10" fill="#1b3d1b">inputJson → pointer  (string)</text>
+  <rect x="62" y="386" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="403" font-size="10" fill="#1b3d1b">response → pointer  (HttpResponseMessage)</text>
+  <rect x="62" y="416" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="433" font-size="10" fill="#1b3d1b">created → pointer  (Account)</text>
+  <rect x="50" y="462" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="482" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">HttpAndRestExample.Explain()</text>
+  <text x="220" y="498" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="522" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="558" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Account — account</text>
+  <rect x="472" y="176" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="193" font-size="10" fill="#7f4e00">Id = 1</text>
+  <rect x="472" y="206" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="223" font-size="10" fill="#7f4e00">Owner = "Asha Rao"</text>
+  <rect x="472" y="236" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="253" font-size="10" fill="#7f4e00">Balance = 500.00</text>
+  <rect x="460" y="280" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="299.0" text-anchor="middle" font-size="10" fill="#7f4e00">{"Id":1,"Owner":"Asha Rao","Balance":500.00}</text>
+  <rect x="460" y="320" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="342" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">JsonSerializerOptions — webOptions</text>
+  <rect x="472" y="352" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="369" font-size="10" fill="#7f4e00">PropertyNamingPolicy = camelCase</text>
+  <rect x="472" y="382" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="399" font-size="10" fill="#7f4e00">PropertyNameCaseInsensitive = true</text>
+  <rect x="460" y="426" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="445.0" text-anchor="middle" font-size="10" fill="#7f4e00">{"id":1,"owner":"Asha Rao","balance":500.00}</text>
+  <rect x="460" y="466" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="488" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Account — wrongCase (default options)</text>
+  <rect x="472" y="498" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="515" font-size="10" fill="#7f4e00">Id = 0</text>
+  <rect x="472" y="528" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="545" font-size="10" fill="#7f4e00">Owner = null</text>
+  <rect x="472" y="558" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="575" font-size="10" fill="#7f4e00">Balance = 0</text>
+  <rect x="460" y="602" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="624" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Account — fromCamel  (web options)</text>
+  <rect x="472" y="634" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="651" font-size="10" fill="#7f4e00">Id = 1</text>
+  <rect x="472" y="664" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="681" font-size="10" fill="#7f4e00">Owner = "Asha Rao"</text>
+  <rect x="472" y="694" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="711" font-size="10" fill="#7f4e00">Balance = 500.00</text>
+  <rect x="460" y="738" width="320" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="760" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="770" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="787" font-size="10" fill="#7f4e00">Client → the HttpClient (not a local here)</text>
+  <rect x="460" y="814" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="833.0" text-anchor="middle" font-size="10" fill="#7f4e00">{"owner":"Dana Ortiz","balance":100}</text>
+  <rect x="460" y="854" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="876" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpResponseMessage — response</text>
+  <rect x="472" y="886" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="903" font-size="10" fill="#7f4e00">StatusCode = 201 (Created)</text>
+  <rect x="472" y="916" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="933" font-size="10" fill="#7f4e00">Content-Type: application/json; charset=utf-8</text>
+  <rect x="460" y="960" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="982" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Account — created  (read from the 201 reply)</text>
+  <rect x="472" y="992" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="1009" font-size="10" fill="#7f4e00">Id = 4</text>
+  <rect x="472" y="1022" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="1039" font-size="10" fill="#7f4e00">Owner = "Dana Ortiz"</text>
+  <rect x="472" y="1052" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="1069" font-size="10" fill="#7f4e00">Balance = 100</text>
+  <rect x="860" y="814" width="330" height="272" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1025.0" y="834" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network (a socket)</text>
+  <text x="874" y="854" font-size="9.5" font-weight="bold" fill="#333333">REQUEST: the JSON body is just text:</text>
+  <text x="874" y="870" font-size="9.5" fill="#333333">POST /api/accounts HTTP/1.1</text>
+  <text x="874" y="886" font-size="9.5" fill="#333333">Content-Type: application/json; charset=utf-8</text>
+  <text x="874" y="902" font-size="9.5" font-style="italic" fill="#777777">(blank line)</text>
+  <text x="874" y="918" font-size="9.5" fill="#333333">{"owner":"Dana Ortiz","balance":100}</text>
+  <text x="874" y="934" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="950" font-size="9.5" font-weight="bold" fill="#333333">RESPONSE:</text>
+  <text x="874" y="966" font-size="9.5" fill="#333333">HTTP/1.1 201 Created</text>
+  <text x="874" y="982" font-size="9.5" fill="#333333">Content-Type: application/json; charset=utf-8</text>
+  <text x="874" y="998" font-size="9.5" fill="#333333">Location: /api/accounts/4</text>
+  <text x="874" y="1014" font-size="9.5" fill="#333333">{"id":4,"owner":"Dana Ortiz","balance":100}</text>
+  <text x="874" y="1030" font-size="9.5" font-style="italic" fill="#777777">(other header lines — Host, Content-Length, Date, Server,</text>
+  <text x="874" y="1046" font-size="9.5" font-style="italic" fill="#777777">Transfer-Encoding — left out for space)</text>
+  <line x1="780" y1="829" x2="858" y2="829" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="858,946 820,946 820,876 782,876" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,159 450,159 450,166 458,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 446,189 446,295.0 458,295.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 441,219 441,342 458,342" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 437,249 437,441.0 458,441.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 432,279 432,488 458,488" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 428,309 428,624 458,624" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,339 423,339 423,760 458,760" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,369 419,369 419,829.0 458,829.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,399 414,399 414,876 458,876" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,429 410,429 410,982 458,982" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="1110" font-size="10.5" fill="#444"><tspan font-weight="bold">JSON is only text on the Heap until it is deserialized: </tspan>plain and camel are strings; account, wrongCase, fromCamel and created are real Account objects built from (or turned into) such text.</text>
+  <text x="40" y="1128" font-size="10" font-style="italic" fill="#888">wrongCase shows the quiet failure: default options read "id" and "owner" as unknown names, so every property keeps its default. The server's own accounts list is not a local of this method.</text>
+</svg>

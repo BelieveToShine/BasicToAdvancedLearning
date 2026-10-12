@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 741" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="741" fill="#ffffff"/>
+  <text x="660.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Authentication vs authorization — Memory: Stack / Heap / Static</text>
+  <text x="660.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainAuthenticationVsAuthorization() is running, just after the three GET calls came back (inside the using block).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="840" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1265" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="354" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="9.1" font-weight="bold" fill="#274e13">JwtAuthDemo.ExplainAuthenticationVsAuthorization() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (DemoAuthServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">customerToken → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">managerToken → pointer  (string)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">noToken → pointer  (ApiReply)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">wrongRole → pointer  (ApiReply)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">rightRole → pointer  (ApiReply)</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">JwtAuthExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="402" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="438" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="440" y="176" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="193.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (a token)</text>
+  <rect x="440" y="206" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="223.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (a token)</text>
+  <rect x="840" y="137" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoAuthServer — server</text>
+  <rect x="852" y="169" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="186" font-size="10" fill="#7f4e00">_running → RunningServer (holds the HttpClient)</text>
+  <rect x="852" y="199" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="216" font-size="10" fill="#7f4e00">Issuer → TokenIssuer (holds the random key)</text>
+  <text x="854" y="240" font-size="8.5" font-style="italic" fill="#a06a1f">(internals simplified)</text>
+  <rect x="840" y="263" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="285" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — noToken</text>
+  <rect x="852" y="295" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="312" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="325" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="342" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="355" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="372" font-size="10" fill="#7f4e00">Challenge = "Bearer"</text>
+  <rect x="840" y="401" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="423" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — wrongRole</text>
+  <rect x="852" y="433" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="450" font-size="10" fill="#7f4e00">StatusCode = 403 Forbidden</text>
+  <rect x="852" y="463" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="480" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="493" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="510" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="539" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="561" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — rightRole</text>
+  <rect x="852" y="571" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="588" font-size="10" fill="#7f4e00">StatusCode = 200 OK</text>
+  <rect x="852" y="601" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="618" font-size="10" fill="#7f4e00">Body = "Daily report: 3 accounts opened."</text>
+  <rect x="852" y="631" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="648" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="440" y="340" width="290" height="98" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="585.0" y="360" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE THIS METHOD — the API server</text>
+  <text x="454" y="380" font-size="9.5" fill="#333333">listens on 127.0.0.1 (the port is not shown)</text>
+  <text x="454" y="396" font-size="9.5" fill="#333333">holds its OWN copy of the signing key</text>
+  <text x="454" y="412" font-size="9.5" font-weight="bold" fill="#333333">GET /api/reports/daily answered three ways:</text>
+  <text x="454" y="428" font-size="9.5" fill="#333333">  no token -&gt; 401, asha -&gt; 403, chen -&gt; 200</text>
+  <line x1="378" y1="159" x2="838" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="189" x2="438" y2="189" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="219" x2="438" y2="219" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 800,249 800,285 838,285" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 790,279 790,423 838,423" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 780,309 780,561 838,561" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1220" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1265" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1265" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="689" font-size="10.5" fill="#444"><tspan font-weight="bold">Each reply is a small object on the Heap holding the answer: </tspan>one status code, one body, one WWW-Authenticate challenge. The 401 carries the challenge; the 403 and the 200 do not.</text>
+  <text x="40" y="707" font-size="10" font-style="italic" fill="#888">The request and the answer travel over HTTP to the server, which is outside these variables (same program, its own part). The server is not a variable here: the lesson only holds the HttpClient inside server.</text>
+</svg>

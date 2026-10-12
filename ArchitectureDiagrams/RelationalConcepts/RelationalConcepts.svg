@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1400" height="600" fill="#ffffff"/>
+  <text x="700.0" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">Relational Concepts — Tables, Keys, Constraints, Normalization</text>
+  <text x="700.0" y="48" text-anchor="middle" font-size="12" fill="#666">The bank as an ER-style picture: three tables linked by keys. RelationalConceptsDemo.cs builds them step by step; each lesson method is one coloured idea below.</text>
+  <g font-size="10.5" fill="#333"><rect x="60" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="77" y="73">1 Tables, rows, columns</text></g>
+  <g font-size="10.5" fill="#333"><rect x="250" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="267" y="73">2 Primary keys</text></g>
+  <g font-size="10.5" fill="#333"><rect x="390" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="407" y="73">3 Foreign keys</text></g>
+  <g font-size="10.5" fill="#333"><rect x="520" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="537" y="73">4 Constraints and NULL</text></g>
+  <g font-size="10.5" fill="#333"><rect x="700" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="717" y="73">5 Normalization</text></g>
+  <rect x="40" y="100" width="330" height="138" rx="8" fill="#ffffff" stroke="#3d85c6" stroke-width="2"/>
+  <rect x="40" y="100" width="330" height="30" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="2"/>
+  <text x="205.0" y="121" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a4a73">Customers</text>
+  <rect x="43" y="135" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <rect x="48" y="137" width="28" height="20" rx="4" fill="#d9ecd0" stroke="#6aa84f" stroke-width="1"/>
+  <text x="62" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">PK</text>
+  <text x="84" y="151" font-size="10" font-weight="bold" fill="#222">CustomerId</text>
+  <text x="170" y="151" font-size="9.5" fill="#444">INT</text>
+  <text x="252" y="151" font-size="9" fill="#7f6000">IDENTITY</text>
+  <text x="84" y="177" font-size="10" font-weight="bold" fill="#222">FullName</text>
+  <text x="170" y="177" font-size="9.5" fill="#444">NVARCHAR(100)</text>
+  <text x="252" y="177" font-size="9" fill="#7f6000">NOT NULL</text>
+  <rect x="43" y="187" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <text x="84" y="203" font-size="10" font-weight="bold" fill="#222">Email</text>
+  <text x="170" y="203" font-size="9.5" fill="#444">NVARCHAR(200)</text>
+  <text x="252" y="203" font-size="9" fill="#7f6000">NOT NULL, UNIQUE</text>
+  <text x="84" y="229" font-size="10" font-weight="bold" fill="#222">CreatedAt</text>
+  <text x="170" y="229" font-size="9.5" fill="#444">DATETIME2</text>
+  <text x="252" y="229" font-size="9" fill="#7f6000">NOT NULL, DEFAULT now</text>
+  <rect x="520" y="100" width="330" height="164" rx="8" fill="#ffffff" stroke="#3d85c6" stroke-width="2"/>
+  <rect x="520" y="100" width="330" height="30" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="2"/>
+  <text x="685.0" y="121" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a4a73">Accounts</text>
+  <rect x="523" y="135" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <rect x="528" y="137" width="28" height="20" rx="4" fill="#d9ecd0" stroke="#6aa84f" stroke-width="1"/>
+  <text x="542" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">PK</text>
+  <text x="564" y="151" font-size="10" font-weight="bold" fill="#222">AccountId</text>
+  <text x="650" y="151" font-size="9.5" fill="#444">INT</text>
+  <text x="732" y="151" font-size="9" fill="#7f6000">IDENTITY</text>
+  <rect x="528" y="163" width="28" height="20" rx="4" fill="#fbdcbf" stroke="#e69138" stroke-width="1"/>
+  <text x="542" y="177" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">FK</text>
+  <text x="564" y="177" font-size="10" font-weight="bold" fill="#222">CustomerId</text>
+  <text x="650" y="177" font-size="9.5" fill="#444">INT</text>
+  <text x="732" y="177" font-size="9" fill="#7f6000">NOT NULL</text>
+  <rect x="523" y="187" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <text x="564" y="203" font-size="10" font-weight="bold" fill="#222">AccountNumber</text>
+  <text x="650" y="203" font-size="9.5" fill="#444">NVARCHAR(20)</text>
+  <text x="732" y="203" font-size="9" fill="#7f6000">NOT NULL, UNIQUE</text>
+  <text x="564" y="229" font-size="10" font-weight="bold" fill="#222">AccountType</text>
+  <text x="650" y="229" font-size="9.5" fill="#444">NVARCHAR(20)</text>
+  <text x="732" y="229" font-size="9" fill="#7f6000">CHECK IN (2 types)</text>
+  <rect x="523" y="239" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <text x="564" y="255" font-size="10" font-weight="bold" fill="#222">Balance</text>
+  <text x="650" y="255" font-size="9.5" fill="#444">DECIMAL(18,2)</text>
+  <text x="732" y="255" font-size="9" fill="#7f6000">NOT NULL, DEFAULT 0</text>
+  <rect x="1000" y="100" width="330" height="164" rx="8" fill="#ffffff" stroke="#3d85c6" stroke-width="2"/>
+  <rect x="1000" y="100" width="330" height="30" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="2"/>
+  <text x="1165.0" y="121" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a4a73">Transactions</text>
+  <rect x="1003" y="135" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <rect x="1008" y="137" width="28" height="20" rx="4" fill="#d9ecd0" stroke="#6aa84f" stroke-width="1"/>
+  <text x="1022" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">PK</text>
+  <text x="1044" y="151" font-size="10" font-weight="bold" fill="#222">TransactionId</text>
+  <text x="1130" y="151" font-size="9.5" fill="#444">BIGINT</text>
+  <text x="1212" y="151" font-size="9" fill="#7f6000">IDENTITY</text>
+  <rect x="1008" y="163" width="28" height="20" rx="4" fill="#fbdcbf" stroke="#e69138" stroke-width="1"/>
+  <text x="1022" y="177" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">FK</text>
+  <text x="1044" y="177" font-size="10" font-weight="bold" fill="#222">AccountId</text>
+  <text x="1130" y="177" font-size="9.5" fill="#444">INT</text>
+  <text x="1212" y="177" font-size="9" fill="#7f6000">NOT NULL</text>
+  <rect x="1003" y="187" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <text x="1044" y="203" font-size="10" font-weight="bold" fill="#222">Amount</text>
+  <text x="1130" y="203" font-size="9.5" fill="#444">DECIMAL(18,2)</text>
+  <text x="1212" y="203" font-size="9" fill="#7f6000">NOT NULL</text>
+  <text x="1044" y="229" font-size="10" font-weight="bold" fill="#222">Kind</text>
+  <text x="1130" y="229" font-size="9.5" fill="#444">NVARCHAR(10)</text>
+  <text x="1212" y="229" font-size="9" fill="#7f6000">CHECK IN (2 kinds)</text>
+  <rect x="1003" y="239" width="324" height="24" rx="0" fill="#f7fafc" stroke="#f7fafc" stroke-width="0"/>
+  <text x="1044" y="255" font-size="10" font-weight="bold" fill="#222">CreatedAt</text>
+  <text x="1130" y="255" font-size="9.5" fill="#444">DATETIME2</text>
+  <text x="1212" y="255" font-size="9" fill="#7f6000">NOT NULL, DEFAULT now</text>
+  <polyline points="520,173 445,173 445,147 372,147" fill="none" stroke="#b5651d" stroke-width="2" marker-end="url(#a)"/>
+  <text x="378" y="141" font-size="11" font-weight="bold" fill="#8a5a10">1</text>
+  <text x="512" y="167" text-anchor="end" font-size="10" font-weight="bold" fill="#8a5a10">many</text>
+  <text x="445" y="189" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a5a10">one customer, many accounts</text>
+  <polyline points="1000,173 925,173 925,147 852,147" fill="none" stroke="#b5651d" stroke-width="2" marker-end="url(#a)"/>
+  <text x="858" y="141" font-size="11" font-weight="bold" fill="#8a5a10">1</text>
+  <text x="992" y="167" text-anchor="end" font-size="10" font-weight="bold" fill="#8a5a10">many</text>
+  <text x="925" y="189" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a5a10">one account, many transactions</text>
+  <text x="205.0" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#274e13">PK = primary key: identifies one row</text>
+  <text x="685.0" y="284" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a5a10">FK = foreign key: points at a primary key in another table</text>
+  <text x="1165.0" y="284" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a5a10">arrow head = the table being pointed at</text>
+  <rect x="32" y="330" width="256" height="150" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="160" y="352" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a4a73">1 · Tables, rows, columns</text>
+  <text x="160" y="368" text-anchor="middle" font-size="9" font-style="italic" fill="#1a4a73">ExplainTablesRowsColumns()</text>
+  <text x="160" y="396" text-anchor="middle" font-size="9.5" fill="#333">CREATE TABLE gives columns and types;</text>
+  <text x="160" y="414" text-anchor="middle" font-size="9.5" fill="#333">INSERT adds rows; SELECT reads them.</text>
+  <text x="160" y="432" text-anchor="middle" font-size="9.5" fill="#333">No keys yet: a duplicate row is allowed.</text>
+  <rect x="302" y="330" width="256" height="150" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="430" y="352" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#274e13">2 · Primary keys</text>
+  <text x="430" y="368" text-anchor="middle" font-size="9" font-style="italic" fill="#274e13">ExplainPrimaryKeys()</text>
+  <text x="430" y="396" text-anchor="middle" font-size="9.5" fill="#333">PK + IDENTITY: a unique id per row.</text>
+  <text x="430" y="414" text-anchor="middle" font-size="9.5" fill="#333">Reusing an id is refused:</text>
+  <text x="430" y="432" text-anchor="middle" font-size="9.5" fill="#333">error 2627.</text>
+  <rect x="572" y="330" width="256" height="150" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="700" y="352" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a5a10">3 · Foreign keys</text>
+  <text x="700" y="368" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5a10">ExplainForeignKeys()</text>
+  <text x="700" y="396" text-anchor="middle" font-size="9.5" fill="#333">Accounts.CustomerId must match a</text>
+  <text x="700" y="414" text-anchor="middle" font-size="9.5" fill="#333">real customer (one-to-many).</text>
+  <text x="700" y="432" text-anchor="middle" font-size="9.5" fill="#333">Breaking the link: error 547.</text>
+  <rect x="842" y="330" width="256" height="150" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="970" y="352" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7f6000">4 · Constraints and NULL</text>
+  <text x="970" y="368" text-anchor="middle" font-size="9" font-style="italic" fill="#7f6000">ExplainConstraintsAndNulls()</text>
+  <text x="970" y="396" text-anchor="middle" font-size="9.5" fill="#333">NOT NULL, UNIQUE, CHECK, DEFAULT.</text>
+  <text x="970" y="414" text-anchor="middle" font-size="9.5" fill="#333">NULL = no value; not 0, not "".</text>
+  <text x="970" y="432" text-anchor="middle" font-size="9.5" fill="#333">Test it with IS NULL, not = NULL.</text>
+  <rect x="1112" y="330" width="256" height="150" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1240" y="352" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#4a2e73">5 · Normalization</text>
+  <text x="1240" y="368" text-anchor="middle" font-size="9" font-style="italic" fill="#4a2e73">ExplainNormalization()</text>
+  <text x="1240" y="396" text-anchor="middle" font-size="9.5" fill="#333">One flat table repeats facts and</text>
+  <text x="1240" y="414" text-anchor="middle" font-size="9.5" fill="#333">invites update anomalies. Split into</text>
+  <text x="1240" y="432" text-anchor="middle" font-size="9.5" fill="#333">the three tables above.</text>
+  <text x="40" y="530" font-size="11" font-weight="bold" fill="#444">Program.cs → ILearningTopic → RelationalConceptsExample.Explain() first checks SqlLab.IsReady(), then calls the five methods above in this order.</text>
+  <text x="40" y="550" font-size="10.5" fill="#666">All of it is T-SQL sent to SQL Server through SqlLab, so the tables live in the database, not in program memory.</text>
+  <text x="40" y="570" font-size="10" font-style="italic" fill="#888">Method 4 also adds one optional Phone column to Customers, only to demonstrate NULL. Every method gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg.</text>
+</svg>

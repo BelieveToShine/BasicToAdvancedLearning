@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 740" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="740" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Safe habits — Sub-level Flow: look through a window, then count at the gate</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Habit 1 only LOOKS at the rows a WHERE would hit. Habit 2 lets the change happen inside a transaction and checks the count before COMMIT.</text>
+  <text x="200" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="200" y1="54" x2="200" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="200,54 200,72 230,63" fill="#38761d"/>
+  <line x1="200" y1="92" x2="200" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="550" y="82" width="340" height="480" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="720.0" y="100" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">the Accounts table = SQL Server (outside .NET)</text>
+  <rect x="40" y="112" width="320" height="76" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="200.0" y="130" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">SqlLab.Show(SELECT … WHERE … Savings)</text>
+  <text x="200.0" y="145" text-anchor="middle" font-size="9.5" fill="#333">habit 1: preview the rows the WHERE hits</text>
+  <text x="200.0" y="178" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine intro; Show prints 2 rows</text>
+  <rect x="570" y="112" width="300" height="76" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="139.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">The window: we only LOOK</text>
+  <text x="720.0" y="153.0" text-anchor="middle" font-size="9.5" fill="#333">SAV-1001 and SAV-3001 would be hit,</text>
+  <text x="720.0" y="167.0" text-anchor="middle" font-size="9.5" fill="#333">so we expect exactly 2 rows</text>
+  <line x1="360" y1="134" x2="570" y2="134" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="127" text-anchor="middle" font-size="9" fill="#333">SELECT … WHERE …</text>
+  <line x1="570" y1="166" x2="360" y2="166" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="181" text-anchor="middle" font-size="9" font-style="italic" fill="#555">grid: 2 rows</text>
+  <line x1="200" y1="188" x2="200" y2="214" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="214" width="320" height="150" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="200.0" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">SqlLab.Show(BEGIN … UPDATE … IF @@ROWCOUNT = 2 …)</text>
+  <text x="200.0" y="247" text-anchor="middle" font-size="9.5" fill="#333">habit 2: change inside a transaction, check the count</text>
+  <text x="200.0" y="354" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints the intro, the Outcome grid, then ShowBalances()</text>
+  <rect x="570" y="214" width="300" height="150" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="580" y="229" font-size="9.5" font-weight="bold" fill="#444">alt — IF @@ROWCOUNT = 2</text>
+  <rect x="578.0" y="240" width="137.0" height="116" rx="5" fill="#eaf6ea" stroke="#6aa84f" stroke-width="2"/>
+  <text x="646.5" y="258" text-anchor="middle" font-size="9" font-weight="bold" fill="#274e13">yes (2 rows):</text>
+  <text x="646.5" y="273" text-anchor="middle" font-size="9" fill="#274e13">COMMIT TRANSACTION</text>
+  <text x="646.5" y="288" text-anchor="middle" font-size="9" fill="#274e13">bonus kept</text>
+  <text x="646.5" y="303" text-anchor="middle" font-size="9" font-weight="bold" fill="#274e13">taken in this run</text>
+  <rect x="725.0" y="240" width="137.0" height="116" rx="5" fill="#ffffff" stroke="#bbbbbb" stroke-width="1"/>
+  <text x="793.5" y="258" text-anchor="middle" font-size="9" font-weight="bold" fill="#555">no:</text>
+  <text x="793.5" y="273" text-anchor="middle" font-size="9" fill="#555">ROLLBACK TRANSACTION</text>
+  <text x="793.5" y="288" text-anchor="middle" font-size="9" fill="#555">bonus undone</text>
+  <line x1="360" y1="236" x2="570" y2="236" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="229" text-anchor="middle" font-size="9" fill="#333">UPDATE … WHERE … Savings</text>
+  <line x1="570" y1="342" x2="360" y2="342" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="357" text-anchor="middle" font-size="9" font-style="italic" fill="#555">grid: Outcome committed</text>
+  <line x1="200" y1="364" x2="200" y2="390" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="390" width="320" height="150" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="200.0" y="408" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">SqlLab.Show(BEGIN … UPDATE (no WHERE) … IF …)</text>
+  <text x="200.0" y="423" text-anchor="middle" font-size="9.5" fill="#333">the same guard, the WHERE forgotten</text>
+  <text x="200.0" y="530" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints the intro, the Outcome grid, then ShowBalances()</text>
+  <rect x="570" y="390" width="300" height="150" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="580" y="405" font-size="9.5" font-weight="bold" fill="#444">alt — IF @@ROWCOUNT = 2</text>
+  <rect x="578.0" y="416" width="137.0" height="116" rx="5" fill="#ffffff" stroke="#bbbbbb" stroke-width="1"/>
+  <text x="646.5" y="434" text-anchor="middle" font-size="9" font-weight="bold" fill="#555">yes:</text>
+  <text x="646.5" y="449" text-anchor="middle" font-size="9" fill="#555">COMMIT TRANSACTION</text>
+  <text x="646.5" y="464" text-anchor="middle" font-size="9" fill="#555">bonus kept</text>
+  <rect x="725.0" y="416" width="137.0" height="116" rx="5" fill="#eaf6ea" stroke="#6aa84f" stroke-width="2"/>
+  <text x="793.5" y="434" text-anchor="middle" font-size="9" font-weight="bold" fill="#274e13">no (3 rows):</text>
+  <text x="793.5" y="449" text-anchor="middle" font-size="9" fill="#274e13">ROLLBACK TRANSACTION</text>
+  <text x="793.5" y="464" text-anchor="middle" font-size="9" fill="#274e13">every balance restored</text>
+  <text x="793.5" y="479" text-anchor="middle" font-size="9" font-weight="bold" fill="#274e13">taken in this run</text>
+  <line x1="360" y1="412" x2="570" y2="412" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="405" text-anchor="middle" font-size="9" fill="#333">UPDATE … (no WHERE)</text>
+  <line x1="570" y1="518" x2="360" y2="518" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="533" text-anchor="middle" font-size="9" font-style="italic" fill="#555">grid: Outcome rolled back</text>
+  <line x1="200" y1="540" x2="200" y2="576" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="200" y="590" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="200" y1="598" x2="200" y2="638" stroke="#333" stroke-width="2"/>
+  <polygon points="200,598 200,616 230,607" fill="#cc0000"/>
+  <text x="30" y="660" font-size="10.5" fill="#444"><tspan font-weight="bold">The gate catches the slip:</tspan> the forgotten WHERE changed 3 rows instead of 2, so the batch rolled itself back before anyone could see the damage.</text>
+  <text x="30" y="678" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the intro lines; SqlLab.Show prints each grid with Console.WriteLine as well. @@ROWCOUNT must be read straight after the UPDATE.</text>
+  <text x="30" y="696" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

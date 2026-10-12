@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 594" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1240" height="594" fill="#ffffff"/>
+  <text x="620" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">Web API CRUD — Controller, DbContext in DI, Validation, Status Codes</text>
+  <text x="620" y="48" text-anchor="middle" font-size="12" fill="#666">AccountsController is the door; BankDbContext (from DI) is the key to SQL Server. Each card below is one ExplainX() method of WebApiCrudDemo.</text>
+  <g font-size="10" fill="#333"><rect x="80" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="96" y="72">1 DbContext in DI</text></g>
+  <g font-size="10" fill="#333"><rect x="260" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="276" y="72">2 Read endpoints</text></g>
+  <g font-size="10" fill="#333"><rect x="440" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="456" y="72">3 Create endpoint</text></g>
+  <g font-size="10" fill="#333"><rect x="620" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="636" y="72">4 Update and delete</text></g>
+  <g font-size="10" fill="#333"><rect x="820" y="62" width="12" height="12" rx="2" fill="#f1f1f1" stroke="#777777"/><text x="836" y="72">OUTSIDE .NET (SQL Server)</text></g>
+  <text x="620" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">One request, end to end (the lesson plays the client with HttpClient; a real client is a browser or another program)</text>
+  <rect x="30" y="116" width="170" height="66" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.6"/>
+  <text x="115.0" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">HttpClient</text>
+  <text x="115.0" y="164" text-anchor="middle" font-size="9" fill="#555">the client: Call(...)</text>
+  <rect x="300" y="116" width="170" height="66" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="385.0" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">ASP.NET Core</text>
+  <text x="385.0" y="164" text-anchor="middle" font-size="9" fill="#555">finds the route /api/accounts</text>
+  <rect x="570" y="116" width="230" height="66" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="685.0" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">AccountsController</text>
+  <text x="685.0" y="164" text-anchor="middle" font-size="9" fill="#555">GetAll · GetById · Create · Replace · Delete</text>
+  <rect x="920" y="116" width="140" height="66" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="990.0" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">BankDbContext</text>
+  <text x="990.0" y="164" text-anchor="middle" font-size="9" fill="#555">EF Core, from DI (Scoped)</text>
+  <rect x="1100" y="116" width="120" height="66" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="1160" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="1160" y="164" text-anchor="middle" font-size="9" fill="#555">tables, outside .NET</text>
+  <line x1="200" y1="138" x2="300" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="250.0" y="130" text-anchor="middle" font-size="8.5" fill="#555">HTTP request</text>
+  <line x1="470" y1="138" x2="570" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="520.0" y="130" text-anchor="middle" font-size="8.5" fill="#555">calls the action</text>
+  <line x1="800" y1="138" x2="920" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="860.0" y="130" text-anchor="middle" font-size="8.5" fill="#555">LINQ / SaveChanges</text>
+  <line x1="1060" y1="138" x2="1100" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="1080.0" y="130" text-anchor="middle" font-size="8.5" fill="#555">T-SQL</text>
+  <line x1="300" y1="162" x2="200" y2="162" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="250.0" y="176" text-anchor="middle" font-size="8.5" fill="#555">status + JSON</text>
+  <line x1="570" y1="162" x2="470" y2="162" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="520.0" y="176" text-anchor="middle" font-size="8.5" fill="#555">result</text>
+  <line x1="920" y1="162" x2="800" y2="162" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="860.0" y="176" text-anchor="middle" font-size="8.5" fill="#555">objects</text>
+  <line x1="1100" y1="162" x2="1060" y2="162" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="1080.0" y="176" text-anchor="middle" font-size="8.5" fill="#555">rows</text>
+  <rect x="30" y="220" width="290" height="282" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="175" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · DbContext in DI</text>
+  <text x="175" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainDbContextInDI()</text>
+  <rect x="42" y="270" width="266" height="100" rx="6" fill="#ffffff" stroke="#3d85c6" stroke-width="1"/>
+  <text x="50" y="290" font-size="9" fill="#333">AddDbContext&lt;BankDbContext&gt;(…UseSqlServer…)</text>
+  <text x="50" y="316" font-size="9" fill="#333">same scope -&gt; same object: True</text>
+  <text x="50" y="342" font-size="9" fill="#333">other scope -&gt; same object: False</text>
+  <text x="175" y="396" text-anchor="middle" font-size="9.5" fill="#1a4a73">AddDbContext registers it as Scoped: the</text>
+  <text x="175" y="412" text-anchor="middle" font-size="9.5" fill="#1a4a73">server makes one per request, then disposes it.</text>
+  <rect x="340" y="220" width="290" height="282" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="485" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Read endpoints</text>
+  <text x="485" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainReadEndpoints()</text>
+  <rect x="352" y="270" width="266" height="100" rx="6" fill="#ffffff" stroke="#6aa84f" stroke-width="1"/>
+  <text x="360" y="290" font-size="9" fill="#333">GET /api/accounts          -&gt;  200  [ … ]</text>
+  <text x="360" y="316" font-size="9" fill="#333">GET /api/accounts/1        -&gt;  200  { … }</text>
+  <text x="360" y="342" font-size="9" fill="#333">GET /api/accounts/99       -&gt;  404</text>
+  <text x="485" y="396" text-anchor="middle" font-size="9.5" fill="#274e13">GET returns DTOs built by Select(...),</text>
+  <text x="485" y="412" text-anchor="middle" font-size="9.5" fill="#274e13">never entities; a missing id answers 404.</text>
+  <rect x="650" y="220" width="290" height="282" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="795" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Create endpoint</text>
+  <text x="795" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainCreateEndpoint()</text>
+  <rect x="662" y="270" width="266" height="100" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1"/>
+  <text x="670" y="290" font-size="9" fill="#333">POST valid input           -&gt;  201 + Location</text>
+  <text x="670" y="316" font-size="9" fill="#333">POST broken rules          -&gt;  400 + errors</text>
+  <text x="670" y="342" font-size="9" fill="#333">POST duplicate number      -&gt;  409</text>
+  <text x="795" y="396" text-anchor="middle" font-size="9.5" fill="#8a5a10">Attributes reject bad input (400) before</text>
+  <text x="795" y="412" text-anchor="middle" font-size="9.5" fill="#8a5a10">the action runs; a good POST answers 201 + Location.</text>
+  <rect x="960" y="220" width="290" height="282" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="1105" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">4 · Update and delete</text>
+  <text x="1105" y="258" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainUpdateAndDelete()</text>
+  <rect x="972" y="270" width="266" height="100" rx="6" fill="#ffffff" stroke="#f1c232" stroke-width="1"/>
+  <text x="980" y="290" font-size="9" fill="#333">PUT /api/accounts/2        -&gt;  204</text>
+  <text x="980" y="316" font-size="9" fill="#333">DELETE /api/accounts/3     -&gt;  204 / 404</text>
+  <text x="980" y="342" font-size="9" fill="#333">DELETE /api/accounts/1     -&gt;  409</text>
+  <text x="1105" y="396" text-anchor="middle" font-size="9.5" fill="#7f6000">PUT replaces, DELETE removes; the database</text>
+  <text x="1105" y="412" text-anchor="middle" font-size="9.5" fill="#7f6000">can refuse (foreign key -&gt; 409).</text>
+  <text x="175" y="450" text-anchor="middle" font-size="9" fill="#1a4a73">Why per request: a DbContext tracks the</text>
+  <text x="175" y="465" text-anchor="middle" font-size="9" fill="#1a4a73">entities it loads and is not safe to share</text>
+  <text x="175" y="480" text-anchor="middle" font-size="9" fill="#1a4a73">between two requests running at once.</text>
+  <text x="485" y="450" text-anchor="middle" font-size="9" fill="#274e13">DTO = a class shaped for HTTP. The entity</text>
+  <text x="485" y="465" text-anchor="middle" font-size="9" fill="#274e13">mirrors the table; the DTO is what the client</text>
+  <text x="485" y="480" text-anchor="middle" font-size="9" fill="#274e13">is promised, so the two can change apart.</text>
+  <text x="795" y="450" text-anchor="middle" font-size="9" fill="#8a5a10">Request DTOs carry [Required], [StringLength],</text>
+  <text x="795" y="465" text-anchor="middle" font-size="9" fill="#8a5a10">[AllowedValues], [Range]; the action also checks</text>
+  <text x="795" y="480" text-anchor="middle" font-size="9" fill="#8a5a10">what only the database knows (owner, duplicate).</text>
+  <text x="1105" y="450" text-anchor="middle" font-size="9" fill="#7f6000">204 No Content = success with nothing to say.</text>
+  <text x="1105" y="465" text-anchor="middle" font-size="9" fill="#7f6000">PUT can also meet the duplicate 409.</text>
+  <text x="1105" y="480" text-anchor="middle" font-size="9" fill="#7f6000">Error 547 = a foreign-key (or CHECK) refusal.</text>
+  <text x="30" y="532" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → WebApiCrudExample.Explain()</tspan> checks SQL Server (SqlLab.IsReady), then calls the four methods above in this order — see Flow/0-Overview.svg.</text>
+  <text x="30" y="552" font-size="10.5" font-style="italic" fill="#888">The server runs inside this console program only so the lesson can finish; a real API is its own program that keeps running and waits for requests.</text>
+  <text x="30" y="570" font-size="10.5" font-style="italic" fill="#888">Every method (1–4) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

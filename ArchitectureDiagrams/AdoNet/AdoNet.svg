@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="640" fill="#ffffff"/>
+  <rect x="0" y="0" width="1280" height="640" rx="0" fill="#fff" stroke="#fff" stroke-width="0"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">ADO.NET — SqlConnection, SqlCommand, SqlDataReader, SqlTransaction</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">AdoNetDemo.cs holds the logic; every method talks to SQL Server through the real ADO.NET classes. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="150" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="166" y="72">Connection and command</text></g>
+  <g font-size="10" fill="#333"><rect x="310" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="326" y="72">Parameters</text></g>
+  <g font-size="10" fill="#333"><rect x="400" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="416" y="72">Reading rows</text></g>
+  <g font-size="10" fill="#333"><rect x="490" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="506" y="72">Transactions</text></g>
+  <rect x="30" y="100" width="290" height="250" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="175" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Connection and command</text>
+  <text x="175" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainConnectionAndCommand()</text>
+  <rect x="42" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="50" y="168" font-size="9" fill="#333">using (SqlConnection connection = …)</text>
+  <text x="50" y="190" font-size="9" fill="#333">int customers = (int)count.ExecuteScalar()!;</text>
+  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">Open the line, send one piece of SQL:</text>
+  <text x="175" y="284" text-anchor="middle" font-size="9.5" fill="#1a4a73">ExecuteNonQuery changes, ExecuteScalar asks.</text>
+  <rect x="340" y="100" width="290" height="250" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="485" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Parameters</text>
+  <text x="485" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainParameters()</text>
+  <rect x="352" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="360" y="168" font-size="9" fill="#333">"… VALUES (@name, @email)"</text>
+  <text x="360" y="190" font-size="9" fill="#333">Parameters.Add("@email", SqlDbType.NVarChar, 200)</text>
+  <text x="485" y="268" text-anchor="middle" font-size="9.5" fill="#274e13">Values travel apart from the SQL, so they</text>
+  <text x="485" y="284" text-anchor="middle" font-size="9.5" fill="#274e13">stay data — never glued into the text.</text>
+  <rect x="650" y="100" width="290" height="250" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="795" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Reading rows</text>
+  <text x="795" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainReadingRows()</text>
+  <rect x="662" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="670" y="168" font-size="9" fill="#333">using (SqlDataReader reader = …)</text>
+  <text x="670" y="190" font-size="9" fill="#333">while (reader.Read()) { reader.GetString(…) }</text>
+  <text x="795" y="268" text-anchor="middle" font-size="9.5" fill="#8a5a10">A reader walks the rows one by one;</text>
+  <text x="795" y="284" text-anchor="middle" font-size="9.5" fill="#8a5a10">IsDBNull guards against NULL cells.</text>
+  <rect x="960" y="100" width="290" height="250" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1105" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">4 · Transactions</text>
+  <text x="1105" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainTransactions()</text>
+  <rect x="972" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="980" y="168" font-size="9" fill="#333">connection.BeginTransaction()</text>
+  <text x="980" y="190" font-size="9" fill="#333">transaction.Commit();  /  .Rollback();</text>
+  <text x="1105" y="268" text-anchor="middle" font-size="9.5" fill="#4a2e73">Two UPDATEs, all or nothing: a failure</text>
+  <text x="1105" y="284" text-anchor="middle" font-size="9.5" fill="#4a2e73">in step two undoes step one.</text>
+  <text x="40" y="392" font-size="11" font-weight="bold" fill="#444">The objects the methods use, and how they relate:</text>
+  <rect x="40" y="405" width="230" height="50" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="155.0" y="427" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SqlConnection</text>
+  <text x="155.0" y="443" text-anchor="middle" font-size="9" fill="#555">the open line</text>
+  <rect x="380" y="405" width="230" height="50" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="495.0" y="427" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SqlCommand</text>
+  <text x="495.0" y="443" text-anchor="middle" font-size="9" fill="#555">one piece of SQL (CommandText)</text>
+  <rect x="720" y="405" width="230" height="50" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="835.0" y="427" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SqlDataReader</text>
+  <text x="835.0" y="443" text-anchor="middle" font-size="9" fill="#555">walks the result rows</text>
+  <rect x="40" y="490" width="230" height="50" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.3" stroke-dasharray="6 4"/>
+  <text x="155.0" y="512" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server</text>
+  <text x="155.0" y="528" text-anchor="middle" font-size="9" fill="#555">OUTSIDE .NET: tables and rows</text>
+  <line x1="270" y1="430" x2="378" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="324" y="422" text-anchor="middle" font-size="9" fill="#555">CreateCommand()</text>
+  <line x1="610" y1="430" x2="718" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="664" y="422" text-anchor="middle" font-size="9" fill="#555">ExecuteReader()</text>
+  <line x1="155" y1="455" x2="155" y2="488" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="165" y="475" font-size="9" fill="#555">Open() reaches</text>
+  <text x="40" y="575" font-size="10.5" fill="#444"><tspan font-weight="bold">The example the lesson builds:</tspan> a tiny bank (Customers, Accounts) in SQL Server; each method DROPS and recreates its tables first (in its own scratch database), and the last one moves money between two accounts.</text>
+  <text x="40" y="598" font-size="10.5" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → AdoNetExample.Explain()</tspan> checks SqlLab.IsReady(), then calls all four methods above, in this order — see Flow/0-Overview.svg.</text>
+  <text x="40" y="618" font-size="10.5" font-style="italic" fill="#888">Every method (1–4) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

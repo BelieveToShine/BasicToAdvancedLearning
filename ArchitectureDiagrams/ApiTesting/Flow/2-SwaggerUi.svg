@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 880" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="880" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Swagger UI — Sub-level Flow: the shop window and the sign on it</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The window (HTML page) lists no goods itself; a sign (index.js) says where the catalogue (the OpenAPI JSON) is.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="122.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">using RunningServer server = BankApi.Start();</text>
+  <text x="210.0" y="137.0" text-anchor="middle" font-size="9.5" fill="#555">open the shop</text>
+  <rect x="520" y="100" width="320" height="390" rx="10" fill="#f4f4f4" stroke="#555555" stroke-width="1.5"/>
+  <text x="680.0" y="122" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">the API server = the shop</text>
+  <text x="680.0" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">(UseSwaggerUI() serves the Swagger UI files)</text>
+  <rect x="540" y="160" width="280" height="60" rx="8" fill="#ffffff" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="680" y="182" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">the WINDOW:  /swagger/index.html</text>
+  <text x="680" y="202" text-anchor="middle" font-size="9.5" fill="#333">a frame; no endpoint list inside</text>
+  <rect x="540" y="240" width="280" height="60" rx="8" fill="#ffffff" stroke="#e69138" stroke-width="1.5"/>
+  <text x="680" y="262" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">the SIGN:  /swagger/index.js</text>
+  <text x="680" y="282" text-anchor="middle" font-size="9.5" fill="#333">its settings name the OpenAPI JSON</text>
+  <rect x="540" y="320" width="280" height="70" rx="8" fill="#ffffff" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="680" y="342" text-anchor="middle" font-size="10" font-weight="bold" fill="#4a2e73">the SIGNPOST:  /swagger</text>
+  <text x="680" y="362" text-anchor="middle" font-size="9.5" fill="#333">points visitors on to the window</text>
+  <text x="680" y="378" text-anchor="middle" font-size="9" font-style="italic" fill="#555">(a redirect, not a page)</text>
+  <line x1="360" y1="125" x2="520" y2="125" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="117" text-anchor="middle" font-size="9.5" fill="#555">starts it</text>
+  <line x1="210" y1="150" x2="210" y2="180" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="180" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="207.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send(GET "/swagger/index.html")</text>
+  <text x="210.0" y="222.0" text-anchor="middle" font-size="9.5" fill="#555">look at the window</text>
+  <line x1="360" y1="192" x2="520" y2="192" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="184" text-anchor="middle" font-size="9.5" fill="#555">GET /swagger/index.html</text>
+  <line x1="520" y1="226" x2="362" y2="226" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="218" text-anchor="middle" font-size="9.5" fill="#555">200 + HTML text</text>
+  <text x="218" y="262" font-size="9" font-style="italic" fill="#555">Console.WriteLine ×2: status, "mentions…: False"</text>
+  <line x1="210" y1="240" x2="210" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="300" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="327.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send(GET "/swagger/index.js")</text>
+  <text x="210.0" y="342.0" text-anchor="middle" font-size="9.5" fill="#555">read the sign on the window</text>
+  <line x1="360" y1="312" x2="520" y2="312" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="304" text-anchor="middle" font-size="9.5" fill="#555">GET /swagger/index.js</text>
+  <line x1="520" y1="346" x2="362" y2="346" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="338" text-anchor="middle" font-size="9.5" fill="#555">200 + JavaScript text</text>
+  <text x="218" y="382" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "… -&gt; 200; it names … True"</text>
+  <line x1="210" y1="360" x2="210" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="420" width="300" height="70" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="445.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">noRedirect = new HttpClient(…);</text>
+  <text x="210.0" y="459.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send(noRedirect, GET "/swagger")</text>
+  <text x="210.0" y="473.0" text-anchor="middle" font-size="9.5" fill="#555">redirects switched OFF so the 301 is visible</text>
+  <line x1="360" y1="432" x2="520" y2="432" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="424" text-anchor="middle" font-size="9.5" fill="#555">GET /swagger</text>
+  <line x1="520" y1="466" x2="362" y2="466" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="458" text-anchor="middle" font-size="9.5" fill="#555">301 + Location header</text>
+  <text x="218" y="512" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "GET /swagger -&gt; 301 (Location…)"</text>
+  <line x1="210" y1="490" x2="210" y2="540" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="540" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="566.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">Console.WriteLine ×2: what a person does</text>
+  <line x1="210" y1="584" x2="210" y2="604" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="626" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="634" x2="210" y2="674" stroke="#333" stroke-width="2"/>
+  <polygon points="210,634 210,652 240,643" fill="#cc0000"/>
+  <rect x="520" y="530" width="320" height="270" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="680" y="552" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">IN A BROWSER (not run by this program)</text>
+  <rect x="540" y="572" width="280" height="40" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="680" y="596" text-anchor="middle" font-size="9.5" fill="#333">1  open /swagger → sent on to the page</text>
+  <line x1="680" y1="612" x2="680" y2="628" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="628" width="280" height="40" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="680" y="652" text-anchor="middle" font-size="9.5" fill="#333">2  the page loads index.js (names the JSON)</text>
+  <line x1="680" y1="668" x2="680" y2="684" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="684" width="280" height="40" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="680" y="708" text-anchor="middle" font-size="9.5" fill="#333">3  fetches the OpenAPI JSON, draws endpoints</text>
+  <line x1="680" y1="724" x2="680" y2="740" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="740" width="280" height="40" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="680" y="764" text-anchor="middle" font-size="9.5" fill="#333">4  "Try it out" → "Execute": a real request</text>
+  <text x="30" y="830" font-size="10.5" fill="#444"><tspan font-weight="bold">The console program only fetches text; </tspan>the clicking happens in a browser, which this program does not start.</text>
+  <text x="30" y="848" font-size="10" font-style="italic" fill="#888">Request 1 and 2 are plain GETs; the third uses a second HttpClient so the 301 is not hidden by automatic redirect-following.</text>
+</svg>

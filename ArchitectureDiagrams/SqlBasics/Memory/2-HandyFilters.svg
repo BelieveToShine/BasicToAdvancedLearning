@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 800" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1180" height="800" fill="#ffffff"/>
+  <text x="590.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Handy filters — Memory: Stack / Heap / Static</text>
+  <text x="590.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainHandyFilters() is running, right after the sixth query (nullIs) was run and its row was printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="750" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1125" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="368" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">SqlBasicsDemo.ExplainHandyFilters() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">inList → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">balanceRange → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">startsWithC → pointer  (string)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">oneLetterWildcard → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">nullEquals → pointer  (string)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">nullIs → pointer  (string)</text>
+  <rect x="50" y="342" width="340" height="64" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">SqlBasicsExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <text x="220" y="396" text-anchor="middle" font-size="9.5" fill="#4c6b4c">local: sqlBasics → pointer (SqlBasicsDemo object, no fields)</text>
+  <rect x="50" y="416" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="436" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="452" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="470" y="150" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="167" font-size="9" fill="#7f4e00">SELECT AccountNumber, Balance</text>
+  <text x="480.0" y="179" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="191" font-size="9" fill="#7f4e00">WHERE AccountNumber IN ('ACC-1001', 'ACC-3001')</text>
+  <text x="480.0" y="203" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="226" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="243" font-size="9" fill="#7f4e00">SELECT AccountNumber, Balance</text>
+  <text x="480.0" y="255" font-size="9" fill="#7f4e00">FROM Accounts</text>
+  <text x="480.0" y="267" font-size="9" fill="#7f4e00">WHERE Balance BETWEEN 250 AND 1500</text>
+  <text x="480.0" y="279" font-size="9" fill="#7f4e00">ORDER BY AccountId</text>
+  <rect x="470" y="302" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="319" font-size="9" fill="#7f4e00">SELECT CustomerId, FullName</text>
+  <text x="480.0" y="331" font-size="9" fill="#7f4e00">FROM Customers</text>
+  <text x="480.0" y="343" font-size="9" fill="#7f4e00">WHERE FullName LIKE 'C%'</text>
+  <text x="480.0" y="355" font-size="9" fill="#7f4e00">ORDER BY CustomerId</text>
+  <rect x="470" y="378" width="560" height="66" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="395" font-size="9" fill="#7f4e00">SELECT CustomerId, FullName</text>
+  <text x="480.0" y="407" font-size="9" fill="#7f4e00">FROM Customers</text>
+  <text x="480.0" y="419" font-size="9" fill="#7f4e00">WHERE FullName LIKE 'B_n%'</text>
+  <text x="480.0" y="431" font-size="9" fill="#7f4e00">ORDER BY CustomerId</text>
+  <rect x="470" y="454" width="560" height="42" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="471" font-size="9" fill="#7f4e00">SELECT 'matched' AS Result</text>
+  <text x="480.0" y="483" font-size="9" fill="#7f4e00">WHERE NULL = NULL</text>
+  <rect x="470" y="506" width="560" height="42" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="523" font-size="9" fill="#7f4e00">SELECT 'matched' AS Result</text>
+  <text x="480.0" y="535" font-size="9" fill="#7f4e00">WHERE NULL IS NULL</text>
+  <line x1="750.0" y1="548" x2="750.0" y2="582" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="758.0" y="570" font-size="9" font-style="italic" fill="#555">this text went to SQL Server; rows came back and were printed</text>
+  <rect x="470" y="584" width="610" height="140" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="775.0" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: what the NULL queries returned</text>
+  <text x="484" y="624" font-size="9" font-style="italic" fill="#555">nullEquals returned (WHERE NULL = NULL)</text>
+  <rect x="484" y="630" width="200" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="490" y="641.5" font-size="9" font-weight="bold" fill="#1a3550">Result</text>
+  <rect x="484" y="646" width="200" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="490" y="657.5" font-size="9" font-style="italic" fill="#777">(0 rows)</text>
+  <text x="708" y="624" font-size="9" font-style="italic" fill="#555">nullIs returned (WHERE NULL IS NULL)</text>
+  <rect x="708" y="630" width="185" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="714" y="641.5" font-size="9" font-weight="bold" fill="#1a3550">Result</text>
+  <rect x="708" y="646" width="185" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="714" y="657.5" font-size="9" fill="#222">matched</text>
+  <text x="484" y="682" font-size="9.5" fill="#333">Neither query reads a table: SQL Server just evaluates the condition.</text>
+  <text x="484" y="698" font-size="9.5" fill="#333">NULL = NULL is not true, so the first returns no rows; NULL IS NULL is true, so the second returns one.</text>
+  <polyline points="378,159 458,159 458,167 468,167" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 450,189 450,243 468,243" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 442,219 442,319 468,319" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 434,249 434,395 468,395" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 426,279 426,471 468,471" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 418,309 418,523 468,523" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1080" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1125" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1125" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="748" font-size="10.5" fill="#444"><tspan font-weight="bold">Six strings, six pointers — all SQL text. </tspan>Whether a filter keeps a row is decided by SQL Server, outside .NET.</text>
+  <text x="40" y="766" font-size="10" font-style="italic" fill="#888">The two results shown are what SQL Server sent back for the last two queries; SqlLab.Show printed them and holds them only briefly. (The tables the earlier queries read are drawn in Memory/1 and Memory/4.)</text>
+</svg>

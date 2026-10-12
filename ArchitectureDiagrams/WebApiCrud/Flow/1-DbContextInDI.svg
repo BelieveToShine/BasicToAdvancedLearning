@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1036" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1036" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">DbContext in DI — Sub-level Flow: a recipe book and one tray per scope</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">AddDbContext writes a recipe ("BankDbContext, Scoped"); every scope that asks gets its own freshly made context.</text>
+  <text x="220.0" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="220.0" y1="54" x2="220.0" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="220.0,54 220.0,72 250.0,63" fill="#38761d"/>
+  <line x1="220.0" y1="92" x2="220.0" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="104" width="320" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220.0" y="122.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">builder = WebLab.CreateBuilder();</text>
+  <text x="220.0" y="138.0" text-anchor="middle" font-size="9.5" fill="#555">a web app on a free local port</text>
+  <line x1="220.0" y1="148" x2="220.0" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="190" width="320" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220.0" y="211.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">builder.Services.AddDbContext&lt;BankDbContext&gt;(</text>
+  <text x="220.0" y="227.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">options.UseSqlServer(SqlLab.ConnectionString))</text>
+  <line x1="220.0" y1="240" x2="220.0" y2="284" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="284" width="320" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220.0" y="305.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">builder.Services.AddControllersOnly(</text>
+  <text x="220.0" y="321.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">typeof(AccountsController))</text>
+  <line x1="220.0" y1="334" x2="220.0" y2="378" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="378" width="320" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220.0" y="399.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">_app = builder.Build();  _app.MapControllers();</text>
+  <text x="220.0" y="415.0" text-anchor="middle" font-size="9.0" fill="#555">the app is built — it is not listening yet</text>
+  <line x1="220.0" y1="428" x2="220.0" y2="482" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="482" width="320" height="66" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="220.0" y="503.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">using scopeA / scopeB:</text>
+  <text x="220.0" y="519.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">GetRequiredService&lt;BankDbContext&gt;()</text>
+  <text x="220.0" y="535.0" text-anchor="middle" font-size="9.0" fill="#555">A twice (first, second) · B once (other)</text>
+  <line x1="220.0" y1="548" x2="220.0" y2="598" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="598" width="320" height="58" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220.0" y="623.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">first.Database.EnsureDeleted();</text>
+  <text x="220.0" y="639.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">first.Database.EnsureCreated();  SeedBank(first);</text>
+  <line x1="220.0" y1="656" x2="220.0" y2="706" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="706" width="320" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220.0" y="724.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">SqlLab.Show(SqlSeeAccounts);</text>
+  <text x="220.0" y="740.0" text-anchor="middle" font-size="9.5" fill="#555">prints the Accounts rows</text>
+  <line x1="220.0" y1="750" x2="220.0" y2="794" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="794" width="320" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220.0" y="812.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">_server = WebLab.Start(_app);</text>
+  <text x="220.0" y="828.0" text-anchor="middle" font-size="9.5" fill="#555">the server starts listening</text>
+  <line x1="220.0" y1="838" x2="220.0" y2="852" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="220.0" y="870" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="220.0" y1="878" x2="220.0" y2="918" stroke="#333" stroke-width="2"/>
+  <polygon points="220.0,878 220.0,896 250.0,887" fill="#cc0000"/>
+  <text x="228.0" y="572" font-size="9" font-style="italic" fill="#555">Console.WriteLine ×2: "…same object? True / False"</text>
+  <text x="228.0" y="680" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "Database recreated and seeded…"</text>
+  <text x="228.0" y="774" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the grid (SqlLab.Show)</text>
+  <text x="228.0" y="856" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "Server is listening."</text>
+  <rect x="520" y="176" width="320" height="176" rx="10" fill="#f7f3e3" stroke="#c9a227" stroke-width="1.5"/>
+  <text x="680.0" y="196" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6b5200">the DI container = the recipe book</text>
+  <rect x="536" y="208" width="288" height="40" rx="6" fill="#ffffff" stroke="#c9a227" stroke-width="1"/>
+  <text x="680.0" y="225" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">BankDbContext</text>
+  <text x="680.0" y="240" text-anchor="middle" font-size="9" fill="#555">lifetime: Scoped (one per scope)</text>
+  <rect x="536" y="258" width="288" height="40" rx="6" fill="#ffffff" stroke="#c9a227" stroke-width="1"/>
+  <text x="680.0" y="275" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">AccountsController</text>
+  <text x="680.0" y="290" text-anchor="middle" font-size="9" fill="#555">its constructor needs a BankDbContext</text>
+  <text x="680.0" y="322" text-anchor="middle" font-size="9" font-style="italic" fill="#6b5200">ask for a service -&gt; the container</text>
+  <text x="680.0" y="336" text-anchor="middle" font-size="9" font-style="italic" fill="#6b5200">makes it by following its recipe</text>
+  <line x1="380" y1="228" x2="520" y2="228" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="220" text-anchor="middle" font-size="9" fill="#555">adds a recipe</text>
+  <line x1="380" y1="304" x2="520" y2="304" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="296" text-anchor="middle" font-size="9" fill="#555">adds a recipe</text>
+  <rect x="520" y="470" width="320" height="34" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.2"/>
+  <text x="680.0" y="492" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">scope A  -&gt;  BankDbContext #1  (first = second)</text>
+  <rect x="520" y="516" width="320" height="34" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.2"/>
+  <text x="680.0" y="538" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">scope B  -&gt;  BankDbContext #2  (other)</text>
+  <line x1="380" y1="487" x2="520" y2="487" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="479" text-anchor="middle" font-size="9" fill="#555">makes from recipe</text>
+  <line x1="380" y1="533" x2="520" y2="533" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="551" text-anchor="middle" font-size="9" fill="#555">makes from recipe</text>
+  <rect x="520" y="596" width="320" height="160" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="680.0" y="614" text-anchor="middle" font-size="10" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server</text>
+  <text x="680.0" y="632" text-anchor="middle" font-size="9" fill="#333">EnsureDeleted: the lesson's database is dropped</text>
+  <text x="680.0" y="647" text-anchor="middle" font-size="9" fill="#333">EnsureCreated: tables built from the model</text>
+  <text x="680.0" y="662" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">Customers · Accounts · Transactions</text>
+  <text x="680.0" y="677" text-anchor="middle" font-size="9" fill="#333">SeedBank: 3 customers, 3 accounts,</text>
+  <text x="680.0" y="692" text-anchor="middle" font-size="9" fill="#333">2 transactions (8 rows in all)</text>
+  <line x1="380" y1="614" x2="520" y2="614" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="606" text-anchor="middle" font-size="9" fill="#555">drop + create + insert</text>
+  <line x1="380" y1="724" x2="520" y2="724" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="716" text-anchor="middle" font-size="9" fill="#555">SELECT …</text>
+  <line x1="520" y1="742" x2="380" y2="742" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="450" y="756" text-anchor="middle" font-size="9" fill="#555">3 rows</text>
+  <text x="30" y="960" font-size="10.5" fill="#444"><tspan font-weight="bold">Scoped means one per scope:</tspan> the web server opens a new scope for each request, so every request gets its own BankDbContext, and two requests never share one.</text>
+  <text x="30" y="978" font-size="10" font-style="italic" fill="#888">WARNING: EnsureDeleted drops the ENTIRE database in the connection string it is given (here: this lesson's own scratch database). Console.WriteLine prints this warning first.</text>
+  <text x="30" y="996" font-size="10" font-style="italic" fill="#888">The first scope also creates the database tables; the DbContext used there is the one named first. After Start() the controller can answer requests.</text>
+  <text x="30" y="1014" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and the "=== title ===" banner (two more Console.WriteLine calls, not drawn).</text>
+</svg>

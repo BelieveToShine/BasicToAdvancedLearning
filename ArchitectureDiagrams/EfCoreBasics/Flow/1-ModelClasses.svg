@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+  <text x="480.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Model classes — Sub-level Flow: index cards tied with string</text>
+  <text x="480.0" y="38" text-anchor="middle" font-size="11" fill="#666">Two cards are written on the desk (the Heap), then tied together both ways. SQL Server is never involved.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="110" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="131.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Customer asha = new Customer {…};</text>
+  <text x="210.0" y="146.0" text-anchor="middle" font-size="9" fill="#555">a card for Asha Rao</text>
+  <line x1="360" y1="135" x2="520" y2="135" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="127" text-anchor="middle" font-size="9.5" fill="#555">writes a card</text>
+  <line x1="210" y1="160" x2="210" y2="210" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="210" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="231.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Account savings = new Account {…};</text>
+  <text x="210.0" y="246.0" text-anchor="middle" font-size="9" fill="#555">a card for account ACC-1001</text>
+  <line x1="360" y1="235" x2="520" y2="235" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="227" text-anchor="middle" font-size="9.5" fill="#555">writes a card</text>
+  <rect x="520" y="110" width="300" height="80" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="670" y="132" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">Customer card (an object on the Heap)</text>
+  <text x="670" y="152" text-anchor="middle" font-size="9.5" fill="#333">FullName: Asha Rao</text>
+  <text x="670" y="170" text-anchor="middle" font-size="9" fill="#555">Accounts: [ ACC-1001 ]   (after the link step)</text>
+  <rect x="520" y="210" width="300" height="80" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="670" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">Account card (an object on the Heap)</text>
+  <text x="670" y="252" text-anchor="middle" font-size="9.5" fill="#333">ACC-1001 · Savings · Balance 500</text>
+  <text x="670" y="270" text-anchor="middle" font-size="9" fill="#555">Customer: Asha Rao   (after the link step)</text>
+  <line x1="210" y1="260" x2="210" y2="310" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="310" width="300" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="326.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">asha.Accounts.Add(savings);</text>
+  <text x="210.0" y="341.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">savings.Customer = asha;</text>
+  <text x="210.0" y="356.5" text-anchor="middle" font-size="9" fill="#555">tie the cards together, both ways</text>
+  <polyline points="360,338 870,338 870,250 822,250" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="870,250 870,150 822,150" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="610" y="330" text-anchor="middle" font-size="9.5" fill="#555">one step ties both: Accounts.Add(savings) and Customer = asha</text>
+  <line x1="210" y1="366" x2="210" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="420" width="300" height="70" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="443.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Console.WriteLine × 3</text>
+  <text x="210.0" y="458.5" text-anchor="middle" font-size="9" fill="#555">name + number of accounts · same-object check</text>
+  <text x="210.0" y="473.5" text-anchor="middle" font-size="9" fill="#555">"CustomerId is still 0"</text>
+  <rect x="520" y="400" width="350" height="90" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="695.0" y="433.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET): not touched</text>
+  <text x="695.0" y="448.5" text-anchor="middle" font-size="9" fill="#333">no table, no row</text>
+  <text x="695.0" y="463.5" text-anchor="middle" font-size="9" fill="#333">CustomerId = 0 means "no row saved yet"</text>
+  <line x1="210" y1="490" x2="210" y2="530" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="544" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="552" x2="210" y2="592" stroke="#333" stroke-width="2"/>
+  <polygon points="210,552 210,570 240,561" fill="#cc0000"/>
+  <text x="30" y="610" font-size="10.5" fill="#444"><tspan font-weight="bold">The model is only C# objects:</tspan> a navigation property is a pointer from one card to the other — no foreign key number is needed in memory.</text>
+  <text x="30" y="628" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

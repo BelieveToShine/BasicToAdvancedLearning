@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 1139" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="1139" fill="#ffffff"/>
+  <text x="660.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Token lifetime — Memory: Stack / Heap / Static</text>
+  <text x="660.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainTokenLifetime() is running, at the end of the using block, after all four calls came back.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="840" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1265" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="534" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="394" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">JwtAuthDemo.ExplainTokenLifetime() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">now = a DateTime (UTC clock reading)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">asha → pointer  (DemoUser)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">strict → pointer  (DemoAuthServer)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">lenient → pointer  (DemoAuthServer)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">fresh → pointer  (string)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">expired → pointer  (string)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">freshReply → pointer  (ApiReply)</text>
+  <rect x="62" y="356" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="373" font-size="10" fill="#1b3d1b">expiredReply → pointer  (ApiReply)</text>
+  <rect x="62" y="386" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="403" font-size="10" fill="#1b3d1b">expiredOneMinute → pointer  (string)</text>
+  <rect x="62" y="416" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="433" font-size="10" fill="#1b3d1b">expiredTenMinutes → pointer  (string)</text>
+  <rect x="62" y="446" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="463" font-size="10" fill="#1b3d1b">withinSkew → pointer  (ApiReply)</text>
+  <rect x="62" y="476" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="493" font-size="10" fill="#1b3d1b">beyondSkew → pointer  (ApiReply)</text>
+  <rect x="50" y="522" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">JwtAuthExample.Explain()</text>
+  <text x="220" y="558" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="582" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="602" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="618" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="440" y="266" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="283.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (fresh)</text>
+  <rect x="440" y="296" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="313.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (1 min ago)</text>
+  <rect x="440" y="386" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="403.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (1 min ago)</text>
+  <rect x="440" y="416" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="433.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (10 min ago)</text>
+  <rect x="840" y="137" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoUser — asha</text>
+  <rect x="852" y="169" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="186" font-size="10" fill="#7f4e00">UserName = "asha"</text>
+  <rect x="852" y="199" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="216" font-size="10" fill="#7f4e00">FullName = "Asha Rao"</text>
+  <rect x="852" y="229" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="246" font-size="10" fill="#7f4e00">Role = "Customer"</text>
+  <rect x="840" y="275" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="297" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoAuthServer — strict</text>
+  <rect x="852" y="307" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="324" font-size="10" fill="#7f4e00">_running → RunningServer (HttpClient)</text>
+  <rect x="852" y="337" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="354" font-size="10" fill="#7f4e00">Issuer → TokenIssuer (its own key)</text>
+  <text x="854" y="378" font-size="8.5" font-style="italic" fill="#a06a1f">ClockSkew = 0 minutes (internals simplified)</text>
+  <rect x="840" y="399" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="421" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoAuthServer — lenient</text>
+  <rect x="852" y="431" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="448" font-size="10" fill="#7f4e00">_running → RunningServer (HttpClient)</text>
+  <rect x="852" y="461" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="478" font-size="10" fill="#7f4e00">Issuer → TokenIssuer (its own key)</text>
+  <text x="854" y="502" font-size="8.5" font-style="italic" fill="#a06a1f">ClockSkew = 5 minutes (internals simplified)</text>
+  <rect x="840" y="523" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="545" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — freshReply</text>
+  <rect x="852" y="555" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="572" font-size="10" fill="#7f4e00">StatusCode = 200 OK</text>
+  <rect x="852" y="585" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="602" font-size="10" fill="#7f4e00">Body = "Hello Asha Rao, your role is Customer."</text>
+  <rect x="852" y="615" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="632" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="661" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="683" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — expiredReply</text>
+  <rect x="852" y="693" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="710" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="723" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="740" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="753" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="770" font-size="10" fill="#7f4e00">Challenge = "Bearer error=invalid_token…"</text>
+  <rect x="840" y="799" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="821" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — withinSkew</text>
+  <rect x="852" y="831" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="848" font-size="10" fill="#7f4e00">StatusCode = 200 OK</text>
+  <rect x="852" y="861" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="878" font-size="10" fill="#7f4e00">Body = "Hello Asha Rao, your role is Customer."</text>
+  <rect x="852" y="891" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="908" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="937" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="959" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — beyondSkew</text>
+  <rect x="852" y="969" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="986" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="999" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="1016" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="1029" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="1046" font-size="10" fill="#7f4e00">Challenge = "Bearer error=invalid_token…"</text>
+  <rect x="440" y="540" width="290" height="108" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="585.0" y="560" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE THIS METHOD — the two API servers</text>
+  <text x="454" y="580" font-size="9.5" fill="#333333">each has its OWN signing key and clock check:</text>
+  <text x="454" y="596" font-size="9.5" fill="#333333">exp is compared with the SERVER's clock</text>
+  <text x="454" y="612" font-size="9.5" font-weight="bold" fill="#333333">strict (0 min): 1 min late -&gt; 401</text>
+  <text x="454" y="628" font-size="9.5" font-weight="bold" fill="#333333">lenient (5 min): 1 min late -&gt; 200, 10 -&gt; 401</text>
+  <polyline points="378,189 800,189 800,159 838,159" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 790,219 790,297 838,297" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 780,249 780,421 838,421" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="279" x2="438" y2="279" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="309" x2="438" y2="309" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,339 770,339 770,545 838,545" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,369 760,369 760,683 838,683" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="399" x2="438" y2="399" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="429" x2="438" y2="429" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,459 750,459 750,821 838,821" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,489 740,489 740,959 838,959" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1220" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1265" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1265" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="1087" font-size="10.5" fill="#444"><tspan font-weight="bold">exp is checked against the SERVER's clock, plus the ClockSkew slack. </tspan>strict (0 min): a token 1 minute past exp is refused. lenient (5 min): the same lateness is accepted, but 10 minutes late is still refused.</text>
+  <text x="40" y="1105" font-size="10" font-style="italic" fill="#888">Tokens are signed by the issuer of the server that will check them, so each server needs its own. The expired tokens were made by hand with times in the past; real ones only expire as time passes.</text>
+</svg>

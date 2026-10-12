@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 654" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="654" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Related data — Sub-level Flow: delivery trips between the app and SQL Server</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each trip costs time. Include and Select fetch related rows in one trip; the N+1 loop makes a new trip per customer.</text>
+  <text x="225" y="48" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="225" y1="52" x2="225" y2="90" stroke="#333" stroke-width="2"/>
+  <polygon points="225,52 225,70 255,61" fill="#38761d"/>
+  <line x1="225" y1="92" x2="225" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="104" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="124" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">plain = context.Customers.AsNoTracking()…ToList();</text>
+  <text x="225.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">no Include: only the Customers table is read</text>
+  <text x="225.0" y="156" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: each name with "Accounts.Count = 0"</text>
+  <rect x="520" y="104" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="121" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server — 1 trip</text>
+  <text x="690.0" y="137" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT … FROM [Customers] (no accounts)</text>
+  <text x="690.0" y="151" text-anchor="middle" font-size="9" fill="#333">Ben has 2 accounts: they stay behind</text>
+  <line x1="410" y1="128" x2="520" y2="128" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="123" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="150" x2="410" y2="150" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="145" text-anchor="middle" font-size="8.5" fill="#555">3 customers</text>
+  <line x1="225.0" y1="172" x2="225.0" y2="202" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="202" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="222" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">withAccounts = …Include(c =&gt; c.Accounts).ToList();</text>
+  <text x="225.0" y="238" text-anchor="middle" font-size="9.5" fill="#333">Include makes EF JOIN the accounts into the same query</text>
+  <text x="225.0" y="254" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, then "Accounts.Count = 1, 2, 0"</text>
+  <rect x="520" y="202" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="219" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server — 1 trip</text>
+  <text x="690.0" y="235" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">… FROM [Customers] LEFT JOIN [Accounts] …</text>
+  <text x="690.0" y="249" text-anchor="middle" font-size="9" fill="#333">customers and their accounts together</text>
+  <line x1="410" y1="226" x2="520" y2="226" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="221" text-anchor="middle" font-size="8.5" fill="#555">SELECT … JOIN</text>
+  <line x1="520" y1="248" x2="410" y2="248" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="243" text-anchor="middle" font-size="8.5" fill="#555">both tables</text>
+  <line x1="225.0" y1="270" x2="225.0" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="300" width="370" height="96" rx="8" fill="#fdecea" stroke="#cc0000" stroke-width="1.6"/>
+  <text x="225.0" y="320" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">foreach (c in customers) { …Accounts…ToList() }</text>
+  <text x="225.0" y="336" text-anchor="middle" font-size="9.5" fill="#333">the N+1 trap: Where(a =&gt; a.CustomerId == c.CustomerId) per customer</text>
+  <text x="225.0" y="352" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "N+1 loop: found 3 accounts using 4 SQL commands …"</text>
+  <rect x="520" y="300" width="340" height="96" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="317" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server — 4 trips</text>
+  <text x="690.0" y="333" text-anchor="middle" font-size="9" fill="#333">1: SELECT customers</text>
+  <text x="690.0" y="347" text-anchor="middle" font-size="9" fill="#333">2, 3, 4: SELECT accounts WHERE CustomerId = …</text>
+  <text x="690.0" y="361" text-anchor="middle" font-size="9" fill="#333">rows come back after every trip</text>
+  <text x="690.0" y="375" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">same data as Include, four round trips</text>
+  <line x1="410" y1="324" x2="520" y2="324" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="319" text-anchor="middle" font-size="8.5" fill="#cc0000">1: customers</text>
+  <line x1="410" y1="342" x2="520" y2="342" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="337" text-anchor="middle" font-size="8.5" fill="#cc0000">2: Asha's</text>
+  <line x1="410" y1="360" x2="520" y2="360" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="355" text-anchor="middle" font-size="8.5" fill="#cc0000">3: Ben's</text>
+  <line x1="410" y1="378" x2="520" y2="378" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="373" text-anchor="middle" font-size="8.5" fill="#cc0000">4: Chen's</text>
+  <line x1="225.0" y1="396" x2="225.0" y2="426" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="426" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="446" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">summaries = …Select(c =&gt; new { … }).ToList();</text>
+  <text x="225.0" y="462" text-anchor="middle" font-size="9.5" fill="#333">Select shapes the answer: SQL Server counts and sums</text>
+  <text x="225.0" y="478" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, summary lines, "Select used 1 command."</text>
+  <rect x="520" y="426" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="443" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server — 1 trip</text>
+  <text x="690.0" y="459" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT FullName, (COUNT …), (SUM …)</text>
+  <text x="690.0" y="473" text-anchor="middle" font-size="9" fill="#333">no Include needed, no Account objects built</text>
+  <line x1="410" y1="450" x2="520" y2="450" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="445" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="472" x2="410" y2="472" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="467" text-anchor="middle" font-size="8.5" fill="#555">3 rows</text>
+  <line x1="225" y1="494" x2="225" y2="516" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="225" y="534" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="225" y1="542" x2="225" y2="582" stroke="#333" stroke-width="2"/>
+  <polygon points="225,542 225,560 255,551" fill="#cc0000"/>
+  <text x="30" y="598" font-size="10.5" fill="#444"><tspan font-weight="bold">A navigation property is empty until you load it:</tspan> no error, just no data. Include (a JOIN) or Select fixes it in ONE trip; a loop of queries does not.</text>
+  <text x="30" y="616" font-size="10" font-style="italic" fill="#888">The entity queries use AsNoTracking (not kept in the change tracker — see method 4); the Select returns plain values. Red arrows = the 4 trips of the N+1 loop.</text>
+  <text x="30" y="634" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and a "=== title ===" line (two Console.WriteLine calls, not drawn).</text>
+</svg>

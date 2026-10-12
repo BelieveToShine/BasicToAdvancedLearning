@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 867" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="867" fill="#ffffff"/>
+  <text x="660.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">What is a JWT — Memory: Stack / Heap / Static</text>
+  <text x="660.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainWhatIsAJwt() is running, after the forged token was rejected (inside the using block).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="840" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1265" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="534" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="394" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">JwtAuthDemo.ExplainWhatIsAJwt() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (DemoAuthServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">token → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">parts → pointer  (string[3])</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">headerJson → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">payloadJson → pointer  (string)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">signed → pointer  (byte[])</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">rebuilt → pointer  (byte[32])</text>
+  <rect x="62" y="356" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="373" font-size="10" fill="#1b3d1b">sameSignature = true</text>
+  <rect x="62" y="386" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="403" font-size="10" fill="#1b3d1b">forgedPayload → pointer  (string)</text>
+  <rect x="62" y="416" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="433" font-size="10" fill="#1b3d1b">forgedToken → pointer  (string)</text>
+  <rect x="62" y="446" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="463" font-size="10" fill="#1b3d1b">genuine → pointer  (ApiReply)</text>
+  <rect x="62" y="476" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="493" font-size="10" fill="#1b3d1b">forged → pointer  (ApiReply)</text>
+  <rect x="50" y="522" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">JwtAuthExample.Explain()</text>
+  <text x="220" y="558" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="582" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="602" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="618" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="440" y="176" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="193.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (a token)</text>
+  <rect x="440" y="236" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="253.0" text-anchor="middle" font-size="10" fill="#7f4e00">JSON text: {"alg":"HS256","typ":"JWT"}</text>
+  <rect x="440" y="266" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="283.0" text-anchor="middle" font-size="10" fill="#7f4e00">JSON text, fields: aud exp iat iss name nbf ...</text>
+  <rect x="440" y="296" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="313.0" text-anchor="middle" font-size="10" fill="#7f4e00">byte[]  the ASCII bytes of "&lt;header&gt;.&lt;payload&gt;"</text>
+  <rect x="440" y="326" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="343.0" text-anchor="middle" font-size="10" fill="#7f4e00">byte[32]  HMAC-SHA256 of those bytes, with the key</text>
+  <rect x="440" y="386" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="403.0" text-anchor="middle" font-size="10" fill="#7f4e00">JSON text: payload with role changed to Manager</text>
+  <rect x="440" y="416" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="433.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;forged payload&gt;.&lt;OLD signature&gt;"</text>
+  <rect x="840" y="137" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoAuthServer — server</text>
+  <rect x="852" y="169" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="186" font-size="10" fill="#7f4e00">_running → RunningServer (holds the HttpClient)</text>
+  <rect x="852" y="199" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="216" font-size="10" fill="#7f4e00">Issuer → TokenIssuer (holds the random key)</text>
+  <text x="854" y="240" font-size="8.5" font-style="italic" fill="#a06a1f">(internals simplified)</text>
+  <rect x="840" y="277" width="300" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="299" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">TokenIssuer</text>
+  <rect x="852" y="309" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="326" font-size="10" fill="#7f4e00">SigningKeyBytes → byte[32], random</text>
+  <rect x="852" y="339" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="356" font-size="10" fill="#7f4e00">Key → SymmetricSecurityKey</text>
+  <line x1="990" y1="249" x2="990" y2="275" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="998" y="266" font-size="9.5" font-style="italic" fill="#a06a1f">Issuer</text>
+  <rect x="840" y="387" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="409" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string[] — parts  (3 strings)</text>
+  <rect x="852" y="419" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="436" font-size="10" fill="#7f4e00">[0] → the header piece</text>
+  <rect x="852" y="449" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="466" font-size="10" fill="#7f4e00">[1] → the payload piece</text>
+  <rect x="852" y="479" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="496" font-size="10" fill="#7f4e00">[2] → the signature piece</text>
+  <rect x="840" y="527" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="549" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — genuine</text>
+  <rect x="852" y="559" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="576" font-size="10" fill="#7f4e00">StatusCode = 403 Forbidden</text>
+  <rect x="852" y="589" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="606" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="619" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="636" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="665" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="687" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — forged</text>
+  <rect x="852" y="697" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="714" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="727" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="744" font-size="10" fill="#7f4e00">Body = "" (empty)</text>
+  <rect x="852" y="757" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="774" font-size="10" fill="#7f4e00">Challenge = "Bearer error=invalid_token…"</text>
+  <rect x="440" y="520" width="290" height="98" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="585.0" y="540" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE THIS METHOD — the API server</text>
+  <text x="454" y="560" font-size="9.5" fill="#333333">holds the real key; recomputes the signature</text>
+  <text x="454" y="576" font-size="9.5" fill="#333333">of every token it receives and compares:</text>
+  <text x="454" y="592" font-size="9.5" font-weight="bold" fill="#333333">genuine token: match, but role Customer -&gt; 403</text>
+  <text x="454" y="608" font-size="9.5" font-weight="bold" fill="#333333">forged token: NO match -&gt; 401</text>
+  <line x1="378" y1="159" x2="838" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="189" x2="438" y2="189" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 800,219 800,409 838,409" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="249" x2="438" y2="249" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="279" x2="438" y2="279" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="309" x2="438" y2="309" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="339" x2="438" y2="339" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="399" x2="438" y2="399" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="429" x2="438" y2="429" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,459 790,459 790,549 838,549" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,489 780,489 780,687 838,687" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1220" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1265" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1265" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="815" font-size="10.5" fill="#444"><tspan font-weight="bold">The token is just text: split on dots it gives 3 strings. </tspan>headerJson and payloadJson were decoded WITHOUT the key — anyone holding the token can do that. Only checking the signature needs the key.</text>
+  <text x="40" y="833" font-size="10" font-style="italic" fill="#888">forgedToken reuses the OLD signature (parts[2]) with a changed payload, so the server's recomputed signature differs. The key bytes are shown as "random": they differ every run and are never printed.</text>
+</svg>

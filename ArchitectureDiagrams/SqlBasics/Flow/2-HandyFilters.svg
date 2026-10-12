@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 834" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="834" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Handy filters — Sub-level Flow: a toolbox of tests</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">IN is a guest list, BETWEEN is a ruler, LIKE is a stencil — and NULL is a "don't know" that an ordinary = does not match it.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="134" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="520" y="84" width="330" height="562" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="685" y="104" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET</text>
+  <text x="685" y="120" text-anchor="middle" font-size="9" font-style="italic" fill="#666">tables Accounts (6 rows) and Customers (4 rows)</text>
+  <rect x="60" y="134" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string inList = """…""";</text>
+  <text x="210" y="167" text-anchor="middle" font-size="9" fill="#333">WHERE AccountNumber IN ('ACC-1001', 'ACC-3001')</text>
+  <text x="210" y="183" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(inList);</text>
+  <rect x="540" y="134" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="159" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,159 557,152 567,152 567,159" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="166" x2="574" y2="166" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="158" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">guest list: on it, or not</text>
+  <text x="690" y="175" text-anchor="middle" font-size="9" fill="#555">ACC-1001, ACC-3001</text>
+  <line x1="360" y1="156" x2="538" y2="156" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="148" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="176" x2="362" y2="176" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="188" text-anchor="middle" font-size="9" fill="#555">2 rows back</text>
+  <line x1="210" y1="192" x2="210" y2="222" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="222" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="239" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string balanceRange = """…""";</text>
+  <text x="210" y="255" text-anchor="middle" font-size="9" fill="#333">WHERE Balance BETWEEN 250 AND 1500</text>
+  <text x="210" y="271" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(balanceRange);</text>
+  <rect x="540" y="222" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="247" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,247 557,240 567,240 567,247" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="254" x2="574" y2="254" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="246" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">ruler: BOTH ends count</text>
+  <text x="690" y="263" text-anchor="middle" font-size="9" fill="#555">1500.00, 250.00, 800.00</text>
+  <line x1="360" y1="244" x2="538" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="236" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="264" x2="362" y2="264" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="276" text-anchor="middle" font-size="9" fill="#555">3 rows back</text>
+  <line x1="210" y1="280" x2="210" y2="310" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="310" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="327" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string startsWithC = """…""";</text>
+  <text x="210" y="343" text-anchor="middle" font-size="9" fill="#333">WHERE FullName LIKE 'C%'</text>
+  <text x="210" y="359" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(startsWithC);</text>
+  <rect x="540" y="310" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="335" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,335 557,328 567,328 567,335" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="342" x2="574" y2="342" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="334" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">stencil: C, then anything</text>
+  <text x="690" y="351" text-anchor="middle" font-size="9" fill="#555">Chen Li</text>
+  <line x1="360" y1="332" x2="538" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="324" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="352" x2="362" y2="352" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="364" text-anchor="middle" font-size="9" fill="#555">1 row back</text>
+  <line x1="210" y1="368" x2="210" y2="398" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="398" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="415" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string oneLetterWildcard = """…""";</text>
+  <text x="210" y="431" text-anchor="middle" font-size="9" fill="#333">WHERE FullName LIKE 'B_n%'</text>
+  <text x="210" y="447" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(oneLetterWildcard);</text>
+  <rect x="540" y="398" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="423" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,423 557,416 567,416 567,423" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="430" x2="574" y2="430" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="422" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">stencil: B, any ONE letter, n, …</text>
+  <text x="690" y="439" text-anchor="middle" font-size="9" fill="#555">Ben Carter</text>
+  <line x1="360" y1="420" x2="538" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="412" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="440" x2="362" y2="440" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="452" text-anchor="middle" font-size="9" fill="#555">1 row back</text>
+  <line x1="210" y1="456" x2="210" y2="486" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="486" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="503" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string nullEquals = """…""";</text>
+  <text x="210" y="519" text-anchor="middle" font-size="9" fill="#333">WHERE NULL = NULL</text>
+  <text x="210" y="535" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(nullEquals);</text>
+  <rect x="540" y="486" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="511" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,511 557,504 567,504 567,511" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="518" x2="574" y2="518" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="510" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">unknown, not TRUE: no row passes</text>
+  <text x="690" y="527" text-anchor="middle" font-size="9" fill="#555">the sieve stays empty</text>
+  <line x1="360" y1="508" x2="538" y2="508" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="500" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="528" x2="362" y2="528" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="540" text-anchor="middle" font-size="9" fill="#555">0 rows back</text>
+  <line x1="210" y1="544" x2="210" y2="574" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="574" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="591" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string nullIs = """…""";</text>
+  <text x="210" y="607" text-anchor="middle" font-size="9" fill="#333">WHERE NULL IS NULL</text>
+  <text x="210" y="623" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(nullIs);</text>
+  <rect x="540" y="574" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <rect x="550" y="599" width="24" height="16" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <polyline points="557,599 557,592 567,592 567,599" fill="none" stroke="#e69138" stroke-width="1.5"/>
+  <line x1="550" y1="606" x2="574" y2="606" stroke="#e69138" stroke-width="1"/>
+  <text x="690" y="598" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">IS NULL: the test that works</text>
+  <text x="690" y="615" text-anchor="middle" font-size="9" fill="#555">this one is TRUE</text>
+  <line x1="360" y1="596" x2="538" y2="596" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="588" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="616" x2="362" y2="616" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="628" text-anchor="middle" font-size="9" fill="#555">1 row back</text>
+  <line x1="210" y1="632" x2="210" y2="662" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="676" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="684" x2="210" y2="724" stroke="#333" stroke-width="2"/>
+  <polygon points="210,684 210,702 240,693" fill="#cc0000"/>
+  <text x="30" y="758" font-size="10.5" fill="#444"><tspan font-weight="bold">One value breaks the rules:</tspan> = and &lt;&gt; give "unknown" when NULL is involved, so the row is not kept; IS NULL is the test that finds it.</text>
+  <text x="30" y="776" font-size="10" font-style="italic" fill="#888">RunQuery prints "SQL:", the query lines and "Result:" with Console.WriteLine; SqlLab.Show then prints the grid and the row count.</text>
+  <text x="30" y="794" font-size="10" font-style="italic" fill="#888">Six queries, six SQL: / Result: blocks. The last two read no table at all: SQL Server just evaluates the condition.</text>
+  <text x="30" y="812" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

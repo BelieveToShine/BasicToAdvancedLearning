@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1160" height="600" fill="#ffffff"/>
+  <text x="580" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">EF Core basics — Memory: Stack / Heap / Static (high level)</text>
+  <text x="580" y="46" text-anchor="middle" font-size="12" fill="#666">The classes and the DbContext are Heap objects; the tables themselves live OUTSIDE .NET, in SQL Server.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers, plus a few plain values</text>
+  <text x="640" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — the objects EF Core works with</text>
+  <text x="1010" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="262" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local — each method's own frame, one at a time</text>
+  <rect x="56" y="144" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="161" font-size="10" font-weight="bold" fill="#1b3d1b">asha, savings → 2 pointers</text>
+  <text x="66" y="175" font-size="8.5" fill="#3f6b3f">ExplainModelClasses()</text>
+  <rect x="56" y="188" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="205" font-size="10" font-weight="bold" fill="#1b3d1b">context, script → 2 pointers</text>
+  <text x="66" y="219" font-size="8.5" fill="#3f6b3f">ExplainDbContextAndDbSet()</text>
+  <rect x="56" y="232" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="249" font-size="10" font-weight="bold" fill="#1b3d1b">before, after, configured → 3 pointers (plain: out of scope)</text>
+  <text x="66" y="263" font-size="8.5" fill="#3f6b3f">ExplainFluentApiConfiguration()</text>
+  <rect x="56" y="276" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="293" font-size="10" font-weight="bold" fill="#1b3d1b">context → 1 pointer</text>
+  <text x="66" y="307" font-size="8.5" fill="#3f6b3f">ExplainMigrations()</text>
+  <rect x="56" y="320" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="337" font-size="10" font-weight="bold" fill="#1b3d1b">context, ex → 2 pointers (+ created bools)</text>
+  <text x="66" y="351" font-size="8.5" fill="#3f6b3f">ExplainEnsureCreatedVsMigrate()</text>
+  <rect x="450" y="112" width="380" height="262" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Where the data and the helpers really are</text>
+  <rect x="466" y="144" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="170" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">Customer, Account (+ a List&lt;Account&gt;)</text>
+  <text x="640" y="188" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/1-ModelClasses.svg: objects tied by pointers</text>
+  <rect x="466" y="216" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">PlainBankContext / BankContext + DbSet objects</text>
+  <text x="640" y="260" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/2 to 5: short-lived, one per using block</text>
+  <rect x="466" y="288" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="314" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">string scripts, a SqlException</text>
+  <text x="640" y="332" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/2, 3 and 5: plain strings and an exception object</text>
+  <rect x="860" y="112" width="300" height="262" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1010" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
+  <text x="1010" y="180" text-anchor="middle" font-size="9.5" fill="#5b4a7a">This lesson declares no static fields.</text>
+  <text x="1010" y="198" text-anchor="middle" font-size="9.5" fill="#5b4a7a">EF Core keeps some caches of its own</text>
+  <text x="1010" y="214" text-anchor="middle" font-size="9.5" fill="#5b4a7a">inside the library; they are not drawn.</text>
+  <rect x="450" y="392" width="710" height="134" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="805" y="412" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: the tables</text>
+  <text x="466" y="436" font-size="9.5" font-weight="bold" fill="#333333">Tables: Customers (4 columns) and Accounts (5 columns), plus __EFMigrationsHistory</text>
+  <text x="466" y="454" font-size="9.5" fill="#333333">Memory/1, 2 and 3: not used or not contacted; no table is touched.</text>
+  <text x="466" y="472" font-size="9.5" fill="#333333">Memory/4: Migrate() builds both tables, empty, and adds 1 row to __EFMigrationsHistory: 20261012172636_InitialCreate.</text>
+  <text x="466" y="490" font-size="9.5" fill="#333333">Memory/5: EnsureCreated() builds the tables with NO history row; Migrate() is then refused (error 2714).</text>
+  <text x="40" y="560" font-size="10.5" fill="#444"><tspan font-weight="bold">An entity variable is never the row.</tspan> asha points at a Customer object in program memory; a row exists only after EF Core saves it (Topic 15).</text>
+  <text x="40" y="580" font-size="10" font-style="italic" fill="#888">The dashed grey box is a recorded addition to the locked 3-column shape (like Topic 8); the Stack, Heap and Static columns are unchanged.</text>
+</svg>

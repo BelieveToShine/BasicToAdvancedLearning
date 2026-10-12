@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="760" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">SQL CRUD — INSERT, UPDATE, DELETE and Transactions (T-SQL on SQL Server)</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">SqlCrudDemo.cs holds the lesson; SqlCrudSetup.cs rebuilds the empty bank tables. Each card is one Explain*() method — see Flow/0-Overview.svg for the call order.</text>
+  <g font-size="10" fill="#333"><rect x="150" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="166" y="72">INSERT</text></g>
+  <g font-size="10" fill="#333"><rect x="260" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="276" y="72">UPDATE</text></g>
+  <g font-size="10" fill="#333"><rect x="370" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="386" y="72">DELETE</text></g>
+  <g font-size="10" fill="#333"><rect x="480" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="496" y="72">Transactions</text></g>
+  <g font-size="10" fill="#333"><rect x="610" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="626" y="72">XACT_ABORT</text></g>
+  <g font-size="10" fill="#333"><rect x="740" y="62" width="12" height="12" rx="2" fill="#fde4e4" stroke="#d96b6b"/><text x="756" y="72">Safe habits</text></g>
+  <rect x="40" y="92" width="390" height="196" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="235" y="114" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">1 · INSERT — adding rows</text>
+  <text x="235" y="130" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainInsertRows()</text>
+  <rect x="52" y="140" width="366" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="60" y="160" font-size="9" fill="#333">INSERT INTO Customers (FullName, Email) VALUES (…);</text>
+  <text x="60" y="186" font-size="9" fill="#333">DECLARE @NewAccountId INT = SCOPE_IDENTITY();</text>
+  <text x="235" y="237" text-anchor="middle" font-size="9.5" fill="#274e13">Add rows with a column list; DEFAULT fills the rest.</text>
+  <text x="235" y="253" text-anchor="middle" font-size="9.5" fill="#274e13">SCOPE_IDENTITY or OUTPUT hand back the new numbers.</text>
+  <rect x="445" y="92" width="390" height="196" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="640" y="114" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">2 · UPDATE — changing rows</text>
+  <text x="640" y="130" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainUpdateRows()</text>
+  <rect x="457" y="140" width="366" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0" stroke-width="1"/>
+  <text x="465" y="160" font-size="9" fill="#333">UPDATE Customers SET Email = … WHERE CustomerId = 1;</text>
+  <text x="465" y="186" font-size="9" fill="#333">UPDATE AccountsScratch SET Balance = Balance - 25;</text>
+  <text x="640" y="237" text-anchor="middle" font-size="9.5" fill="#7f6000">SET says what changes, WHERE says which rows.</text>
+  <text x="640" y="253" text-anchor="middle" font-size="9.5" fill="#7f6000">No WHERE = every row. Matching 0 rows is not an error.</text>
+  <rect x="850" y="92" width="390" height="196" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1045" y="114" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · DELETE — removing rows</text>
+  <text x="1045" y="130" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainDeleteRows()</text>
+  <rect x="862" y="140" width="366" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="870" y="160" font-size="9" fill="#333">DELETE FROM Transactions WHERE AccountId = (…);</text>
+  <text x="870" y="186" font-size="9" fill="#333">TRUNCATE TABLE Customers;   -- refused (error 4712)</text>
+  <text x="1045" y="237" text-anchor="middle" font-size="9.5" fill="#8a5a10">A foreign key blocks deleting a parent (error 547):</text>
+  <text x="1045" y="253" text-anchor="middle" font-size="9.5" fill="#8a5a10">delete children first. TRUNCATE has no WHERE.</text>
+  <rect x="40" y="304" width="390" height="196" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="235" y="326" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">4 · Transactions — all or nothing</text>
+  <text x="235" y="342" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainTransactions()</text>
+  <rect x="52" y="352" width="366" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="60" y="372" font-size="9" fill="#333">BEGIN TRANSACTION; UPDATE …; UPDATE …; COMMIT TRANSACTION;</text>
+  <text x="60" y="398" font-size="9" fill="#333">IF (SELECT Balance …) &lt; 0 ROLLBACK TRANSACTION;</text>
+  <text x="235" y="449" text-anchor="middle" font-size="9.5" fill="#1a4a73">COMMIT makes every change in the group permanent;</text>
+  <text x="235" y="465" text-anchor="middle" font-size="9.5" fill="#1a4a73">ROLLBACK undoes them all (the A of ACID).</text>
+  <rect x="445" y="304" width="390" height="196" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="640" y="326" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · SET XACT_ABORT — errors mid-way</text>
+  <text x="640" y="342" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainXactAbort()</text>
+  <rect x="457" y="352" width="366" height="70" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="465" y="372" font-size="9" fill="#333">SET XACT_ABORT OFF;  -- half-done transfer is saved</text>
+  <text x="465" y="398" font-size="9" fill="#333">SET XACT_ABORT ON;   -- whole transfer undone</text>
+  <text x="640" y="449" text-anchor="middle" font-size="9.5" fill="#4a2e73">OFF: a failed statement is skipped, the rest still commits.</text>
+  <text x="640" y="465" text-anchor="middle" font-size="9.5" fill="#4a2e73">ON: the first run-time error rolls everything back.</text>
+  <rect x="850" y="304" width="390" height="196" rx="10" fill="#fde4e4" stroke="#d96b6b" stroke-width="1.5"/>
+  <text x="1045" y="326" text-anchor="middle" font-size="12" font-weight="bold" fill="#7a2a2a">6 · Safe habits</text>
+  <text x="1045" y="342" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b06060">ExplainSafeHabits()</text>
+  <rect x="862" y="352" width="366" height="70" rx="6" fill="#ffffff" stroke="#f0b8b8" stroke-width="1"/>
+  <text x="870" y="372" font-size="9" fill="#333">SELECT … FROM Accounts WHERE AccountType = N'Savings';</text>
+  <text x="870" y="398" font-size="9" fill="#333">IF @@ROWCOUNT = 2 COMMIT … ELSE ROLLBACK …;</text>
+  <text x="1045" y="449" text-anchor="middle" font-size="9.5" fill="#7a2a2a">Preview the rows with SELECT, then change them</text>
+  <text x="1045" y="465" text-anchor="middle" font-size="9.5" fill="#7a2a2a">inside a transaction and check the row count.</text>
+  <rect x="40" y="530" width="250" height="78" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="165" y="556" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">SqlCrudDemo (C#)</text>
+  <text x="165" y="574" text-anchor="middle" font-size="9.5" fill="#555">sends SQL text, prints what</text>
+  <text x="165" y="589" text-anchor="middle" font-size="9.5" fill="#555">comes back with Console.WriteLine</text>
+  <rect x="470" y="512" width="770" height="148" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="855" y="532" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: the three bank tables</text>
+  <line x1="290" y1="551" x2="470" y2="551" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="380" y="543" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">SQL text</text>
+  <text x="380" y="566" text-anchor="middle" font-size="9" fill="#555">SqlLab.Run(sql) / Show(sql)</text>
+  <line x1="470" y1="596" x2="290" y2="596" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="380" y="612" text-anchor="middle" font-size="9" fill="#555">rows affected (int) / rows to print</text>
+  <rect x="490" y="562" width="190" height="68" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="585" y="582" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Transactions</text>
+  <text x="585" y="598" text-anchor="middle" font-size="9" fill="#555">TransactionId, AccountId,</text>
+  <text x="585" y="612" text-anchor="middle" font-size="9" fill="#555">Amount, Kind, CreatedAt</text>
+  <rect x="770" y="562" width="190" height="68" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="865" y="582" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Accounts</text>
+  <text x="865" y="598" text-anchor="middle" font-size="9" fill="#555">AccountId, CustomerId,</text>
+  <text x="865" y="612" text-anchor="middle" font-size="9" fill="#555">AccountNumber, AccountType, Balance</text>
+  <rect x="1030" y="562" width="190" height="68" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="1125" y="582" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Customers</text>
+  <text x="1125" y="598" text-anchor="middle" font-size="9" fill="#555">CustomerId, FullName,</text>
+  <text x="1125" y="612" text-anchor="middle" font-size="9" fill="#555">Email, CreatedAt</text>
+  <line x1="680" y1="596" x2="770" y2="596" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="725" y="588" text-anchor="middle" font-size="9" fill="#333">points at</text>
+  <text x="725" y="612" text-anchor="middle" font-size="9" fill="#555">AccountId</text>
+  <line x1="960" y1="596" x2="1030" y2="596" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="995" y="588" text-anchor="middle" font-size="9" fill="#333">points at</text>
+  <text x="995" y="612" text-anchor="middle" font-size="9" fill="#555">CustomerId</text>
+  <text x="855" y="650" text-anchor="middle" font-size="9" font-style="italic" fill="#666">Each arrow is a foreign key: a child row points at its parent — that is why DELETE must go children first.</text>
+  <text x="40" y="700" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → SqlCrudExample.Explain()</tspan> checks SqlLab.IsReady(), rebuilds the empty tables, then calls all six methods above, in this order.</text>
+  <text x="40" y="720" font-size="10.5" font-style="italic" fill="#888">Every method (1–6) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up. Set BTAL_SQLSERVER to run the lesson.</text>
+</svg>

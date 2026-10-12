@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 758" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="758" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Status codes — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainStatusCodes() is running, inside the catch block, after EnsureSuccessStatusCode threw on the 404.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="620" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="354" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">HttpAndRestDemo.ExplainStatusCodes() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">client → pointer  (HttpClient)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">noRedirectClient → pointer  (HttpClient)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">moved → pointer  (HttpResponseMessage)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">notFound → pointer  (HttpResponseMessage)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">ex → pointer  (HttpRequestException)</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">HttpAndRestExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="402" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="438" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="320" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="176" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="193" font-size="10" fill="#7f4e00">Client → pointer (the HttpClient)</text>
+  <text x="474" y="217" font-size="8.5" font-style="italic" fill="#a06a1f">(also BaseAddress; the port is never printed)</text>
+  <rect x="460" y="236" width="320" height="66" rx="10" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="620.0" y="258" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient — client (= server.Client)</text>
+  <rect x="472" y="268" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="285" font-size="10" fill="#7f4e00">BaseAddress = http://127.0.0.1:&lt;port&gt;</text>
+  <rect x="460" y="312" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="334" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient — noRedirectClient</text>
+  <rect x="472" y="344" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="361" font-size="10" fill="#7f4e00">BaseAddress = http://127.0.0.1:&lt;port&gt;</text>
+  <rect x="472" y="374" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="391" font-size="10" fill="#7f4e00">handler: AllowAutoRedirect = false</text>
+  <rect x="460" y="418" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="440" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpResponseMessage — moved</text>
+  <rect x="472" y="450" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="467" font-size="10" fill="#7f4e00">StatusCode = 301 (MovedPermanently)</text>
+  <rect x="472" y="480" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="497" font-size="10" fill="#7f4e00">Location: /api/accounts</text>
+  <rect x="460" y="524" width="320" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="546" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpResponseMessage — notFound</text>
+  <rect x="472" y="556" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="573" font-size="10" fill="#7f4e00">StatusCode = 404 (NotFound)</text>
+  <rect x="460" y="600" width="320" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="622" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpRequestException — ex</text>
+  <rect x="472" y="632" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="649" font-size="10" fill="#7f4e00">StatusCode = 404</text>
+  <text x="474" y="673" font-size="8.5" font-style="italic" fill="#a06a1f">(plus a message; its wording is .NET's own, so not quoted)</text>
+  <polyline points="780,189 794,189 794,258 782,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="860" y="144" width="330" height="250" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1025.0" y="164" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE these variables — server side</text>
+  <text x="874" y="184" font-size="9.5" font-weight="bold" fill="#333333">Status codes the server sent in this method:</text>
+  <text x="874" y="200" font-size="9.5" fill="#333333">  200  OK</text>
+  <text x="874" y="216" font-size="9.5" fill="#333333">  201  Created</text>
+  <text x="874" y="232" font-size="9.5" fill="#333333">  204  No Content</text>
+  <text x="874" y="248" font-size="9.5" fill="#333333">  301  Moved Permanently</text>
+  <text x="874" y="264" font-size="9.5" fill="#333333">  400  Bad Request</text>
+  <text x="874" y="280" font-size="9.5" fill="#333333">  404  Not Found</text>
+  <text x="874" y="296" font-size="9.5" fill="#333333">  415  Unsupported Media Type</text>
+  <text x="874" y="312" font-size="9.5" fill="#333333">  500  Internal Server Error</text>
+  <text x="874" y="328" font-size="9.5" font-style="italic" fill="#777777">Server's accounts now: 1 Asha Rao, 2 Ben Carter,</text>
+  <text x="874" y="344" font-size="9.5" font-style="italic" fill="#777777">4 Dana Ortiz (3 was deleted; the 400 added nothing).</text>
+  <polyline points="378,159 450,159 450,166 458,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 442,189 442,258 458,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 434,219 434,334 458,334" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 426,249 426,440 458,440" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 418,279 418,546 458,546" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 410,309 410,622 458,622" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="706" font-size="10.5" fill="#444"><tspan font-weight="bold">Only the two responses and the exception that the code still needs are locals; </tspan>the other calls (200, 201, 204, 400, 415, 500) were printed and disposed inside the Send helper.</text>
+  <text x="40" y="724" font-size="10" font-style="italic" fill="#888">The exception exists because the code asked for it: HttpClient itself does not throw for 4xx or 5xx. Redirects are followed by default; noRedirectClient's handler turns that off so moved shows the 301.</text>
+</svg>

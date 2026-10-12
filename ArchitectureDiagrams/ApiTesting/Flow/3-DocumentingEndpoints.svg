@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 880" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="880" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Documenting endpoints — Sub-level Flow: labels on the parcels versus what is inside</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Attributes are labels. They are copied into the OpenAPI JSON, but a missing label does not change what the code does.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="122.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">using RunningServer server = BankApi.Start();</text>
+  <text x="210.0" y="137.0" text-anchor="middle" font-size="9.5" fill="#555">open the API</text>
+  <line x1="210" y1="150" x2="210" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="190" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="217.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send(GET OpenApiPath) + JsonDocument.Parse</text>
+  <text x="210.0" y="232.0" text-anchor="middle" font-size="9.5" fill="#555">get the document and open "paths"</text>
+  <line x1="210" y1="250" x2="210" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="300" width="300" height="80" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="2"/>
+  <text x="210.0" y="330.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">foreach route → foreach verb</text>
+  <text x="210.0" y="344.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">responses = codes in the JSON</text>
+  <text x="210.0" y="358.0" text-anchor="middle" font-size="9.5" fill="#555">prints  VERB  route  documents: codes</text>
+  <polyline points="360,360 400,360 400,320 362,320" fill="none" stroke="#e69138" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="408" y="344" text-anchor="start" font-size="9.5" fill="#555">next</text>
+  <text x="218" y="402" font-size="9" font-style="italic" fill="#555">Console.WriteLine: one line per operation (5)</text>
+  <line x1="210" y1="380" x2="210" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="430" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="449.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">getOne.GetProperty("description")</text>
+  <text x="210.0" y="464.0" text-anchor="middle" font-size="9.5" fill="#555">the [EndpointDescription] text</text>
+  <text x="218" y="496" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the description line</text>
+  <line x1="210" y1="474" x2="210" y2="520" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="520" width="300" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="547.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send(DELETE "/api/accounts/2")  ×2</text>
+  <text x="210.0" y="562.0" text-anchor="middle" font-size="9.5" fill="#555">the real answers, one after the other</text>
+  <text x="218" y="602" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "real DELETE … -&gt; 204, … -&gt; 404"</text>
+  <line x1="210" y1="580" x2="210" y2="630" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="630" width="300" height="70" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="662.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">schema "pattern"  +  Send(POST accountType Gold)</text>
+  <text x="210.0" y="677.0" text-anchor="middle" font-size="9.5" fill="#555">a validation rule is documented, then enforced</text>
+  <text x="218" y="722" font-size="9" font-style="italic" fill="#555">Console.WriteLine ×2: the pattern, then "-&gt; 400"</text>
+  <line x1="210" y1="700" x2="210" y2="740" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="762" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="770" x2="210" y2="810" stroke="#333" stroke-width="2"/>
+  <polygon points="210,770 210,788 240,779" fill="#cc0000"/>
+  <rect x="520" y="190" width="330" height="480" rx="10" fill="#f9f9f9" stroke="#999999" stroke-width="1.5"/>
+  <text x="685" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">what the lesson compares</text>
+  <rect x="540" y="232" width="290" height="140" rx="8" fill="#ffffff" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="685" y="254" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">GET /api/accounts/{id}</text>
+  <text x="685" y="276" text-anchor="middle" font-size="9.5" fill="#333">code:  [ProducesResponseType] 200 and 404</text>
+  <text x="685" y="296" text-anchor="middle" font-size="9.5" fill="#333">JSON documents:  200, 404</text>
+  <text x="685" y="316" text-anchor="middle" font-size="9.5" fill="#333">real answers:  200, or 404 for a missing id</text>
+  <text x="685" y="350" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">label and contents agree</text>
+  <rect x="540" y="392" width="290" height="160" rx="8" fill="#ffffff" stroke="#cc0000" stroke-width="2"/>
+  <text x="685" y="414" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#990000">DELETE /api/accounts/{id}</text>
+  <text x="685" y="436" text-anchor="middle" font-size="9.5" fill="#333">code:  no [ProducesResponseType]</text>
+  <text x="685" y="456" text-anchor="middle" font-size="9.5" fill="#333">JSON documents:  200 only</text>
+  <text x="685" y="476" text-anchor="middle" font-size="9.5" fill="#333">real answers:  204, then 404</text>
+  <text x="685" y="510" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">the label is missing and does not match</text>
+  <text x="685" y="530" text-anchor="middle" font-size="9" font-style="italic" fill="#555">(the code itself works fine)</text>
+  <text x="685" y="590" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">The document is a description written by</text>
+  <text x="685" y="606" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">people. A tool can read it; it cannot</text>
+  <text x="685" y="622" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">prove the code still does what it says.</text>
+  <text x="30" y="840" font-size="10.5" fill="#444"><tspan font-weight="bold">[ProducesResponseType] and [EndpointSummary] change the JSON, not the behaviour. </tspan>XML comments can feed the JSON too, but need a project setting this lesson does not use.</text>
+</svg>

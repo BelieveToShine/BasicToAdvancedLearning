@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="780" fill="#ffffff"/>
+  <text x="480.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Fluent API — Sub-level Flow: two blueprint sheets and a highlighter</text>
+  <text x="480.0" y="38" text-anchor="middle" font-size="11" fill="#666">Sheet 1 is drawn from the conventions alone, sheet 2 after OnModelCreating; the highlighter marks only the lines that differ.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="110" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="134.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">using (PlainBankContext plain …)</text>
+  <text x="210.0" y="149.0" text-anchor="middle" font-size="9" fill="#555">before = plain.Database.GenerateCreateScript();</text>
+  <line x1="360" y1="138" x2="520" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="130" text-anchor="middle" font-size="9.5" fill="#555">conventions only</text>
+  <rect x="520" y="110" width="300" height="90" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="670" y="132" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">sheet 1 = string before</text>
+  <text x="670" y="152" text-anchor="middle" font-size="9.5" fill="#333">nvarchar(max) text columns</text>
+  <text x="670" y="168" text-anchor="middle" font-size="9.5" fill="#333">ON DELETE CASCADE</text>
+  <text x="670" y="184" text-anchor="middle" font-size="9.5" fill="#333">no unique index</text>
+  <line x1="210" y1="166" x2="210" y2="250" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="250" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="274.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">using (BankContext configured …)</text>
+  <text x="210.0" y="289.0" text-anchor="middle" font-size="9" fill="#555">after = configured.Database.GenerateCreateScript();</text>
+  <line x1="360" y1="278" x2="520" y2="278" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="270" text-anchor="middle" font-size="9.5" fill="#555">runs OnModelCreating</text>
+  <rect x="520" y="230" width="300" height="100" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="670" y="252" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">sheet 2 = string after</text>
+  <text x="670" y="272" text-anchor="middle" font-size="9.5" fill="#333">nvarchar(100), (200), (20)</text>
+  <text x="670" y="288" text-anchor="middle" font-size="9.5" fill="#333">ON DELETE NO ACTION</text>
+  <text x="670" y="304" text-anchor="middle" font-size="9.5" fill="#333">2 × CREATE UNIQUE INDEX</text>
+  <line x1="210" y1="306" x2="210" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="400" width="300" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210.0" y="424.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">PrintScriptChanges(before, after);</text>
+  <text x="210.0" y="439.0" text-anchor="middle" font-size="9" fill="#555">compare the two sheets line by line</text>
+  <line x1="360" y1="428" x2="520" y2="428" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="420" text-anchor="middle" font-size="9.5" fill="#555">compares</text>
+  <rect x="520" y="380" width="300" height="100" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="670" y="402" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">the highlighter</text>
+  <text x="670" y="422" text-anchor="middle" font-size="9.5" fill="#333">lines only on sheet 1 → "-"  (5)</text>
+  <text x="670" y="438" text-anchor="middle" font-size="9.5" fill="#333">lines only on sheet 2 → "+"  (7)</text>
+  <text x="670" y="458" text-anchor="middle" font-size="9" font-style="italic" fill="#555">identical lines are not printed</text>
+  <polyline points="820,155 880,155 880,410 822,410" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="870" y="262" text-anchor="end" font-size="9" fill="#555">sheet 1</text>
+  <polyline points="670,330 670,380" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="680" y="352" font-size="9" fill="#555">sheet 2</text>
+  <line x1="210" y1="456" x2="210" y2="520" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="520" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="544.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Console.WriteLine × 12</text>
+  <text x="210.0" y="559.0" text-anchor="middle" font-size="9" fill="#555">5 "-" lines, then 7 "+" lines</text>
+  <rect x="520" y="520" width="300" height="56" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="670.0" y="544.0" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SQL Server (outside .NET): not contacted</text>
+  <text x="670.0" y="559.0" text-anchor="middle" font-size="9" fill="#333">both sheets are only text</text>
+  <line x1="210" y1="576" x2="210" y2="618" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="632" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="640" x2="210" y2="680" stroke="#333" stroke-width="2"/>
+  <polygon points="210,640 210,658 240,649" fill="#cc0000"/>
+  <text x="30" y="700" font-size="10.5" fill="#444"><tspan font-weight="bold">IsRequired() and HasPrecision(18, 2) change no printed line:</tspan> NOT NULL and decimal(18,2) were already in the script.</text>
+  <text x="30" y="718" font-size="10" font-style="italic" fill="#888">HasPrecision still matters: with no setting EF Core warns that values which do not fit would be truncated.</text>
+  <text x="30" y="736" font-size="10" font-style="italic" fill="#888">A "-" line has its "+" twin: [FullName] nvarchar(max) is replaced by nvarchar(100), and so on for Email, AccountNumber, AccountType and the foreign key.</text>
+  <text x="30" y="754" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

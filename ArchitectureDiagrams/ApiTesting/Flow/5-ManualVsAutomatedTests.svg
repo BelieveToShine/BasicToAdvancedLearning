@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 880" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="880" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Manual vs automated — Sub-level Flow: a referee with a scoreboard</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each check sends a request, compares the answer with what we expect, and Report() adds one to PASS or to FAIL.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210.0" y="122.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">server = BankApi.Start();  client = …</text>
+  <text x="210.0" y="137.0" text-anchor="middle" font-size="9.5" fill="#555">passed = 0;  failed = 0</text>
+  <text x="190" y="186" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">the request</text>
+  <text x="480" y="186" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">the check</text>
+  <text x="770" y="186" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Report() → Console.WriteLine</text>
+  <line x1="80" y1="150" x2="80" y2="200" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="200" width="230" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="226.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send GET /api/accounts</text>
+  <rect x="340" y="200" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="226.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">status == 200</text>
+  <rect x="700" y="200" width="140" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="770.0" y="226.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">PASS</text>
+  <line x1="270" y1="222" x2="340" y2="222" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="215" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="222" x2="700" y2="222" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="215" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="244" x2="155" y2="266" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="266" width="230" height="44" rx="8" fill="#f4f4f4" stroke="#aaaaaa" stroke-width="1.5"/>
+  <text x="155.0" y="292.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#555">(same reply)</text>
+  <rect x="340" y="266" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="292.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">JSON array has 2 accounts</text>
+  <rect x="700" y="266" width="140" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="770.0" y="292.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">PASS</text>
+  <line x1="270" y1="288" x2="340" y2="288" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="281" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="288" x2="700" y2="288" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="281" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="310" x2="155" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="332" width="230" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="358.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send POST /api/accounts</text>
+  <rect x="340" y="332" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="358.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">status == 201</text>
+  <rect x="700" y="332" width="140" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="770.0" y="358.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">PASS</text>
+  <line x1="270" y1="354" x2="340" y2="354" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="347" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="354" x2="700" y2="354" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="347" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="376" x2="155" y2="398" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="398" width="230" height="44" rx="8" fill="#f4f4f4" stroke="#aaaaaa" stroke-width="1.5"/>
+  <text x="155.0" y="424.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#555">(same reply)</text>
+  <rect x="340" y="398" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="424.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">Location == /api/accounts/3</text>
+  <rect x="700" y="398" width="140" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="770.0" y="424.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">PASS</text>
+  <line x1="270" y1="420" x2="340" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="413" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="420" x2="700" y2="420" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="413" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="442" x2="155" y2="464" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="464" width="230" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="490.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send POST …/1/deposit</text>
+  <rect x="340" y="464" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="490.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">balance == 550.25</text>
+  <rect x="700" y="464" width="140" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="770.0" y="490.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">PASS</text>
+  <line x1="270" y1="486" x2="340" y2="486" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="479" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="486" x2="700" y2="486" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="479" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="508" x2="155" y2="530" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="530" width="230" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="556.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Send GET /api/accounts/999</text>
+  <rect x="340" y="530" width="280" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="480.0" y="556.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">status == 200  (wrong on purpose)</text>
+  <rect x="700" y="530" width="140" height="44" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="2.5"/>
+  <text x="770.0" y="556.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">FAIL</text>
+  <line x1="270" y1="552" x2="340" y2="552" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="305" y="545" text-anchor="middle" font-size="9.5" fill="#555">reply</text>
+  <line x1="620" y1="552" x2="700" y2="552" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="660" y="545" text-anchor="middle" font-size="9.5" fill="#555">ok?</text>
+  <line x1="155" y1="596" x2="155" y2="640" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="640" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="190.0" y="665.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">Console.WriteLine: "5 passed, 1 failed (…)"</text>
+  <text x="190.0" y="680.0" text-anchor="middle" font-size="9.5" fill="#555">then 2 lines about xUnit + WebApplicationFactory</text>
+  <line x1="190" y1="696" x2="190" y2="716" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="190" y="738" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="190" y1="746" x2="190" y2="786" stroke="#333" stroke-width="2"/>
+  <polygon points="190,746 190,764 220,755" fill="#cc0000"/>
+  <rect x="560" y="640" width="280" height="110" rx="10" fill="#f9f9f9" stroke="#999999" stroke-width="1.5"/>
+  <text x="700" y="662" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">the tally</text>
+  <text x="700" y="684" text-anchor="middle" font-size="9.5" fill="#274e13">passed = 5   (rows 1-5)</text>
+  <text x="700" y="702" text-anchor="middle" font-size="9.5" fill="#990000">failed = 1   (row 6)</text>
+  <text x="700" y="726" text-anchor="middle" font-size="9" font-style="italic" fill="#555">the one FAIL is the deliberately</text>
+  <text x="700" y="740" text-anchor="middle" font-size="9" font-style="italic" fill="#555">wrong expectation</text>
+  <text x="30" y="810" font-size="10.5" fill="#444"><tspan font-weight="bold">Same checks as doing it by hand, but a program can repeat them quickly, every time the code changes. </tspan></text>
+  <text x="30" y="828" font-size="10" font-style="italic" fill="#888">Real test projects usually use xUnit with WebApplicationFactory (not used here, so not run). Every Send goes to the in-process API opened at the top.</text>
+</svg>

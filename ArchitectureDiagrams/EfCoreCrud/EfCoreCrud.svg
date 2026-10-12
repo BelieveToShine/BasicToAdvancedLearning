@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="700" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">EF Core CRUD — Add, Query, Update, Remove with C# objects instead of hand-written SQL</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">EfCoreCrudDemo.cs holds the lesson; BankModel.cs, BankContext.cs and SqlSpy.cs are the running example. Each card below is one ExplainX() method.</text>
+  <g font-size="10" fill="#333"><rect x="120" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="136" y="72">C# objects / DbContext</text></g>
+  <g font-size="10" fill="#333"><rect x="360" y="62" width="12" height="12" rx="2" fill="#f1f1f1" stroke="#777777"/><text x="376" y="72">SQL Server (outside .NET)</text></g>
+  <rect x="40" y="90" width="330" height="84" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205" y="112" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a4a73">Entity classes  (BankModel.cs)</text>
+  <text x="205" y="131" text-anchor="middle" font-size="10" fill="#333">Customer · Account · BankTransaction</text>
+  <text x="205" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">one object = one row, one property = one column</text>
+  <rect x="500" y="90" width="330" height="84" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="665" y="112" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a4a73">BankContext  (BankContext.cs)</text>
+  <text x="665" y="131" text-anchor="middle" font-size="10" fill="#333">DbSets  +  the change tracker</text>
+  <text x="665" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">turns LINQ into SQL and tracked changes into commands</text>
+  <rect x="960" y="90" width="280" height="84" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1100" y="112" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="1100" y="131" text-anchor="middle" font-size="10" fill="#333">Customers · Accounts · Transactions</text>
+  <text x="1100" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">the tables the SQL topics built</text>
+  <line x1="370" y1="122" x2="500" y2="122" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435" y="116" text-anchor="middle" font-size="9" fill="#555">Add / edit / Remove</text>
+  <line x1="500" y1="150" x2="370" y2="150" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="435" y="166" text-anchor="middle" font-size="9" fill="#555">query results</text>
+  <line x1="830" y1="122" x2="960" y2="122" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="895" y="116" text-anchor="middle" font-size="9" fill="#555">SQL</text>
+  <line x1="960" y1="150" x2="830" y2="150" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="895" y="166" text-anchor="middle" font-size="9" fill="#555">rows</text>
+  <rect x="40" y="205" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="227" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Add and SaveChanges</text>
+  <text x="220" y="243" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainAddAndSave()</text>
+  <rect x="56" y="253" width="328" height="70" rx="6" fill="#ffffff" stroke="#3d85c6" stroke-width="1"/>
+  <text x="66" y="271" font-size="9.5" fill="#333">context.Customers.Add(asha);</text>
+  <text x="66" y="289" font-size="9.5" fill="#333">int rowsWritten = context.SaveChanges();</text>
+  <text x="220" y="347" text-anchor="middle" font-size="9.5" fill="#1a4a73">Add only tracks the new object;</text>
+  <text x="220" y="361" text-anchor="middle" font-size="9.5" fill="#1a4a73">SaveChanges sends the INSERT and fills in ids.</text>
+  <rect x="460" y="205" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="640" y="227" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Querying with LINQ</text>
+  <text x="640" y="243" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainQueryingWithLinq()</text>
+  <rect x="476" y="253" width="328" height="70" rx="6" fill="#ffffff" stroke="#6aa84f" stroke-width="1"/>
+  <text x="486" y="271" font-size="9.5" fill="#333">query.ToQueryString()  // SQL text, not sent</text>
+  <text x="486" y="289" font-size="9.5" fill="#333">context.Customers.Find(1);</text>
+  <text x="640" y="347" text-anchor="middle" font-size="9.5" fill="#274e13">Where/OrderBy/Select build a plan;</text>
+  <text x="640" y="361" text-anchor="middle" font-size="9.5" fill="#274e13">ToList, Find and friends run it.</text>
+  <rect x="880" y="205" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1060" y="227" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Related data</text>
+  <text x="1060" y="243" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainRelatedData()</text>
+  <rect x="896" y="253" width="328" height="70" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1"/>
+  <text x="906" y="271" font-size="9.5" fill="#333">…AsNoTracking().Include(c =&gt; c.Accounts)</text>
+  <text x="906" y="289" font-size="9.5" fill="#333">…Select(c =&gt; new { c.FullName, … })</text>
+  <text x="1060" y="347" text-anchor="middle" font-size="9.5" fill="#8a5a10">A navigation property is empty unless loaded:</text>
+  <text x="1060" y="361" text-anchor="middle" font-size="9.5" fill="#8a5a10">Include joins, Select shapes, loops cost trips.</text>
+  <rect x="40" y="415" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="437" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">4 · Updating tracked entities</text>
+  <text x="220" y="453" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainUpdatingTrackedEntities()</text>
+  <rect x="56" y="463" width="328" height="70" rx="6" fill="#ffffff" stroke="#f1c232" stroke-width="1"/>
+  <text x="66" y="481" font-size="9.5" fill="#333">account.Balance += 100m;</text>
+  <text x="66" y="499" font-size="9.5" fill="#333">context.Entry(account).State  // Modified</text>
+  <text x="220" y="557" text-anchor="middle" font-size="9.5" fill="#7f6000">The tracker compares with a snapshot,</text>
+  <text x="220" y="571" text-anchor="middle" font-size="9.5" fill="#7f6000">so only changed columns are updated.</text>
+  <rect x="460" y="415" width="360" height="190" rx="10" fill="#fdecea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="640" y="437" text-anchor="middle" font-size="12" font-weight="bold" fill="#990000">5 · Removing rows</text>
+  <text x="640" y="453" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b05555">ExplainRemovingRows()</text>
+  <rect x="476" y="463" width="328" height="70" rx="6" fill="#ffffff" stroke="#cc0000" stroke-width="1"/>
+  <text x="486" y="481" font-size="9.5" fill="#333">context.Customers.Remove(ben);</text>
+  <text x="486" y="499" font-size="9.5" fill="#333">catch (DbUpdateException ex) …</text>
+  <text x="640" y="557" text-anchor="middle" font-size="9.5" fill="#990000">Remove marks Deleted; the foreign key</text>
+  <text x="640" y="571" text-anchor="middle" font-size="9.5" fill="#990000">decides: refuse (547) or cascade.</text>
+  <rect x="880" y="415" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1060" y="437" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">6 · SaveChanges is all or nothing</text>
+  <text x="1060" y="453" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainSaveChangesIsAllOrNothing()</text>
+  <rect x="896" y="463" width="328" height="70" rx="6" fill="#ffffff" stroke="#8e63ce" stroke-width="1"/>
+  <text x="906" y="481" font-size="9.5" fill="#333">asha.FullName = "Asha R. Rao";</text>
+  <text x="906" y="499" font-size="9.5" fill="#333">context.Customers.Add(devAgain);  // fails</text>
+  <text x="1060" y="557" text-anchor="middle" font-size="9.5" fill="#4a2e73">Every pending change commits together</text>
+  <text x="1060" y="571" text-anchor="middle" font-size="9.5" fill="#4a2e73">or none do (EF wraps multi-statement saves in a transaction).</text>
+  <text x="40" y="650" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → EfCoreCrudExample.Explain()</tspan> checks SqlLab.IsReady() first, then calls the six methods above in this order — see Flow/0-Overview.svg.</text>
+  <text x="40" y="670" font-size="10.5" font-style="italic" fill="#888">Every method (1–6) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

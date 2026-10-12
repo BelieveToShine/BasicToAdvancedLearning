@@ -1,0 +1,55 @@
+# Bank API requests for the VS Code REST Client extension or Visual Studio's .http editor.
+# Change @baseUrl to wherever the API is running. This API has no login, so there are no secrets here.
+# These files are for an API you run as its own program; this lesson has no such program, so it replays the same requests against the in-process copy.
+# Requests are separated by a line that starts with ###. Click 'Send Request' above a request to run it.
+# The last request deletes the account opened by 'createAccount', so the file can be run again against the same API.
+
+@baseUrl = http://localhost:5000
+@accountId = 1
+
+### List all accounts (expect 200)
+GET {{baseUrl}}/api/accounts
+
+### Get one account (expect 200)
+GET {{baseUrl}}/api/accounts/{{accountId}}
+
+### Get an account that does not exist (expect 404)
+GET {{baseUrl}}/api/accounts/999
+
+### Open a new account (expect 201)
+# @name createAccount
+POST {{baseUrl}}/api/accounts
+Content-Type: application/json
+
+{
+  "owner": "Chen Li",
+  "accountType": "Savings"
+}
+
+### Open an account with an invalid type (expect 400)
+POST {{baseUrl}}/api/accounts
+Content-Type: application/json
+
+{
+  "owner": "Chen Li",
+  "accountType": "Gold"
+}
+
+### Deposit money (expect 200)
+POST {{baseUrl}}/api/accounts/{{accountId}}/deposit
+Content-Type: application/json
+
+{
+  "amount": 50.25
+}
+
+### Deposit a negative amount (expect 400)
+POST {{baseUrl}}/api/accounts/{{accountId}}/deposit
+Content-Type: application/json
+
+{
+  "amount": -5
+}
+
+### Delete the account opened above (expect 204)
+DELETE {{baseUrl}}/api/accounts/{{createAccount.response.body.$.id}}

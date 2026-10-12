@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 500" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="500" fill="#ffffff"/>
+  <text x="575" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">JwtAuth — Memory: Stack / Heap / Static (high level)</text>
+  <text x="575" y="46" text-anchor="middle" font-size="12" fill="#666">Tokens, replies and servers are all objects on the Heap; every variable is a pointer. The API server side is outside the lesson's variables.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers, plus a few plain values</text>
+  <text x="640" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — the real objects</text>
+  <text x="1040" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC — empty</text>
+  <rect x="40" y="112" width="380" height="282" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local — each method's own frame, one at a time</text>
+  <rect x="56" y="144" width="348" height="42" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="162" font-size="10" font-weight="bold" fill="#1b3d1b">server, 2 tokens, 3 ApiReply pointers</text>
+  <text x="66" y="177" font-size="8.5" fill="#3f6b3f">ExplainAuthenticationVsAuthorization()</text>
+  <rect x="56" y="192" width="348" height="42" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="210" font-size="10" font-weight="bold" fill="#1b3d1b">server, token, parts, JSON texts, byte[]s, replies</text>
+  <text x="66" y="225" font-size="8.5" fill="#3f6b3f">ExplainWhatIsAJwt()</text>
+  <rect x="56" y="240" width="348" height="42" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="258" font-size="10" font-weight="bold" fill="#1b3d1b">server, 3 replies, token, payloadJson, lifetimeSeconds</text>
+  <text x="66" y="273" font-size="8.5" fill="#3f6b3f">ExplainIssuingATokenLogin()</text>
+  <rect x="56" y="288" width="348" height="42" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="306" font-size="10" font-weight="bold" fill="#1b3d1b">server, 2 tokens, 7 ApiReply pointers</text>
+  <text x="66" y="321" font-size="8.5" fill="#3f6b3f">ExplainProtectingEndpoints()</text>
+  <rect x="56" y="336" width="348" height="42" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="354" font-size="10" font-weight="bold" fill="#1b3d1b">now, asha, 2 servers, 4 tokens, 4 replies</text>
+  <text x="66" y="369" font-size="8.5" fill="#3f6b3f">ExplainTokenLifetime()</text>
+  <rect x="450" y="112" width="480" height="202" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="690" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">The real objects — this is where the data is</text>
+  <rect x="466" y="144" width="448" height="50" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="690" y="165" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">string — every token is ONE text on the Heap</text>
+  <text x="690" y="182" text-anchor="middle" font-size="8.5" fill="#a06a1f">header . payload . signature  (varies each run, never printed)</text>
+  <rect x="466" y="200" width="448" height="50" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="690" y="221" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">ApiReply — StatusCode, Body, Challenge</text>
+  <text x="690" y="238" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ one small object per HTTP answer, in every method</text>
+  <rect x="466" y="256" width="448" height="50" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="690" y="277" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">DemoAuthServer → RunningServer → HttpClient, TokenIssuer (the random key)</text>
+  <text x="690" y="294" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/2 shows the key bytes and the signature check</text>
+  <rect x="450" y="328" width="480" height="66" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690" y="348" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE THESE VARIABLES — the API server (same program, reached over HTTP)</text>
+  <text x="690" y="368" text-anchor="middle" font-size="9.5" fill="#333">It holds its OWN copy of the signing key and decides 200 / 401 / 403</text>
+  <text x="690" y="384" text-anchor="middle" font-size="9.5" fill="#333">by checking each token. The request and the answer travel as HTTP text, not as variables.</text>
+  <rect x="960" y="112" width="170" height="282" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1045" y="150" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">Nothing here:</text>
+  <text x="1045" y="168" text-anchor="middle" font-size="9.5" fill="#5b4a7a">the lesson declares</text>
+  <text x="1045" y="182" text-anchor="middle" font-size="9.5" fill="#5b4a7a">no static fields.</text>
+  <text x="1045" y="210" text-anchor="middle" font-size="9.5" fill="#5b4a7a">The users and the key</text>
+  <text x="1045" y="224" text-anchor="middle" font-size="9.5" fill="#5b4a7a">live in objects, so</text>
+  <text x="1045" y="238" text-anchor="middle" font-size="9.5" fill="#5b4a7a">they sit on the Heap.</text>
+  <text x="1045" y="270" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">(.NET and ASP.NET keep</text>
+  <text x="1045" y="284" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">their own internal</text>
+  <text x="1045" y="298" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">statics; not drawn.)</text>
+  <text x="40" y="428" font-size="10.5" fill="#444"><tspan font-weight="bold">A token is just a string.</tspan> The variable token holds a pointer to one text on the Heap; splitting it on dots gives three more strings. Nothing in memory makes it secret — only HTTPS hides it on the wire.</text>
+  <text x="40" y="448" font-size="10" font-style="italic" fill="#888">The signing key is random bytes inside TokenIssuer, created when a server starts. It is never written in the source code and never printed, so the numbers differ on every run.</text>
+  <text x="40" y="468" font-size="10" font-style="italic" fill="#888">Each method gets its own full snapshot: Memory/1 … Memory/5.</text>
+</svg>

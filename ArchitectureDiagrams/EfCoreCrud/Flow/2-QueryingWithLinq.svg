@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1118" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1118" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Querying with LINQ — Sub-level Flow: an order slip and the kitchen</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Writing the order slip (Where, OrderBy) sends nothing. The kitchen (SQL Server) only works when something enumerates the query.</text>
+  <text x="225" y="48" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="225" y1="52" x2="225" y2="90" stroke="#333" stroke-width="2"/>
+  <polygon points="225,52 225,70 255,61" fill="#38761d"/>
+  <line x1="225" y1="92" x2="225" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="104" width="370" height="62" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="225.0" y="124" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">query = context.Customers.Where(…).OrderBy(…);</text>
+  <text x="225.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">writes the order slip: a plan, no rows yet</text>
+  <text x="225.0" y="156" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "SQL commands sent so far: 0"</text>
+  <line x1="225.0" y1="166" x2="225.0" y2="196" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="196" width="370" height="82" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">query.ToQueryString()</text>
+  <text x="225.0" y="232" text-anchor="middle" font-size="9.5" fill="#333">reads the slip back as SQL text — still not sent</text>
+  <text x="225.0" y="248" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the text, then "Still no SQL sent: 0"</text>
+  <rect x="520" y="196" width="340" height="82" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="213" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">only a string comes back</text>
+  <text x="690.0" y="229" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT … FROM [Customers]</text>
+  <text x="690.0" y="243" text-anchor="middle" font-size="9" fill="#333">WHERE … LIKE N'B%' OR … LIKE N'C%'</text>
+  <text x="690.0" y="257" text-anchor="middle" font-size="9" fill="#333">nothing was sent to SQL Server</text>
+  <line x1="410" y1="220" x2="520" y2="220" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="215" text-anchor="middle" font-size="8.5" fill="#555">translate</text>
+  <line x1="520" y1="242" x2="410" y2="242" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="237" text-anchor="middle" font-size="8.5" fill="#555">string</text>
+  <line x1="225.0" y1="278" x2="225.0" y2="308" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="308" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="328" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">List&lt;Customer&gt; customers = query.ToList();</text>
+  <text x="225.0" y="344" text-anchor="middle" font-size="9.5" fill="#333">ToList enumerates: NOW the order goes to the kitchen</text>
+  <text x="225.0" y="360" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL (SqlSpy), "After ToList: 1 command(s) …"</text>
+  <rect x="520" y="308" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="325" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="341" text-anchor="middle" font-size="9" fill="#333">runs the SELECT … WHERE … ORDER BY</text>
+  <text x="690.0" y="355" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">2 rows: Ben Carter, Chen Li</text>
+  <line x1="410" y1="332" x2="520" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="327" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="354" x2="410" y2="354" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="349" text-anchor="middle" font-size="8.5" fill="#555">rows</text>
+  <line x1="225.0" y1="376" x2="225.0" y2="406" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="406" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="426" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">…OrderBy(…).Select(c =&gt; c.FullName).ToList();</text>
+  <text x="225.0" y="442" text-anchor="middle" font-size="9.5" fill="#333">Select asks for one column, so the SELECT names one</text>
+  <text x="225.0" y="458" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, "Names only: …"</text>
+  <rect x="520" y="406" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="423" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="439" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT [c].[FullName] …</text>
+  <text x="690.0" y="453" text-anchor="middle" font-size="9" fill="#333">3 names come back, no Customer objects</text>
+  <line x1="410" y1="430" x2="520" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="425" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="452" x2="410" y2="452" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="447" text-anchor="middle" font-size="8.5" fill="#555">names</text>
+  <line x1="225.0" y1="474" x2="225.0" y2="504" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="504" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="524" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">FirstOrDefault(c =&gt; c.Email == "nobody@…")</text>
+  <text x="225.0" y="540" text-anchor="middle" font-size="9.5" fill="#333">first match, or null when there is none</text>
+  <text x="225.0" y="556" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, "… unknown email: null"</text>
+  <rect x="520" y="504" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="521" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="537" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT TOP(1) … WHERE Email = …</text>
+  <text x="690.0" y="551" text-anchor="middle" font-size="9" fill="#333">no row matches: null comes back</text>
+  <line x1="410" y1="528" x2="520" y2="528" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="523" text-anchor="middle" font-size="8.5" fill="#555">SELECT TOP(1)</text>
+  <line x1="520" y1="550" x2="410" y2="550" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="545" text-anchor="middle" font-size="8.5" fill="#555">no rows</text>
+  <line x1="225.0" y1="572" x2="225.0" y2="602" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="602" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="622" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">first = context.Customers.Find(1);</text>
+  <text x="225.0" y="638" text-anchor="middle" font-size="9.5" fill="#333">Find looks up by primary key</text>
+  <text x="225.0" y="654" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, "Find(1) -&gt; Asha Rao; SQL commands used: 1"</text>
+  <rect x="520" y="602" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="619" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="635" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT TOP(1) … WHERE CustomerId = @p</text>
+  <text x="690.0" y="649" text-anchor="middle" font-size="9" fill="#333">row 1 comes back, and gets tracked</text>
+  <line x1="410" y1="626" x2="520" y2="626" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="621" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="648" x2="410" y2="648" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="643" text-anchor="middle" font-size="8.5" fill="#555">row 1</text>
+  <line x1="225.0" y1="670" x2="225.0" y2="700" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="700" width="370" height="62" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="225.0" y="720" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">again = context.Customers.Find(1);</text>
+  <text x="225.0" y="736" text-anchor="middle" font-size="9.5" fill="#333">the tracker already holds Customer 1: no trip needed</text>
+  <text x="225.0" y="752" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "… SQL commands used: 0; same object? True"</text>
+  <line x1="410" y1="731.0" x2="470" y2="731.0" stroke="#cc0000" stroke-width="1.6"/>
+  <text x="478" y="736.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#cc0000">X</text>
+  <text x="444" y="725.0" text-anchor="middle" font-size="8.5" fill="#cc0000">no SQL</text>
+  <line x1="225.0" y1="762" x2="225.0" y2="792" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="792" width="370" height="68" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.6"/>
+  <text x="225.0" y="812" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">Where on the IQueryable (helper method)</text>
+  <text x="225.0" y="828" text-anchor="middle" font-size="9.5" fill="#333">the filter is translated into SQL: SQL Server filters</text>
+  <text x="225.0" y="844" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, "1 row(s) came back."</text>
+  <rect x="520" y="792" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="809" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="825" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">… WHERE [c].[FullName] LIKE N'B%'</text>
+  <text x="690.0" y="839" text-anchor="middle" font-size="9" fill="#333">only the matching row comes back</text>
+  <line x1="410" y1="816" x2="520" y2="816" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="811" text-anchor="middle" font-size="8.5" fill="#555">SELECT … WHERE</text>
+  <line x1="520" y1="838" x2="410" y2="838" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="833" text-anchor="middle" font-size="8.5" fill="#555">1 row</text>
+  <line x1="225.0" y1="860" x2="225.0" y2="890" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="890" width="370" height="68" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.6"/>
+  <text x="225.0" y="910" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">AsEnumerable().Where(…) (helper method)</text>
+  <text x="225.0" y="926" text-anchor="middle" font-size="9.5" fill="#333">after AsEnumerable the filter runs in C#, not in SQL</text>
+  <text x="225.0" y="942" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL, "… every Customer row was read first."</text>
+  <rect x="520" y="890" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="907" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="923" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT … FROM [Customers]  (no WHERE)</text>
+  <text x="690.0" y="937" text-anchor="middle" font-size="9" fill="#333">every row comes back; C# keeps 1</text>
+  <line x1="410" y1="914" x2="520" y2="914" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="909" text-anchor="middle" font-size="8.5" fill="#555">SELECT (all)</text>
+  <line x1="520" y1="936" x2="410" y2="936" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="931" text-anchor="middle" font-size="8.5" fill="#555">all rows</text>
+  <line x1="225" y1="958" x2="225" y2="980" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="225" y="998" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="225" y1="1006" x2="225" y2="1046" stroke="#333" stroke-width="2"/>
+  <polygon points="225,1006 225,1024 255,1015" fill="#cc0000"/>
+  <text x="30" y="1062" font-size="10.5" fill="#444"><tspan font-weight="bold">A LINQ query over a DbSet is a plan:</tspan> ToList, FirstOrDefault and Find are what send SQL; AsEnumerable moves the rest of the work from SQL Server into C#.</text>
+  <text x="30" y="1080" font-size="10" font-style="italic" fill="#888">The last two steps run inside a private helper method of the same demo class. Dashed arrows are the rows that come back.</text>
+  <text x="30" y="1098" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and a "=== title ===" line (two Console.WriteLine calls, not drawn).</text>
+</svg>

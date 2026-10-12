@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="570" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">JOIN — Sub-level Flow: matching badges between two guest lists</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">ON says which columns must match. INNER keeps matched pairs only; LEFT also keeps unmatched left-hand rows, filled with NULL.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="134" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="520" y="84" width="330" height="298" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="685" y="104" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET</text>
+  <text x="685" y="120" text-anchor="middle" font-size="9" font-style="italic" fill="#666">tables Customers (4 rows) and Accounts (6 rows)</text>
+  <rect x="60" y="134" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string innerJoin = """…""";</text>
+  <text x="210" y="167" text-anchor="middle" font-size="9" fill="#333">INNER JOIN Accounts a ON a.CustomerId = c.CustomerId</text>
+  <text x="210" y="183" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(innerJoin);</text>
+  <rect x="540" y="134" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <circle cx="559" cy="163" r="9" fill="#3d85c6" fill-opacity="0.35" stroke="#3d85c6" stroke-width="1.3"/>
+  <circle cx="567" cy="163" r="9" fill="#6aa84f" fill-opacity="0.35" stroke="#6aa84f" stroke-width="1.3"/>
+  <text x="690" y="158" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">matched pairs only</text>
+  <text x="690" y="175" text-anchor="middle" font-size="9" fill="#555">Dana Smith has no pair: dropped</text>
+  <line x1="360" y1="156" x2="538" y2="156" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="148" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="176" x2="362" y2="176" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="188" text-anchor="middle" font-size="9" fill="#555">6 rows back</text>
+  <line x1="210" y1="192" x2="210" y2="222" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="222" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="239" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string leftJoin = """…""";</text>
+  <text x="210" y="255" text-anchor="middle" font-size="9" fill="#333">LEFT JOIN Accounts a ON a.CustomerId = c.CustomerId</text>
+  <text x="210" y="271" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(leftJoin);</text>
+  <rect x="540" y="222" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <circle cx="559" cy="251" r="9" fill="#3d85c6" fill-opacity="0.35" stroke="#3d85c6" stroke-width="1.3"/>
+  <circle cx="567" cy="251" r="9" fill="#6aa84f" fill-opacity="0.35" stroke="#6aa84f" stroke-width="1.3"/>
+  <text x="690" y="246" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">every customer stays</text>
+  <text x="690" y="263" text-anchor="middle" font-size="9" fill="#555">Dana Smith: NULL, NULL</text>
+  <line x1="360" y1="244" x2="538" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="236" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="264" x2="362" y2="264" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="276" text-anchor="middle" font-size="9" fill="#555">7 rows back</text>
+  <line x1="210" y1="280" x2="210" y2="310" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="310" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="327" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string noAccount = """…""";</text>
+  <text x="210" y="343" text-anchor="middle" font-size="9" fill="#333">LEFT JOIN … WHERE a.AccountId IS NULL</text>
+  <text x="210" y="359" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(noAccount);</text>
+  <rect x="540" y="310" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <circle cx="559" cy="339" r="9" fill="#3d85c6" fill-opacity="0.35" stroke="#3d85c6" stroke-width="1.3"/>
+  <circle cx="567" cy="339" r="9" fill="#6aa84f" fill-opacity="0.35" stroke="#6aa84f" stroke-width="1.3"/>
+  <text x="690" y="334" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">keep only the NULL-filled rows</text>
+  <text x="690" y="351" text-anchor="middle" font-size="9" fill="#555">Dana Smith</text>
+  <line x1="360" y1="332" x2="538" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="324" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="352" x2="362" y2="352" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="364" text-anchor="middle" font-size="9" fill="#555">1 row back</text>
+  <line x1="210" y1="368" x2="210" y2="398" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="412" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="420" x2="210" y2="460" stroke="#333" stroke-width="2"/>
+  <polygon points="210,420 210,438 240,429" fill="#cc0000"/>
+  <text x="30" y="494" font-size="10.5" fill="#444"><tspan font-weight="bold">Same tables, three questions:</tspan> INNER asks "who has an account?", LEFT asks "everyone, with their accounts if any", LEFT + IS NULL asks "who has none?".</text>
+  <text x="30" y="512" font-size="10" font-style="italic" fill="#888">RunQuery prints "SQL:", the query lines and "Result:" with Console.WriteLine; SqlLab.Show then prints the grid and the row count.</text>
+  <text x="30" y="530" font-size="10" font-style="italic" fill="#888">Three queries, three SQL: / Result: blocks. NULL appears in the output as the text NULL, printed by SqlLab.Show.</text>
+  <text x="30" y="548" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

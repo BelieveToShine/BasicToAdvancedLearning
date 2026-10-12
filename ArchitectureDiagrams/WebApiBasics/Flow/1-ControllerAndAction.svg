@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 938" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="938" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Controller and action — Sub-level Flow: a reception desk and its room directory</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">MapControllers() writes the directory; the router (the receptionist) looks a request up in it and sends it to ONE action.</text>
+  <text x="205" y="48" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="205" y1="52" x2="205" y2="90" stroke="#333" stroke-width="2"/>
+  <polygon points="205,52 205,70 235,61" fill="#38761d"/>
+  <line x1="205" y1="90" x2="205" y2="98" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="100" width="330" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="205.0" y="118" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">WebLab.CreateBuilder()</text>
+  <text x="205.0" y="134" text-anchor="middle" font-size="9.5" fill="#333">create the app builder</text>
+  <line x1="205" y1="144" x2="205" y2="168" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="170" width="330" height="60" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="205.0" y="188" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">builder.Services.AddControllersOnly(</text>
+  <text x="205.0" y="204" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">typeof(AccountsController))</text>
+  <text x="205.0" y="220" text-anchor="middle" font-size="9.5" fill="#333">register the controller class</text>
+  <line x1="205" y1="230" x2="205" y2="254" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="256" width="330" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="205.0" y="274" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">builder.Build()</text>
+  <text x="205.0" y="290" text-anchor="middle" font-size="9.5" fill="#333">build the app</text>
+  <line x1="205" y1="300" x2="205" y2="324" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="326" width="330" height="44" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="205.0" y="344" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">app.MapControllers()</text>
+  <text x="205.0" y="360" text-anchor="middle" font-size="9.5" fill="#333">read [Route] + [HttpGet]; write the directory</text>
+  <line x1="205" y1="370" x2="205" y2="394" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="396" width="330" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="205.0" y="414" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">WebLab.Start(app)</text>
+  <text x="205.0" y="430" text-anchor="middle" font-size="9.5" fill="#333">the server starts listening</text>
+  <line x1="205" y1="440" x2="205" y2="464" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="466" width="330" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="484" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">server.Client.Send(request)</text>
+  <text x="205.0" y="500" text-anchor="middle" font-size="9.5" fill="#333">GET /api/accounts</text>
+  <rect x="490" y="326" width="370" height="60" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="675.0" y="344" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">The directory (route table)</text>
+  <text x="675.0" y="360" text-anchor="middle" font-size="9.5" fill="#333">GET  api/Accounts  →  AccountsController</text>
+  <text x="675.0" y="376" text-anchor="middle" font-size="9.5" fill="#333">                              .GetAccountNumbers()</text>
+  <line x1="370" y1="348.0" x2="490" y2="348.0" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="490" y="466" width="370" height="60" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="484" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">The router (reception desk)</text>
+  <text x="675.0" y="500" text-anchor="middle" font-size="9.5" fill="#333">URL path + HTTP method are looked up</text>
+  <text x="675.0" y="516" text-anchor="middle" font-size="9.5" fill="#333">in the directory: one match</text>
+  <line x1="370" y1="488.0" x2="490" y2="488.0" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="675.0" y1="386" x2="675.0" y2="466" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="683.0" y="430" font-size="9" font-style="italic" fill="#555">looks up</text>
+  <line x1="675.0" y1="526" x2="675.0" y2="550" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="490" y="552" width="370" height="60" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="675.0" y="570" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">GetAccountNumbers() runs</text>
+  <text x="675.0" y="586" text-anchor="middle" font-size="9.5" fill="#333">a new AccountsController is made for the request</text>
+  <text x="675.0" y="602" text-anchor="middle" font-size="9.5" fill="#333">returns string[]  →  JSON body, status 200</text>
+  <rect x="40" y="552" width="330" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="570" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Console.WriteLine</text>
+  <text x="205.0" y="586" text-anchor="middle" font-size="9.5" fill="#333">"GET /api/accounts -&gt; 200 OK  body: […]"</text>
+  <line x1="490" y1="582.0" x2="370" y2="582.0" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="430" y="574.0" text-anchor="middle" font-size="9" font-style="italic" fill="#555">response</text>
+  <line x1="205" y1="510" x2="205" y2="551" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="624" width="330" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="642" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Call(GET /API/ACCOUNTS)</text>
+  <text x="205.0" y="658" text-anchor="middle" font-size="9.5" fill="#333">same router: letter case is ignored → 200</text>
+  <text x="205.0" y="674" text-anchor="middle" font-size="9.5" fill="#333">Console.WriteLine: one line</text>
+  <line x1="205" y1="596" x2="205" y2="624" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="712" width="330" height="60" rx="8" fill="#fde8e8" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="205.0" y="730" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">Call(POST /api/accounts)</text>
+  <text x="205.0" y="746" text-anchor="middle" font-size="9.5" fill="#333">path found, but only GET is listed → 405</text>
+  <text x="205.0" y="762" text-anchor="middle" font-size="9.5" fill="#333">Console.WriteLine: one line</text>
+  <line x1="205" y1="684" x2="205" y2="712" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="205" y1="772" x2="205" y2="802" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="205" y="816" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="205" y1="824" x2="205" y2="864" stroke="#333" stroke-width="2"/>
+  <polygon points="205,824 205,842 235,833" fill="#cc0000"/>
+  <text x="30" y="882" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where:</tspan> startup builds the directory once; every request is looked up in it, then ONE action runs.</text>
+  <text x="30" y="900" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the GET line and one line per Call() — three result lines. The two Call() requests use the same router and directory as the first.</text>
+  <text x="30" y="918" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line and the title).</text>
+</svg>

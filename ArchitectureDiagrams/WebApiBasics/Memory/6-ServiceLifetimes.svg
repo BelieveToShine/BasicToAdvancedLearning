@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 890" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1380" height="890" fill="#ffffff"/>
+  <text x="690.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Service lifetimes — Memory: Stack / Heap / Static</text>
+  <text x="690.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainServiceLifetimes() is running, just after the second request was answered and printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="790" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1257.5" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">WebApiBasicsDemo.ExplainServiceLifetimes() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">builder → pointer  (WebApplicationBuilder)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">WebApiBasicsExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="137" width="290" height="156" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplicationBuilder — builder</text>
+  <rect x="472" y="169" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="186" font-size="10" fill="#7f4e00">Services: LifetimesController</text>
+  <rect x="472" y="199" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="216" font-size="10" fill="#7f4e00">Singleton: SingletonProbe</text>
+  <rect x="472" y="229" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="246" font-size="10" fill="#7f4e00">Scoped: ScopedProbe</text>
+  <rect x="472" y="259" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="276" font-size="10" fill="#7f4e00">Transient: TransientProbe, ProbeReporter</text>
+  <rect x="460" y="307" width="290" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="329" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="339" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="356" font-size="10" fill="#7f4e00">BaseAddress → "http://127.0.0.1:&lt;port&gt;"</text>
+  <rect x="472" y="369" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="386" font-size="10" fill="#7f4e00">Client → pointer (HttpClient)</text>
+  <rect x="472" y="399" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="416" font-size="10" fill="#7f4e00">_app → pointer (WebApplication)</text>
+  <rect x="790" y="360" width="330" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="382" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient</text>
+  <rect x="802" y="392" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="409" font-size="10" fill="#7f4e00">BaseAddress = the same address</text>
+  <text x="804" y="433" font-size="8.5" font-style="italic" fill="#a06a1f">(handler and timeouts not shown)</text>
+  <line x1="750" y1="382" x2="788" y2="382" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="458" width="330" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="480" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplication — the running server</text>
+  <rect x="802" y="490" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="507" font-size="10" fill="#7f4e00">endpoint: GET api/lifetimes</text>
+  <rect x="802" y="520" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="537" font-size="10" fill="#7f4e00">Services → pointer (the DI container)</text>
+  <polyline points="750,412 772,412 772,480 788,480" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="580" width="330" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="602" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DI container (the service provider)</text>
+  <rect x="802" y="612" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="629" font-size="10" fill="#7f4e00">SingletonProbe → pointer (kept, below)</text>
+  <rect x="802" y="642" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="659" font-size="10" fill="#7f4e00">ScopedProbe → one per request, none kept</text>
+  <rect x="802" y="672" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="689" font-size="10" fill="#7f4e00">TransientProbe → new every time, none kept</text>
+  <line x1="955" y1="554" x2="955" y2="578" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="963" y="572" font-size="9" font-style="italic" fill="#555">Services</text>
+  <rect x="790" y="732" width="330" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="754" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SingletonProbe — the ONE singleton</text>
+  <rect x="802" y="764" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="781" font-size="10" fill="#7f4e00">Number = 1</text>
+  <text x="804" y="805" font-size="8.5" font-style="italic" fill="#a06a1f">(made during request 1, reused by request 2)</text>
+  <line x1="955" y1="706" x2="955" y2="730" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="963" y="724" font-size="9" font-style="italic" fill="#555">kept</text>
+  <rect x="460" y="457" width="290" height="144" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="605.0" y="477" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network</text>
+  <text x="474" y="497" font-size="9.5" font-weight="bold" fill="#333333">Last request: GET /api/lifetimes</text>
+  <text x="474" y="513" font-size="9.5" font-weight="bold" fill="#333333">Last response: 200, text:</text>
+  <text x="474" y="529" font-size="9.5" fill="#333333">controller: singleton #1, scoped #5,</text>
+  <text x="474" y="545" font-size="9.5" fill="#333333">  transient #6</text>
+  <text x="474" y="561" font-size="9.5" fill="#333333">reporter: singleton #1, scoped #5,</text>
+  <text x="474" y="577" font-size="9.5" fill="#333333">  transient #7</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 440,189 440,329 458,329" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1150" y="118" width="215" height="170" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="1257.5" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Probe (base class)</text>
+  <rect x="1162" y="152" width="191" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="1168" y="169" font-size="9.5" fill="#3d2a6b">_created = 7</text>
+  <text x="1257.5" y="202" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">ONE counter for all probes:</text>
+  <text x="1257.5" y="216" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">every new probe takes the</text>
+  <text x="1257.5" y="230" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">next number from it.</text>
+  <text x="40" y="838" font-size="10.5" fill="#444"><tspan font-weight="bold">Only the Singleton survives between requests: the container keeps SingletonProbe #1 and no other service instance. </tspan>Scoped #5 and Transients #6, #7 belonged to request 2, which is over.</text>
+  <text x="40" y="856" font-size="10" font-style="italic" fill="#888">Static holds the shared counter (Probe._created), which is why the numbers keep climbing: request 1 used #1 to #4, request 2 used #1 (reused), #5, #6, #7.</text>
+</svg>

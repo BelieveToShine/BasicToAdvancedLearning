@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 545" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="545" fill="#ffffff"/>
+  <text x="575" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">WebApiCrud — Memory: Stack / Heap / Static (high level)</text>
+  <text x="575" y="46" text-anchor="middle" font-size="12" fill="#666">The lesson's variables are small pointers; the server, the contexts and the answers are Heap objects; the data itself is outside .NET.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers only (one frame at a time)</text>
+  <text x="640" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — every object is here</text>
+  <text x="1000" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="224" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Each method's own locals — all of them pointers</text>
+  <rect x="56" y="144" width="348" height="40" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="161" font-size="9.5" font-weight="bold" fill="#1b3d1b">builder, scopeA, first, second, scopeB, other</text>
+  <text x="66" y="176" font-size="8.5" fill="#3f6b3f">ExplainDbContextInDI() — 6 pointers</text>
+  <rect x="56" y="190" width="348" height="40" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="207" font-size="9.5" font-weight="bold" fill="#1b3d1b">list, one, missing</text>
+  <text x="66" y="222" font-size="8.5" fill="#3f6b3f">ExplainReadEndpoints() — 3 ApiReply pointers</text>
+  <rect x="56" y="236" width="348" height="40" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="253" font-size="8.5" font-weight="bold" fill="#1b3d1b">openAccount, created, badRequest, unknownOwner, duplicateNumber</text>
+  <text x="66" y="268" font-size="8.5" fill="#3f6b3f">ExplainCreateEndpoint() — 5 pointers</text>
+  <rect x="56" y="282" width="348" height="40" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="299" font-size="9.5" font-weight="bold" fill="#1b3d1b">replacement, replaced, blocked</text>
+  <text x="66" y="314" font-size="8.5" fill="#3f6b3f">ExplainUpdateAndDelete() — 3 pointers</text>
+  <rect x="450" y="112" width="380" height="224" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">The objects the variables point at</text>
+  <rect x="466" y="144" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="161" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">WebApplication + the server (method 1)</text>
+  <text x="640" y="176" text-anchor="middle" font-size="8.5" fill="#a06a1f">and a BankDbContext for each scope that asked for one</text>
+  <rect x="466" y="190" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="207" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">ApiReply — status number + pointers to body text</text>
+  <text x="640" y="222" text-anchor="middle" font-size="8.5" fill="#a06a1f">one per answer kept in a variable (methods 2, 3, 4)</text>
+  <rect x="466" y="236" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="253" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">CreateAccountRequest / ReplaceAccountRequest</text>
+  <text x="640" y="268" text-anchor="middle" font-size="8.5" fill="#a06a1f">the objects the lesson serializes to JSON (methods 3, 4)</text>
+  <rect x="466" y="282" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="299" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">string — response bodies, paths, names</text>
+  <text x="640" y="314" text-anchor="middle" font-size="8.5" fill="#a06a1f">the JSON text that came back is a string on the Heap</text>
+  <rect x="860" y="112" width="240" height="224" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="980" y="190" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
+  <text x="980" y="214" text-anchor="middle" font-size="9.5" fill="#5b4a7a">WebApiCrudDemo has no static</text>
+  <text x="980" y="230" text-anchor="middle" font-size="9.5" fill="#5b4a7a">fields. Its const strings are</text>
+  <text x="980" y="246" text-anchor="middle" font-size="9.5" fill="#5b4a7a">pasted in by the compiler.</text>
+  <rect x="40" y="360" width="1060" height="110" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="570.0" y="380" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server, and the connection between the client and the server</text>
+  <text x="54" y="400" font-size="9.5" fill="#333333">SQL Server holds the real data: tables Customers, Accounts and Transactions. EF Core turns C# into T-SQL text, sends it, and reads rows back.</text>
+  <text x="54" y="416" font-size="9.5" fill="#333333">The HTTP requests and answers travel as bytes over a local connection (the lesson keeps client and server in one process). Neither is a C# object until it is read.</text>
+  <text x="54" y="432" font-size="9.5" font-weight="bold" fill="#333333">Every table the lesson prints (methods 1, 3 and 4) is read straight from SQL Server, not from a C# variable.</text>
+  <text x="40" y="500" font-size="10.5" fill="#444"><tspan font-weight="bold">The 4 per-method files zoom in: </tspan>Memory/1 (the contexts and scopes), 2 (the answers to GETs), 3 (requests and the created reply), 4 (PUT/DELETE answers).</text>
+  <text x="40" y="520" font-size="10" font-style="italic" fill="#888">ApiReply, CreateAccountRequest and the other classes are ordinary C# classes: `new` always puts the object on the Heap, and the variable is just a pointer.</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 724" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="724" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Logging in — Sub-level Flow: a reception desk and a badge printer</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">POST /login: the desk checks name and password; only a match gets a printed badge (the token) — a miss gets a plain 401.</text>
+  <text x="60" y="62" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="66" x2="60" y2="104" stroke="#333" stroke-width="2"/>
+  <polygon points="60,66 60,84 90,75" fill="#38761d"/>
+  <line x1="60" y1="104" x2="60" y2="112" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="112" width="400" height="40" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="230.0" y="127.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">using (DemoAuthServer server = DemoAuthServer.Start(null))</text>
+  <text x="230.0" y="143.0" text-anchor="middle" font-size="9.5" fill="#444">the server starts with a fresh random signing key</text>
+  <line x1="115" y1="152" x2="115" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="270" y="190" width="170" height="242" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="355" y="214" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">RECEPTION DESK</text>
+  <text x="355" y="230" text-anchor="middle" font-size="9.5" fill="#444">DemoUsers.CheckLogin(</text>
+  <text x="355" y="244" text-anchor="middle" font-size="9.5" fill="#444">name, password)</text>
+  <text x="355" y="424" text-anchor="middle" font-size="9" font-style="italic" fill="#555">user or null</text>
+  <rect x="30" y="190" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="213.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">POST /login</text>
+  <text x="115.0" y="229.0" text-anchor="middle" font-size="9.5" fill="#444">asha + wrong password</text>
+  <line x1="200" y1="218.0" x2="270" y2="218.0" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="235" y="210.0" text-anchor="middle" font-size="9" fill="#555">sends JSON</text>
+  <rect x="490" y="190" width="210" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="595.0" y="213.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <text x="595.0" y="229.0" text-anchor="middle" font-size="9.5" fill="#444">the same answer for both misses</text>
+  <line x1="440" y1="218" x2="490" y2="218" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465" y="210" text-anchor="middle" font-size="9" fill="#555">null</text>
+  <rect x="30" y="276" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="299.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">POST /login</text>
+  <text x="115.0" y="315.0" text-anchor="middle" font-size="9.5" fill="#444">nobody + any password</text>
+  <line x1="200" y1="304.0" x2="270" y2="304.0" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="235" y="296.0" text-anchor="middle" font-size="9" fill="#555">sends JSON</text>
+  <rect x="490" y="276" width="210" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="595.0" y="299.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <text x="595.0" y="315.0" text-anchor="middle" font-size="9.5" fill="#444">the same answer for both misses</text>
+  <line x1="440" y1="304" x2="490" y2="304" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465" y="296" text-anchor="middle" font-size="9" fill="#555">null</text>
+  <rect x="30" y="362" width="170" height="70" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="392.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">POST /login</text>
+  <text x="115.0" y="408.0" text-anchor="middle" font-size="9.5" fill="#444">asha + right password</text>
+  <line x1="200" y1="397.0" x2="270" y2="397.0" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="235" y="389.0" text-anchor="middle" font-size="9" fill="#555">sends JSON</text>
+  <rect x="490" y="362" width="210" height="70" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="595.0" y="385.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">Badge printer: TokenIssuer.Issue</text>
+  <text x="595.0" y="400.0" text-anchor="middle" font-size="9.5" fill="#444">claims sub, name, role + iss, aud</text>
+  <text x="595.0" y="414.0" text-anchor="middle" font-size="9.5" fill="#444">nbf = now, exp = now + 15 min, HS256</text>
+  <line x1="440" y1="397" x2="490" y2="397" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465" y="389" text-anchor="middle" font-size="9" fill="#555">user</text>
+  <rect x="740" y="362" width="140" height="70" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="810.0" y="392.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">200 OK</text>
+  <text x="810.0" y="408.0" text-anchor="middle" font-size="9.5" fill="#444">body: {"token":"…"}</text>
+  <line x1="700" y1="397" x2="740" y2="397" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="720" y="389" text-anchor="middle" font-size="9" fill="#555">badge</text>
+  <line x1="115" y1="246" x2="115" y2="276" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="125" y="266" font-size="9" fill="#555">next call</text>
+  <line x1="115" y1="332" x2="115" y2="362" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="125" y="352" font-size="9" fill="#555">next call</text>
+  <line x1="115" y1="432" x2="115" y2="470" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="125" y="456" font-size="9" fill="#555">read the claims</text>
+  <rect x="30" y="470" width="560" height="78" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="310.0" y="497.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">token = ApiCall.Login(...)  (a second login, text never printed)</text>
+  <text x="310.0" y="512.0" text-anchor="middle" font-size="9.5" fill="#444">payloadJson = TokenParts.DecodeText(token.Split('.')[1])</text>
+  <text x="310.0" y="526.0" text-anchor="middle" font-size="9.5" fill="#444">lifetimeSeconds = exp − nbf = 900  (15 minutes)</text>
+  <line x1="115" y1="548" x2="115" y2="574" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="115" y="590" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="115" y1="598" x2="115" y2="638" stroke="#333" stroke-width="2"/>
+  <polygon points="115,598 115,616 145,607" fill="#cc0000"/>
+  <text x="30" y="660" font-size="10.5" fill="#444"><tspan font-weight="bold">Why the same 401 for both misses: </tspan>a different answer for "no such user" would tell an attacker which names exist.</text>
+  <text x="30" y="678" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints 6 lines: the three POST results, the claims (sub, name, role), iss and aud, and exp − nbf. A real API checks a stored password HASH, not the password text.</text>
+  <text x="30" y="696" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line, then the title) - not drawn.</text>
+</svg>

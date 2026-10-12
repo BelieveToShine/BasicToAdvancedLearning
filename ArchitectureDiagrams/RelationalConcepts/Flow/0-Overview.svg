@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 840" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="840" fill="#ffffff"/>
+  <text x="550" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Relational Concepts — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="550" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (named in each note below).</text>
+  <g font-size="11" fill="#333"><line x1="400" y1="64" x2="436" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="442" y="68">Call (→)</text><line x1="550" y1="64" x2="586" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="592" y="68">Return (←)</text></g>
+  <rect x="25.0" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="110" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+  <line x1="110" y1="122" x2="110" y2="780" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="270.0" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="380" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">RelationalConceptsExample</text>
+  <text x="380" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+  <line x1="380" y1="122" x2="380" y2="780" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="590.0" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="700" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">RelationalConceptsDemo</text>
+  <line x1="700" y1="122" x2="700" y2="780" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="875.0" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="960" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">SqlLab</text>
+  <text x="960" y="112" text-anchor="middle" font-size="9" fill="#666">(Interfaces/SqlLab.cs)</text>
+  <line x1="960" y1="122" x2="960" y2="780" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="106" y="170" width="8" height="600" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <rect x="376" y="190" width="8" height="560" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="245" y="170" text-anchor="middle" font-size="10" fill="#123">new RelationalConceptsExample();</text>
+  <text x="245" y="183" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">topic.Explain()</text>
+  <line x1="110" y1="190" x2="380" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="956" y="215" width="8" height="38" rx="0" fill="#e6e6e6" stroke="#777" stroke-width="1"/>
+  <text x="540" y="209" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">SqlLab.IsReady()</text>
+  <line x1="380" y1="215" x2="960" y2="215" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="232" text-anchor="middle" font-size="9.5" fill="#555">connection string set? server reachable?</text>
+  <text x="540" y="245" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine only to print a skip message</text>
+  <line x1="960" y1="253" x2="380" y2="253" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="540" y="266" text-anchor="middle" font-size="9.5" fill="#555">returns true  (if false: Explain() returns early)</text>
+  <rect x="696" y="296" width="8" height="54" rx="0" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="540" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainTablesRowsColumns()</text>
+  <line x1="380" y1="296" x2="700" y2="296" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="311" text-anchor="middle" font-size="9.5" fill="#1a4a73">a table is a grid: CREATE, INSERT, SELECT</text>
+  <text x="540" y="324" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · T-SQL via SqlLab · Flow/1</text>
+  <text x="540" y="337" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="700" y1="348" x2="380" y2="348" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="696" y="386" width="8" height="54" rx="0" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="540" y="378" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainPrimaryKeys()</text>
+  <line x1="380" y1="386" x2="700" y2="386" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="401" text-anchor="middle" font-size="9.5" fill="#274e13">IDENTITY numbers rows; duplicate key = error 2627</text>
+  <text x="540" y="414" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · T-SQL via SqlLab · Flow/2</text>
+  <text x="540" y="427" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="700" y1="438" x2="380" y2="438" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="696" y="476" width="8" height="54" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
+  <text x="540" y="468" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainForeignKeys()</text>
+  <line x1="380" y1="476" x2="700" y2="476" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="491" text-anchor="middle" font-size="9.5" fill="#8a5a10">Accounts -&gt; Customers; broken link = error 547</text>
+  <text x="540" y="504" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · T-SQL via SqlLab · Flow/3</text>
+  <text x="540" y="517" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="700" y1="528" x2="380" y2="528" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="696" y="566" width="8" height="54" rx="0" fill="#fffbe8" stroke="#f1c232" stroke-width="1"/>
+  <text x="540" y="558" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainConstraintsAndNulls()</text>
+  <line x1="380" y1="566" x2="700" y2="566" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="581" text-anchor="middle" font-size="9.5" fill="#7f6000">NOT NULL, UNIQUE, CHECK, DEFAULT; what NULL means</text>
+  <text x="540" y="594" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · T-SQL via SqlLab · Flow/4</text>
+  <text x="540" y="607" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="700" y1="618" x2="380" y2="618" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="696" y="656" width="8" height="54" rx="0" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1"/>
+  <text x="540" y="648" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainNormalization()</text>
+  <line x1="380" y1="656" x2="700" y2="656" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="671" text-anchor="middle" font-size="9.5" fill="#4a2e73">flat table with repeats, split into three tables</text>
+  <text x="540" y="684" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · T-SQL via SqlLab · Flow/5</text>
+  <text x="540" y="697" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="700" y1="708" x2="380" y2="708" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="245" y="756" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="380" y1="762" x2="110" y2="762" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <circle cx="110" cy="772" r="6" fill="#cc0000"/>
+  <text x="124" y="776" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+  <text x="40" y="806" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; the Example checks SqlLab.IsReady(), then calls all five Demo methods in order, waiting for each to return.</text>
+  <text x="40" y="826" font-size="10" font-style="italic" fill="#888">Every Demo method sends T-SQL to SQL Server through SqlLab (Run, Show, ShowError); those inner calls are drawn in each method's own Flow file, not here.</text>
+</svg>

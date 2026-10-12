@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 564" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="564" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">HTTP methods — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainHttpMethods() is running, at its last line, after the 405 reply and its Allow header were printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="620" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="324" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="184" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">HttpAndRestDemo.ExplainHttpMethods() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">client → pointer  (HttpClient)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">newAccount → pointer  (string)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">replacement → pointer  (string)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">wrongMethod → pointer  (HttpResponseMessage)</text>
+  <rect x="50" y="312" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">HttpAndRestExample.Explain()</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="320" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="176" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="193" font-size="10" fill="#7f4e00">Client → pointer (the HttpClient)</text>
+  <text x="474" y="217" font-size="8.5" font-style="italic" fill="#a06a1f">(also BaseAddress; the port is never printed)</text>
+  <rect x="460" y="236" width="320" height="66" rx="10" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="620.0" y="258" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient — client (= server.Client)</text>
+  <rect x="472" y="268" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="285" font-size="10" fill="#7f4e00">BaseAddress = http://127.0.0.1:&lt;port&gt;</text>
+  <rect x="460" y="312" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="331.0" text-anchor="middle" font-size="10" fill="#7f4e00">{"owner":"Dana Ortiz","balance":100}</text>
+  <rect x="460" y="352" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="371.0" text-anchor="middle" font-size="10" fill="#7f4e00">{"owner":"Ben Carter","balance":900}</text>
+  <rect x="460" y="392" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="414" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpResponseMessage — wrongMethod</text>
+  <rect x="472" y="424" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="441" font-size="10" fill="#7f4e00">StatusCode = 405 (MethodNotAllowed)</text>
+  <rect x="472" y="454" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="471" font-size="10" fill="#7f4e00">Allow: GET, POST</text>
+  <polyline points="780,189 794,189 794,258 782,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="860" y="144" width="330" height="190" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1025.0" y="164" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE these variables — the server's accounts</text>
+  <text x="874" y="184" font-size="9.5" font-weight="bold" fill="#333333">After everything this method sent:</text>
+  <text x="874" y="200" font-size="9.5" fill="#333333">  1   Asha Rao      500.00</text>
+  <text x="874" y="216" font-size="9.5" fill="#333333">  2   Ben Carter    900   (PUT replaced it)</text>
+  <text x="874" y="232" font-size="9.5" fill="#333333">  4   Dana Ortiz    100   (first POST)</text>
+  <text x="874" y="248" font-size="9.5" fill="#333333">  5   Dana Ortiz    100   (second POST)</text>
+  <text x="874" y="264" font-size="9.5" font-style="italic" fill="#777777">3 Chen Li was removed by DELETE.</text>
+  <text x="874" y="280" font-size="9.5" font-style="italic" fill="#777777">The server's list is NOT a local of this method.</text>
+  <polyline points="378,159 450,159 450,166 458,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 442,189 442,258 458,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 434,219 434,327.0 458,327.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 426,249 426,367.0 458,367.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 418,279 418,414 458,414" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="512" font-size="10.5" fill="#444"><tspan font-weight="bold">Safe vs idempotent is a fact about the SERVER's data, not about these variables. </tspan>Look at the dashed box: GET changed nothing, the two POSTs added two accounts, PUT and DELETE ended in the same state however often repeated.</text>
+  <text x="40" y="530" font-size="10" font-style="italic" fill="#888">The request bodies are plain strings here; each response object was read and disposed inside its helper call, so only wrongMethod is still a local. client and server.Client are one object.</text>
+</svg>

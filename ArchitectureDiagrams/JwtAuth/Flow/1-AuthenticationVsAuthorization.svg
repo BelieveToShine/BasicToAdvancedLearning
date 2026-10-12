@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="700" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Authentication vs authorization — Sub-level Flow: a front desk and a locked door</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Two different questions, asked in order: the desk asks WHO you are (401 if it cannot tell), the door asks if you are ALLOWED (403 if not).</text>
+  <text x="60" y="62" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="66" x2="60" y2="104" stroke="#333" stroke-width="2"/>
+  <polygon points="60,66 60,84 90,75" fill="#38761d"/>
+  <line x1="60" y1="104" x2="60" y2="112" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="112" width="520" height="46" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="290.0" y="130.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">using (DemoAuthServer server = DemoAuthServer.Start(null))</text>
+  <text x="290.0" y="146.0" text-anchor="middle" font-size="9.5" fill="#444">customerToken = Login(asha)  ·  managerToken = Login(chen)  (two badges)</text>
+  <text x="340" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">FRONT DESK</text>
+  <text x="340" y="196" text-anchor="middle" font-size="9" fill="#7a0000">authentication: who are you?</text>
+  <text x="560" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">LOCKED DOOR</text>
+  <text x="560" y="196" text-anchor="middle" font-size="9" fill="#8a5a10">authorization: allowed in?</text>
+  <line x1="125" y1="158" x2="125" y2="214" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="214" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="237.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/reports/daily</text>
+  <text x="115.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#444">no token</text>
+  <rect x="260" y="214" width="160" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="340.0" y="237.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7a0000">Desk: who are you?</text>
+  <text x="340.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#444">no token: nobody to check</text>
+  <line x1="200" y1="242" x2="260" y2="242" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="230" y="234" text-anchor="middle" font-size="9" fill="#555">sends it</text>
+  <rect x="480" y="214" width="160" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="560.0" y="237.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <text x="560.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#444">who are you?</text>
+  <line x1="420" y1="242" x2="480" y2="242" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="234" text-anchor="middle" font-size="9" fill="#555">stop</text>
+  <rect x="30" y="304" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="327.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/reports/daily</text>
+  <text x="115.0" y="343.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer &lt;asha's token&gt;</text>
+  <rect x="260" y="304" width="160" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="340.0" y="327.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Desk: who are you?</text>
+  <text x="340.0" y="343.0" text-anchor="middle" font-size="9.5" fill="#444">asha: signature OK</text>
+  <line x1="200" y1="332" x2="260" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="230" y="324" text-anchor="middle" font-size="9" fill="#555">sends it</text>
+  <rect x="480" y="304" width="160" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="327.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">Roles = Manager?</text>
+  <text x="560.0" y="343.0" text-anchor="middle" font-size="9.5" fill="#444">asha is a Customer: no</text>
+  <line x1="420" y1="332" x2="480" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="324" text-anchor="middle" font-size="9" fill="#555">known</text>
+  <rect x="700" y="304" width="180" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="790.0" y="327.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">403 Forbidden</text>
+  <text x="790.0" y="343.0" text-anchor="middle" font-size="9.5" fill="#444">I know you, but no</text>
+  <line x1="640" y1="332" x2="700" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="324" text-anchor="middle" font-size="9" fill="#555">decides</text>
+  <rect x="30" y="394" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="115.0" y="417.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/reports/daily</text>
+  <text x="115.0" y="433.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer &lt;chen's token&gt;</text>
+  <rect x="260" y="394" width="160" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="340.0" y="417.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Desk: who are you?</text>
+  <text x="340.0" y="433.0" text-anchor="middle" font-size="9.5" fill="#444">chen: signature OK</text>
+  <line x1="200" y1="422" x2="260" y2="422" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="230" y="414" text-anchor="middle" font-size="9" fill="#555">sends it</text>
+  <rect x="480" y="394" width="160" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="560.0" y="417.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Roles = Manager?</text>
+  <text x="560.0" y="433.0" text-anchor="middle" font-size="9.5" fill="#444">chen is a Manager: yes</text>
+  <line x1="420" y1="422" x2="480" y2="422" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="414" text-anchor="middle" font-size="9" fill="#555">known</text>
+  <rect x="700" y="394" width="180" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="790.0" y="417.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">200 OK</text>
+  <text x="790.0" y="433.0" text-anchor="middle" font-size="9.5" fill="#444">daily report returned</text>
+  <line x1="640" y1="422" x2="700" y2="422" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="414" text-anchor="middle" font-size="9" fill="#555">decides</text>
+  <line x1="125" y1="270" x2="125" y2="304" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="135" y="291" font-size="9" fill="#555">next call</text>
+  <line x1="125" y1="360" x2="125" y2="394" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="135" y="381" font-size="9" fill="#555">next call</text>
+  <line x1="125" y1="450" x2="125" y2="484" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="484" width="330" height="40" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="195.0" y="499.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#444444">}  end of using: server.Dispose()</text>
+  <text x="195.0" y="515.0" text-anchor="middle" font-size="9.5" fill="#444">the lesson's server stops</text>
+  <line x1="125" y1="524" x2="125" y2="546" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="125" y="562" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="125" y1="570" x2="125" y2="610" stroke="#333" stroke-width="2"/>
+  <polygon points="125,570 125,588 155,579" fill="#cc0000"/>
+  <text x="30" y="640" font-size="10.5" fill="#444"><tspan font-weight="bold">Same address, three answers: </tspan>no token -&gt; 401 (identity unknown), a Customer's token -&gt; 403 (identity known, role wrong), a Manager's token -&gt; 200.</text>
+  <text x="30" y="658" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints one result line per lane (three lines). Login calls print nothing. The HTTP status number 401 is named "Unauthorized" but means "not authenticated".</text>
+  <text x="30" y="676" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line, then the title) - not drawn.</text>
+</svg>

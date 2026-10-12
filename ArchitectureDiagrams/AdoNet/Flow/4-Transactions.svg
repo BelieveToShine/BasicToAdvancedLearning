@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 960" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="960" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Transactions — Sub-level Flow: two keys, one vault door</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Both steps of a transfer must succeed together. Commit() keeps them; Rollback() puts the money back as if nothing happened.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="104" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="123" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ResetBank();  string[] destinations = { … };</text>
+  <text x="210" y="139" text-anchor="middle" font-size="9.5" fill="#555">two targets: ACC-2001 (real), ACC-9999 (missing)</text>
+  <line x1="210" y1="148" x2="210" y2="168" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="168" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="187" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">connection.Open();</text>
+  <text x="210" y="203" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "Before:  ACC-1001 1000.00, …"</text>
+  <line x1="210" y1="212" x2="210" y2="230" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="210,230 320,262 210,294 100,262" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="260" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">foreach toAccount</text>
+  <text x="210" y="273" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">in destinations ?</text>
+  <line x1="210" y1="294" x2="210" y2="324" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="314" font-size="9.5" fill="#555">next string</text>
+  <rect x="60" y="324" width="300" height="56" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="342" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">using (SqlTransaction transaction =</text>
+  <text x="210" y="357" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">connection.BeginTransaction())  — lock the door</text>
+  <text x="210" y="373" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "Transfer 200.00 from ACC-1001 to &lt;toAccount&gt;:"</text>
+  <line x1="210" y1="380" x2="210" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="400" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="418" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">int debited = ChangeBalance(connection,</text>
+  <text x="210" y="433" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">transaction, "ACC-1001", -Amount);  — first key</text>
+  <text x="210" y="449" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "  debit  ACC-1001: UPDATE changed 1 row(s)"</text>
+  <line x1="210" y1="456" x2="210" y2="476" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="476" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="494" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">int credited = ChangeBalance(connection,</text>
+  <text x="210" y="509" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">transaction, toAccount, +Amount);  — second key</text>
+  <text x="210" y="525" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "  credit &lt;toAccount&gt;: UPDATE changed N row(s)"</text>
+  <line x1="210" y1="532" x2="210" y2="558" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="210,558 320,590 210,622 100,590" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="594" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">credited == 0 ?</text>
+  <rect x="560" y="340" width="300" height="200" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="710" y="360" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET: Accounts</text>
+  <text x="574" y="386" font-size="9.5" fill="#333">ACC-1001 across the two laps:</text>
+  <text x="574" y="406" font-size="9.5" font-weight="bold" fill="#333">lap 1 (ACC-2001): 1000.00 → 800.00, kept</text>
+  <text x="574" y="426" font-size="9.5" font-weight="bold" fill="#333">lap 2 (ACC-9999): 800.00 → 600.00 …</text>
+  <text x="574" y="446" font-size="9.5" font-weight="bold" fill="#333">… Rollback() → back to 800.00</text>
+  <text x="574" y="474" font-size="9" font-style="italic" fill="#777">changes made inside a transaction are visible to</text>
+  <text x="574" y="488" font-size="9" font-style="italic" fill="#777">commands that were given it, and undone together</text>
+  <text x="574" y="502" font-size="9" font-style="italic" fill="#777">if Rollback() runs.</text>
+  <line x1="360" y1="428" x2="558" y2="428" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="420" text-anchor="middle" font-size="9" fill="#555">UPDATE (debit)</text>
+  <line x1="360" y1="504" x2="558" y2="504" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="496" text-anchor="middle" font-size="9" fill="#555">UPDATE (credit)</text>
+  <line x1="210" y1="622" x2="210" y2="654" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="644" font-size="9.5" fill="#555">no: it worked</text>
+  <rect x="60" y="654" width="300" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="672" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">transaction.Commit();  — both keys turned</text>
+  <text x="210" y="689" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "  Commit(): both steps kept."</text>
+  <text x="210" y="703" text-anchor="middle" font-size="9" font-style="italic" fill="#777">the using block then disposes the transaction</text>
+  <line x1="320" y1="590" x2="430" y2="590" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="375" y="582" text-anchor="middle" font-size="9.5" fill="#555">yes: 0 rows</text>
+  <rect x="430" y="560" width="300" height="60" rx="8" fill="#fff4f4" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="580" y="580" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">throw new InvalidOperationException(</text>
+  <text x="580" y="595" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">$"Account {toAccount} does not exist.");</text>
+  <text x="580" y="611" text-anchor="middle" font-size="9" font-style="italic" fill="#777">an UPDATE that matches nothing is not an SQL error</text>
+  <line x1="580" y1="620" x2="580" y2="650" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="430" y="650" width="300" height="108" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="580" y="668" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#990000">catch (Exception ex)</text>
+  <text x="580" y="684" text-anchor="middle" font-size="9" fill="#333">Console: "  FAILED: Account ACC-9999 does not exist."</text>
+  <text x="580" y="699" text-anchor="middle" font-size="9" fill="#333">Console: "  Inside the transaction: …600.00…"</text>
+  <text x="580" y="716" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">transaction.Rollback();  — undo both keys</text>
+  <text x="580" y="732" text-anchor="middle" font-size="9" fill="#333">Console: "  Rollback(): the debit is undone too."</text>
+  <text x="580" y="748" text-anchor="middle" font-size="9" font-style="italic" fill="#777">the debit from lap 2 never becomes permanent</text>
+  <line x1="210" y1="710" x2="210" y2="790" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="580,758 580,772 212,772" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="790" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="809" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Console: "  After:   ACC-1001 800.00, …"</text>
+  <text x="210" y="825" text-anchor="middle" font-size="9.5" fill="#555">the using block closes, then the next lap</text>
+  <polyline points="60,812 30,812 30,262 98,262" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="36" y="254" font-size="9.5" fill="#555">next lap</text>
+  <line x1="320" y1="262" x2="538" y2="262" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="430" y="254" text-anchor="middle" font-size="9.5" fill="#555">no more strings</text>
+  <text x="540" y="250" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="540" y1="258" x2="540" y2="298" stroke="#333" stroke-width="2"/>
+  <polygon points="540,258 540,276 570,267" fill="#cc0000"/>
+  <text x="30" y="880" font-size="10.5" fill="#444"><tspan font-weight="bold">The transaction is what makes the pair of UPDATEs all-or-nothing:</tspan> both go through Commit(), or Rollback() throws both away.</text>
+  <text x="30" y="898" font-size="10" font-style="italic" fill="#888">Every SqlCommand that runs while the transaction is open is given it (command.Transaction = transaction) — ChangeBalance and DescribeBalances do this.</text>
+  <text x="30" y="914" font-size="10" font-style="italic" fill="#888">Lap 1 ends with Commit() (ACC-2001); lap 2 ends with Rollback() (ACC-9999). Each lap prints its own "After:" line.</text>
+  <text x="30" y="930" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 740" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="740" fill="#ffffff"/>
+  <text x="500.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">WHERE vs HAVING — Sub-level Flow: a subway line with six stations</text>
+  <text x="500.0" y="38" text-anchor="middle" font-size="11" fill="#666">The clauses are written in one order but worked out (logically) in this one. Each station can only see what earlier stations made.</text>
+  <text x="60" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="54" x2="60" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="60,54 60,72 90,63" fill="#38761d"/>
+  <line x1="60" y1="92" x2="60" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="110" width="440" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="260" y="128" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">query 1 · string filteredGroups = """…""";   RunQuery(filteredGroups);</text>
+  <text x="260" y="146" text-anchor="middle" font-size="9" fill="#333">WHERE Balance &gt; 0 · GROUP BY AccountType · HAVING SUM(Balance) &gt; 2000</text>
+  <text x="260" y="160" text-anchor="middle" font-size="9" fill="#333">ORDER BY Total DESC</text>
+  <line x1="60" y1="168" x2="60" y2="280" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="60" y1="290" x2="950" y2="290" stroke="#555" stroke-width="6" stroke-linecap="round"/>
+  <line x1="66" y1="290" x2="944" y2="290" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <circle cx="120" cy="290" r="11" fill="#ffffff" stroke="#3d85c6" stroke-width="3.5"/>
+  <text x="120" y="226" text-anchor="middle" font-size="9" fill="#555">table Accounts</text>
+  <text x="120" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">6 rows</text>
+  <text x="120" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">1  FROM</text>
+  <circle cx="270" cy="290" r="11" fill="#ffffff" stroke="#e69138" stroke-width="3.5"/>
+  <text x="270" y="226" text-anchor="middle" font-size="9" fill="#555">Balance &gt; 0</text>
+  <text x="270" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">4 rows</text>
+  <text x="270" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">2  WHERE</text>
+  <circle cx="420" cy="290" r="11" fill="#ffffff" stroke="#6aa84f" stroke-width="3.5"/>
+  <text x="420" y="226" text-anchor="middle" font-size="9" fill="#555">AccountType</text>
+  <text x="420" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">2 groups</text>
+  <text x="420" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">3  GROUP BY</text>
+  <circle cx="570" cy="290" r="11" fill="#ffffff" stroke="#8e63ce" stroke-width="3.5"/>
+  <text x="570" y="226" text-anchor="middle" font-size="9" fill="#555">SUM(Balance) &gt; 2000</text>
+  <text x="570" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">1 group</text>
+  <text x="570" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">4  HAVING</text>
+  <circle cx="720" cy="290" r="11" fill="#ffffff" stroke="#cc7a00" stroke-width="3.5"/>
+  <text x="720" y="226" text-anchor="middle" font-size="9" fill="#555">alias Total is born here</text>
+  <text x="720" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">1 row</text>
+  <text x="720" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">5  SELECT</text>
+  <circle cx="870" cy="290" r="11" fill="#ffffff" stroke="#3d85c6" stroke-width="3.5"/>
+  <text x="870" y="226" text-anchor="middle" font-size="9" fill="#555">Total DESC</text>
+  <text x="870" y="243" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">1 row</text>
+  <text x="870" y="262" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">6  ORDER BY</text>
+  <circle r="5" cy="290" fill="#cc0000"><animate attributeName="cx" values="66;944" dur="6s" repeatCount="indefinite"/></circle>
+  <text x="500" y="322" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">the train: one step at a time, left to right — a station can only use what the stations before it produced</text>
+  <line x1="870" y1="301" x2="870" y2="372" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="700" y="374" width="270" height="62" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="835" y="394" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">Result: 1 row</text>
+  <text x="835" y="411" text-anchor="middle" font-size="9.5" fill="#333">Savings | 2 accounts | 4700.00</text>
+  <text x="835" y="427" text-anchor="middle" font-size="9" fill="#555">RunQuery prints the grid (Console.WriteLine)</text>
+  <text x="310" y="352" font-size="9.5" font-style="italic" fill="#555">WHERE already dropped the two empty accounts, so each type</text>
+  <text x="310" y="368" font-size="9.5" font-style="italic" fill="#555">counts 2 accounts here, not 3 (compare Flow/5, perType).</text>
+  <polyline points="262,301 262,520" fill="none" stroke="#cc0000" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <polyline points="278,301 278,470 640,470 640,520" fill="none" stroke="#cc0000" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="254" y="410" text-anchor="end" font-size="9.5" font-weight="bold" fill="#cc0000">no group totals exist yet</text>
+  <text x="300" y="463" font-size="9.5" font-weight="bold" fill="#cc0000">the alias Total does not exist yet</text>
+  <rect x="40" y="522" width="400" height="78" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="240" y="543" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">query 2 · string aggregateInWhere = """…""";</text>
+  <text x="240" y="560" text-anchor="middle" font-size="9.5" fill="#333">WHERE SUM(Balance) &gt; 2000   →   error 147</text>
+  <text x="240" y="577" text-anchor="middle" font-size="9" fill="#555">RunRejectedQuery: SqlLab.ShowError prints the</text>
+  <text x="240" y="590" text-anchor="middle" font-size="9" fill="#555">error number instead of rows</text>
+  <line x1="440" y1="561" x2="498" y2="561" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="500" y="522" width="400" height="78" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="700" y="543" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">query 3 · string aliasInWhere = """…""";</text>
+  <text x="700" y="560" text-anchor="middle" font-size="9.5" fill="#333">WHERE Total &gt; 2000   →   error 207</text>
+  <text x="700" y="577" text-anchor="middle" font-size="9" fill="#555">RunRejectedQuery: SqlLab.ShowError prints the</text>
+  <text x="700" y="590" text-anchor="middle" font-size="9" fill="#555">error number instead of rows</text>
+  <line x1="900" y1="561" x2="938" y2="561" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="950" y="520" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="950" y1="528" x2="950" y2="568" stroke="#333" stroke-width="2"/>
+  <polygon points="950,528 950,546 980,537" fill="#cc0000"/>
+  <text x="30" y="650" font-size="10.5" fill="#444"><tspan font-weight="bold">Written order is not the order SQL thinks in:</tspan> SELECT is written first but worked out fifth — so WHERE cannot see an alias, while ORDER BY can.</text>
+  <text x="30" y="668" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the two "Logical order" lines after query 1; RunQuery and RunRejectedQuery print "SQL:", the query and "Result:" (and ShowError the error line).</text>
+  <text x="30" y="686" font-size="10" font-style="italic" fill="#888">Logical order = the order to reason in; SQL Server may run the steps differently inside but gives the same answer. (TOP, when used, comes after ORDER BY.)</text>
+  <text x="30" y="704" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

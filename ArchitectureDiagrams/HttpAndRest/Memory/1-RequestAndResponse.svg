@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 836" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="836" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Request and response — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainRequestAndResponse() is running, at its last line, after the raw reply from the server was printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="620" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="384" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="244" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.3" font-weight="bold" fill="#274e13">HttpAndRestDemo.ExplainRequestAndResponse() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">client → pointer  (HttpClient)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">request → pointer  (HttpRequestMessage)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">fullUrl → pointer  (Uri)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">response → pointer  (HttpResponseMessage)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">rawRequest → pointer  (string)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">rawResponse → pointer  (string)</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">HttpAndRestExample.Explain()</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="432" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="452" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="468" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="320" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="176" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="193" font-size="10" fill="#7f4e00">Client → pointer (the HttpClient)</text>
+  <text x="474" y="217" font-size="8.5" font-style="italic" fill="#a06a1f">(also BaseAddress; the port is never printed)</text>
+  <rect x="460" y="236" width="320" height="66" rx="10" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="620.0" y="258" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient — client (= server.Client)</text>
+  <rect x="472" y="268" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="285" font-size="10" fill="#7f4e00">BaseAddress = http://127.0.0.1:&lt;port&gt;</text>
+  <rect x="460" y="312" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="334" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpRequestMessage — request</text>
+  <rect x="472" y="344" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="361" font-size="10" fill="#7f4e00">Method = GET</text>
+  <rect x="472" y="374" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="391" font-size="10" fill="#7f4e00">RequestUri = /api/accounts?owner=Asha</text>
+  <rect x="472" y="404" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="421" font-size="10" fill="#7f4e00">Headers: Accept = application/json</text>
+  <rect x="460" y="448" width="320" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="470" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Uri — fullUrl</text>
+  <rect x="472" y="480" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="497" font-size="10" fill="#7f4e00">AbsolutePath = /api/accounts</text>
+  <rect x="472" y="510" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="527" font-size="10" fill="#7f4e00">Query = ?owner=Asha</text>
+  <rect x="460" y="554" width="320" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpResponseMessage — response</text>
+  <rect x="472" y="586" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="603" font-size="10" fill="#7f4e00">StatusCode = 200 (OK)</text>
+  <rect x="472" y="616" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="633" font-size="10" fill="#7f4e00">Content-Type: application/json; charset=utf-8</text>
+  <rect x="472" y="646" width="296" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="663" font-size="10" fill="#7f4e00">Body = one account (already read)</text>
+  <rect x="460" y="690" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="709.0" text-anchor="middle" font-size="10" fill="#7f4e00">"GET /api/accounts/1 HTTP/1.1 … (4 lines)"</text>
+  <rect x="460" y="730" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="620.0" y="749.0" text-anchor="middle" font-size="10" fill="#7f4e00">"HTTP/1.1 200 OK … (headers, blank line, body)"</text>
+  <polyline points="780,189 794,189 794,258 782,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="860" y="312" width="330" height="368" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1025.0" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network (a socket)</text>
+  <text x="874" y="352" font-size="9.5" font-weight="bold" fill="#333333">REQUEST TEXT leaves as lines of text:</text>
+  <text x="874" y="368" font-size="9.5" fill="#333333">GET /api/accounts?owner=Asha HTTP/1.1</text>
+  <text x="874" y="384" font-size="9.5" fill="#333333">Host: 127.0.0.1:&lt;port&gt;</text>
+  <text x="874" y="400" font-size="9.5" fill="#333333">Accept: application/json</text>
+  <text x="874" y="416" font-size="9.5" font-style="italic" fill="#777777">(that is the complete request: three lines,</text>
+  <text x="874" y="432" font-size="9.5" font-style="italic" fill="#777777">then a blank line)</text>
+  <text x="874" y="448" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="464" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="480" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="496" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="512" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="528" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="544" font-size="9.5" fill="#333333"></text>
+  <text x="874" y="560" font-size="9.5" font-weight="bold" fill="#333333">RESPONSE TEXT arrives as lines of text:</text>
+  <text x="874" y="576" font-size="9.5" fill="#333333">HTTP/1.1 200 OK</text>
+  <text x="874" y="592" font-size="9.5" fill="#333333">Content-Type: application/json; charset=utf-8</text>
+  <text x="874" y="608" font-size="9.5" fill="#333333">(a blank line, then the body)</text>
+  <text x="874" y="624" font-size="9.5" fill="#333333">[{"id":1,"owner":"Asha Rao","balance":500.00}]</text>
+  <text x="874" y="640" font-size="9.5" font-style="italic" fill="#777777">(the body really arrives chunked, see the</text>
+  <text x="874" y="656" font-size="9.5" font-style="italic" fill="#777777">raw text printed above)</text>
+  <line x1="780" y1="334" x2="858" y2="334" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="858" y1="576" x2="782" y2="576" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,159 450,159 450,166 458,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 443,189 443,258 458,258" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 437,219 437,334 458,334" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 430,249 430,470 458,470" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 423,279 423,576 458,576" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 417,309 417,705.0 458,705.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,339 410,339 410,745.0 458,745.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="784" font-size="10.5" fill="#444"><tspan font-weight="bold">The request and the response are objects on the Heap, but what really travels is TEXT, outside the program's memory. </tspan>HttpClient turns request into lines of text, the server answers with lines of text.</text>
+  <text x="40" y="802" font-size="10" font-style="italic" fill="#888">client and server.Client are two pointers to one HttpClient. In this lesson the server runs inside the same program, so ITS objects (the accounts list) are on the Heap too, just not drawn; a real API is another program.</text>
+</svg>

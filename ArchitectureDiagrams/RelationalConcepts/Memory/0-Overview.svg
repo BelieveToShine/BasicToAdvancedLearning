@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Relational Concepts — Memory: Stack / Heap / Static (high level)</text>
+  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">The tables live OUTSIDE .NET, inside SQL Server. The program's memory only holds the SQL text it sends and a few numbers.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers and a few plain values</text>
+  <text x="640" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — the SQL text strings</text>
+  <text x="960" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="262" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One frame per method, one at a time</text>
+  <rect x="56" y="144" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="161" font-size="9.5" fill="#1b3d1b">3 pointers: createCustomers, insertCustomers, duplicateAsha</text>
+  <text x="66" y="175" font-size="8.5" fill="#3f6b3f">ExplainTablesRowsColumns()</text>
+  <rect x="56" y="188" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="205" font-size="9.5" fill="#1b3d1b">2 pointers: createCustomers, forceDuplicateId</text>
+  <text x="66" y="219" font-size="8.5" fill="#3f6b3f">ExplainPrimaryKeys()</text>
+  <rect x="56" y="232" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="249" font-size="9.5" fill="#1b3d1b">createAccounts → pointer, deleted = 1 inline</text>
+  <text x="66" y="263" font-size="8.5" fill="#3f6b3f">ExplainForeignKeys()</text>
+  <rect x="56" y="276" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="293" font-size="9.5" fill="#1b3d1b">no local variables at all</text>
+  <text x="66" y="307" font-size="8.5" fill="#3f6b3f">ExplainConstraintsAndNulls()</text>
+  <rect x="56" y="320" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="337" font-size="9.5" fill="#1b3d1b">changed = 1 inline (one value, no pointer)</text>
+  <text x="66" y="351" font-size="8.5" fill="#3f6b3f">ExplainNormalization()</text>
+  <rect x="450" y="112" width="380" height="262" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Strings holding the T-SQL we send</text>
+  <rect x="466" y="144" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="170" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">CREATE TABLE ... (the shape of a table)</text>
+  <text x="640" y="188" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/1, 2 and 3: createCustomers, createAccounts</text>
+  <rect x="466" y="216" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">INSERT ... (rows to add)</text>
+  <text x="640" y="260" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/1: insertCustomers, duplicateAsha</text>
+  <rect x="466" y="288" width="348" height="62" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="314" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">SET IDENTITY_INSERT ON; INSERT ... id 1</text>
+  <text x="640" y="332" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/2: forceDuplicateId (the refused one)</text>
+  <text x="640" y="366" text-anchor="middle" font-size="8.5" font-style="italic" fill="#a06a1f">Most SQL in the lesson is passed as a literal and never stored in a variable.</text>
+  <rect x="860" y="112" width="200" height="262" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="960" y="220" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">Nothing here:</text>
+  <text x="960" y="238" text-anchor="middle" font-size="9.5" fill="#5b4a7a">this lesson has no</text>
+  <text x="960" y="252" text-anchor="middle" font-size="9.5" fill="#5b4a7a">static fields.</text>
+  <rect x="40" y="392" width="1020" height="112" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="550" y="412" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: the data itself</text>
+  <rect x="56" y="424" width="316" height="64" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="214" y="446" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Customers</text>
+  <text x="214" y="466" text-anchor="middle" font-size="9" fill="#555">one row per person · PRIMARY KEY CustomerId</text>
+  <text x="214" y="480" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">rows shown in Memory/1 to 5</text>
+  <rect x="392" y="424" width="316" height="64" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="550" y="446" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Accounts</text>
+  <text x="550" y="466" text-anchor="middle" font-size="9" fill="#555">one row per account · FOREIGN KEY -&gt; Customers</text>
+  <text x="550" y="480" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">rows shown in Memory/3, 4, 5</text>
+  <rect x="728" y="424" width="316" height="64" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="886" y="446" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Transactions</text>
+  <text x="886" y="466" text-anchor="middle" font-size="9" fill="#555">one row per deposit/withdrawal · FK -&gt; Accounts</text>
+  <text x="886" y="480" text-anchor="middle" font-size="8.5" font-style="italic" fill="#777">rows shown in Memory/5</text>
+  <text x="40" y="530" font-size="10.5" fill="#444"><tspan font-weight="bold">A table row is never a .NET object here.</tspan> Rows stay in SQL Server; only SQL text goes out and only counts, error numbers or printed grids come back.</text>
+  <text x="40" y="548" font-size="10" font-style="italic" fill="#888">(How C# reads rows into objects is Topic 13.) Static is empty in every method of this topic.</text>
+</svg>

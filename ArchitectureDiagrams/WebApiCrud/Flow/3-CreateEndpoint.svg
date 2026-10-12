@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1104" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="1104" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Create endpoint — Sub-level Flow: the gates a POST must pass</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Four requests enter the same door; each leaves by a different exit (right-hand boxes), and only one reaches the database.</text>
+  <text x="250" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="250" y1="54" x2="250" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="250,54 250,72 280,63" fill="#38761d"/>
+  <line x1="250" y1="92" x2="250" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="80" y="104" width="340" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="250.0" y="126.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Demo: new CreateAccountRequest { … };</text>
+  <text x="250.0" y="142.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Call(HttpMethod.Post, AccountsPath, request)</text>
+  <text x="258" y="177" font-size="9" font-style="italic" fill="#555">Console.WriteLine ×2 per request: status line + body / problem lines</text>
+  <line x1="250" y1="156" x2="250" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="80" y="190" width="340" height="52" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="250.0" y="212.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">AccountsController.Create(request)</text>
+  <text x="250.0" y="228.0" text-anchor="middle" font-size="9.0" fill="#555">the JSON body is turned into a CreateAccountRequest</text>
+  <line x1="250" y1="242" x2="250" y2="262" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="250,262 380,312 250,362 120,312" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="250" y="309" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">[ApiController] checks the</text>
+  <text x="250" y="321" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">attributes: all rules met?</text>
+  <line x1="380" y1="312" x2="520" y2="312" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="304" text-anchor="middle" font-size="9" font-weight="bold" fill="#990000">no</text>
+  <rect x="520" y="280" width="340" height="64" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="690.0" y="300.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">400 BadRequest + ProblemDetails</text>
+  <text x="690.0" y="316.0" text-anchor="middle" font-size="9.0" fill="#555">"errors": messages grouped by property name</text>
+  <text x="690.0" y="332.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">the action method never runs   [badRequest]</text>
+  <line x1="250" y1="362" x2="250" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="258" y="386" font-size="9" font-weight="bold" fill="#274e13">yes</text>
+  <polygon points="250,400 380,450 250,500 120,450" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="250" y="447" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">_db.Customers.Any(</text>
+  <text x="250" y="459" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">CustomerId)?  (needs the database)</text>
+  <line x1="380" y1="450" x2="520" y2="450" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="442" text-anchor="middle" font-size="9" font-weight="bold" fill="#990000">no</text>
+  <rect x="520" y="418" width="340" height="64" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="690.0" y="438.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">400 BadRequest (ValidationProblem)</text>
+  <text x="690.0" y="454.0" text-anchor="middle" font-size="9.0" fill="#555">"errors": CustomerId has no match</text>
+  <text x="690.0" y="470.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">same shape as the automatic 400   [unknownOwner]</text>
+  <line x1="250" y1="500" x2="250" y2="538" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="258" y="524" font-size="9" font-weight="bold" fill="#274e13">yes</text>
+  <rect x="80" y="538" width="340" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="250.0" y="562.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">_db.Accounts.Add(account);  TrySave()</text>
+  <text x="250.0" y="578.0" text-anchor="middle" font-size="9.0" fill="#555">SaveChanges() sends INSERT INTO Accounts …</text>
+  <rect x="520" y="538" width="340" height="56" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="556" text-anchor="middle" font-size="10" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server</text>
+  <text x="690.0" y="574" text-anchor="middle" font-size="9" fill="#333">checks the unique index on AccountNumber</text>
+  <line x1="420" y1="566" x2="520" y2="566" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="558" text-anchor="middle" font-size="9" fill="#555">INSERT</text>
+  <line x1="250" y1="594" x2="250" y2="634" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="250,634 380,684 250,734 120,684" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="250" y="681" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">SQL Server accepts</text>
+  <text x="250" y="693" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">the INSERT?</text>
+  <line x1="380" y1="684" x2="520" y2="684" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="676" text-anchor="middle" font-size="9" font-weight="bold" fill="#990000">no</text>
+  <rect x="520" y="652" width="340" height="64" rx="8" fill="#fbe5e5" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="690.0" y="672.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">409 Conflict + ProblemDetails</text>
+  <text x="690.0" y="688.0" text-anchor="middle" font-size="9.0" fill="#555">SQL error 2601 (duplicate in a unique index)</text>
+  <text x="690.0" y="704.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">caught inside TrySave()   [duplicateNumber]</text>
+  <line x1="250" y1="734" x2="250" y2="770" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="258" y="758" font-size="9" font-weight="bold" fill="#274e13">yes</text>
+  <rect x="80" y="770" width="340" height="64" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="250.0" y="790.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">CreatedAtAction(nameof(GetById), …)</text>
+  <text x="250.0" y="806.0" text-anchor="middle" font-size="9.0" fill="#555">201 Created + Location header</text>
+  <text x="250.0" y="822.0" text-anchor="middle" font-size="9.0" font-style="italic" fill="#555">+ the new account as JSON   [openAccount]</text>
+  <line x1="250" y1="834" x2="250" y2="866" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="80" y="866" width="340" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="250.0" y="884.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Demo: Call(Get, created.LocationPath)</text>
+  <text x="250.0" y="900.0" text-anchor="middle" font-size="9.0" fill="#555">the Location header really works: 200</text>
+  <line x1="250" y1="910" x2="250" y2="930" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="250" y="944" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="250" y1="952" x2="250" y2="992" stroke="#333" stroke-width="2"/>
+  <polygon points="250,952 250,970 280,961" fill="#cc0000"/>
+  <text x="30" y="1034" font-size="10.5" fill="#444"><tspan font-weight="bold">Validation has two layers:</tspan> attributes (no database needed) run first and answer 400 by themselves;</text>
+  <text x="30" y="1052" font-size="10.5" fill="#444"><tspan font-weight="bold"></tspan>checks that need the database live in the action, and the database has the last word (409).</text>
+  <text x="30" y="1070" font-size="10" font-style="italic" fill="#888">Console.WriteLine also prints "Following the Location header: GET …" and, at the end of the method, "Accounts table afterwards" + the rows (SqlLab.Show).</text>
+  <text x="30" y="1088" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and the "=== title ===" banner (two more Console.WriteLine calls, not drawn).</text>
+</svg>

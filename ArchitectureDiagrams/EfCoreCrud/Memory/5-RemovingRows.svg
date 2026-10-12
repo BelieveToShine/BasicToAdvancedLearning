@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 568" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="568" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Removing rows — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainRemovingRows() is running, in its last using block, after SaveChanges removed ACC-1001 (and its 2 deposits).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="825" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="384" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="244" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">EfCoreCrudDemo.ExplainRemovingRows() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">spy → pointer  (SqlSpy)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">context → pointer  (BankContext)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">account → pointer  (Account)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">before = 2  (deposits, counted first)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">rows = 1</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">after = 0  (deposits left in the table)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">chen, ben, ex, sql: earlier blocks — gone</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">EfCoreCrudExample.Explain()</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="432" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="452" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="468" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="260" height="80" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlSpy — spy</text>
+  <rect x="470" y="146" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="160" font-size="9.5" fill="#7f4e00">Count = 2</text>
+  <rect x="470" y="168" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="182" font-size="9.5" fill="#7f4e00">Print = false</text>
+  <rect x="460" y="212" width="260" height="73" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="232" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankContext — context  (last one)</text>
+  <rect x="470" y="240" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="254" font-size="9.5" fill="#7f4e00">tracks nothing</text>
+  <text x="472" y="274" font-size="8.5" font-style="italic" fill="#a06a1f">0 entries: deleted rows leave the tracker</text>
+  <rect x="460" y="299" width="260" height="95" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="319" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Account — account</text>
+  <rect x="470" y="327" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="341" font-size="9.5" fill="#7f4e00">AccountId = 1</text>
+  <rect x="470" y="349" width="240" height="19" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="476" y="363" font-size="9.5" fill="#7f4e00">AccountNumber → "ACC-1001"</text>
+  <text x="472" y="383" font-size="8.5" font-style="italic" fill="#a06a1f">tracker says: Detached — not tracked, row gone</text>
+  <rect x="800" y="118" width="390" height="115" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="995.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: what is left</text>
+  <text x="814" y="158" font-size="9.5" font-weight="bold" fill="#333333">Customers: 1 Asha Rao   (Chen and Ben were deleted)</text>
+  <text x="814" y="173" font-size="9.5" font-weight="bold" fill="#333333">Accounts: none   (ACC-2001, ACC-2002, ACC-1001 deleted)</text>
+  <text x="814" y="188" font-size="9.5" font-weight="bold" fill="#333333">Transactions: none   (both deposits cascaded away)</text>
+  <text x="814" y="203" font-size="9.5" fill="#333333">Ben's delete first FAILED (error 547), then worked once</text>
+  <text x="814" y="218" font-size="9.5" fill="#333333">his accounts were removed in the same SaveChanges.</text>
+  <polyline points="378,159 446,159 446,134 458,134" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 439,189 439,228 458,228" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 432,219 432,315 458,315" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="516" font-size="10.5" fill="#444"><tspan font-weight="bold">SaveChanges reported 1 row, yet 3 rows left the database: the Account row plus 2 Transactions removed by ON DELETE CASCADE. </tspan>EF never sent a DELETE for them.</text>
+  <text x="40" y="534" font-size="10" font-style="italic" fill="#888">account is a plain object whose row is gone: SaveChanges moved it from Deleted to Detached and the tracker is empty. chen, ben, ex and sql were declared in earlier blocks.</text>
+</svg>

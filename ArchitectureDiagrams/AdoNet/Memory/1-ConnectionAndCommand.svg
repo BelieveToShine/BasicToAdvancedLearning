@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 538" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="538" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Connection and command — Memory: Stack / Heap / Static</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainConnectionAndCommand() is running, inside the last using block, after the COUNT(*) result was printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="760" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1195" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="354" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">AdoNetDemo.ExplainConnectionAndCommand() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">connectionString → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">connection → pointer  (SqlConnection)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">create, created = -1 — block ended, gone</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">insert, inserted = 3 — block ended, gone</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">count → pointer  (SqlCommand)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">customers = 3</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">AdoNetExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="402" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="438" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="300" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="163.0" text-anchor="middle" font-size="10" fill="#7f4e00">"Server=…;Initial Catalog=…"  (from config)</text>
+  <rect x="460" y="190" width="260" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="212" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlConnection — connection</text>
+  <rect x="472" y="222" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="239" font-size="10" fill="#7f4e00">session → (outside .NET)</text>
+  <rect x="472" y="252" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="269" font-size="10" fill="#7f4e00">State = Open</text>
+  <rect x="460" y="320" width="260" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="590.0" y="342" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlCommand — count</text>
+  <rect x="472" y="352" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="369" font-size="10" fill="#7f4e00">Connection → pointer (SqlConnection)</text>
+  <rect x="472" y="382" width="236" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="399" font-size="10" fill="#7f4e00">CommandText → pointer (string)</text>
+  <rect x="800" y="380" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="965.0" y="399.0" text-anchor="middle" font-size="10" fill="#7f4e00">"SELECT COUNT(*) FROM dbo.Customers"</text>
+  <line x1="720" y1="395" x2="798" y2="395" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="720,365 745,365 745,278 722,278" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="800" y="190" width="330" height="122" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="965.0" y="210" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server</text>
+  <text x="814" y="230" font-size="9.5" fill="#333333">a session for this connection (SqlClient may reuse</text>
+  <text x="814" y="246" font-size="9.5" fill="#333333">one from its connection pool)</text>
+  <text x="814" y="262" font-size="9.5" font-weight="bold" fill="#333333">dbo.Customers: 3 rows</text>
+  <text x="814" y="278" font-size="9.5" fill="#333333">• Asha Rao · Ben Carter · Chen Li</text>
+  <text x="814" y="294" font-size="9.5" font-weight="bold" fill="#333333">dbo.Accounts: created, still empty</text>
+  <line x1="720" y1="235" x2="798" y2="235" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="159" x2="458" y2="159.0" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 452,189 452,212 458,212" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 444,279 444,342 458,342" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="486" font-size="10.5" fill="#444"><tspan font-weight="bold">The connection and the command are .NET objects on the Heap; the server, the tables and the rows are NOT. </tspan>The SqlConnection is only a line to SQL Server.</text>
+  <text x="40" y="504" font-size="10" font-style="italic" fill="#888">create and insert were disposed at the end of their own using blocks; ExecuteScalar handed back the number 3 as a boxed object, which (int) unboxed straight into customers.</text>
+</svg>

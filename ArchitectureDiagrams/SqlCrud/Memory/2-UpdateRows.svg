@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 582" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="582" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">UPDATE — Memory: Stack / Heap / Static</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainUpdateRows() is running, just after the UPDATE that has no WHERE (DROP TABLE AccountsScratch comes next).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1195" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">SqlCrudDemo.ExplainUpdateRows() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">emailsChanged = 1</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">everyRow = 3</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">SqlCrudExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="600" height="54" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="760.0" y="140" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">No Heap usage here — emailsChanged and everyRow are ints, entirely on the Stack.</text>
+  <text x="760.0" y="158" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">Each is the "rows affected" count SqlLab.Run returned.</text>
+  <rect x="450" y="190" width="680" height="316" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="790.0" y="210" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: table rows</text>
+  <text x="790.0" y="225" text-anchor="middle" font-size="9" font-style="italic" fill="#666">These rows live in the database server, not in the program's memory. C# only sends text and gets a number back.</text>
+  <text x="464" y="244" font-size="10" font-weight="bold" fill="#1a237e">BEFORE</text>
+  <rect x="464" y="252" width="231" height="60" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="266" font-size="9.5" font-weight="bold" fill="#333">Customers (row 1)</text>
+  <rect x="465" y="274" width="229" height="16" fill="#ececec"/>
+  <text x="471" y="285.5" font-size="9" font-weight="bold" fill="#444">CustomerId</text>
+  <text x="543" y="285.5" font-size="9" font-weight="bold" fill="#444">FullName</text>
+  <text x="604" y="285.5" font-size="9" font-weight="bold" fill="#444">Email</text>
+  <text x="471" y="301.5" font-size="9" fill="#222">1</text>
+  <text x="543" y="301.5" font-size="9" fill="#222">Asha Rao</text>
+  <text x="604" y="301.5" font-size="9" fill="#222">asha@example.com</text>
+  <line x1="464" y1="290" x2="695" y2="290" stroke="#bbb" stroke-width="1"/>
+  <rect x="707" y="252" width="210" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="714" y="266" font-size="9.5" font-weight="bold" fill="#333">AccountsScratch (a copy)</text>
+  <rect x="708" y="274" width="208" height="16" fill="#ececec"/>
+  <text x="714" y="285.5" font-size="9" font-weight="bold" fill="#444">AccountId</text>
+  <text x="780" y="285.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="869" y="285.5" font-size="9" font-weight="bold" fill="#444">Balance</text>
+  <text x="714" y="301.5" font-size="9" fill="#222">1</text>
+  <text x="780" y="301.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="869" y="301.5" font-size="9" fill="#222">500.00</text>
+  <text x="714" y="317.5" font-size="9" fill="#222">2</text>
+  <text x="780" y="317.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="869" y="317.5" font-size="9" fill="#222">0.00</text>
+  <text x="714" y="333.5" font-size="9" fill="#222">3</text>
+  <text x="780" y="333.5" font-size="9" fill="#222">SAV-3001</text>
+  <text x="869" y="333.5" font-size="9" fill="#222">0.00</text>
+  <line x1="707" y1="290" x2="917" y2="290" stroke="#bbb" stroke-width="1"/>
+  <text x="464" y="360" font-size="10" font-weight="bold" fill="#1a237e">AFTER</text>
+  <text x="504.0" y="360" font-size="9" font-style="italic" fill="#666">— WHERE CustomerId = 1 changed 1 row; the UPDATE with no WHERE changed all 3</text>
+  <rect x="464" y="368" width="252" height="60" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="382" font-size="9.5" font-weight="bold" fill="#333">Customers (row 1)</text>
+  <rect x="465" y="390" width="250" height="16" fill="#ececec"/>
+  <text x="471" y="401.5" font-size="9" font-weight="bold" fill="#444">CustomerId</text>
+  <text x="543" y="401.5" font-size="9" font-weight="bold" fill="#444">FullName</text>
+  <text x="604" y="401.5" font-size="9" font-weight="bold" fill="#444">Email</text>
+  <text x="471" y="417.5" font-size="9" fill="#222">1</text>
+  <text x="543" y="417.5" font-size="9" fill="#222">Asha Rao</text>
+  <rect x="598" y="406" width="118" height="16" fill="#fde9b8"/>
+  <text x="604" y="417.5" font-size="9" font-weight="bold" fill="#222">asha.rao@example.com</text>
+  <line x1="464" y1="406" x2="716" y2="406" stroke="#bbb" stroke-width="1"/>
+  <rect x="728" y="368" width="210" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="735" y="382" font-size="9.5" font-weight="bold" fill="#333">AccountsScratch (a copy)</text>
+  <rect x="729" y="390" width="208" height="16" fill="#ececec"/>
+  <text x="735" y="401.5" font-size="9" font-weight="bold" fill="#444">AccountId</text>
+  <text x="801" y="401.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="890" y="401.5" font-size="9" font-weight="bold" fill="#444">Balance</text>
+  <text x="735" y="417.5" font-size="9" fill="#222">1</text>
+  <text x="801" y="417.5" font-size="9" fill="#222">SAV-1001</text>
+  <rect x="884" y="406" width="54" height="16" fill="#fde9b8"/>
+  <text x="890" y="417.5" font-size="9" font-weight="bold" fill="#222">475.00</text>
+  <text x="735" y="433.5" font-size="9" fill="#222">2</text>
+  <text x="801" y="433.5" font-size="9" fill="#222">CUR-2001</text>
+  <rect x="884" y="422" width="54" height="16" fill="#fde9b8"/>
+  <text x="890" y="433.5" font-size="9" font-weight="bold" fill="#222">-25.00</text>
+  <text x="735" y="449.5" font-size="9" fill="#222">3</text>
+  <text x="801" y="449.5" font-size="9" fill="#222">SAV-3001</text>
+  <rect x="884" y="438" width="54" height="16" fill="#fde9b8"/>
+  <text x="890" y="449.5" font-size="9" font-weight="bold" fill="#222">-25.00</text>
+  <line x1="728" y1="406" x2="938" y2="406" stroke="#bbb" stroke-width="1"/>
+  <text x="464" y="474" font-size="9" font-style="italic" fill="#555">The real Accounts table was never touched: only the scratch copy was damaged.</text>
+  <rect x="464" y="488" width="11" height="11" fill="#d9f0d0" stroke="#999" stroke-width="0.8"/><text x="480" y="497" font-size="9" fill="#555">new row / value</text>
+  <rect x="584" y="488" width="11" height="11" fill="#fde9b8" stroke="#999" stroke-width="0.8"/><text x="600" y="497" font-size="9" fill="#555">changed</text>
+  <rect x="704" y="488" width="11" height="11" fill="#f8d7d3" stroke="#999" stroke-width="0.8"/><text x="720" y="497" font-size="9" fill="#555">deleted</text>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="530" font-size="10.5" fill="#444"><tspan font-weight="bold">everyRow = 3 is the alarm bell: the fee was meant for ONE account, but without WHERE all three rows changed. </tspan>The count came back from SqlLab.Run; nothing in C# stopped the UPDATE.</text>
+  <text x="40" y="548" font-size="10" font-style="italic" fill="#888">Amber cells = values that changed. The 0-rows UPDATE (CustomerId 999) kept no local: its count was read in SQL with @@ROWCOUNT.</text>
+</svg>

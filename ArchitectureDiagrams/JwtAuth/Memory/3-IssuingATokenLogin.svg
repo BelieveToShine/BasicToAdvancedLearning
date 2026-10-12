@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 741" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="741" fill="#ffffff"/>
+  <text x="660.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Logging in — Memory: Stack / Heap / Static</text>
+  <text x="660.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainIssuingATokenLogin() is running, after the claims were printed (inside the using block).</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="840" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1265" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="384" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="244" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">JwtAuthDemo.ExplainIssuingATokenLogin() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (DemoAuthServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">wrongPassword → pointer  (ApiReply)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">unknownUser → pointer  (ApiReply)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">success → pointer  (ApiReply)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">token → pointer  (string)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">payloadJson → pointer  (string)</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">lifetimeSeconds = 900  (exp − nbf)</text>
+  <rect x="50" y="372" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">JwtAuthExample.Explain()</text>
+  <text x="220" y="408" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="432" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="452" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="468" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="440" y="266" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="283.0" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;header&gt;.&lt;payload&gt;.&lt;signature&gt;"  (a token)</text>
+  <rect x="440" y="296" width="290" height="26" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="313.0" text-anchor="middle" font-size="10" fill="#7f4e00">JSON text, fields: aud exp iat iss name nbf ...</text>
+  <rect x="840" y="137" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">DemoAuthServer — server</text>
+  <rect x="852" y="169" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="186" font-size="10" fill="#7f4e00">_running → RunningServer (holds the HttpClient)</text>
+  <rect x="852" y="199" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="216" font-size="10" fill="#7f4e00">Issuer → TokenIssuer (holds the random key)</text>
+  <text x="854" y="240" font-size="8.5" font-style="italic" fill="#a06a1f">(internals simplified)</text>
+  <rect x="840" y="263" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="285" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — wrongPassword</text>
+  <rect x="852" y="295" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="312" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="325" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="342" font-size="10" fill="#7f4e00">Body = JSON "problem details"</text>
+  <rect x="852" y="355" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="372" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="401" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="423" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — unknownUser</text>
+  <rect x="852" y="433" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="450" font-size="10" fill="#7f4e00">StatusCode = 401 Unauthorized</text>
+  <rect x="852" y="463" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="480" font-size="10" fill="#7f4e00">Body = JSON "problem details"</text>
+  <rect x="852" y="493" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="510" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="840" y="539" width="300" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="990.0" y="561" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — success</text>
+  <rect x="852" y="571" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="588" font-size="10" fill="#7f4e00">StatusCode = 200 OK</text>
+  <rect x="852" y="601" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="618" font-size="10" fill="#7f4e00">Body = {"token":"&lt;token text&gt;"}</text>
+  <rect x="852" y="631" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="860" y="648" font-size="10" fill="#7f4e00">Challenge = "" (empty)</text>
+  <rect x="440" y="360" width="290" height="98" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="585.0" y="380" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE THIS METHOD — the API server</text>
+  <text x="454" y="400" font-size="9.5" fill="#333333">DemoUsers: 2 users in a list in memory (no DB)</text>
+  <text x="454" y="416" font-size="9.5" fill="#333333">asha + wrong password -&gt; 401</text>
+  <text x="454" y="432" font-size="9.5" fill="#333333">nobody + any password -&gt; 401</text>
+  <text x="454" y="448" font-size="9.5" font-weight="bold" fill="#333333">asha + right password -&gt; signs a token, 200</text>
+  <line x1="378" y1="159" x2="838" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 800,189 800,285 838,285" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 790,219 790,423 838,423" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 780,249 780,561 838,561" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="279" x2="438" y2="279" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="309" x2="438" y2="309" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1220" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1265" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1265" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="689" font-size="10.5" fill="#444"><tspan font-weight="bold">/login checks the name and password against the in-memory users, then signs a token. </tspan>The two failures get the SAME answer (401), so a caller cannot tell a wrong name from a wrong password by the status and body.</text>
+  <text x="40" y="707" font-size="10" font-style="italic" fill="#888">token comes from a second login (ApiCall.Login), so it is its own string object, separate from the one inside success; the lesson reads it only to show the claims. lifetimeSeconds is a plain number, entirely on the Stack.</text>
+</svg>

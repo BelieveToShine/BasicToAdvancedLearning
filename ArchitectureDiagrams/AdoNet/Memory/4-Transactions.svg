@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 738" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="738" fill="#ffffff"/>
+  <text x="650.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Transactions — Memory: Stack / Heap / Static</text>
+  <text x="650.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainTransactions() is running, in the second lap of the foreach, inside the catch block, right after Rollback() and its message.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="850" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1245" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="354" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">AdoNetDemo.ExplainTransactions() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">destinations → pointer  (string[])</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">toAccount → pointer (string) — same object as [1]</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">connection → pointer  (SqlConnection)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">transaction → pointer  (SqlTransaction)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">debited = 1, credited = 0 — try block ended</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">ex → pointer  (InvalidOperationException)</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">AdoNetExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="402" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="438" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="174" width="200" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="193.0" text-anchor="middle" font-size="10" fill="#7f4e00">"ACC-9999"</text>
+  <rect x="460" y="214" width="200" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="560.0" y="233.0" text-anchor="middle" font-size="10" fill="#7f4e00">"ACC-2001"</text>
+  <rect x="460" y="260" width="300" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="282" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string[] — destinations</text>
+  <rect x="472" y="292" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="309" font-size="10" fill="#7f4e00">[0] → pointer (string)</text>
+  <rect x="472" y="322" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="339" font-size="10" fill="#7f4e00">[1] → pointer (string)</text>
+  <rect x="460" y="376" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="398" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlConnection — connection</text>
+  <rect x="472" y="408" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="425" font-size="10" fill="#7f4e00">State = Open</text>
+  <text x="474" y="449" font-size="8.5" font-style="italic" fill="#a06a1f">(its line to the server: see the grey box)</text>
+  <rect x="460" y="478" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="500" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SqlTransaction — transaction</text>
+  <rect x="472" y="510" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="527" font-size="10" fill="#7f4e00">Connection → null</text>
+  <text x="474" y="551" font-size="8.5" font-style="italic" fill="#a06a1f">(after Rollback it no longer points at its connection)</text>
+  <rect x="460" y="580" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="602" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">InvalidOperationException — ex</text>
+  <rect x="472" y="612" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="629" font-size="10" fill="#7f4e00">Message → pointer (string)</text>
+  <text x="474" y="653" font-size="8.5" font-style="italic" fill="#a06a1f">(a few more internal fields not shown)</text>
+  <rect x="850" y="610" width="320" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1010.0" y="629.0" text-anchor="middle" font-size="10" fill="#7f4e00">"Account ACC-9999 does not exist."</text>
+  <line x1="760" y1="625" x2="848" y2="625" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="760,305 785,305 785,229.0 662,229.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="760,335 805,335 805,189.0 662,189.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="850" y="144" width="340" height="154" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1020.0" y="164" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: dbo.Accounts</text>
+  <text x="864" y="184" font-size="9.5" font-weight="bold" fill="#333333">AccountNumber | Balance</text>
+  <text x="864" y="200" font-size="9.5" fill="#333333">ACC-1001       | 800.00</text>
+  <text x="864" y="216" font-size="9.5" fill="#333333">ACC-1002       | 250.50</text>
+  <text x="864" y="232" font-size="9.5" fill="#333333">ACC-2001       | 700.00</text>
+  <text x="864" y="248" font-size="9.5" fill="#333333">The failed transfer's debit (ACC-1001 at 600.00)</text>
+  <text x="864" y="264" font-size="9.5" fill="#333333">was undone by Rollback(); the first transfer</text>
+  <text x="864" y="280" font-size="9.5" fill="#333333">(committed) is still there.</text>
+  <polyline points="378,159 452,159 452,282 458,282" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="189" x2="458" y2="189.0" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 438,219 438,398 458,398" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 424,249 424,500 458,500" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 410,309 410,602 458,602" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1200" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1245" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1245" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="686" font-size="10.5" fill="#444"><tspan font-weight="bold">One transaction object per lap; the second one was rolled back, so ACC-1001 is back to 800.00 in SQL Server. </tspan>toAccount points at the very string destinations[1] points at.</text>
+  <text x="40" y="704" font-size="10" font-style="italic" fill="#888">Amount is a const: the compiler pastes 200.00 into each use, so it is not stored anywhere at run time. The first lap's transaction was committed and disposed at the end of its using block.</text>
+</svg>

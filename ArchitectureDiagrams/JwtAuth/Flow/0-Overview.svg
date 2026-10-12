@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="800" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">JwtAuth — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (named in each note below).</text>
+  <g font-size="11" fill="#333"><line x1="380" y1="64" x2="416" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="422" y="68">Call (→)</text><line x1="530" y1="64" x2="566" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="572" y="68">Return (←)</text></g>
+  <rect x="60" y="80" width="180" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="150" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+  <rect x="400" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="510" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">JwtAuthExample</text>
+  <text x="510" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+  <rect x="710" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="820" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">JwtAuthDemo</text>
+  <line x1="150" y1="122" x2="150" y2="690" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="510" y1="122" x2="510" y2="690" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="820" y1="122" x2="820" y2="690" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="146" y="170" width="8" height="520" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <rect x="506" y="190" width="8" height="480" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new JwtAuthExample();  topic.Explain()</text>
+  <line x1="150" y1="190" x2="510" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="816" y="200" width="8" height="52" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
+  <text x="665" y="194" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainAuthenticationVsAuthorization()</text>
+  <line x1="510" y1="200" x2="820" y2="200" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="215" text-anchor="middle" font-size="9" fill="#8a5a10">401 "who are you?" vs 403 "not you" — three real calls</text>
+  <text x="665" y="227" text-anchor="middle" font-size="8.5" fill="#555">Console.WriteLine ×3 · Flow/1-AuthenticationVsAuthorization.svg</text>
+  <text x="665" y="242" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="250" x2="510" y2="250" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="290" width="8" height="52" rx="0" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="665" y="284" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainWhatIsAJwt()</text>
+  <line x1="510" y1="290" x2="820" y2="290" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="305" text-anchor="middle" font-size="9" fill="#1a4a73">take a token apart; tamper with it and see it refused</text>
+  <text x="665" y="317" text-anchor="middle" font-size="8.5" fill="#555">Console.WriteLine ×10 · Flow/2-WhatIsAJwt.svg</text>
+  <text x="665" y="332" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="340" x2="510" y2="340" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="380" width="8" height="52" rx="0" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="665" y="374" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainIssuingATokenLogin()</text>
+  <line x1="510" y1="380" x2="820" y2="380" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="395" text-anchor="middle" font-size="9" fill="#274e13">POST /login with fake users; the claims inside the token</text>
+  <text x="665" y="407" text-anchor="middle" font-size="8.5" fill="#555">Console.WriteLine ×6 · Flow/3-IssuingATokenLogin.svg</text>
+  <text x="665" y="422" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="430" x2="510" y2="430" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="470" width="8" height="52" rx="0" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1"/>
+  <text x="665" y="464" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainProtectingEndpoints()</text>
+  <line x1="510" y1="470" x2="820" y2="470" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="485" text-anchor="middle" font-size="9" fill="#4a2e73">[AllowAnonymous], [Authorize], Roles; the Bearer header</text>
+  <text x="665" y="497" text-anchor="middle" font-size="8.5" fill="#555">Console.WriteLine ×8 · Flow/4-ProtectingEndpoints.svg</text>
+  <text x="665" y="512" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="520" x2="510" y2="520" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="560" width="8" height="52" rx="0" fill="#fffbe8" stroke="#f1c232" stroke-width="1"/>
+  <text x="665" y="554" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainTokenLifetime()</text>
+  <line x1="510" y1="560" x2="820" y2="560" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="575" text-anchor="middle" font-size="9" fill="#7f6000">exp, an expired token, and ClockSkew</text>
+  <text x="665" y="587" text-anchor="middle" font-size="8.5" fill="#555">Console.WriteLine ×5 · Flow/5-TokenLifetime.svg</text>
+  <text x="665" y="602" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="610" x2="510" y2="610" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="330" y="660" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="510" y1="666" x2="150" y2="666" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <circle cx="150" cy="686" r="6" fill="#cc0000"/>
+  <text x="164" y="690" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+  <text x="40" y="722" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; JwtAuthExample calls the five JwtAuthDemo methods one after another, waiting for each to return.</text>
+  <text x="40" y="742" font-size="10" font-style="italic" fill="#888">Inside each method the demo starts its own small API server (DemoAuthServer), sends real HTTP calls with HttpClient and stops the server again.</text>
+  <text x="40" y="760" font-size="10" font-style="italic" fill="#888">Every method also prints a heading (2 more Console.WriteLine calls, not counted above). The helpers (DemoAuthServer, TokenIssuer, DemoUsers,</text>
+  <text x="40" y="778" font-size="10" font-style="italic" fill="#888">ApiCall, TokenParts, AuthDemoController) are called BY JwtAuthDemo, so they get no lifeline of their own.</text>
+</svg>

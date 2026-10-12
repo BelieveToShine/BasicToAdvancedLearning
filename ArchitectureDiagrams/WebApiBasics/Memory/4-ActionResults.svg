@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 860" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1380" height="860" fill="#ffffff"/>
+  <text x="690.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Action results — Memory: Stack / Heap / Static</text>
+  <text x="690.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainActionResults() is running, just after the last request (GET account 3, now gone) was answered and printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="790" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1257.5" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">WebApiBasicsDemo.ExplainActionResults() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">builder → pointer  (WebApplicationBuilder)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">WebApiBasicsExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="137" width="290" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplicationBuilder — builder</text>
+  <rect x="472" y="169" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="186" font-size="10" fill="#7f4e00">Services → ActionResultsController</text>
+  <rect x="460" y="217" width="290" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="239" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="249" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="266" font-size="10" fill="#7f4e00">BaseAddress → "http://127.0.0.1:&lt;port&gt;"</text>
+  <rect x="472" y="279" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="296" font-size="10" fill="#7f4e00">Client → pointer (HttpClient)</text>
+  <rect x="472" y="309" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="326" font-size="10" fill="#7f4e00">_app → pointer (WebApplication)</text>
+  <rect x="790" y="270" width="330" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="292" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient</text>
+  <rect x="802" y="302" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="319" font-size="10" fill="#7f4e00">BaseAddress = the same address</text>
+  <text x="804" y="343" font-size="8.5" font-style="italic" fill="#a06a1f">(handler and timeouts not shown)</text>
+  <line x1="750" y1="292" x2="788" y2="292" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="368" width="330" height="172" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="390" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplication — the running server</text>
+  <rect x="802" y="400" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="417" font-size="10" fill="#7f4e00">GET api/accounts → GetAll</text>
+  <rect x="802" y="430" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="447" font-size="10" fill="#7f4e00">GET api/accounts/{id:int} → GetById</text>
+  <rect x="802" y="460" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="477" font-size="10" fill="#7f4e00">POST api/accounts → Create</text>
+  <rect x="802" y="490" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="507" font-size="10" fill="#7f4e00">DELETE api/accounts/{id:int} → Delete</text>
+  <text x="804" y="531" font-size="8.5" font-style="italic" fill="#a06a1f">route table (4 actions)</text>
+  <polyline points="750,322 772,322 772,390 788,390" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="790" y="556" width="330" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="955.0" y="578" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;Account&gt; — the static Accounts list</text>
+  <rect x="802" y="588" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="605" font-size="10" fill="#7f4e00">pointer → Account {1, AC-1001, Savings, 500}</text>
+  <rect x="802" y="618" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="810" y="635" font-size="10" fill="#7f4e00">pointer → Account {2, AC-1002, Current, 1200}</text>
+  <text x="804" y="659" font-size="8.5" font-style="italic" fill="#a06a1f">(account 3 was added by POST, then removed by DELETE)</text>
+  <rect x="790" y="688" width="470" height="96" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1025.0" y="708" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network (loopback)</text>
+  <text x="804" y="728" font-size="9.5" font-weight="bold" fill="#333333">Last request:  GET /api/accounts/3 HTTP/1.1</text>
+  <text x="804" y="744" font-size="9.5" font-weight="bold" fill="#333333">Last response: 404 with a ProblemDetails JSON body</text>
+  <text x="804" y="760" font-size="9.5" fill="#333333">Earlier answers: 201 + Location header, 204 + no body.</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 440,189 440,239 458,239" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1150" y="118" width="215" height="150" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="1257.5" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">ActionResultsController</text>
+  <rect x="1162" y="152" width="191" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="1168" y="169" font-size="9.5" fill="#3d2a6b">Accounts → pointer (List)</text>
+  <polyline points="1150,165 1135,165 1135,578 1122,578" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="1257.5" y="202" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">ONE copy for the whole</text>
+  <text x="1257.5" y="216" text-anchor="middle" font-size="9" font-style="italic" fill="#5b4a7a">program, not one per request.</text>
+  <text x="40" y="808" font-size="10.5" fill="#444"><tspan font-weight="bold">The accounts live in a static field of the controller class, so they outlive each request. </tspan>A new controller object is made for every request; the static list is the one copy they all share.</text>
+  <text x="40" y="826" font-size="10" font-style="italic" fill="#888">Static holds only the pointer; the list and its accounts are Heap objects. ResetData() put the two starting accounts back at the start of the method.</text>
+</svg>

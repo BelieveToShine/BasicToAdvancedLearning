@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 750" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1180" height="750" fill="#ffffff"/>
+  <text x="590" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">SQL basics — Memory: Stack / Heap / Static (high level)</text>
+  <text x="590" y="46" text-anchor="middle" font-size="12" fill="#666">The lesson's own locals only hold SQL text; the tables and rows live outside .NET, inside SQL Server.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="240" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — one slot per local</text>
+  <text x="690" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — strings of SQL text</text>
+  <text x="1090" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="400" height="262" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="240" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Every local is a pointer to a string</text>
+  <rect x="56" y="144" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="159" font-size="8" font-weight="bold" fill="#1b3d1b">allColumns, twoColumns, savings, bigCurrent, emptyOrHuge</text>
+  <text x="64" y="172" font-size="8.5" fill="#3f6b3f">ExplainSelectAndWhere()</text>
+  <rect x="56" y="182" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="197" font-size="8" font-weight="bold" fill="#1b3d1b">inList, balanceRange, startsWithC, oneLetterWildcard, nullEquals, nullIs</text>
+  <text x="64" y="210" font-size="8.5" fill="#3f6b3f">ExplainHandyFilters()</text>
+  <rect x="56" y="220" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="235" font-size="8" font-weight="bold" fill="#1b3d1b">unordered, richestFirst, topThree</text>
+  <text x="64" y="248" font-size="8.5" fill="#3f6b3f">ExplainOrderingAndTop()</text>
+  <rect x="56" y="258" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="273" font-size="8" font-weight="bold" fill="#1b3d1b">innerJoin, leftJoin, noAccount</text>
+  <text x="64" y="286" font-size="8.5" fill="#3f6b3f">ExplainJoins()</text>
+  <rect x="56" y="296" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="311" font-size="8" font-weight="bold" fill="#1b3d1b">wholeTable, perType, perCustomer</text>
+  <text x="64" y="324" font-size="8.5" fill="#3f6b3f">ExplainGroupByAndAggregates()</text>
+  <rect x="56" y="334" width="368" height="34" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="64" y="349" font-size="8" font-weight="bold" fill="#1b3d1b">filteredGroups, aggregateInWhere, aliasInWhere</text>
+  <text x="64" y="362" font-size="8.5" fill="#3f6b3f">ExplainWhereVsHaving()</text>
+  <rect x="480" y="112" width="520" height="262" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="740" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">One small string object per query</text>
+  <rect x="496" y="148" width="488" height="66" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="740" y="170" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">e.g. the string savings (Memory/1)</text>
+  <text x="740" y="188" text-anchor="middle" font-size="9" fill="#a06a1f">SELECT … FROM Accounts WHERE AccountType = 'Savings' ORDER BY AccountId</text>
+  <text x="740" y="204" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">the SQL as text; its line breaks are kept</text>
+  <rect x="496" y="222" width="488" height="66" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="740" y="244" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">23 query strings across the six methods</text>
+  <text x="740" y="262" text-anchor="middle" font-size="9" fill="#a06a1f">5 + 6 + 3 + 3 + 3 + 3</text>
+  <text x="740" y="278" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">each is read by SqlLab, then sent to SQL Server</text>
+  <rect x="496" y="296" width="488" height="66" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="740" y="318" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">No rows held by the lesson's locals</text>
+  <text x="740" y="336" text-anchor="middle" font-size="9" fill="#a06a1f">SqlLab.Show copies the rows into a temporary list only to print them, then lets it go</text>
+  <text x="740" y="352" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">your lesson code (the Demo locals) never holds a row</text>
+  <rect x="1040" y="112" width="120" height="262" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1100" y="200" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1100" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="1100" y="240" text-anchor="middle" font-size="9" fill="#5b4a7a">no static</text>
+  <text x="1100" y="253" text-anchor="middle" font-size="9" fill="#5b4a7a">fields in this</text>
+  <text x="1100" y="266" text-anchor="middle" font-size="9" fill="#5b4a7a">lesson</text>
+  <rect x="40" y="396" width="1100" height="276" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="590" y="416" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: the three bank tables BankSeed.Recreate() builds (22 rows in total)</text>
+  <text x="56" y="438" font-size="9" font-style="italic" fill="#555">Customers (4 rows)</text>
+  <rect x="56" y="444" width="68" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="62" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">CustomerId</text>
+  <rect x="124" y="444" width="64" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="130" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">FullName</text>
+  <rect x="188" y="444" width="94" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="194" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">Email</text>
+  <rect x="56" y="460" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="62" y="471.5" font-size="9" fill="#222">1</text>
+  <rect x="124" y="460" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="130" y="471.5" font-size="9" fill="#222">Asha Rao</text>
+  <rect x="188" y="460" width="94" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="194" y="471.5" font-size="9" fill="#222">asha@example.com</text>
+  <rect x="56" y="476" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="62" y="487.5" font-size="9" fill="#222">2</text>
+  <rect x="124" y="476" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="130" y="487.5" font-size="9" fill="#222">Ben Carter</text>
+  <rect x="188" y="476" width="94" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="194" y="487.5" font-size="9" fill="#222">ben@example.com</text>
+  <rect x="56" y="492" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="62" y="503.5" font-size="9" fill="#222">3</text>
+  <rect x="124" y="492" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="130" y="503.5" font-size="9" fill="#222">Chen Li</text>
+  <rect x="188" y="492" width="94" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="194" y="503.5" font-size="9" fill="#222">chen@example.com</text>
+  <rect x="56" y="508" width="68" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="62" y="519.5" font-size="9" fill="#222">4</text>
+  <rect x="124" y="508" width="64" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="130" y="519.5" font-size="9" fill="#222">Dana Smith</text>
+  <rect x="188" y="508" width="94" height="16" rx="0" fill="#fff3a8" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="194" y="519.5" font-size="9" fill="#222">dana@example.com</text>
+  <text x="306" y="438" font-size="9" font-style="italic" fill="#555">Accounts (6 rows)</text>
+  <rect x="306" y="444" width="62" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="312" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">AccountId</text>
+  <rect x="368" y="444" width="68" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="374" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">CustomerId</text>
+  <rect x="436" y="444" width="84" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="442" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">AccountNumber</text>
+  <rect x="520" y="444" width="73" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="526" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">AccountType</text>
+  <rect x="593" y="444" width="52" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="599" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">Balance</text>
+  <rect x="306" y="460" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="471.5" font-size="9" fill="#222">1</text>
+  <rect x="368" y="460" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="471.5" font-size="9" fill="#222">1</text>
+  <rect x="436" y="460" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="471.5" font-size="9" fill="#222">ACC-1001</text>
+  <rect x="520" y="460" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="471.5" font-size="9" fill="#222">Savings</text>
+  <rect x="593" y="460" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="471.5" font-size="9" fill="#222">1500.00</text>
+  <rect x="306" y="476" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="487.5" font-size="9" fill="#222">2</text>
+  <rect x="368" y="476" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="487.5" font-size="9" fill="#222">1</text>
+  <rect x="436" y="476" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="487.5" font-size="9" fill="#222">ACC-1002</text>
+  <rect x="520" y="476" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="487.5" font-size="9" fill="#222">Current</text>
+  <rect x="593" y="476" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="487.5" font-size="9" fill="#222">250.00</text>
+  <rect x="306" y="492" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="503.5" font-size="9" fill="#222">3</text>
+  <rect x="368" y="492" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="503.5" font-size="9" fill="#222">2</text>
+  <rect x="436" y="492" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="503.5" font-size="9" fill="#222">ACC-2001</text>
+  <rect x="520" y="492" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="503.5" font-size="9" fill="#222">Savings</text>
+  <rect x="593" y="492" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="503.5" font-size="9" fill="#222">3200.00</text>
+  <rect x="306" y="508" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="519.5" font-size="9" fill="#222">4</text>
+  <rect x="368" y="508" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="519.5" font-size="9" fill="#222">2</text>
+  <rect x="436" y="508" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="519.5" font-size="9" fill="#222">ACC-2002</text>
+  <rect x="520" y="508" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="519.5" font-size="9" fill="#222">Current</text>
+  <rect x="593" y="508" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="519.5" font-size="9" fill="#222">0.00</text>
+  <rect x="306" y="524" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="535.5" font-size="9" fill="#222">5</text>
+  <rect x="368" y="524" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="535.5" font-size="9" fill="#222">3</text>
+  <rect x="436" y="524" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="535.5" font-size="9" fill="#222">ACC-3001</text>
+  <rect x="520" y="524" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="535.5" font-size="9" fill="#222">Current</text>
+  <rect x="593" y="524" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="535.5" font-size="9" fill="#222">800.00</text>
+  <rect x="306" y="540" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="312" y="551.5" font-size="9" fill="#222">6</text>
+  <rect x="368" y="540" width="68" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="374" y="551.5" font-size="9" fill="#222">3</text>
+  <rect x="436" y="540" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="442" y="551.5" font-size="9" fill="#222">ACC-3002</text>
+  <rect x="520" y="540" width="73" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="526" y="551.5" font-size="9" fill="#222">Savings</text>
+  <rect x="593" y="540" width="52" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="599" y="551.5" font-size="9" fill="#222">0.00</text>
+  <text x="669" y="438" font-size="9" font-style="italic" fill="#555">Transactions (12 rows)</text>
+  <rect x="669" y="444" width="84" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="675" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">TransactionId</text>
+  <rect x="753" y="444" width="62" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="759" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">AccountId</text>
+  <rect x="815" y="444" width="49" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="821" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">Amount</text>
+  <rect x="864" y="444" width="64" height="16" rx="0" fill="#dfe7f0" stroke="#8aa0b8" stroke-width="1"/>
+  <text x="870" y="455.5" font-size="9" font-weight="bold" fill="#1a3550">Kind</text>
+  <rect x="669" y="460" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="471.5" font-size="9" fill="#222">1</text>
+  <rect x="753" y="460" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="471.5" font-size="9" fill="#222">1</text>
+  <rect x="815" y="460" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="471.5" font-size="9" fill="#222">1000.00</text>
+  <rect x="864" y="460" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="471.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="476" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="487.5" font-size="9" fill="#222">2</text>
+  <rect x="753" y="476" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="487.5" font-size="9" fill="#222">1</text>
+  <rect x="815" y="476" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="487.5" font-size="9" fill="#222">700.00</text>
+  <rect x="864" y="476" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="487.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="492" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="503.5" font-size="9" fill="#222">3</text>
+  <rect x="753" y="492" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="503.5" font-size="9" fill="#222">1</text>
+  <rect x="815" y="492" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="503.5" font-size="9" fill="#222">200.00</text>
+  <rect x="864" y="492" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="503.5" font-size="9" fill="#222">Withdrawal</text>
+  <rect x="669" y="508" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="519.5" font-size="9" fill="#222">4</text>
+  <rect x="753" y="508" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="519.5" font-size="9" fill="#222">2</text>
+  <rect x="815" y="508" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="519.5" font-size="9" fill="#222">300.00</text>
+  <rect x="864" y="508" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="519.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="524" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="535.5" font-size="9" fill="#222">5</text>
+  <rect x="753" y="524" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="535.5" font-size="9" fill="#222">2</text>
+  <rect x="815" y="524" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="535.5" font-size="9" fill="#222">50.00</text>
+  <rect x="864" y="524" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="535.5" font-size="9" fill="#222">Withdrawal</text>
+  <rect x="669" y="540" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="551.5" font-size="9" fill="#222">6</text>
+  <rect x="753" y="540" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="551.5" font-size="9" fill="#222">3</text>
+  <rect x="815" y="540" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="551.5" font-size="9" fill="#222">3000.00</text>
+  <rect x="864" y="540" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="551.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="556" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="567.5" font-size="9" fill="#222">7</text>
+  <rect x="753" y="556" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="567.5" font-size="9" fill="#222">3</text>
+  <rect x="815" y="556" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="567.5" font-size="9" fill="#222">500.00</text>
+  <rect x="864" y="556" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="567.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="572" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="583.5" font-size="9" fill="#222">8</text>
+  <rect x="753" y="572" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="583.5" font-size="9" fill="#222">3</text>
+  <rect x="815" y="572" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="583.5" font-size="9" fill="#222">300.00</text>
+  <rect x="864" y="572" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="583.5" font-size="9" fill="#222">Withdrawal</text>
+  <rect x="669" y="588" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="599.5" font-size="9" fill="#222">9</text>
+  <rect x="753" y="588" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="599.5" font-size="9" fill="#222">4</text>
+  <rect x="815" y="588" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="599.5" font-size="9" fill="#222">100.00</text>
+  <rect x="864" y="588" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="599.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="604" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="615.5" font-size="9" fill="#222">10</text>
+  <rect x="753" y="604" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="615.5" font-size="9" fill="#222">4</text>
+  <rect x="815" y="604" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="615.5" font-size="9" fill="#222">100.00</text>
+  <rect x="864" y="604" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="615.5" font-size="9" fill="#222">Withdrawal</text>
+  <rect x="669" y="620" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="631.5" font-size="9" fill="#222">11</text>
+  <rect x="753" y="620" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="631.5" font-size="9" fill="#222">5</text>
+  <rect x="815" y="620" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="631.5" font-size="9" fill="#222">900.00</text>
+  <rect x="864" y="620" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="631.5" font-size="9" fill="#222">Deposit</text>
+  <rect x="669" y="636" width="84" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="675" y="647.5" font-size="9" fill="#222">12</text>
+  <rect x="753" y="636" width="62" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="759" y="647.5" font-size="9" fill="#222">5</text>
+  <rect x="815" y="636" width="49" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="821" y="647.5" font-size="9" fill="#222">100.00</text>
+  <rect x="864" y="636" width="64" height="16" rx="0" fill="#ffffff" stroke="#b0b0b0" stroke-width="1"/>
+  <text x="870" y="647.5" font-size="9" fill="#222">Withdrawal</text>
+  <text x="56" y="650" font-size="9.5" fill="#333">Dana Smith (highlighted) owns no account. Every query reads these rows and changes none of them.</text>
+  <text x="40" y="706" font-size="10.5" fill="#444"><tspan font-weight="bold">A query is only text until SQL Server runs it.</tspan> The Heap holds the question; the answer — rows — is printed by SqlLab.Show (which holds them only briefly) and no lesson local keeps them.</text>
+  <text x="40" y="726" font-size="10" font-style="italic" fill="#888">The dashed grey box is the recorded "OUTSIDE" addition to the locked 3-column shape (as in Topic 8); Stack, Heap and Static themselves are unchanged. Each Memory/&lt;N&gt; diagram draws it per method.</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="640" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">REST resources — Sub-level Flow: one subway line through an account's life</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The URL names the thing; the method is what you do to it; the status code says how it went.</text>
+  <text x="60" y="62" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="66" x2="60" y2="104" stroke="#333" stroke-width="2"/>
+  <polygon points="60,66 60,84 90,75" fill="#38761d"/>
+  <line x1="60" y1="104" x2="60" y2="130" stroke="#333" stroke-width="1.6"/>
+  <polyline points="60,130 850,130 850,330 62,330" fill="none" stroke="#455a64" stroke-width="4" marker-end="url(#a)"/>
+  <circle cx="190" cy="130" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="190" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">1</text>
+  <line x1="190" y1="143" x2="190" y2="162" stroke="#333" stroke-width="1.6"/>
+  <rect x="110" y="162" width="160" height="78" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="190" y="180" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts</text>
+  <text x="190" y="198" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">200 OK</text>
+  <text x="190" y="216" text-anchor="middle" font-size="8.5" fill="#555">the COLLECTION: a list</text>
+  <text x="190" y="232" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="370" cy="130" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="370" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">2</text>
+  <line x1="370" y1="143" x2="370" y2="162" stroke="#333" stroke-width="1.6"/>
+  <rect x="290" y="162" width="160" height="78" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="370" y="180" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/2</text>
+  <text x="370" y="198" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">200 OK</text>
+  <text x="370" y="216" text-anchor="middle" font-size="8.5" fill="#555">one ITEM of the collection</text>
+  <text x="370" y="232" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="550" cy="130" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="550" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">3</text>
+  <line x1="550" y1="143" x2="550" y2="162" stroke="#333" stroke-width="1.6"/>
+  <rect x="470" y="162" width="160" height="78" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="550" y="180" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">POST /api/accounts</text>
+  <text x="550" y="198" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">201 Created</text>
+  <text x="550" y="216" text-anchor="middle" font-size="8.5" fill="#555">Location: /api/accounts/4</text>
+  <text x="550" y="232" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×2</text>
+  <circle cx="730" cy="130" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="730" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">4</text>
+  <line x1="730" y1="143" x2="730" y2="162" stroke="#333" stroke-width="1.6"/>
+  <rect x="650" y="162" width="160" height="78" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="730" y="180" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/4</text>
+  <text x="730" y="198" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">200 OK</text>
+  <text x="730" y="216" text-anchor="middle" font-size="8.5" fill="#555">URL copied from Location</text>
+  <text x="730" y="232" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="730" cy="330" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="730" y="334" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">5</text>
+  <line x1="730" y1="343" x2="730" y2="362" stroke="#333" stroke-width="1.6"/>
+  <rect x="650" y="362" width="160" height="78" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="730" y="380" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">PUT /api/accounts/4</text>
+  <text x="730" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">200 OK</text>
+  <text x="730" y="416" text-anchor="middle" font-size="8.5" fill="#555">the item is replaced</text>
+  <text x="730" y="432" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="550" cy="330" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="550" y="334" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">6</text>
+  <line x1="550" y1="343" x2="550" y2="362" stroke="#333" stroke-width="1.6"/>
+  <rect x="470" y="362" width="160" height="78" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="550" y="380" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">DELETE /api/accounts/4</text>
+  <text x="550" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">204 No Content</text>
+  <text x="550" y="416" text-anchor="middle" font-size="8.5" fill="#555">the item is removed</text>
+  <text x="550" y="432" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="370" cy="330" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="370" y="334" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">7</text>
+  <line x1="370" y1="343" x2="370" y2="362" stroke="#333" stroke-width="1.6"/>
+  <rect x="290" y="362" width="160" height="78" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="370" y="380" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">GET /api/accounts/4</text>
+  <text x="370" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">404 Not Found</text>
+  <text x="370" y="416" text-anchor="middle" font-size="8.5" fill="#555">it is gone now</text>
+  <text x="370" y="432" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <circle cx="190" cy="330" r="13" fill="#ffffff" stroke="#455a64" stroke-width="3"/>
+  <text x="190" y="334" text-anchor="middle" font-size="11" font-weight="bold" fill="#263238">8</text>
+  <line x1="190" y1="343" x2="190" y2="362" stroke="#333" stroke-width="1.6"/>
+  <rect x="110" y="362" width="160" height="78" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="190" y="380" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">GET /api/accounts/abc</text>
+  <text x="190" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#222">404 Not Found</text>
+  <text x="190" y="416" text-anchor="middle" font-size="8.5" fill="#555">no route takes a non-number</text>
+  <text x="190" y="432" text-anchor="middle" font-size="8" font-style="italic" fill="#888">Console.WriteLine ×1</text>
+  <text x="60" y="352" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="60" y1="360" x2="60" y2="400" stroke="#333" stroke-width="2"/>
+  <polygon points="60,360 60,378 90,369" fill="#cc0000"/>
+  <rect x="40" y="480" width="820" height="100" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="450" y="500" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Three parts of every exchange</text>
+  <text x="56" y="520" font-size="9.5" fill="#333">URL = WHICH thing, written as a noun:  /api/accounts (all of them)  or  /api/accounts/2 (one).</text>
+  <text x="56" y="538" font-size="9.5" fill="#333">Method = WHAT to do:  GET reads · POST creates · PUT replaces · DELETE removes.</text>
+  <text x="56" y="556" font-size="9.5" fill="#333">Status code = HOW it went:  200, 201, 204 worked; 404 means that thing is not there.</text>
+  <text x="56" y="572" font-size="9" font-style="italic" fill="#555">A URL like /api/getAccount?id=2 puts the verb in the address; REST keeps verbs out of URLs.</text>
+  <text x="30" y="604" font-size="10.5" fill="#444"><tspan font-weight="bold">Same nouns, different verbs:</tspan> station 4 reads /api/accounts/4, station 5 replaces it, station 6 deletes it — only the method changes.</text>
+  <text x="30" y="622" font-size="10" font-style="italic" fill="#888">The Location header is printed with its own Console.WriteLine (station 3), then used as the URL for stations 4 to 7. Each method also opens with PrintHeading().</text>
+</svg>

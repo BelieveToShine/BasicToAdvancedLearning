@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 876" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="876" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">What is a JWT — Sub-level Flow: a letter with a wax seal</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Anyone can OPEN and read the letter. The seal does not hide it — it shows whether anyone changed it.</text>
+  <text x="60" y="62" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="66" x2="60" y2="104" stroke="#333" stroke-width="2"/>
+  <polygon points="60,66 60,84 90,75" fill="#38761d"/>
+  <line x1="60" y1="104" x2="60" y2="112" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="112" width="400" height="46" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="230.0" y="130.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">using (server = Start(null));  token = Login(asha)</text>
+  <text x="230.0" y="146.0" text-anchor="middle" font-size="9.5" fill="#444">(the token text itself is never printed)</text>
+  <text x="375" y="184" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">token.Split('.')  →  parts  (3 strings joined by dots)</text>
+  <line x1="125" y1="158" x2="125" y2="192" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="192" width="190" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="125.0" y="209.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">header</text>
+  <text x="125.0" y="225.0" text-anchor="middle" font-size="9.5" fill="#444">parts[0]</text>
+  <text x="235" y="220" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">.</text>
+  <rect x="250" y="192" width="250" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="375.0" y="209.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">payload</text>
+  <text x="375.0" y="225.0" text-anchor="middle" font-size="9.5" fill="#444">parts[1]  (the claims)</text>
+  <text x="515" y="220" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">.</text>
+  <rect x="530" y="192" width="250" height="44" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="655.0" y="209.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">signature  (the wax seal)</text>
+  <text x="655.0" y="225.0" text-anchor="middle" font-size="9.5" fill="#444">parts[2]</text>
+  <rect x="30" y="292" width="190" height="74" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="125.0" y="310" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">headerJson</text>
+  <text x="125.0" y="328" text-anchor="middle" font-size="9.5" fill="#444">fields: alg, typ</text>
+  <text x="125.0" y="346" text-anchor="middle" font-size="9.5" fill="#444">alg = HS256, typ = JWT</text>
+  <rect x="250" y="292" width="250" height="74" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="375.0" y="310" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">payloadJson</text>
+  <text x="375.0" y="328" text-anchor="middle" font-size="9.5" fill="#444">aud exp iat iss name nbf role sub</text>
+  <text x="375.0" y="346" text-anchor="middle" font-size="9.5" fill="#444">sub = asha, role = Customer</text>
+  <line x1="125" y1="236" x2="125" y2="292" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="135" y="270" font-size="9" fill="#555">DecodeText — no key</text>
+  <line x1="375" y1="236" x2="375" y2="292" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="385" y="270" font-size="9" fill="#555">DecodeText — no key</text>
+  <rect x="530" y="292" width="250" height="74" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="655" y="310" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">signature: 32 bytes</text>
+  <text x="655" y="328" text-anchor="middle" font-size="9" fill="#444">rebuilt = HMACSHA256(key, header.payload)</text>
+  <text x="655" y="346" text-anchor="middle" font-size="9.5" fill="#444">rebuilt matches parts[2]: True</text>
+  <line x1="655" y1="236" x2="655" y2="292" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="270" font-size="9" fill="#555">check it</text>
+  <rect x="530" y="410" width="250" height="46" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="655.0" y="428.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444444">the secret key (random bytes)</text>
+  <text x="655.0" y="444.0" text-anchor="middle" font-size="9.5" fill="#444">only the server has it; never in the token</text>
+  <text x="530" y="474" font-size="9" font-style="italic" fill="#555">(this lesson reads it only to show the maths;</text>
+  <text x="530" y="487" font-size="9" font-style="italic" fill="#555">a real client never has it)</text>
+  <line x1="655" y1="410" x2="655" y2="366" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="392" font-size="9" fill="#555">HMAC-SHA256 uses it</text>
+  <text x="30" y="394" font-size="9.5" font-weight="bold" fill="#7a0000">Decoding is not decryption: no key was used.</text>
+  <text x="30" y="408" font-size="9.5" fill="#7a0000">Anyone holding the token can read header and payload.</text>
+  <line x1="375" y1="366" x2="375" y2="470" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="385" y="440" font-size="9" fill="#555">change the payload</text>
+  <rect x="30" y="470" width="470" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="265.0" y="493.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7a0000">forgedPayload = payloadJson.Replace(Customer → Manager)</text>
+  <text x="265.0" y="509.0" text-anchor="middle" font-size="9.5" fill="#444">forgedToken = parts[0] . EncodeText(forgedPayload) . parts[2]  (OLD signature)</text>
+  <line x1="265" y1="526" x2="265" y2="560" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="275" y="548" font-size="9" fill="#555">sent to the server</text>
+  <rect x="30" y="560" width="470" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="265.0" y="583.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">The server recomputes the signature with ITS key</text>
+  <text x="265.0" y="599.0" text-anchor="middle" font-size="9.5" fill="#444">from the header and payload it received, and compares it with the one in the token</text>
+  <line x1="140" y1="616" x2="140" y2="656" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="150" y="640" font-size="9" fill="#555">genuine token</text>
+  <rect x="30" y="656" width="220" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="140.0" y="679.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Get(daily, token)</text>
+  <text x="140.0" y="695.0" text-anchor="middle" font-size="9.5" fill="#444">seal OK, but a Customer: 403 Forbidden</text>
+  <line x1="250" y1="684" x2="280" y2="684" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="265" y="676" text-anchor="middle" font-size="9" fill="#555">then</text>
+  <rect x="280" y="656" width="220" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="390.0" y="679.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7a0000">Get(daily, forgedToken)</text>
+  <text x="390.0" y="695.0" text-anchor="middle" font-size="9.5" fill="#444">seal NOT OK: 401 Unauthorized</text>
+  <line x1="390" y1="616" x2="390" y2="656" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="400" y="640" font-size="9" fill="#555">forged token</text>
+  <line x1="500" y1="684" x2="560" y2="684" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="560" y1="684" x2="560" y2="702" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560" y="718" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="560" y1="726" x2="560" y2="766" stroke="#333" stroke-width="2"/>
+  <polygon points="560,726 560,744 590,735" fill="#cc0000"/>
+  <text x="30" y="800" font-size="10.5" fill="#444"><tspan font-weight="bold">The seal = a signature, not a lock: </tspan>the payload stays readable; if one character of it changes, the signature no longer fits and the server refuses the token (401).</text>
+  <text x="30" y="818" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints 10 lines: parts, header fields, header values, payload fields, payload values, a no-secrets-in-claims note, the signature check,</text>
+  <text x="30" y="836" font-size="10" font-style="italic" fill="#888">"payload really changed", and the two status lines. HTTPS (not the signature) is what hides a token from eavesdroppers.</text>
+  <text x="30" y="854" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line, then the title) - not drawn.</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 634" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="634" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">SaveChanges is all or nothing — Sub-level Flow: one shopping bag at the till</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Everything pending goes through the till together. If one item is refused, the whole bag is handed back.</text>
+  <text x="225" y="52" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="225" y1="56" x2="225" y2="94" stroke="#333" stroke-width="2"/>
+  <polygon points="225,56 225,74 255,65" fill="#38761d"/>
+  <line x1="225" y1="96" x2="225" y2="108" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="108" width="370" height="62" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="225.0" y="128" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">asha.FullName = "Asha R. Rao";  Customers.Add(devAgain);</text>
+  <text x="225.0" y="144" text-anchor="middle" font-size="9.5" fill="#333">two pending changes: one Modified, one Added</text>
+  <text x="225.0" y="160" text-anchor="middle" font-size="9.5" fill="#333">the new customer re-uses Asha's email (UNIQUE)</text>
+  <line x1="225.0" y1="170" x2="225.0" y2="200" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="200" width="370" height="84" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="220" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">SaveChanges();</text>
+  <text x="225.0" y="236" text-anchor="middle" font-size="9.5" fill="#333">one batch; EF wraps multi-statement saves in a transaction</text>
+  <text x="225.0" y="252" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: the SQL (SqlSpy)</text>
+  <rect x="520" y="200" width="340" height="84" rx="10" fill="#fdecea" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="217" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server — all or nothing</text>
+  <text x="690.0" y="233" text-anchor="middle" font-size="9" fill="#333">1. UPDATE [Customers] SET [FullName] …  — fine</text>
+  <text x="690.0" y="247" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">2. INSERT [Customers] … — UNIQUE index refuses</text>
+  <text x="690.0" y="261" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">→ whole transaction rolled back, row 1 unchanged</text>
+  <line x1="410" y1="224" x2="520" y2="224" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="219" text-anchor="middle" font-size="8.5" fill="#555">UPDATE + INSERT</text>
+  <line x1="520" y1="246" x2="410" y2="246" stroke="#cc0000" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="241" text-anchor="middle" font-size="8.5" fill="#cc0000">error 2601</text>
+  <line x1="225.0" y1="284" x2="225.0" y2="314" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="314" width="370" height="62" rx="8" fill="#fdecea" stroke="#cc0000" stroke-width="1.6"/>
+  <text x="225.0" y="334" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">catch (DbUpdateException ex) when (… is SqlException sql)</text>
+  <text x="225.0" y="350" text-anchor="middle" font-size="9.5" fill="#333">the error number is 2601 (a unique index said no)</text>
+  <text x="225.0" y="366" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "SaveChanges failed: … error number 2601."</text>
+  <line x1="225.0" y1="376" x2="225.0" y2="406" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="406" width="370" height="68" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="225.0" y="426" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">using var fresh = new BankContext();</text>
+  <text x="225.0" y="442" text-anchor="middle" font-size="9.5" fill="#333">a new context reads what SQL Server really holds</text>
+  <text x="225.0" y="458" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine: "Name stored … Asha Rao", "Customers in the table: 1"</text>
+  <rect x="520" y="406" width="340" height="68" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="690.0" y="423" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444">SQL Server</text>
+  <text x="690.0" y="439" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">SELECT … WHERE Email = …  /  SELECT COUNT(*)</text>
+  <text x="690.0" y="453" text-anchor="middle" font-size="9" fill="#333">Asha Rao is still "Asha Rao"; 1 customer</text>
+  <line x1="410" y1="430" x2="520" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="425" text-anchor="middle" font-size="8.5" fill="#555">SELECT</text>
+  <line x1="520" y1="452" x2="410" y2="452" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="447" text-anchor="middle" font-size="8.5" fill="#555">Asha Rao, 1</text>
+  <line x1="225" y1="474" x2="225" y2="496" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="225" y="514" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="225" y1="522" x2="225" y2="562" stroke="#333" stroke-width="2"/>
+  <polygon points="225,522 225,540 255,531" fill="#cc0000"/>
+  <text x="30" y="578" font-size="10.5" fill="#444"><tspan font-weight="bold">One SaveChanges = one unit:</tspan> the valid rename was undone because the insert beside it failed. Dispose the old context after a failure and start again.</text>
+  <text x="30" y="596" font-size="10" font-style="italic" fill="#888">The failed context still holds both pending changes (Modified + Added). To save several SaveChanges calls as one unit you start your own transaction (not covered here).</text>
+  <text x="30" y="614" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): a blank line and a "=== title ===" line (two Console.WriteLine calls, not drawn).</text>
+</svg>

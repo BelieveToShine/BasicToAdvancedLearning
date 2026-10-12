@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 690" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="690" fill="#ffffff"/>
+  <text x="650" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">ASP.NET Core Web API basics — Controllers, Routing, Binding, Results, DI</text>
+  <text x="650" y="48" text-anchor="middle" font-size="12" fill="#666">WebApiBasicsDemo.cs holds the lesson; each box is one Explain*() method. The bank accounts live in memory — no database. See Flow/0-Overview.svg for call order.</text>
+  <g font-size="10" fill="#333"><rect x="40" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="56" y="72">Controller &amp; action</text></g>
+  <g font-size="10" fill="#333"><rect x="200" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="216" y="72">Routing</text></g>
+  <g font-size="10" fill="#333"><rect x="300" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="316" y="72">Model binding</text></g>
+  <g font-size="10" fill="#333"><rect x="420" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="436" y="72">Action results</text></g>
+  <g font-size="10" fill="#333"><rect x="540" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="556" y="72">Dependency injection</text></g>
+  <g font-size="10" fill="#333"><rect x="700" y="62" width="12" height="12" rx="2" fill="#fde8e8" stroke="#cc0000"/><text x="716" y="72">Lifetimes</text></g>
+  <rect x="40" y="100" width="400" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="240" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Controller and action</text>
+  <text x="240" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#1a4a73">ExplainControllerAndAction()</text>
+  <rect x="54" y="148" width="372" height="70" rx="6" fill="#ffffff" stroke="#3d85c6" stroke-width="1"/>
+  <text x="64" y="170" font-size="9.5" fill="#333">[ApiController] [Route("api/[controller]")]</text>
+  <text x="64" y="196" font-size="9.5" fill="#333">[HttpGet] public string[] GetAccountNumbers()</text>
+  <text x="240" y="242" text-anchor="middle" font-size="9.5" fill="#1a4a73">A class + a route + an HTTP verb attribute:</text>
+  <text x="240" y="258" text-anchor="middle" font-size="9.5" fill="#1a4a73">the router sends GET /api/accounts to ONE action.</text>
+  <rect x="450" y="100" width="400" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="650" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Routing</text>
+  <text x="650" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#274e13">ExplainRouting()</text>
+  <rect x="464" y="148" width="372" height="70" rx="6" fill="#ffffff" stroke="#6aa84f" stroke-width="1"/>
+  <text x="474" y="170" font-size="9.5" fill="#333">[HttpGet("{id:int:min(1)}")]  GetById(int id)</text>
+  <text x="474" y="196" font-size="9.5" fill="#333">/api/accounts/abc  →  404 (not an int)</text>
+  <text x="650" y="242" text-anchor="middle" font-size="9.5" fill="#274e13">URL templates with parameters and constraints;</text>
+  <text x="650" y="258" text-anchor="middle" font-size="9.5" fill="#274e13">no match is 404; two matches is an error.</text>
+  <rect x="860" y="100" width="400" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1060" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Model binding</text>
+  <text x="1060" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a5a10">ExplainModelBinding()</text>
+  <rect x="874" y="148" width="372" height="70" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1"/>
+  <text x="884" y="170" font-size="9.5" fill="#333">Statement(int id, [FromQuery] int last = 5)</text>
+  <text x="884" y="196" font-size="9.5" fill="#333">Deposit([FromRoute] int id, [FromBody] DepositRequest r)</text>
+  <text x="1060" y="242" text-anchor="middle" font-size="9.5" fill="#8a5a10">Parameters are filled from route, query string</text>
+  <text x="1060" y="258" text-anchor="middle" font-size="9.5" fill="#8a5a10">or JSON body; bad input gives 400 before the action.</text>
+  <rect x="40" y="310" width="400" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="240" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">4 · Action results</text>
+  <text x="240" y="348" text-anchor="middle" font-size="9.5" font-style="italic" fill="#7f6000">ExplainActionResults()</text>
+  <rect x="54" y="358" width="372" height="70" rx="6" fill="#ffffff" stroke="#f1c232" stroke-width="1"/>
+  <text x="64" y="380" font-size="9.5" fill="#333">return NotFound();   return NoContent();</text>
+  <text x="64" y="406" font-size="9.5" fill="#333">return CreatedAtAction(nameof(GetById), …);</text>
+  <text x="240" y="452" text-anchor="middle" font-size="9.5" fill="#7f6000">What the action RETURNS decides the status:</text>
+  <text x="240" y="468" text-anchor="middle" font-size="9.5" fill="#7f6000">200, 201 + Location, 204, 400, 404.</text>
+  <rect x="450" y="310" width="400" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="650" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · Dependency injection</text>
+  <text x="650" y="348" text-anchor="middle" font-size="9.5" font-style="italic" fill="#4a2e73">ExplainDependencyInjection()</text>
+  <rect x="464" y="358" width="372" height="70" rx="6" fill="#ffffff" stroke="#8e63ce" stroke-width="1"/>
+  <text x="474" y="380" font-size="9.5" fill="#333">public StoreAccountsController(IAccountStore store)</text>
+  <text x="474" y="406" font-size="9.5" fill="#333">AddSingleton&lt;IAccountStore, InMemoryAccountStore&gt;()</text>
+  <text x="650" y="452" text-anchor="middle" font-size="9.5" fill="#4a2e73">The controller asks for an interface; the container</text>
+  <text x="650" y="468" text-anchor="middle" font-size="9.5" fill="#4a2e73">supplies the object. Lifetime decides how long it lives.</text>
+  <rect x="860" y="310" width="400" height="190" rx="10" fill="#fde8e8" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="1060" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#990000">6 · Service lifetimes</text>
+  <text x="1060" y="348" text-anchor="middle" font-size="9.5" font-style="italic" fill="#990000">ExplainServiceLifetimes()</text>
+  <rect x="874" y="358" width="372" height="70" rx="6" fill="#ffffff" stroke="#cc0000" stroke-width="1"/>
+  <text x="884" y="380" font-size="9.5" fill="#333">AddSingleton&lt;…&gt;()   AddScoped&lt;…&gt;()</text>
+  <text x="884" y="406" font-size="9.5" fill="#333">AddTransient&lt;…&gt;()   (creation numbers show the difference)</text>
+  <text x="1060" y="452" text-anchor="middle" font-size="9.5" fill="#990000">Singleton: one for the app. Scoped: one per request.</text>
+  <text x="1060" y="468" text-anchor="middle" font-size="9.5" fill="#990000">Transient: a new one every time it is asked for.</text>
+  <text x="650" y="536" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">One request's journey through the pieces above (the number is the method that explains the step)</text>
+  <rect x="40" y="556" width="170" height="56" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="125" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">HttpClient</text>
+  <text x="125" y="596" text-anchor="middle" font-size="9" fill="#333">sends the request</text>
+  <line x1="210" y1="584" x2="250" y2="584" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="250" y="556" width="170" height="56" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="335" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Router   (2)</text>
+  <text x="335" y="596" text-anchor="middle" font-size="9" fill="#333">URL + method → one action</text>
+  <line x1="420" y1="584" x2="460" y2="584" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="460" y="556" width="170" height="56" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="545" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4a2e73">Container   (5, 6)</text>
+  <text x="545" y="596" text-anchor="middle" font-size="9" fill="#333">builds the controller</text>
+  <line x1="630" y1="584" x2="670" y2="584" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="670" y="556" width="170" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="755" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8a5a10">Model binding   (3)</text>
+  <text x="755" y="596" text-anchor="middle" font-size="9" fill="#333">fills the parameters</text>
+  <line x1="840" y1="584" x2="880" y2="584" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="880" y="556" width="170" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="965" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">Action   (1)</text>
+  <text x="965" y="596" text-anchor="middle" font-size="9" fill="#333">your code runs</text>
+  <line x1="1050" y1="584" x2="1090" y2="584" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="1090" y="556" width="170" height="56" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="1175" y="576" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">Result   (4)</text>
+  <text x="1175" y="596" text-anchor="middle" font-size="9" fill="#333">the status code is chosen</text>
+  <text x="40" y="646" font-size="11" fill="#444"><tspan font-weight="bold">The response travels back to the HttpClient:</tspan> the status code and body go from the result, through the server, to whoever sent the request.</text>
+  <text x="40" y="668" font-size="10.5" font-style="italic" fill="#888">A real API is its own program that keeps running; this lesson hosts the same kind of server inside the console program (WebLab) so the lesson can finish. Every method (1-6) has its own Flow/&lt;N&gt; and Memory/&lt;N&gt; file.</text>
+</svg>

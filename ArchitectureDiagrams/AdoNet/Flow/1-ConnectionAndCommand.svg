@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 740" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="740" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Connection and command — Sub-level Flow: a phone line to the bank</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Open() dials, each command is one sentence spoken down the line, and the closing brace hangs up.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="104" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="123" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">string connectionString = ConnectionString;</text>
+  <text x="210" y="139" text-anchor="middle" font-size="9.5" fill="#555">read from configuration, never from source code</text>
+  <line x1="210" y1="148" x2="210" y2="176" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="520" y="150" width="300" height="472" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="670" y="168" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET</text>
+  <rect x="60" y="176" width="300" height="64" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="194" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">using (SqlConnection connection = …)</text>
+  <text x="210" y="209" text-anchor="middle" font-size="9.5" fill="#555">connection.Open();  —  dial the number</text>
+  <text x="210" y="226" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "Before Open(): Closed" and "After Open(): Open"</text>
+  <line x1="360" y1="196" x2="520" y2="196" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="189" text-anchor="middle" font-size="9" fill="#555">Open()</text>
+  <line x1="520" y1="220" x2="362" y2="220" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="233" text-anchor="middle" font-size="9" fill="#555">line is open</text>
+  <rect x="540" y="178" width="260" height="60" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <text x="670" y="200" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">starts a session</text>
+  <text x="670" y="216" text-anchor="middle" font-size="9.5" fill="#333">for this connection</text>
+  <line x1="210" y1="240" x2="210" y2="262" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="262" width="300" height="64" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="280" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">create.ExecuteNonQuery();</text>
+  <text x="210" y="295" text-anchor="middle" font-size="9.5" fill="#555">CREATE TABLE Customers and Accounts</text>
+  <text x="210" y="312" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "CREATE TABLE ran. … returned -1."</text>
+  <line x1="360" y1="282" x2="520" y2="282" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="275" text-anchor="middle" font-size="9" fill="#555">CREATE TABLE …</text>
+  <line x1="520" y1="306" x2="362" y2="306" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="319" text-anchor="middle" font-size="9" fill="#555">returns -1</text>
+  <rect x="540" y="264" width="260" height="60" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <text x="670" y="286" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">tables built (empty)</text>
+  <text x="670" y="302" text-anchor="middle" font-size="9.5" fill="#333">no row count → -1</text>
+  <line x1="210" y1="326" x2="210" y2="348" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="348" width="300" height="64" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="366" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">insert.ExecuteNonQuery();</text>
+  <text x="210" y="381" text-anchor="middle" font-size="9.5" fill="#555">INSERT three customers</text>
+  <text x="210" y="398" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "INSERT ran. … returned 3 (rows added)."</text>
+  <line x1="360" y1="368" x2="520" y2="368" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="361" text-anchor="middle" font-size="9" fill="#555">INSERT …</text>
+  <line x1="520" y1="392" x2="362" y2="392" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="405" text-anchor="middle" font-size="9" fill="#555">returns 3</text>
+  <rect x="540" y="350" width="260" height="60" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <text x="670" y="372" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Customers: Asha, Ben,</text>
+  <text x="670" y="388" text-anchor="middle" font-size="9.5" fill="#333">Chen — 3 rows added</text>
+  <line x1="210" y1="412" x2="210" y2="434" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="434" width="300" height="64" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="452" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">int customers = (int)count.ExecuteScalar()!;</text>
+  <text x="210" y="467" text-anchor="middle" font-size="9.5" fill="#555">SELECT COUNT(*) — one value comes back</text>
+  <text x="210" y="484" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "Rows now in Customers: 3"</text>
+  <line x1="360" y1="454" x2="520" y2="454" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="447" text-anchor="middle" font-size="9" fill="#555">SELECT COUNT(*)</text>
+  <line x1="520" y1="478" x2="362" y2="478" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="440" y="491" text-anchor="middle" font-size="9" fill="#555">returns 3</text>
+  <rect x="540" y="436" width="260" height="60" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <text x="670" y="458" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">counts the rows</text>
+  <text x="670" y="474" text-anchor="middle" font-size="9.5" fill="#333">answers: 3</text>
+  <line x1="210" y1="498" x2="210" y2="520" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="520" width="300" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="538" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">}  — Dispose() runs here</text>
+  <text x="210" y="553" text-anchor="middle" font-size="9.5" fill="#555">the closing brace: hang up</text>
+  <line x1="360" y1="540" x2="520" y2="540" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="533" text-anchor="middle" font-size="9" fill="#555">Dispose()</text>
+  <rect x="540" y="522" width="260" height="60" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <text x="670" y="544" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">by default the .NET connection</text>
+  <text x="670" y="560" text-anchor="middle" font-size="9.5" fill="#333">pool (not the server) keeps it</text>
+  <line x1="210" y1="584" x2="210" y2="598" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="612" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="620" x2="210" y2="660" stroke="#333" stroke-width="2"/>
+  <polygon points="210,620 210,638 240,629" fill="#cc0000"/>
+  <text x="30" y="690" font-size="10.5" fill="#444"><tspan font-weight="bold">Three kinds of sentence:</tspan> ExecuteNonQuery (do something, get a row count), ExecuteScalar (ask, get one value), and next: ExecuteReader (ask, get rows).</text>
+  <text x="30" y="708" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="640" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">HTTP &amp; REST — Request, Method, Status, JSON, Resource</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">HttpAndRestDemo.cs is the client; BankApi.cs is the small in-process server it talks to. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="110" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="126" y="72">Request and response</text></g>
+  <g font-size="10" fill="#333"><rect x="294.0" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="310.0" y="72">HTTP methods</text></g>
+  <g font-size="10" fill="#333"><rect x="428.4" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="444.4" y="72">Status codes</text></g>
+  <g font-size="10" fill="#333"><rect x="562.8" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="578.8" y="72">JSON bodies</text></g>
+  <g font-size="10" fill="#333"><rect x="691.0" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="707.0" y="72">REST resources</text></g>
+  <rect x="20" y="96" width="240" height="220" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="140" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Request and response</text>
+  <text x="140" y="134" text-anchor="middle" font-size="9.5" font-style="italic" fill="#3d85c6">ExplainRequestAndResponse()</text>
+  <rect x="30" y="144" width="220" height="84" rx="6" fill="#ffffff" stroke="#3d85c6" stroke-width="1"/>
+  <text x="36" y="164" font-size="8.5" fill="#333">GET /api/accounts?owner=Asha</text>
+  <text x="36" y="186" font-size="8.5" fill="#333">response.StatusCode</text>
+  <text x="36" y="208" font-size="8.5" fill="#333">response.Content.Headers.ContentType</text>
+  <text x="140" y="256" text-anchor="middle" font-size="9.5" fill="#1a4a73">The anatomy of one exchange: method,</text>
+  <text x="140" y="272" text-anchor="middle" font-size="9.5" fill="#1a4a73">path, query, headers, status, body.</text>
+  <rect x="272" y="96" width="240" height="220" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="392" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · HTTP methods</text>
+  <text x="392" y="134" text-anchor="middle" font-size="9.5" font-style="italic" fill="#6aa84f">ExplainHttpMethods()</text>
+  <rect x="282" y="144" width="220" height="84" rx="6" fill="#ffffff" stroke="#6aa84f" stroke-width="1"/>
+  <text x="288" y="164" font-size="8.5" fill="#333">Send(client, HttpMethod.Post, …)</text>
+  <text x="288" y="186" font-size="8.5" fill="#333">Send(client, HttpMethod.Put, …)</text>
+  <text x="288" y="208" font-size="8.5" fill="#333">wrongMethod → 405 + Allow</text>
+  <text x="392" y="256" text-anchor="middle" font-size="9.5" fill="#274e13">GET reads, POST creates, PUT replaces,</text>
+  <text x="392" y="272" text-anchor="middle" font-size="9.5" fill="#274e13">DELETE removes: safe vs idempotent.</text>
+  <rect x="524" y="96" width="240" height="220" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="644" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Status codes</text>
+  <text x="644" y="134" text-anchor="middle" font-size="9.5" font-style="italic" fill="#e69138">ExplainStatusCodes()</text>
+  <rect x="534" y="144" width="220" height="84" rx="6" fill="#ffffff" stroke="#e69138" stroke-width="1"/>
+  <text x="540" y="164" font-size="8.5" fill="#333">200  201  204  (2xx)</text>
+  <text x="540" y="186" font-size="8.5" fill="#333">301  (3xx)     400  404  415  (4xx)</text>
+  <text x="540" y="208" font-size="8.5" fill="#333">500  (5xx)</text>
+  <text x="644" y="256" text-anchor="middle" font-size="9.5" fill="#8a5a10">The first digit is the family;</text>
+  <text x="644" y="272" text-anchor="middle" font-size="9.5" fill="#8a5a10">HttpClient does not throw for 4xx/5xx.</text>
+  <rect x="776" y="96" width="240" height="220" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="896" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">4 · JSON bodies</text>
+  <text x="896" y="134" text-anchor="middle" font-size="9.5" font-style="italic" fill="#f1c232">ExplainJsonBodies()</text>
+  <rect x="786" y="144" width="220" height="84" rx="6" fill="#ffffff" stroke="#f1c232" stroke-width="1"/>
+  <text x="792" y="164" font-size="8.5" fill="#333">JsonSerializer.Serialize(account)</text>
+  <text x="792" y="186" font-size="8.5" fill="#333">JsonSerializerDefaults.Web</text>
+  <text x="792" y="208" font-size="8.5" fill="#333">StringContent(json, …, "application/json")</text>
+  <text x="896" y="256" text-anchor="middle" font-size="9.5" fill="#7f6000">An object becomes text and back;</text>
+  <text x="896" y="272" text-anchor="middle" font-size="9.5" fill="#7f6000">camelCase names; Content-Type says JSON.</text>
+  <rect x="1028" y="96" width="240" height="220" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1148" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · REST resources</text>
+  <text x="1148" y="134" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8e63ce">ExplainRestResources()</text>
+  <rect x="1038" y="144" width="220" height="84" rx="6" fill="#ffffff" stroke="#8e63ce" stroke-width="1"/>
+  <text x="1044" y="164" font-size="8.5" fill="#333">GET /api/accounts      (collection)</text>
+  <text x="1044" y="186" font-size="8.5" fill="#333">GET /api/accounts/2    (item)</text>
+  <text x="1044" y="208" font-size="8.5" fill="#333">Location: /api/accounts/4</text>
+  <text x="1148" y="256" text-anchor="middle" font-size="9.5" fill="#4a2e73">URLs are nouns, methods are verbs,</text>
+  <text x="1148" y="272" text-anchor="middle" font-size="9.5" fill="#4a2e73">status codes report the outcome.</text>
+  <rect x="20" y="350" width="330" height="150" rx="10" fill="#eef2f7" stroke="#555" stroke-width="1.5"/>
+  <text x="185" y="372" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">THE CLIENT — HttpAndRestDemo</text>
+  <text x="185" y="392" text-anchor="middle" font-size="9.5" fill="#333">builds a request, calls client.Send(...)</text>
+  <text x="185" y="410" text-anchor="middle" font-size="9.5" fill="#333">reads status, headers and body of the reply</text>
+  <text x="185" y="428" text-anchor="middle" font-size="9.5" fill="#333">prints what happened with Console.WriteLine</text>
+  <text x="185" y="452" text-anchor="middle" font-size="9" font-style="italic" fill="#777">An HttpClient with BaseAddress comes from</text>
+  <text x="185" y="466" text-anchor="middle" font-size="9" font-style="italic" fill="#777">WebLab (shared helper); no port is ever printed.</text>
+  <rect x="560" y="350" width="700" height="238" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="910" y="372" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">THE SERVER — BankApi.Start(): a minimal API on a free local port</text>
+  <text x="580" y="396" font-size="9.5" fill="#333">GET     /api/accounts          →  200 and a list (optional ?owner=)</text>
+  <text x="580" y="414" font-size="9.5" fill="#333">GET     /api/accounts/{id}   →  200, or 404 if there is no such id</text>
+  <text x="580" y="432" font-size="9.5" fill="#333">POST    /api/accounts          →  201 + Location header, or 400</text>
+  <text x="580" y="450" font-size="9.5" fill="#333">PUT      /api/accounts/{id}   →  200, or 404</text>
+  <text x="580" y="468" font-size="9.5" fill="#333">DELETE /api/accounts/{id}   →  204, or 404 if already gone</text>
+  <text x="580" y="486" font-size="9.5" fill="#333">GET     /api/old-accounts    →  301 to /api/accounts</text>
+  <text x="580" y="504" font-size="9.5" fill="#333">GET     /api/crash                →  500 (the code throws)</text>
+  <text x="580" y="530" font-size="9" font-style="italic" fill="#555">Accounts live in a List&lt;Account&gt; in memory: 1 Asha Rao, 2 Ben Carter, 3 Chen Li (fresh for every method).</text>
+  <line x1="350" y1="400" x2="558" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="454" y="392" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">request</text>
+  <text x="454" y="416" text-anchor="middle" font-size="9" fill="#555">method, path, headers (+ body)</text>
+  <line x1="558" y1="460" x2="352" y2="460" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="454" y="452" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">response</text>
+  <text x="454" y="476" text-anchor="middle" font-size="9" fill="#555">status, headers (+ body)</text>
+  <text x="30" y="616" font-size="10.5" fill="#444"><tspan font-weight="bold">A real Web API is a separate program that keeps running.</tspan> The lesson hosts the server inside this console program only so the lesson can finish.</text>
+  <text x="30" y="634" font-size="10" font-style="italic" fill="#888">Program.cs → ILearningTopic → HttpAndRestExample.Explain() calls the five methods in order. Every method gets its own Flow/&lt;N&gt; and Memory/&lt;N&gt; diagram with the same number.</text>
+</svg>

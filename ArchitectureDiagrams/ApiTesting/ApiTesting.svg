@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">ApiTesting — Describing and Testing a Web API (OpenAPI, Swagger UI, Postman, assertions)</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">ApiTestingDemo.cs plus BankApi.cs (an in-memory bank API). Each box is one Explain*() method — see Flow/0-Overview.svg for call order.</text>
+  <g font-size="10" fill="#333"><rect x="60" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="76" y="72">OpenAPI document</text></g>
+  <g font-size="10" fill="#333"><rect x="230" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="246" y="72">Swagger UI</text></g>
+  <g font-size="10" fill="#333"><rect x="350" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="366" y="72">Documenting</text></g>
+  <g font-size="10" fill="#333"><rect x="470" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="486" y="72">Saved requests</text></g>
+  <g font-size="10" fill="#333"><rect x="610" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="626" y="72">Assertions</text></g>
+  <rect x="40" y="100" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · What is OpenAPI?</text>
+  <text x="220" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainWhatIsOpenApi()</text>
+  <rect x="56" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="66" y="166" font-size="9.5" fill="#333">GET /swagger/v1/swagger.json  -&gt;  200</text>
+  <text x="66" y="184" font-size="9.5" fill="#333">3 paths, 5 operations (GET, POST, DELETE)</text>
+  <text x="220" y="242" text-anchor="middle" font-size="9.5" fill="#1a4a73">The API described as JSON data: paths, verbs,</text>
+  <text x="220" y="256" text-anchor="middle" font-size="9.5" fill="#1a4a73">responses. It describes; it does not run anything.</text>
+  <rect x="460" y="100" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="640" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Swagger UI</text>
+  <text x="640" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainSwaggerUi()</text>
+  <rect x="476" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="486" y="166" font-size="9.5" fill="#333">GET /swagger/index.html  -&gt;  200 (HTML)</text>
+  <text x="486" y="184" font-size="9.5" fill="#333">GET /swagger  -&gt;  301 (a redirect)</text>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" fill="#274e13">A web page that reads the OpenAPI document and</text>
+  <text x="640" y="256" text-anchor="middle" font-size="9.5" fill="#274e13">lets a person click "Try it out" and "Execute".</text>
+  <rect x="880" y="100" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1060" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Documenting Endpoints</text>
+  <text x="1060" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainDocumentingEndpoints()</text>
+  <rect x="896" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="906" y="166" font-size="9.5" fill="#333">[ProducesResponseType(404)]  -&gt;  "404" in JSON</text>
+  <text x="906" y="184" font-size="9.5" fill="#333">DELETE has none: JSON "200", real 204 / 404</text>
+  <text x="1060" y="242" text-anchor="middle" font-size="9.5" fill="#8a5a10">Attributes become response codes in the JSON.</text>
+  <text x="1060" y="256" text-anchor="middle" font-size="9.5" fill="#8a5a10">No attribute: only a default 200 is listed.</text>
+  <rect x="240" y="340" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="420" y="362" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">4 · Postman and .http Files</text>
+  <text x="420" y="378" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainPostmanAndHttpFiles()</text>
+  <rect x="256" y="388" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0" stroke-width="1"/>
+  <text x="266" y="406" font-size="9.5" fill="#333">bank-api.postman_collection.json  (8 requests)</text>
+  <text x="266" y="424" font-size="9.5" fill="#333">bank-api.http  (the same 8, as plain text)</text>
+  <text x="420" y="482" text-anchor="middle" font-size="9.5" fill="#7f6000">A request is data: method + URL + headers + body.</text>
+  <text x="420" y="496" text-anchor="middle" font-size="9.5" fill="#7f6000">Saved once, replayed against any {{baseUrl}}.</text>
+  <rect x="680" y="340" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="860" y="362" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · Manual vs Automated</text>
+  <text x="860" y="378" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainManualVsAutomatedTests()</text>
+  <rect x="696" y="388" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="706" y="406" font-size="9.5" fill="#333">status == 201  -&gt;  PASS</text>
+  <text x="706" y="424" font-size="9.5" fill="#333">status == 200 (wrong on purpose)  -&gt;  FAIL</text>
+  <text x="860" y="482" text-anchor="middle" font-size="9.5" fill="#4a2e73">The same check written as code: one PASS or FAIL</text>
+  <text x="860" y="496" text-anchor="middle" font-size="9.5" fill="#4a2e73">line per check, so a program can repeat it.</text>
+  <text x="640" y="562" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">How they connect</text>
+  <rect x="60" y="580" width="160" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="140.0" y="600" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">API code</text>
+  <rect x="280" y="580" width="180" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="370.0" y="600" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">OpenAPI JSON</text>
+  <rect x="520" y="580" width="240" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="640.0" y="600" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">Swagger UI (a web page)</text>
+  <line x1="220" y1="595" x2="280" y2="595" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="250.0" y="575" text-anchor="middle" font-size="9" fill="#555">described as</text>
+  <line x1="460" y1="595" x2="520" y2="595" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="490.0" y="575" text-anchor="middle" font-size="9" fill="#555">read by</text>
+  <rect x="60" y="630" width="320" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="220.0" y="650" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">saved requests (Postman / .http)</text>
+  <rect x="440" y="630" width="200" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="540.0" y="650" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">HTTP requests</text>
+  <rect x="700" y="630" width="160" height="30" rx="6" fill="#ffffff" stroke="#888888" stroke-width="1.2"/>
+  <text x="780.0" y="650" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">the API</text>
+  <line x1="380" y1="645" x2="440" y2="645" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="410.0" y="625" text-anchor="middle" font-size="9" fill="#555">send</text>
+  <line x1="640" y1="645" x2="700" y2="645" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670.0" y="625" text-anchor="middle" font-size="9" fill="#555">to</text>
+  <text x="900" y="600" font-size="9.5" font-style="italic" fill="#666">Row 1: the API describes itself. Row 2: saved requests are data too.</text>
+  <text x="900" y="650" font-size="9.5" font-style="italic" fill="#666">In this lesson the saved requests are hand-written,</text>
+  <text x="900" y="665" font-size="9.5" font-style="italic" fill="#666">not generated from the OpenAPI JSON.</text>
+  <text x="40" y="700" font-size="10" font-style="italic" fill="#888">Program.cs → ILearningTopic → ApiTestingExample.Explain() calls the five methods in order. Every method has its own Flow/&lt;N&gt; and Memory/&lt;N&gt; diagram.</text>
+</svg>

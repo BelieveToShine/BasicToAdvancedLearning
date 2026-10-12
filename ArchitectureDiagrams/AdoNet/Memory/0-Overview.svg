@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="520" fill="#ffffff"/>
+  <rect x="0" y="0" width="1100" height="560" rx="0" fill="#fff" stroke="#fff" stroke-width="0"/>
+  <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">ADO.NET — Memory: Stack / Heap / Static (high level)</text>
+  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">The program's memory holds thin ADO.NET objects and strings; the tables, rows and sessions live in SQL Server, outside .NET.</text>
+  <g font-size="11" fill="#333"><rect x="150" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="170" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="330" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="350" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="510" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="530" y="71">Static</text></g>
+  <text x="230" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — pointers, plus a few plain values</text>
+  <text x="640" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — ADO.NET objects and strings</text>
+  <text x="960" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="40" y="112" width="380" height="222" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="230" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">One slot per local, in each method's own frame</text>
+  <rect x="56" y="144" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="161" font-size="10" font-weight="bold" fill="#1b3d1b">connectionString, connection, count → pointers</text>
+  <text x="66" y="175" font-size="8.5" fill="#3f6b3f">ExplainConnectionAndCommand()</text>
+  <rect x="56" y="188" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="205" font-size="10" font-weight="bold" fill="#1b3d1b">connection, safeCommand, 3 strings → pointers</text>
+  <text x="66" y="219" font-size="8.5" fill="#3f6b3f">ExplainParameters()</text>
+  <rect x="56" y="232" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="249" font-size="10" font-weight="bold" fill="#1b3d1b">connection, command, reader, 2 strings → pointers</text>
+  <text x="66" y="263" font-size="8.5" fill="#3f6b3f">ExplainReadingRows()</text>
+  <rect x="56" y="276" width="348" height="38" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="66" y="293" font-size="10" font-weight="bold" fill="#1b3d1b">destinations, connection, transaction, ex → pointers</text>
+  <text x="66" y="307" font-size="8.5" fill="#3f6b3f">ExplainTransactions()</text>
+  <rect x="450" y="112" width="380" height="222" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="640" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">The real .NET objects</text>
+  <rect x="466" y="142" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="159" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">SqlConnection, SqlCommand, SqlDataReader</text>
+  <text x="640" y="174" text-anchor="middle" font-size="8.5" fill="#a06a1f">thin objects: each is a handle on work done by SQL Server</text>
+  <rect x="466" y="188" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="205" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">SqlTransaction and SqlParameter</text>
+  <text x="640" y="220" text-anchor="middle" font-size="8.5" fill="#a06a1f">a transaction (Memory/4) and a parameter holding a value (Memory/2)</text>
+  <rect x="466" y="234" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="251" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">Strings: SQL text, names, account numbers</text>
+  <text x="640" y="266" text-anchor="middle" font-size="8.5" fill="#a06a1f">GetString builds a NEW string for each cell it reads</text>
+  <rect x="466" y="280" width="348" height="40" rx="6" fill="#ffffff" stroke="#f0c07a" stroke-width="1"/>
+  <text x="640" y="297" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">An exception object when a step fails</text>
+  <text x="640" y="312" text-anchor="middle" font-size="8.5" fill="#a06a1f">InvalidOperationException — see Memory/4 and Topic 7</text>
+  <rect x="860" y="112" width="200" height="222" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="960" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
+  <text x="960" y="204" text-anchor="middle" font-size="10" fill="#5b4a7a">ConnectionString is a static</text>
+  <text x="960" y="220" text-anchor="middle" font-size="10" fill="#5b4a7a">property with no field: it</text>
+  <text x="960" y="236" text-anchor="middle" font-size="10" fill="#5b4a7a">reads the setting each time.</text>
+  <rect x="450" y="350" width="610" height="82" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="755" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server</text>
+  <text x="755" y="392" text-anchor="middle" font-size="9.5" fill="#333">the bank's tables and rows, the session behind each connection and any open transaction:</text>
+  <text x="755" y="407" text-anchor="middle" font-size="9.5" fill="#333">never in the Stack, Heap or Static.</text>
+  <text x="755" y="423" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">Every Memory diagram in this topic draws it as a dashed grey box under the Heap.</text>
+  <text x="40" y="470" font-size="10.5" fill="#444"><tspan font-weight="bold">A connection object is a handle, not the database.</tspan> The SqlConnection, SqlCommand and SqlDataReader objects are on the Heap; the rows and the session are not — so they must be disposed (using).</text>
+  <text x="40" y="490" font-size="10.5" font-style="italic" fill="#888">The extra dashed box is a recorded addition to the locked 3-column shape (see ROADMAP and verification.md); the Stack, Heap and Static columns themselves are unchanged.</text>
+</svg>

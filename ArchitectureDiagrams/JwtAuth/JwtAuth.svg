@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 650" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="650" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">JWT authentication and authorization — one token, five ideas</text>
+  <text x="640" y="48" text-anchor="middle" font-size="11.5" fill="#666">JwtAuthDemo.cs holds the five lessons; DemoAuthServer.cs, TokenIssuer.cs and AuthDemoController.cs are the pretend bank API they call. See Flow/0-Overview.svg for call order.</text>
+  <g font-size="10" fill="#333"><rect x="60" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="76" y="72">Authn vs authz</text></g>
+  <g font-size="10" fill="#333"><rect x="210" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="226" y="72">What is a JWT</text></g>
+  <g font-size="10" fill="#333"><rect x="350" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="366" y="72">Logging in</text></g>
+  <g font-size="10" fill="#333"><rect x="470" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="486" y="72">Protecting endpoints</text></g>
+  <g font-size="10" fill="#333"><rect x="650" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="666" y="72">Token lifetime</text></g>
+  <rect x="40" y="100" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="220" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">1 · Authentication vs authorization</text>
+  <text x="220" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainAuthenticationVsAuthorization()</text>
+  <rect x="56" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="66" y="166" font-size="9.5" fill="#333">no token         -&gt;  401 Unauthorized</text>
+  <text x="66" y="184" font-size="9.5" fill="#333">asha (Customer)  -&gt;  403 Forbidden</text>
+  <text x="220" y="242" text-anchor="middle" font-size="9.5" fill="#8a5a10">Authentication asks WHO you are (401 if unknown).</text>
+  <text x="220" y="256" text-anchor="middle" font-size="9.5" fill="#8a5a10">Authorization asks if you are ALLOWED (403 if not).</text>
+  <rect x="460" y="100" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="640" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">2 · What is a JWT</text>
+  <text x="640" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainWhatIsAJwt()</text>
+  <rect x="476" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="486" y="166" font-size="9.5" fill="#333">header . payload . signature</text>
+  <text x="486" y="184" font-size="9.5" fill="#333">tampered payload  -&gt;  401</text>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" fill="#1a4a73">Three dot-separated parts. Readable by anyone;</text>
+  <text x="640" y="256" text-anchor="middle" font-size="9.5" fill="#1a4a73">the signature shows whether it was changed.</text>
+  <rect x="880" y="100" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="1060" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">3 · Logging in</text>
+  <text x="1060" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainIssuingATokenLogin()</text>
+  <rect x="896" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="906" y="166" font-size="9.5" fill="#333">wrong password   -&gt;  401</text>
+  <text x="906" y="184" font-size="9.5" fill="#333">right password   -&gt;  200 + token</text>
+  <text x="1060" y="242" text-anchor="middle" font-size="9.5" fill="#274e13">POST /login checks name + password, then</text>
+  <text x="1060" y="256" text-anchor="middle" font-size="9.5" fill="#274e13">signs a token holding the user's claims.</text>
+  <rect x="240" y="340" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="420" y="362" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">4 · Protecting endpoints</text>
+  <text x="420" y="378" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainProtectingEndpoints()</text>
+  <rect x="256" y="388" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="266" y="406" font-size="9.5" fill="#333">[AllowAnonymous] / [Authorize]</text>
+  <text x="266" y="424" font-size="9.5" fill="#333">[Authorize(Roles = "Manager")]</text>
+  <text x="420" y="482" text-anchor="middle" font-size="9.5" fill="#4a2e73">The attribute on an action is the sign on its door;</text>
+  <text x="420" y="496" text-anchor="middle" font-size="9.5" fill="#4a2e73">the client sends Authorization: Bearer &lt;token&gt;.</text>
+  <rect x="680" y="340" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="860" y="362" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">5 · Token lifetime</text>
+  <text x="860" y="378" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainTokenLifetime()</text>
+  <rect x="696" y="388" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0" stroke-width="1"/>
+  <text x="706" y="406" font-size="9.5" fill="#333">expired 1 min ago  -&gt;  401 (skew 0)</text>
+  <text x="706" y="424" font-size="9.5" fill="#333">expired 1 min ago  -&gt;  200 (skew 5 min)</text>
+  <text x="860" y="482" text-anchor="middle" font-size="9.5" fill="#7f6000">exp is the use-by date; ClockSkew is the grace</text>
+  <text x="860" y="496" text-anchor="middle" font-size="9.5" fill="#7f6000">the server allows for unequal clocks.</text>
+  <rect x="40" y="546" width="1200" height="46" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <text x="640" y="566" text-anchor="middle" font-size="10" fill="#444">Real systems also need (mentioned in the code comments, not built here): hashed passwords, HTTPS, refresh tokens, and a signing key kept out of source code.</text>
+  <text x="640" y="582" text-anchor="middle" font-size="10" fill="#444">This lesson runs the pretend API inside the console program (WebLab) so it can finish; a real API is a separate program that keeps running.</text>
+  <text x="40" y="618" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → JwtAuthExample.Explain()</tspan> calls the five methods above, in this order.</text>
+  <text x="40" y="634" font-size="10.5" font-style="italic" fill="#888">Every method (1–5) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

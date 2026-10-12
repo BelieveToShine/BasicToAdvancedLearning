@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 726" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="726" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">XACT_ABORT — Memory: Stack / Heap / Static</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainXactAbort() is running, at its last line, after the XACT_ABORT ON run was refused.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1195" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="234" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="94" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">SqlCrudDemo.ExplainXactAbort() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">transfer → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">repaired = 1</text>
+  <rect x="50" y="222" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">SqlCrudExample.Explain()</text>
+  <text x="220" y="258" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="420" height="216" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="670.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string — transfer  (the T-SQL batch, shortened)</text>
+  <rect x="472" y="150" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="167" font-size="10" fill="#7f4e00">BEGIN TRANSACTION;</text>
+  <rect x="472" y="180" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="197" font-size="10" fill="#7f4e00">UPDATE Accounts … Balance - 50 … SAV-1001;</text>
+  <rect x="472" y="210" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="227" font-size="10" fill="#7f4e00">INSERT ledger: Withdrawal 50 for SAV-1001;</text>
+  <rect x="472" y="240" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="257" font-size="10" fill="#7f4e00">INSERT ledger: Deposit 50 for AccountId 99;  ← typo</text>
+  <rect x="472" y="270" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="287" font-size="10" fill="#7f4e00">UPDATE Accounts … Balance + 50 … CUR-2001;</text>
+  <rect x="472" y="300" width="396" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="317" font-size="10" fill="#7f4e00">COMMIT TRANSACTION;</text>
+  <rect x="450" y="356" width="680" height="294" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="790.0" y="376" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: table rows</text>
+  <text x="790.0" y="391" text-anchor="middle" font-size="9" font-style="italic" fill="#666">These rows live in the database server, not in the program's memory. C# only sends text and gets a number back.</text>
+  <text x="464" y="410" font-size="10" font-weight="bold" fill="#1a237e">Accounts.Balance and the ledger after each run</text>
+  <rect x="464" y="418" width="357" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="432" font-size="9.5" font-weight="bold" fill="#333">Accounts</text>
+  <rect x="465" y="440" width="355" height="16" fill="#ececec"/>
+  <text x="471" y="451.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="560" y="451.5" font-size="9" font-weight="bold" fill="#444">BEFORE</text>
+  <text x="609" y="451.5" font-size="9" font-weight="bold" fill="#444">after the OFF run</text>
+  <text x="721" y="451.5" font-size="9" font-weight="bold" fill="#444">after the ON run</text>
+  <text x="471" y="467.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="560" y="467.5" font-size="9" fill="#222">300.00</text>
+  <rect x="603" y="456" width="111" height="16" fill="#fde9b8"/>
+  <text x="609" y="467.5" font-size="9" font-weight="bold" fill="#222">250.00</text>
+  <text x="721" y="467.5" font-size="9" fill="#222">250.00</text>
+  <text x="471" y="483.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="560" y="483.5" font-size="9" fill="#222">200.00</text>
+  <rect x="603" y="472" width="111" height="16" fill="#fde9b8"/>
+  <text x="609" y="483.5" font-size="9" font-weight="bold" fill="#222">250.00</text>
+  <text x="721" y="483.5" font-size="9" fill="#222">250.00</text>
+  <text x="471" y="499.5" font-size="9" fill="#222">SAV-3001</text>
+  <text x="560" y="499.5" font-size="9" fill="#222">0.00</text>
+  <text x="609" y="499.5" font-size="9" fill="#222">0.00</text>
+  <text x="721" y="499.5" font-size="9" fill="#222">0.00</text>
+  <line x1="464" y1="456" x2="821" y2="456" stroke="#bbb" stroke-width="1"/>
+  <rect x="464" y="516" width="434" height="108" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="530" font-size="9.5" font-weight="bold" fill="#333">Ledger rows for the 50.00 transfers</text>
+  <rect x="465" y="538" width="432" height="16" fill="#ececec"/>
+  <text x="471" y="549.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="560" y="549.5" font-size="9" font-weight="bold" fill="#444">Kind</text>
+  <text x="627" y="549.5" font-size="9" font-weight="bold" fill="#444">Amount</text>
+  <text x="676" y="549.5" font-size="9" font-weight="bold" fill="#444">what happened</text>
+  <rect x="465" y="554" width="432" height="16" fill="#d9f0d0"/>
+  <text x="471" y="565.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="560" y="565.5" font-size="9" fill="#222">Withdrawal</text>
+  <text x="627" y="565.5" font-size="9" fill="#222">50.00</text>
+  <text x="676" y="565.5" font-size="9" fill="#222">OFF run: saved</text>
+  <rect x="465" y="570" width="432" height="16" fill="#f4c2bc"/>
+  <text x="471" y="581.5" font-size="9" text-decoration="line-through" fill="#000">CUR-2001</text>
+  <text x="560" y="581.5" font-size="9" text-decoration="line-through" fill="#000">Deposit</text>
+  <text x="627" y="581.5" font-size="9" text-decoration="line-through" fill="#000">50.00</text>
+  <text x="676" y="581.5" font-size="9" text-decoration="line-through" fill="#000">OFF run: typo, rejected (error 547)</text>
+  <rect x="465" y="586" width="432" height="16" fill="#d9f0d0"/>
+  <text x="471" y="597.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="560" y="597.5" font-size="9" fill="#222">Deposit</text>
+  <text x="627" y="597.5" font-size="9" fill="#222">50.00</text>
+  <text x="676" y="597.5" font-size="9" fill="#222">added by hand: repaired = 1</text>
+  <text x="471" y="613.5" font-size="9" fill="#222">—</text>
+  <text x="560" y="613.5" font-size="9" fill="#222">—</text>
+  <text x="627" y="613.5" font-size="9" fill="#222">—</text>
+  <text x="676" y="613.5" font-size="9" fill="#222">ON run: error 547, everything rolled back</text>
+  <line x1="464" y1="554" x2="898" y2="554" stroke="#bbb" stroke-width="1"/>
+  <rect x="464" y="632" width="11" height="11" fill="#d9f0d0" stroke="#999" stroke-width="0.8"/><text x="480" y="641" font-size="9" fill="#555">new row / value</text>
+  <rect x="584" y="632" width="11" height="11" fill="#fde9b8" stroke="#999" stroke-width="0.8"/><text x="600" y="641" font-size="9" fill="#555">changed</text>
+  <rect x="704" y="632" width="11" height="11" fill="#f8d7d3" stroke="#999" stroke-width="0.8"/><text x="720" y="641" font-size="9" fill="#555">deleted</text>
+  <polyline points="378,159 438,159 438,140 458,140" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="674" font-size="10.5" fill="#444"><tspan font-weight="bold">OFF: only the bad statement was cancelled, so the transfer was half done — Asha's withdrawal saved, Ben's deposit row missing. </tspan>ON: the same error rolled back the whole transaction, so nothing changed.</text>
+  <text x="40" y="692" font-size="10" font-style="italic" fill="#888">The same string in `transfer` was sent both times; only the line SET XACT_ABORT OFF / ON in front of it differed. Balances 300/200 before; 250/250 after the OFF run and still 250/250 after the ON run.</text>
+</svg>

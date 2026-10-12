@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 646" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="646" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">DbContext in DI — Memory: Stack / Heap / Static</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainDbContextInDI() is running, right after it printed "Different scope -&gt; same object? False".</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="770" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1195" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="354" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="214" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">WebApiCrudDemo.ExplainDbContextInDI() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">builder → pointer  (WebApplicationBuilder)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">scopeA → pointer  (IServiceScope)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">first → pointer  (BankDbContext)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">second → pointer  (BankDbContext)</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">scopeB → pointer  (IServiceScope)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">other → pointer  (BankDbContext)</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">WebApiCrudExample.Explain()</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="402" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="438" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="480" y="144" width="290" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplicationBuilder — builder</text>
+  <rect x="492" y="176" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="193" font-size="10" fill="#7f4e00">Services → recipes (BankDbContext: Scoped)</text>
+  <rect x="480" y="222" width="290" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="244" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ServiceScope — scopeA</text>
+  <rect x="492" y="254" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="271" font-size="10" fill="#7f4e00">disposes the contexts it created</text>
+  <rect x="480" y="300" width="290" height="96" rx="10" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="625.0" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankDbContext #1 — first AND second</text>
+  <rect x="492" y="332" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="349" font-size="10" fill="#7f4e00">ChangeTracker: nothing tracked yet</text>
+  <rect x="492" y="362" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="379" font-size="10" fill="#7f4e00">Options → UseSqlServer(...)</text>
+  <rect x="480" y="408" width="290" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="430" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ServiceScope — scopeB</text>
+  <rect x="492" y="440" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="457" font-size="10" fill="#7f4e00">disposes the contexts it created</text>
+  <rect x="480" y="486" width="290" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="508" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">BankDbContext #2 — other</text>
+  <rect x="492" y="518" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="500" y="535" font-size="10" fill="#7f4e00">ChangeTracker: nothing tracked yet</text>
+  <rect x="810" y="144" width="330" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="975.0" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">WebApplication — field _app</text>
+  <rect x="822" y="176" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="830" y="193" font-size="10" fill="#7f4e00">built by Build(); not listening yet</text>
+  <rect x="822" y="206" width="306" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="830" y="223" font-size="10" fill="#7f4e00">Services → the same recipe list</text>
+  <rect x="810" y="290" width="330" height="110" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="975.0" y="310" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server</text>
+  <text x="824" y="330" font-size="9.5" fill="#333333">the scratch database exists (SqlLab.IsReady checked)</text>
+  <text x="824" y="346" font-size="9.5" fill="#333333">these contexts have sent nothing to it yet:</text>
+  <text x="824" y="362" font-size="9.5" font-weight="bold" fill="#333333">creating a DbContext does not touch the database</text>
+  <polyline points="378,159 462,159 462,166 478,166" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 456,189 456,244 478,244" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 450,219 450,345 478,345" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 444,249 444,375 478,375" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 438,279 438,430 478,430" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,309 432,309 432,508 478,508" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="576" font-size="10.5" fill="#444"><tspan font-weight="bold">first and second point at ONE object (red outline): inside one scope the context is created once and shared. </tspan>other, from scopeB, is a different object.</text>
+  <text x="40" y="594" font-size="10" font-style="italic" fill="#888">That is what "Scoped" means; the web server opens one scope per request, so each request gets its own context. _app is a field of the WebApiCrudDemo object, not a local.</text>
+  <text x="40" y="612" font-size="10" font-style="italic" fill="#888">Still to come in this method: EnsureDeleted / EnsureCreated / SeedBank (the database is rebuilt), then WebLab.Start() makes the server listen.</text>
+</svg>

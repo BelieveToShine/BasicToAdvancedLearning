@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 965" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="965" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">EF Core CRUD — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (named in each note below).</text>
+  <g font-size="11" fill="#333"><line x1="380" y1="64" x2="416" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="422" y="68">Call (→)</text><line x1="530" y1="64" x2="566" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="572" y="68">Return (←)</text></g>
+  <rect x="15" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="100" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+  <line x1="100" y1="122" x2="100" y2="905" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="275" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="360" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">EfCoreCrudExample</text>
+  <text x="360" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+  <line x1="360" y1="122" x2="360" y2="905" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="555" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="640" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">EfCoreCrudDemo</text>
+  <line x1="640" y1="122" x2="640" y2="905" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="805" y="80" width="170" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="890" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">SqlLab</text>
+  <text x="890" y="112" text-anchor="middle" font-size="9" fill="#666">(shared helper)</text>
+  <line x1="890" y1="122" x2="890" y2="905" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="96" y="150" width="8" height="724" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="230.0" y="152" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">topic.Explain()</text>
+  <line x1="104" y1="162" x2="356" y2="162" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="356" y="162" width="8" height="710" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="625.0" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">SqlLab.IsReady()</text>
+  <line x1="364" y1="192" x2="886" y2="192" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="886" y="192" width="8" height="30" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="625.0" y="238" text-anchor="middle" font-size="9" fill="#555">true: connection string set and server reachable</text>
+  <text x="625.0" y="250" text-anchor="middle" font-size="9" fill="#555">(false: prints a skip message, Explain() ends)</text>
+  <line x1="886" y1="222" x2="364" y2="222" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="625.0" y="264" text-anchor="middle" font-size="9" font-style="italic" fill="#888">Console.WriteLine only on the skip path</text>
+  <rect x="636" y="288" width="8" height="62" rx="0" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="500.0" y="282" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainAddAndSave()</text>
+  <line x1="364" y1="288" x2="636" y2="288" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="305" text-anchor="middle" font-size="9" fill="#1a4a73">Add tracks it, SaveChanges INSERTs it</text>
+  <text x="501.0" y="318" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="331" text-anchor="middle" font-size="8.5" fill="#555">see Flow/1-AddAndSave.svg</text>
+  <text x="501.0" y="345" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="354" x2="364" y2="354" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="636" y="388" width="8" height="62" rx="0" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="500.0" y="382" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainQueryingWithLinq()</text>
+  <line x1="364" y1="388" x2="636" y2="388" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="405" text-anchor="middle" font-size="9" fill="#274e13">LINQ becomes SQL, but only when enumerated</text>
+  <text x="501.0" y="418" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="431" text-anchor="middle" font-size="8.5" fill="#555">see Flow/2-QueryingWithLinq.svg</text>
+  <text x="501.0" y="445" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="454" x2="364" y2="454" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="636" y="488" width="8" height="62" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
+  <text x="500.0" y="482" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainRelatedData()</text>
+  <line x1="364" y1="488" x2="636" y2="488" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="505" text-anchor="middle" font-size="9" fill="#8a5a10">Include and Select: one trip, not N+1</text>
+  <text x="501.0" y="518" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="531" text-anchor="middle" font-size="8.5" fill="#555">see Flow/3-RelatedData.svg</text>
+  <text x="501.0" y="545" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="554" x2="364" y2="554" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="636" y="588" width="8" height="62" rx="0" fill="#fffbe8" stroke="#f1c232" stroke-width="1"/>
+  <text x="500.0" y="582" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainUpdatingTrackedEntities()</text>
+  <line x1="364" y1="588" x2="636" y2="588" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="605" text-anchor="middle" font-size="9" fill="#7f6000">the tracker spots changes; UPDATE sets them</text>
+  <text x="501.0" y="618" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="631" text-anchor="middle" font-size="8.5" fill="#555">see Flow/4-UpdatingTrackedEntities.svg</text>
+  <text x="501.0" y="645" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="654" x2="364" y2="654" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="636" y="688" width="8" height="62" rx="0" fill="#fdecea" stroke="#cc0000" stroke-width="1"/>
+  <text x="500.0" y="682" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainRemovingRows()</text>
+  <line x1="364" y1="688" x2="636" y2="688" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="705" text-anchor="middle" font-size="9" fill="#990000">Remove + DELETE; the foreign key decides</text>
+  <text x="501.0" y="718" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="731" text-anchor="middle" font-size="8.5" fill="#555">see Flow/5-RemovingRows.svg</text>
+  <text x="501.0" y="745" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="754" x2="364" y2="754" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="636" y="788" width="8" height="62" rx="0" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1"/>
+  <text x="500.0" y="782" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainSaveChangesIsAllOrNothing()</text>
+  <line x1="364" y1="788" x2="636" y2="788" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="501.0" y="805" text-anchor="middle" font-size="9" fill="#4a2e73">all or nothing (a transaction wraps the save)</text>
+  <text x="501.0" y="818" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine + SQL via SqlSpy</text>
+  <text x="501.0" y="831" text-anchor="middle" font-size="8.5" fill="#555">see Flow/6-SaveChangesIsAllOrNothing.svg</text>
+  <text x="501.0" y="845" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="636" y1="854" x2="364" y2="854" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="230.0" y="864" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="356" y1="870" x2="104" y2="870" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <circle cx="100" cy="892" r="6" fill="#cc0000"/>
+  <text x="114" y="896" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+  <text x="40" y="935" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; EfCoreCrudExample checks SqlLab, then calls the six EfCoreCrudDemo methods one after another.</text>
+  <text x="40" y="953" font-size="10" font-style="italic" fill="#888">BankContext, the entity classes and SqlSpy are helpers that EfCoreCrudDemo uses; SQL Server itself is outside .NET and appears in the per-method flows.</text>
+</svg>

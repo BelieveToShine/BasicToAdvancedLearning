@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 808" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="808" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">DELETE — Sub-level Flow: a tower of blocks, top block first</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Customers is the bottom block, Accounts rests on it, Transactions on top. SQL Server refuses to pull out a block that carries another.</text>
+  <text x="200" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="200" y1="54" x2="200" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="200,54 200,72 230,63" fill="#38761d"/>
+  <line x1="200" y1="92" x2="200" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="550" y="82" width="340" height="548" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="720.0" y="100" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">the bank tables = SQL Server (outside .NET)</text>
+  <rect x="40" y="112" width="320" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="200.0" y="130" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">SqlLab.Run(INSERT Dev Patel + account + deposit)</text>
+  <text x="200.0" y="145" text-anchor="middle" font-size="9.5" fill="#333">a throwaway chain to delete again</text>
+  <text x="200.0" y="178" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console.WriteLine intro; ShowRowCounts() prints 4 / 4 / 2</text>
+  <rect x="570" y="112" width="300" height="76" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="139.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Dev's three blocks go on the tower</text>
+  <text x="720.0" y="153.0" text-anchor="middle" font-size="9.5" fill="#333">customer at the bottom, his account on it,</text>
+  <text x="720.0" y="167.0" text-anchor="middle" font-size="9.5" fill="#333">one ledger row on top</text>
+  <line x1="360" y1="134" x2="570" y2="134" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="127" text-anchor="middle" font-size="9" fill="#333">INSERT; INSERT; INSERT</text>
+  <line x1="570" y1="166" x2="360" y2="166" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="181" text-anchor="middle" font-size="9" font-style="italic" fill="#555">done</text>
+  <line x1="200" y1="188" x2="200" y2="214" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="214" width="320" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="200.0" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">SqlLab.ShowError(DELETE FROM Customers …)</text>
+  <text x="200.0" y="247" text-anchor="middle" font-size="9.5" fill="#333">delete the PARENT first</text>
+  <text x="200.0" y="280" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints "Delete the customer first?", then the error line</text>
+  <rect x="570" y="214" width="300" height="76" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="241.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Pull out the bottom block?</text>
+  <text x="720.0" y="255.0" text-anchor="middle" font-size="9.5" fill="#333">refused: the account still rests on it</text>
+  <text x="720.0" y="269.0" text-anchor="middle" font-size="9.5" fill="#333">(foreign key, error 547); nothing deleted</text>
+  <line x1="360" y1="236" x2="570" y2="236" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="229" text-anchor="middle" font-size="9" fill="#333">DELETE … Customers</text>
+  <line x1="570" y1="268" x2="360" y2="268" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="283" text-anchor="middle" font-size="9" font-style="italic" fill="#555">error 547</text>
+  <line x1="200" y1="290" x2="200" y2="316" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="316" width="320" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="200.0" y="334" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">SqlLab.ShowError(DELETE FROM Accounts …)</text>
+  <text x="200.0" y="349" text-anchor="middle" font-size="9.5" fill="#333">delete the MIDDLE block first</text>
+  <text x="200.0" y="382" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints "Delete the account first?", then the error line</text>
+  <rect x="570" y="316" width="300" height="76" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="343.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Pull out the middle block?</text>
+  <text x="720.0" y="357.0" text-anchor="middle" font-size="9.5" fill="#333">refused: the ledger row still rests on it</text>
+  <text x="720.0" y="371.0" text-anchor="middle" font-size="9.5" fill="#333">(foreign key, error 547); nothing deleted</text>
+  <line x1="360" y1="338" x2="570" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="331" text-anchor="middle" font-size="9" fill="#333">DELETE … Accounts</text>
+  <line x1="570" y1="370" x2="360" y2="370" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="385" text-anchor="middle" font-size="9" font-style="italic" fill="#555">error 547</text>
+  <line x1="200" y1="392" x2="200" y2="418" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="418" width="320" height="88" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="200.0" y="436" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">three SqlLab.Run(DELETE … WHERE …) calls</text>
+  <text x="200.0" y="451" text-anchor="middle" font-size="9.5" fill="#333">int ledgerRows, accountRows, customerRows</text>
+  <text x="200.0" y="496" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints "Deleted children first: …", then the counts</text>
+  <rect x="570" y="418" width="300" height="88" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="451.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Top block first, then middle, then bottom</text>
+  <text x="720.0" y="465.0" text-anchor="middle" font-size="9.5" fill="#333">WHERE picks only Dev's rows, so each DELETE</text>
+  <text x="720.0" y="479.0" text-anchor="middle" font-size="9.5" fill="#333">removes exactly one row; counts are now 3 / 3 / 1</text>
+  <line x1="360" y1="440" x2="570" y2="440" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="433" text-anchor="middle" font-size="9" fill="#333">DELETE ×3, children first</text>
+  <line x1="570" y1="484" x2="360" y2="484" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="499" text-anchor="middle" font-size="9" font-style="italic" fill="#555">rows deleted: 1, 1, 1</text>
+  <line x1="200" y1="506" x2="200" y2="532" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="532" width="320" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="200.0" y="550" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">SqlLab.ShowError(TRUNCATE TABLE Customers)</text>
+  <text x="200.0" y="565" text-anchor="middle" font-size="9.5" fill="#333">empty a whole table in one go</text>
+  <text x="200.0" y="598" text-anchor="middle" font-size="9" font-style="italic" fill="#555">prints "TRUNCATE the customers table?", then the error line</text>
+  <rect x="570" y="532" width="300" height="76" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.5"/>
+  <text x="720.0" y="559.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">Clear the bottom row at once?</text>
+  <text x="720.0" y="573.0" text-anchor="middle" font-size="9.5" fill="#333">refused: a foreign key points at this</text>
+  <text x="720.0" y="587.0" text-anchor="middle" font-size="9.5" fill="#333">table (error 4712); no WHERE is possible anyway</text>
+  <line x1="360" y1="554" x2="570" y2="554" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="465.0" y="547" text-anchor="middle" font-size="9" fill="#333">TRUNCATE TABLE Customers</text>
+  <line x1="570" y1="586" x2="360" y2="586" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="465.0" y="601" text-anchor="middle" font-size="9" font-style="italic" fill="#555">error 4712</text>
+  <line x1="200" y1="608" x2="200" y2="644" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="200" y="658" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="200" y1="666" x2="200" y2="706" stroke="#333" stroke-width="2"/>
+  <polygon points="200,666 200,684 230,675" fill="#cc0000"/>
+  <text x="30" y="728" font-size="10.5" fill="#444"><tspan font-weight="bold">Children before parents:</tspan> Transactions, then Accounts, then Customers. Two wrong-order attempts and a TRUNCATE were all refused, so nothing was lost.</text>
+  <text x="30" y="746" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the question lines; SqlLab.ShowError prints "SQL Server refused it (error N)" with Console.WriteLine; Show prints the counts.</text>
+  <text x="30" y="764" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

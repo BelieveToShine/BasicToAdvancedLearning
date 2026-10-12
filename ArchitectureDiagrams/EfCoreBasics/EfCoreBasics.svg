@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="700" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">EF Core basics — Model classes, DbContext, Fluent API, Migrations</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">EfCoreBasicsDemo.cs holds the lesson; BankModels.cs, BankContexts.cs and Migrations/ are the running example. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="60" y="62" width="12" height="12" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="76" y="72">Model classes</text></g>
+  <g font-size="10" fill="#333"><rect x="190" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="206" y="72">DbContext</text></g>
+  <g font-size="10" fill="#333"><rect x="300" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="316" y="72">Fluent API</text></g>
+  <g font-size="10" fill="#333"><rect x="400" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="416" y="72">Migrations</text></g>
+  <g font-size="10" fill="#333"><rect x="500" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="516" y="72">EnsureCreated vs Migrate</text></g>
+  <rect x="40" y="100" width="360" height="190" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#7f6000">1 · Model classes</text>
+  <text x="220" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#a08321">ExplainModelClasses()</text>
+  <rect x="56" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#f0dfa0" stroke-width="1"/>
+  <text x="66" y="166" font-size="9.5" fill="#333">asha.Accounts.Add(savings);</text>
+  <text x="66" y="184" font-size="9.5" fill="#333">savings.Customer = asha;</text>
+  <text x="220" y="242" text-anchor="middle" font-size="9.5" fill="#7f6000">Plain C# classes: one object = one row,</text>
+  <text x="220" y="256" text-anchor="middle" font-size="9.5" fill="#7f6000">one property = one column.</text>
+  <rect x="460" y="100" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="640" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">2 · DbContext and DbSet</text>
+  <text x="640" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainDbContextAndDbSet()</text>
+  <rect x="476" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="486" y="166" font-size="9.5" fill="#333">public DbSet&lt;Customer&gt; Customers { get; set; }</text>
+  <text x="486" y="184" font-size="9.5" fill="#333">context.Database.GenerateCreateScript()</text>
+  <text x="640" y="242" text-anchor="middle" font-size="9.5" fill="#1a4a73">The DbContext maps classes to tables; one</text>
+  <text x="640" y="256" text-anchor="middle" font-size="9.5" fill="#1a4a73">per small job, disposed with using.</text>
+  <rect x="880" y="100" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="1060" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">3 · Fluent API</text>
+  <text x="1060" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainFluentApiConfiguration()</text>
+  <rect x="896" y="148" width="328" height="70" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="906" y="166" font-size="9.5" fill="#333">.Property(c =&gt; c.Email).HasMaxLength(200)</text>
+  <text x="906" y="184" font-size="9.5" fill="#333">.OnDelete(DeleteBehavior.Restrict)</text>
+  <text x="1060" y="242" text-anchor="middle" font-size="9.5" fill="#274e13">OnModelCreating refines the conventions:</text>
+  <text x="1060" y="256" text-anchor="middle" font-size="9.5" fill="#274e13">lengths, unique index, delete behaviour.</text>
+  <rect x="240" y="320" width="360" height="190" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="420" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">4 · Migrations</text>
+  <text x="420" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainMigrations()</text>
+  <rect x="256" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="266" y="386" font-size="9.5" fill="#333">context.Database.Migrate();</text>
+  <text x="266" y="404" font-size="9.5" fill="#333">GetAppliedMigrations()  →  InitialCreate</text>
+  <text x="420" y="462" text-anchor="middle" font-size="9.5" fill="#8a5a10">A migration (Up / Down + a model snapshot)</text>
+  <text x="420" y="476" text-anchor="middle" font-size="9.5" fill="#8a5a10">versions the structure in C# files.</text>
+  <rect x="680" y="320" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="860" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · EnsureCreated vs Migrate</text>
+  <text x="860" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainEnsureCreatedVsMigrate()</text>
+  <rect x="696" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="706" y="386" font-size="9.5" fill="#333">context.Database.EnsureCreated()</text>
+  <text x="706" y="404" font-size="9.5" fill="#333">context.Database.Migrate()  →  error 2714</text>
+  <text x="860" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">Two ways to build the tables; they cannot</text>
+  <text x="860" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">be mixed on one database.</text>
+  <text x="640" y="548" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#333">How the pieces connect</text>
+  <rect x="60" y="560" width="220" height="56" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="170" y="584" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Customer, Account</text>
+  <text x="170" y="602" text-anchor="middle" font-size="9.5" fill="#666">BankModels.cs</text>
+  <rect x="360" y="560" width="220" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="470" y="584" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">BankContext</text>
+  <text x="470" y="602" text-anchor="middle" font-size="9.5" fill="#666">BankContexts.cs</text>
+  <rect x="660" y="560" width="220" height="56" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="770" y="584" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">InitialCreate (Up / Down)</text>
+  <text x="770" y="602" text-anchor="middle" font-size="9.5" fill="#666">Migrations/</text>
+  <rect x="960" y="560" width="260" height="56" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1090" y="584" text-anchor="middle" font-size="10" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server tables</text>
+  <text x="1090" y="602" text-anchor="middle" font-size="9" fill="#555">Customers, Accounts, __EFMigrationsHistory</text>
+  <line x1="280" y1="588" x2="358" y2="588" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="319" y="580" text-anchor="middle" font-size="9" fill="#555">DbSet&lt;T&gt;</text>
+  <line x1="580" y1="588" x2="658" y2="588" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="619" y="580" text-anchor="middle" font-size="9" fill="#555">migrations add</text>
+  <line x1="880" y1="588" x2="958" y2="588" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="919" y="580" text-anchor="middle" font-size="9" fill="#555">Migrate()</text>
+  <text x="40" y="650" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → EfCoreBasicsExample.Explain()</tspan> calls all five methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="670" font-size="10.5" font-style="italic" fill="#888">Every method (1–5) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up. Reading and writing rows is Topic 15.</text>
+</svg>

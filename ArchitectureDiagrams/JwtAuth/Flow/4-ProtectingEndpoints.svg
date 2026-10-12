@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 930" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="930" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Protecting endpoints — Sub-level Flow: three kinds of door</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The attribute on each endpoint is the sign on its door. The client always sends the same header; the door decides what it means.</text>
+  <text x="60" y="62" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="60" y1="66" x2="60" y2="104" stroke="#333" stroke-width="2"/>
+  <polygon points="60,66 60,84 90,75" fill="#38761d"/>
+  <line x1="60" y1="104" x2="60" y2="112" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="112" width="400" height="40" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="230.0" y="127.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">using (server = Start(null));  customerToken, managerToken</text>
+  <text x="230.0" y="143.0" text-anchor="middle" font-size="9.5" fill="#444">asha is a Customer, chen is a Manager</text>
+  <line x1="115" y1="152" x2="115" y2="172" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="172" width="520" height="44" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="290.0" y="189.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#4a2e73">Every protected call carries one header:   Authorization: Bearer &lt;token&gt;</text>
+  <text x="290.0" y="205.0" text-anchor="middle" font-size="9.5" fill="#444">"Bearer" = whoever carries (bears) this token is treated as its owner</text>
+  <line x1="115" y1="216" x2="115" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="155" y="236" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">REQUEST</text>
+  <text x="450" y="236" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">SIGN ON THE DOOR (attribute)</text>
+  <text x="750" y="236" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">ANSWER</text>
+  <rect x="30" y="248" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="269.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/status</text>
+  <text x="155.0" y="285.0" text-anchor="middle" font-size="9.5" fill="#444">no token</text>
+  <rect x="350" y="248" width="200" height="52" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="450.0" y="269.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">[AllowAnonymous]</text>
+  <text x="450.0" y="285.0" text-anchor="middle" font-size="9.5" fill="#444">anyone may call</text>
+  <rect x="620" y="248" width="260" height="52" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="750.0" y="269.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">200 OK</text>
+  <text x="750.0" y="285.0" text-anchor="middle" font-size="9.5" fill="#444">The bank is open.</text>
+  <line x1="280" y1="274" x2="350" y2="274" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="266" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="274" x2="620" y2="274" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="266" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="300" x2="155" y2="312" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="312" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="333.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/me</text>
+  <text x="155.0" y="349.0" text-anchor="middle" font-size="9.5" fill="#444">no token</text>
+  <rect x="350" y="312" width="200" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="333.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">[Authorize]</text>
+  <text x="450.0" y="349.0" text-anchor="middle" font-size="9.5" fill="#444">needs a valid token</text>
+  <rect x="620" y="312" width="260" height="52" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="750.0" y="342.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <line x1="280" y1="338" x2="350" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="330" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="338" x2="620" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="330" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="364" x2="155" y2="376" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="376" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="397.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/me</text>
+  <text x="155.0" y="413.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer &lt;asha's token&gt;</text>
+  <rect x="350" y="376" width="200" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="397.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">[Authorize]</text>
+  <text x="450.0" y="413.0" text-anchor="middle" font-size="9.5" fill="#444">needs a valid token</text>
+  <rect x="620" y="376" width="260" height="52" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="750.0" y="397.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">200 OK</text>
+  <text x="750.0" y="413.0" text-anchor="middle" font-size="9.5" fill="#444">Hello Asha Rao, your role is Customer.</text>
+  <line x1="280" y1="402" x2="350" y2="402" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="394" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="402" x2="620" y2="402" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="394" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="428" x2="155" y2="440" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="440" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="461.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/reports/daily</text>
+  <text x="155.0" y="477.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer &lt;asha's token&gt;</text>
+  <rect x="350" y="440" width="200" height="52" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="450.0" y="461.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">[Authorize(Roles = Manager)]</text>
+  <text x="450.0" y="477.0" text-anchor="middle" font-size="9.5" fill="#444">valid token AND role Manager</text>
+  <rect x="620" y="440" width="260" height="52" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="750.0" y="470.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">403 Forbidden</text>
+  <line x1="280" y1="466" x2="350" y2="466" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="458" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="466" x2="620" y2="466" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="458" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="492" x2="155" y2="504" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="504" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="525.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/reports/daily</text>
+  <text x="155.0" y="541.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer &lt;chen's token&gt;</text>
+  <rect x="350" y="504" width="200" height="52" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="450.0" y="525.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">[Authorize(Roles = Manager)]</text>
+  <text x="450.0" y="541.0" text-anchor="middle" font-size="9.5" fill="#444">valid token AND role Manager</text>
+  <rect x="620" y="504" width="260" height="52" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="750.0" y="525.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">200 OK</text>
+  <text x="750.0" y="541.0" text-anchor="middle" font-size="9.5" fill="#444">Daily report: 3 accounts opened.</text>
+  <line x1="280" y1="530" x2="350" y2="530" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="522" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="530" x2="620" y2="530" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="522" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="556" x2="155" y2="568" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="568" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="589.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/me</text>
+  <text x="155.0" y="605.0" text-anchor="middle" font-size="9.5" fill="#444">Bearer this-is-not-a-token</text>
+  <rect x="350" y="568" width="200" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="589.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">[Authorize]</text>
+  <text x="450.0" y="605.0" text-anchor="middle" font-size="9.5" fill="#444">needs a valid token</text>
+  <rect x="620" y="568" width="260" height="52" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="750.0" y="598.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <line x1="280" y1="594" x2="350" y2="594" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="586" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="594" x2="620" y2="594" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="586" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="620" x2="155" y2="632" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="632" width="250" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="653.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">GET /api/accounts/me</text>
+  <text x="155.0" y="669.0" text-anchor="middle" font-size="9.5" fill="#444">scheme "Basic" instead of Bearer</text>
+  <rect x="350" y="632" width="200" height="52" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="653.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">[Authorize]</text>
+  <text x="450.0" y="669.0" text-anchor="middle" font-size="9.5" fill="#444">needs a valid token</text>
+  <rect x="620" y="632" width="260" height="52" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="750.0" y="662.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7a0000">401 Unauthorized</text>
+  <line x1="280" y1="658" x2="350" y2="658" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="315" y="650" text-anchor="middle" font-size="9" fill="#555">checked by</text>
+  <line x1="550" y1="658" x2="620" y2="658" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="585" y="650" text-anchor="middle" font-size="9" fill="#555">answers</text>
+  <line x1="155" y1="700" x2="155" y2="722" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="30" y="722" width="520" height="40" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="290.0" y="737.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#444444">The 401 for "no token" also names the scheme to use</text>
+  <text x="290.0" y="753.0" text-anchor="middle" font-size="9.5" fill="#444">WWW-Authenticate starts with "Bearer": True</text>
+  <line x1="155" y1="762" x2="155" y2="788" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="155" y="802" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="155" y1="810" x2="155" y2="850" stroke="#333" stroke-width="2"/>
+  <polygon points="155,810 155,828 185,819" fill="#cc0000"/>
+  <text x="30" y="872" font-size="10.5" fill="#444"><tspan font-weight="bold">Same call, different doors: </tspan>[AllowAnonymous] never asks who you are; [Authorize] needs a valid token; Roles also needs the right role claim (else 403).</text>
+  <text x="30" y="890" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints 8 lines: the seven results above, then the True/False line about the WWW-Authenticate header. Roles are read from the "role" claim inside the token.</text>
+  <text x="30" y="908" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line, then the title) - not drawn.</text>
+</svg>

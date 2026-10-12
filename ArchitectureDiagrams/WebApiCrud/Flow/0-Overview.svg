@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 872" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="872" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">WebApiCrud — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (named in each note below).</text>
+  <g font-size="11" fill="#333"><line x1="380" y1="64" x2="416" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="422" y="68">Call (→)</text><line x1="530" y1="64" x2="566" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="572" y="68">Return (←)</text></g>
+  <rect x="60" y="80" width="180" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="150" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+  <rect x="400" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="510" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">WebApiCrudExample</text>
+  <text x="510" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+  <rect x="710" y="80" width="220" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="820" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">WebApiCrudDemo</text>
+  <line x1="150" y1="122" x2="150" y2="790" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="510" y1="122" x2="510" y2="790" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="820" y1="122" x2="820" y2="790" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="146" y="170" width="8" height="600" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <rect x="506" y="190" width="8" height="560" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="330" y="160" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new WebApiCrudExample();</text>
+  <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">topic.Explain()</text>
+  <line x1="150" y1="190" x2="510" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="330" y="214" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5a10">Explain() first calls SqlLab.IsReady(): with no connection</text>
+  <text x="330" y="226" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5a10">string it prints why and returns (Console.WriteLine)</text>
+  <text x="665" y="232" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new WebApiCrudDemo()</text>
+  <line x1="510" y1="240" x2="820" y2="240" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="816" y="240" width="8" height="30" rx="0" fill="#d9d9d9" stroke="#777" stroke-width="1"/>
+  <text x="665" y="257" text-anchor="middle" font-size="9.5" fill="#555">creates the lesson object (held by `using`)</text>
+  <line x1="820" y1="270" x2="510" y2="270" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="300" width="8" height="56" rx="0" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="665" y="292" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainDbContextInDI()</text>
+  <line x1="510" y1="300" x2="820" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="316" text-anchor="middle" font-size="9.2" fill="#1a4a73">DI: AddDbContext (Scoped), build + seed DB, start server</text>
+  <text x="665" y="329" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · SqlLab.Show · Flow/1</text>
+  <text x="665" y="342" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="356" x2="510" y2="356" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="400" width="8" height="56" rx="0" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="665" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainReadEndpoints()</text>
+  <line x1="510" y1="400" x2="820" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="416" text-anchor="middle" font-size="9.2" fill="#274e13">GET list / GET by id / GET missing -&gt; 200, 200, 404</text>
+  <text x="665" y="429" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · Flow/2</text>
+  <text x="665" y="442" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="456" x2="510" y2="456" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="500" width="8" height="56" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
+  <text x="665" y="492" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainCreateEndpoint()</text>
+  <line x1="510" y1="500" x2="820" y2="500" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="516" text-anchor="middle" font-size="9.2" fill="#8a5a10">POST: 201 + Location, 400 (x2), 409</text>
+  <text x="665" y="529" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · SqlLab.Show · Flow/3</text>
+  <text x="665" y="542" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="556" x2="510" y2="556" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="816" y="600" width="8" height="56" rx="0" fill="#fffbe8" stroke="#f1c232" stroke-width="1"/>
+  <text x="665" y="592" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainUpdateAndDelete()</text>
+  <line x1="510" y1="600" x2="820" y2="600" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665" y="616" text-anchor="middle" font-size="9.2" fill="#7f6000">PUT 204/404, DELETE 204/404/409</text>
+  <text x="665" y="629" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · SqlLab.Show · Flow/4</text>
+  <text x="665" y="642" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="820" y1="656" x2="510" y2="656" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="665" y="692" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">Dispose()  (the end of `using`)</text>
+  <line x1="510" y1="700" x2="820" y2="700" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="816" y="700" width="8" height="30" rx="0" fill="#d9d9d9" stroke="#777" stroke-width="1"/>
+  <text x="665" y="717" text-anchor="middle" font-size="9.5" fill="#555">stops the in-process web server</text>
+  <line x1="820" y1="730" x2="510" y2="730" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="330" y="748" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="510" y1="754" x2="150" y2="754" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <circle cx="150" cy="774" r="6" fill="#cc0000"/>
+  <text x="164" y="778" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+  <text x="40" y="818" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; WebApiCrudExample checks SQL Server, creates the demo, calls four methods in order, then disposes it.</text>
+  <text x="40" y="838" font-size="10" font-style="italic" fill="#888">The server (AccountsController, BankDbContext) is not a lifeline here: it runs inside WebLab, and the demo reaches it only through HTTP requests — see each Flow/&lt;N&gt;.</text>
+  <text x="40" y="856" font-size="10" font-style="italic" fill="#888">Each call to a method notes the Console.* it uses; every HTTP request line is printed by the private helper Call() with Console.WriteLine.</text>
+</svg>

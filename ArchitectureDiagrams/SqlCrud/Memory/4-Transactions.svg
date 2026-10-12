@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 562" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1250" height="562" fill="#ffffff"/>
+  <text x="625.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Transactions — Memory: Stack / Heap / Static</text>
+  <text x="625.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainTransactions() is running, at its last line, after the rolled-back 900.00 attempt printed its notebook.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1195" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="204" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="64" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">SqlCrudDemo.ExplainTransactions() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">(no local variables in this method)</text>
+  <rect x="50" y="192" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="212" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">SqlCrudExample.Explain()</text>
+  <text x="220" y="228" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="252" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="272" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="288" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="118" width="600" height="54" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="760.0" y="140" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">No Heap usage here — this method declares no local variables.</text>
+  <text x="760.0" y="158" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">All the work happens in SQL Server; C# only sends the text.</text>
+  <rect x="450" y="190" width="680" height="296" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="790.0" y="210" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">OUTSIDE .NET — SQL Server: table rows</text>
+  <text x="790.0" y="225" text-anchor="middle" font-size="9" font-style="italic" fill="#666">These rows live in the database server, not in the program's memory. C# only sends text and gets a number back.</text>
+  <text x="464" y="244" font-size="10" font-weight="bold" fill="#1a237e">Accounts.Balance at four moments</text>
+  <rect x="464" y="252" width="526" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="266" font-size="9.5" font-weight="bold" fill="#333">Accounts</text>
+  <rect x="465" y="274" width="524" height="16" fill="#ececec"/>
+  <text x="471" y="285.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="560" y="285.5" font-size="9" font-weight="bold" fill="#444">BEFORE</text>
+  <text x="609" y="285.5" font-size="9" font-weight="bold" fill="#444">after COMMIT (200.00)</text>
+  <text x="744" y="285.5" font-size="9" font-weight="bold" fill="#444">inside the 900.00 attempt</text>
+  <text x="902" y="285.5" font-size="9" font-weight="bold" fill="#444">after ROLLBACK</text>
+  <text x="471" y="301.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="560" y="301.5" font-size="9" fill="#222">500.00</text>
+  <rect x="603" y="290" width="134" height="16" fill="#fde9b8"/>
+  <text x="609" y="301.5" font-size="9" font-weight="bold" fill="#222">300.00</text>
+  <rect x="738" y="290" width="157" height="16" fill="#fde9b8"/>
+  <text x="744" y="301.5" font-size="9" font-weight="bold" fill="#222">-600.00</text>
+  <rect x="896" y="290" width="94" height="16" fill="#fde9b8"/>
+  <text x="902" y="301.5" font-size="9" font-weight="bold" fill="#222">300.00</text>
+  <text x="471" y="317.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="560" y="317.5" font-size="9" fill="#222">0.00</text>
+  <rect x="603" y="306" width="134" height="16" fill="#fde9b8"/>
+  <text x="609" y="317.5" font-size="9" font-weight="bold" fill="#222">200.00</text>
+  <text x="744" y="317.5" font-size="9" fill="#222">200.00 (not touched yet)</text>
+  <text x="902" y="317.5" font-size="9" fill="#222">200.00</text>
+  <text x="471" y="333.5" font-size="9" fill="#222">SAV-3001</text>
+  <text x="560" y="333.5" font-size="9" fill="#222">0.00</text>
+  <text x="609" y="333.5" font-size="9" fill="#222">0.00</text>
+  <text x="744" y="333.5" font-size="9" fill="#222">0.00</text>
+  <text x="902" y="333.5" font-size="9" fill="#222">0.00</text>
+  <line x1="464" y1="290" x2="990" y2="290" stroke="#bbb" stroke-width="1"/>
+  <text x="464" y="360" font-size="10" font-weight="bold" fill="#1a237e">Transactions ledger</text>
+  <text x="593.6" y="360" font-size="9" font-style="italic" fill="#666">— after the COMMIT; the rolled-back attempt wrote nothing</text>
+  <rect x="464" y="368" width="205" height="92" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="471" y="382" font-size="9.5" font-weight="bold" fill="#333">Transactions</text>
+  <rect x="465" y="390" width="203" height="16" fill="#ececec"/>
+  <text x="471" y="401.5" font-size="9" font-weight="bold" fill="#444">AccountNumber</text>
+  <text x="560" y="401.5" font-size="9" font-weight="bold" fill="#444">Kind</text>
+  <text x="627" y="401.5" font-size="9" font-weight="bold" fill="#444">Amount</text>
+  <text x="471" y="417.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="560" y="417.5" font-size="9" fill="#222">Deposit</text>
+  <text x="627" y="417.5" font-size="9" fill="#222">500.00</text>
+  <rect x="465" y="422" width="203" height="16" fill="#d9f0d0"/>
+  <text x="471" y="433.5" font-size="9" fill="#222">SAV-1001</text>
+  <text x="560" y="433.5" font-size="9" fill="#222">Withdrawal</text>
+  <text x="627" y="433.5" font-size="9" fill="#222">200.00</text>
+  <rect x="465" y="438" width="203" height="16" fill="#d9f0d0"/>
+  <text x="471" y="449.5" font-size="9" fill="#222">CUR-2001</text>
+  <text x="560" y="449.5" font-size="9" fill="#222">Deposit</text>
+  <text x="627" y="449.5" font-size="9" fill="#222">200.00</text>
+  <line x1="464" y1="406" x2="669" y2="406" stroke="#bbb" stroke-width="1"/>
+  <rect x="464" y="468" width="11" height="11" fill="#d9f0d0" stroke="#999" stroke-width="0.8"/><text x="480" y="477" font-size="9" fill="#555">new row / value</text>
+  <rect x="584" y="468" width="11" height="11" fill="#fde9b8" stroke="#999" stroke-width="0.8"/><text x="600" y="477" font-size="9" fill="#555">changed</text>
+  <rect x="704" y="468" width="11" height="11" fill="#f8d7d3" stroke="#999" stroke-width="0.8"/><text x="720" y="477" font-size="9" fill="#555">deleted</text>
+  <rect x="1150" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="510" font-size="10.5" fill="#444"><tspan font-weight="bold">Same two accounts, two outcomes. COMMIT made the 200.00 transfer permanent; ROLLBACK undid the 900.00 debit completely. </tspan>Asha really was at -600.00 inside the transaction (the notebook table recorded it), yet she is back at 300.00 afterwards.</text>
+  <text x="40" y="528" font-size="10" font-style="italic" fill="#888">The SQL text is passed straight into SqlLab.Run and SqlLab.Show, so no local variable holds it.</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 506" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="506" fill="#ffffff"/>
+  <text x="600.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Tables, rows and columns — Memory: Stack / Heap / Static</text>
+  <text x="600.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainTablesRowsColumns() is running, on its last lines — the duplicate customer 1 was accepted and printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1145" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="264" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="124" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="9.3" font-weight="bold" fill="#274e13">RelationalConceptsDemo.ExplainTablesRowsColumns() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">createCustomers → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">insertCustomers → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">duplicateAsha → pointer  (string)</text>
+  <rect x="50" y="252" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="272" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">RelationalConceptsExample.Explain()</text>
+  <text x="220" y="288" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="312" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="163.0" text-anchor="middle" font-size="10" fill="#7f4e00">CREATE TABLE Customers ( CustomerId INT, … )</text>
+  <rect x="460" y="184" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="203.0" text-anchor="middle" font-size="10" fill="#7f4e00">INSERT INTO Customers … VALUES (1, 'Asha Rao', …), …</text>
+  <rect x="460" y="224" width="330" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="625.0" y="243.0" text-anchor="middle" font-size="10" fill="#7f4e00">INSERT INTO Customers … VALUES (1, 'Asha Rao', …)</text>
+  <text x="800" y="244" font-size="9" font-style="italic" fill="#a06a1f">← SQL text, shortened</text>
+  <rect x="460" y="290" width="600" height="140" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="760.0" y="310" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — SQL Server: table Customers (columns only, no keys yet)</text>
+  <text x="476" y="332" font-size="10" font-weight="bold" fill="#333333">Customers</text>
+  <text x="1044" y="332" text-anchor="end" font-size="9" font-style="italic" fill="#777777">no PRIMARY KEY, so nothing blocks the 4th row</text>
+  <text x="476" y="349" font-size="9.5" font-weight="bold" fill="#555555">CustomerId</text>
+  <text x="566" y="349" font-size="9.5" font-weight="bold" fill="#555555">FullName</text>
+  <text x="676" y="349" font-size="9.5" font-weight="bold" fill="#555555">Email</text>
+  <line x1="476" y1="353" x2="1044" y2="353" stroke="#aaaaaa" stroke-width="1"/>
+  <text x="476" y="366" font-size="9.5" fill="#333333">1</text>
+  <text x="566" y="366" font-size="9.5" fill="#333333">Asha Rao</text>
+  <text x="676" y="366" font-size="9.5" fill="#333333">asha@example.com</text>
+  <text x="476" y="382" font-size="9.5" fill="#333333">2</text>
+  <text x="566" y="382" font-size="9.5" fill="#333333">Ben Carter</text>
+  <text x="676" y="382" font-size="9.5" fill="#333333">ben@example.com</text>
+  <text x="476" y="398" font-size="9.5" fill="#333333">3</text>
+  <text x="566" y="398" font-size="9.5" fill="#333333">Chen Li</text>
+  <text x="676" y="398" font-size="9.5" fill="#333333">chen@example.com</text>
+  <text x="476" y="414" font-size="9.5" fill="#cc0000">1</text>
+  <text x="566" y="414" font-size="9.5" fill="#cc0000">Asha Rao</text>
+  <text x="676" y="414" font-size="9.5" fill="#cc0000">asha@example.com</text>
+  <line x1="378" y1="159" x2="458" y2="159.0" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 432,189 432,199.0 458,199.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 420,219 420,239.0 458,239.0" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1100" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="454" font-size="10.5" fill="#444"><tspan font-weight="bold">The rows are NOT in program memory. </tspan>The three locals only hold SQL text; the table and its 4 rows live inside SQL Server, outside .NET, until a SELECT copies them back.</text>
+  <text x="40" y="472" font-size="10" font-style="italic" fill="#888">Each local points at a string on the Heap: the command we send. The red row is the second customer 1, which this table accepts because it has no key.</text>
+</svg>

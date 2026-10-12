@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="570" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Aggregates and GROUP BY — Sub-level Flow: sorting rows into buckets</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">An aggregate boils many rows down to one value; GROUP BY first drops the rows into buckets, then boils each bucket down.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="134" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="520" y="84" width="330" height="298" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="685" y="104" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET</text>
+  <text x="685" y="120" text-anchor="middle" font-size="9" font-style="italic" fill="#666">tables Accounts (6 rows) and Customers (4 rows)</text>
+  <rect x="60" y="134" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="151" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string wholeTable = """…""";</text>
+  <text x="210" y="167" text-anchor="middle" font-size="9" fill="#333">COUNT(*), SUM, AVG, MIN, MAX — no GROUP BY</text>
+  <text x="210" y="183" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(wholeTable);</text>
+  <rect x="540" y="134" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <polygon points="550,157 561,157 559,175 552,175" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <polygon points="563,157 574,157 572,175 565,175" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="690" y="158" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">one bucket: the whole table</text>
+  <text x="690" y="175" text-anchor="middle" font-size="9" fill="#555">6 accounts, total 5750.00</text>
+  <line x1="360" y1="156" x2="538" y2="156" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="148" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="176" x2="362" y2="176" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="188" text-anchor="middle" font-size="9" fill="#555">1 row back</text>
+  <line x1="210" y1="192" x2="210" y2="222" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="222" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="239" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string perType = """…""";</text>
+  <text x="210" y="255" text-anchor="middle" font-size="9" fill="#333">GROUP BY AccountType</text>
+  <text x="210" y="271" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(perType);</text>
+  <rect x="540" y="222" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <polygon points="550,245 561,245 559,263 552,263" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <polygon points="563,245 574,245 572,263 565,263" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="690" y="246" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">two buckets: Current, Savings</text>
+  <text x="690" y="263" text-anchor="middle" font-size="9" fill="#555">3 accounts each: 1050.00 and 4700.00</text>
+  <line x1="360" y1="244" x2="538" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="236" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="264" x2="362" y2="264" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="276" text-anchor="middle" font-size="9" fill="#555">2 rows back</text>
+  <line x1="210" y1="280" x2="210" y2="310" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="310" width="300" height="58" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="327" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string perCustomer = """…""";</text>
+  <text x="210" y="343" text-anchor="middle" font-size="9" fill="#333">LEFT JOIN … GROUP BY c.CustomerId, c.FullName</text>
+  <text x="210" y="359" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">RunQuery(perCustomer);</text>
+  <rect x="540" y="310" width="290" height="58" rx="8" fill="#ffffff" stroke="#999999" stroke-width="1.2"/>
+  <polygon points="550,333 561,333 559,351 552,351" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <polygon points="563,333 574,333 572,351 565,351" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="690" y="334" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">four buckets, one per customer</text>
+  <text x="690" y="351" text-anchor="middle" font-size="9" fill="#555">Dana's bucket: Accounts = 0, Total NULL</text>
+  <line x1="360" y1="332" x2="538" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="324" text-anchor="middle" font-size="9" fill="#555">sends the SQL text</text>
+  <line x1="540" y1="352" x2="362" y2="352" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="449" y="364" text-anchor="middle" font-size="9" fill="#555">4 rows back</text>
+  <line x1="210" y1="368" x2="210" y2="398" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="412" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="420" x2="210" y2="460" stroke="#333" stroke-width="2"/>
+  <polygon points="210,420 210,438 240,429" fill="#cc0000"/>
+  <text x="30" y="494" font-size="10.5" fill="#444"><tspan font-weight="bold">Many rows in, one row per bucket out:</tspan> COUNT(*) counts rows, COUNT(column) skips NULLs, and SUM of nothing is NULL, not 0.</text>
+  <text x="30" y="512" font-size="10" font-style="italic" fill="#888">RunQuery prints "SQL:", the query lines and "Result:" with Console.WriteLine; SqlLab.Show then prints the grid and the row count.</text>
+  <text x="30" y="530" font-size="10" font-style="italic" fill="#888">Three queries, three SQL: / Result: blocks.</text>
+  <text x="30" y="548" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

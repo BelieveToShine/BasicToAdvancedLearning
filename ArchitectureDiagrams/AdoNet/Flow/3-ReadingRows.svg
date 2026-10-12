@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 960" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="960" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Reading rows — Sub-level Flow: a finger moving down a printed table</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Read() moves the finger to the next row (false = off the end); IsDBNull asks whether a cell is blank before reading it.</text>
+  <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="210" y1="54" x2="210" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="210,54 210,72 240,63" fill="#38761d"/>
+  <line x1="210" y1="92" x2="210" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="104" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="123" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ResetBank();  connection.Open();</text>
+  <text x="210" y="139" text-anchor="middle" font-size="9.5" fill="#555">a fresh bank: 3 customers, 3 accounts</text>
+  <line x1="210" y1="148" x2="210" y2="168" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="168" width="300" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="186" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">command.CommandText = "SELECT … LEFT JOIN …"</text>
+  <text x="210" y="202" text-anchor="middle" font-size="9.5" fill="#555">LEFT JOIN keeps every customer, so Chen Li</text>
+  <text x="210" y="217" text-anchor="middle" font-size="9.5" fill="#555">comes back with NULL account columns</text>
+  <line x1="210" y1="224" x2="210" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="244" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="263" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">SqlDataReader reader = command.ExecuteReader();</text>
+  <text x="210" y="279" text-anchor="middle" font-size="9.5" fill="#555">sends the query; the result is ready to walk</text>
+  <line x1="210" y1="288" x2="210" y2="308" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="308" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="327" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">nameColumn / numberColumn / balanceColumn</text>
+  <text x="210" y="343" text-anchor="middle" font-size="9.5" fill="#555">= reader.GetOrdinal("…") — column numbers, once</text>
+  <line x1="210" y1="352" x2="210" y2="378" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="210,378 320,410 210,442 100,410" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="414" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">while (reader.Read())</text>
+  <line x1="210" y1="442" x2="210" y2="476" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="462" font-size="9.5" fill="#555">true: a row</text>
+  <rect x="60" y="476" width="300" height="44" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="495" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">string fullName = reader.GetString(nameColumn);</text>
+  <text x="210" y="511" text-anchor="middle" font-size="9.5" fill="#555">a typed getter: the cell comes back as a string</text>
+  <line x1="210" y1="520" x2="210" y2="538" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polygon points="210,538 330,570 210,602 90,570" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="568" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">reader.IsDBNull(</text>
+  <text x="210" y="581" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">numberColumn) ?</text>
+  <line x1="330" y1="570" x2="420" y2="570" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="375" y="562" text-anchor="middle" font-size="9.5" fill="#555">yes: NULL</text>
+  <rect x="420" y="540" width="240" height="60" rx="8" fill="#fff4f4" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="540" y="558" text-anchor="middle" font-size="9" fill="#333">Console: "&lt;name&gt;: no account yet</text>
+  <text x="540" y="572" text-anchor="middle" font-size="9" fill="#333">(the account columns are NULL)"</text>
+  <text x="540" y="590" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">continue; → next row</text>
+  <line x1="660" y1="570" x2="780" y2="570" stroke="#333" stroke-width="1.6"/>
+  <line x1="210" y1="602" x2="210" y2="634" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="622" font-size="9.5" fill="#555">no: has a value</text>
+  <rect x="60" y="634" width="300" height="70" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="652" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">string accountNumber = reader.GetString(…);</text>
+  <text x="210" y="668" text-anchor="middle" font-size="9.3" font-weight="bold" fill="#274e13">decimal balance = reader.GetDecimal(balanceColumn);</text>
+  <text x="210" y="685" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "&lt;name&gt;: ACC-… holds &lt;balance&gt;"</text>
+  <polyline points="360,669 780,669 780,410 322,410" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560" y="661" text-anchor="middle" font-size="9.5" fill="#555">next row</text>
+  <polyline points="100,410 30,410 30,786 58,786" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="36" y="426" font-size="9.5" fill="#555">false:</text>
+  <text x="36" y="438" font-size="9.5" fill="#555">no more rows</text>
+  <rect x="60" y="760" width="300" height="58" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="210" y="779" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">using (SqlCommand sum …) → decimal total =</text>
+  <text x="210" y="794" text-anchor="middle" font-size="9.5" fill="#555">(decimal)sum.ExecuteScalar()!;  — SELECT SUM(Balance)</text>
+  <text x="210" y="810" text-anchor="middle" font-size="9" font-style="italic" fill="#555">Console: "Total across all accounts: 1750.50"</text>
+  <line x1="210" y1="818" x2="210" y2="828" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="844" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="852" x2="210" y2="892" stroke="#333" stroke-width="2"/>
+  <polygon points="210,852 210,870 240,861" fill="#cc0000"/>
+  <rect x="520" y="104" width="330" height="214" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="685" y="124" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL Server — OUTSIDE .NET: the result table</text>
+  <text x="560" y="150" font-size="9.5" font-weight="bold" fill="#333">FullName | AccountNumber | Balance</text>
+  <rect x="556" y="160" width="280" height="24" rx="4" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="566" y="176" font-size="9.5" fill="#333">Asha Rao | ACC-1001 | 1000.00</text>
+  <rect x="556" y="188" width="280" height="24" rx="4" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="566" y="204" font-size="9.5" fill="#333">Asha Rao | ACC-1002 | 250.50</text>
+  <rect x="556" y="216" width="280" height="24" rx="4" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="566" y="232" font-size="9.5" fill="#333">Ben Carter | ACC-2001 | 500.00</text>
+  <rect x="556" y="244" width="280" height="24" rx="4" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <text x="566" y="260" font-size="9.5" fill="#333">Chen Li | NULL  | NULL</text>
+  <text x="534" font-size="14" fill="#cc0000" y="177">▶<animateTransform attributeName="transform" type="translate" values="0,0;0,28;0,56;0,84;0,0" keyTimes="0;0.25;0.5;0.75;1" calcMode="discrete" dur="8s" repeatCount="indefinite"/></text>
+  <text x="685" y="292" text-anchor="middle" font-size="9" font-style="italic" fill="#777">each Read() moves the ▶ finger one row down</text>
+  <text x="685" y="306" text-anchor="middle" font-size="9" font-style="italic" fill="#777">SqlClient may already hold some rows in a buffer</text>
+  <line x1="360" y1="266" x2="520" y2="266" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="440" y="258" text-anchor="middle" font-size="9" fill="#555">ExecuteReader()</text>
+  <text x="30" y="910" font-size="10.5" fill="#444"><tspan font-weight="bold">Read() returns true while there is a row and false at the end;</tspan> GetString/GetDecimal throw on a NULL cell, so IsDBNull comes first.</text>
+  <text x="30" y="928" font-size="10" font-style="italic" fill="#888">Four rows are read: three print a "holds" line, Chen Li prints the "no account yet" line. With default settings a reader must be closed (using) before its connection runs another command.</text>
+  <text x="30" y="944" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

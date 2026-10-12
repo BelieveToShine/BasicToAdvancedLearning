@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 815" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="815" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">JSON bodies — Sub-level Flow: a translator desk between C# objects and JSON text</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Serialize = object to text. Deserialize = text to object. The options decide the spelling of the names.</text>
+  <text x="110" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="110" y1="54" x2="110" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="110,54 110,72 140,63" fill="#38761d"/>
+  <line x1="110" y1="92" x2="110" y2="108" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="108" width="230" height="76" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="126" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">account  (Account object)</text>
+  <text x="155.0" y="143" text-anchor="middle" font-size="9" fill="#333">Id 1, Asha Rao, 500.00</text>
+  <line x1="270" y1="146" x2="600" y2="146" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435" y="138" text-anchor="middle" font-size="9.5" fill="#555">JsonSerializer.Serialize(account)</text>
+  <text x="435" y="160" text-anchor="middle" font-size="9.5" fill="#777">default options</text>
+  <rect x="600" y="108" width="270" height="76" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="735.0" y="126" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">plain  (text)</text>
+  <text x="735.0" y="143" text-anchor="middle" font-size="9" fill="#333">{"Id":1,"Owner":"Asha Rao","Balance":500.00}</text>
+  <text x="735.0" y="158" text-anchor="middle" font-size="9" fill="#333">C# names kept: Id, Owner, Balance</text>
+  <text x="46" y="104" font-size="9" font-weight="bold" fill="#999">1</text>
+  <rect x="40" y="214" width="230" height="76" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="155.0" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">account  (Account object)</text>
+  <text x="155.0" y="249" text-anchor="middle" font-size="9" fill="#333">Id 1, Asha Rao, 500.00</text>
+  <line x1="270" y1="252" x2="600" y2="252" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435" y="244" text-anchor="middle" font-size="9.5" fill="#555">Serialize(account, webOptions)</text>
+  <text x="435" y="266" text-anchor="middle" font-size="9.5" fill="#777">camelCase names</text>
+  <rect x="600" y="214" width="270" height="76" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="735.0" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">camel  (text)</text>
+  <text x="735.0" y="249" text-anchor="middle" font-size="9" fill="#333">{"id":1,"owner":"Asha Rao","balance":500.00}</text>
+  <text x="735.0" y="264" text-anchor="middle" font-size="9" fill="#333">what ASP.NET Core sends by default</text>
+  <text x="46" y="210" font-size="9" font-weight="bold" fill="#999">2</text>
+  <rect x="40" y="320" width="230" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="338" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">camel  (JSON text)</text>
+  <text x="155.0" y="355" text-anchor="middle" font-size="9" fill="#333">"id", "owner", "balance"</text>
+  <line x1="270" y1="358" x2="600" y2="358" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435" y="350" text-anchor="middle" font-size="9.5" fill="#555">Deserialize&lt;Account&gt;(camel)</text>
+  <text x="435" y="372" text-anchor="middle" font-size="9.5" fill="#777">default options</text>
+  <rect x="600" y="320" width="270" height="76" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="735.0" y="338" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">wrongCase</text>
+  <text x="735.0" y="355" text-anchor="middle" font-size="9" fill="#333">Id = 0, Owner = null, Balance = 0</text>
+  <text x="735.0" y="370" text-anchor="middle" font-size="9" fill="#333">no error: unknown names are skipped</text>
+  <text x="46" y="316" font-size="9" font-weight="bold" fill="#999">3</text>
+  <rect x="40" y="426" width="230" height="76" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="155.0" y="444" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">camel  (JSON text)</text>
+  <text x="155.0" y="461" text-anchor="middle" font-size="9" fill="#333">"id", "owner", "balance"</text>
+  <line x1="270" y1="464" x2="600" y2="464" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435" y="456" text-anchor="middle" font-size="9.5" fill="#555">Deserialize&lt;Account&gt;(camel, webOptions)</text>
+  <text x="435" y="478" text-anchor="middle" font-size="9.5" fill="#777">web options</text>
+  <rect x="600" y="426" width="270" height="76" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="735.0" y="444" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">fromCamel</text>
+  <text x="735.0" y="461" text-anchor="middle" font-size="9" fill="#333">Id = 1, Owner = Asha Rao, 500.00</text>
+  <text x="735.0" y="476" text-anchor="middle" font-size="9" fill="#333">the names match: all three filled</text>
+  <text x="46" y="422" font-size="9" font-weight="bold" fill="#999">4</text>
+  <line x1="110" y1="184" x2="110" y2="214" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="110" y1="290" x2="110" y2="320" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="110" y1="396" x2="110" y2="426" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="110" y1="502" x2="110" y2="540" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="540" width="190" height="76" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="135.0" y="558" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">inputJson  (JSON text)</text>
+  <text x="135.0" y="575" text-anchor="middle" font-size="9" fill="#333">{"owner":"Dana Ortiz",</text>
+  <text x="135.0" y="590" text-anchor="middle" font-size="9" fill="#333">"balance":100}</text>
+  <line x1="230" y1="578" x2="335" y2="578" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="282" y="570" text-anchor="middle" font-size="9.5" fill="#555">POST body</text>
+  <rect x="335" y="540" width="230" height="76" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="450.0" y="558" text-anchor="middle" font-size="10" font-weight="bold" fill="#444444">THE SERVER</text>
+  <text x="450.0" y="575" text-anchor="middle" font-size="9" fill="#333">reads the JSON body (web names)</text>
+  <text x="450.0" y="590" text-anchor="middle" font-size="9" fill="#333">adds account 4, answers 201</text>
+  <line x1="565" y1="578" x2="650" y2="578" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="607" y="570" text-anchor="middle" font-size="9.5" fill="#555">201 + JSON</text>
+  <rect x="650" y="540" width="220" height="76" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="760.0" y="558" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">created  (Account)</text>
+  <text x="760.0" y="575" text-anchor="middle" font-size="9" fill="#333">Id = 4, Dana Ortiz, 100</text>
+  <text x="760.0" y="590" text-anchor="middle" font-size="9" fill="#333">Content-Type: application/json</text>
+  <text x="46" y="534" font-size="9" font-weight="bold" fill="#999">5</text>
+  <rect x="40" y="660" width="190" height="62" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="135.0" y="678" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">broken body</text>
+  <text x="135.0" y="695" text-anchor="middle" font-size="9" fill="#333">{"owner": }</text>
+  <text x="135.0" y="710" text-anchor="middle" font-size="9" fill="#333">(value missing)</text>
+  <line x1="230" y1="691" x2="335" y2="691" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="282" y="683" text-anchor="middle" font-size="9.5" fill="#555">POST body</text>
+  <rect x="335" y="660" width="230" height="62" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="450.0" y="678" text-anchor="middle" font-size="10" font-weight="bold" fill="#444444">THE SERVER</text>
+  <text x="450.0" y="695" text-anchor="middle" font-size="9" fill="#333">cannot read it as JSON</text>
+  <text x="450.0" y="710" text-anchor="middle" font-size="9" fill="#333">answers 400 Bad Request</text>
+  <line x1="565" y1="691" x2="650" y2="691" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="607" y="683" text-anchor="middle" font-size="9.5" fill="#555">400</text>
+  <rect x="650" y="660" width="220" height="62" rx="8" fill="#fdeaea" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="760.0" y="678" text-anchor="middle" font-size="10" font-weight="bold" fill="#990000">no Account is built</text>
+  <text x="760.0" y="695" text-anchor="middle" font-size="9" fill="#333">the request is rejected</text>
+  <text x="760.0" y="710" text-anchor="middle" font-size="9" fill="#333">(body not printed)</text>
+  <text x="46" y="654" font-size="9" font-weight="bold" fill="#999">6</text>
+  <line x1="110" y1="616" x2="110" y2="660" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="30" y="760" font-size="10.5" fill="#444"><tspan font-weight="bold">Same data, two shapes:</tspan> an Account object in memory, or JSON text on the wire. The Content-Type header says "this body is JSON".</text>
+  <text x="30" y="778" font-size="10" font-style="italic" fill="#888">Console.WriteLine: one line each for steps 1 to 4, 3 lines for step 5, and the 400 line for step 6 (printed by Send).</text>
+  <text x="30" y="796" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): two Console.WriteLine calls (a blank line and the title), not drawn.</text>
+</svg>

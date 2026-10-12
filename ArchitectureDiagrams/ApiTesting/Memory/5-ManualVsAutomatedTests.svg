@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 882" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1260" height="882" fill="#ffffff"/>
+  <text x="630.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">ApiTesting — ManualVsAutomatedTests — Memory: Stack / Heap / Static</text>
+  <text x="630.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainManualVsAutomatedTests() is running, after the last check, just before the summary line prints.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="760" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1205" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="474" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="334" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#274e13">ApiTestingDemo.ExplainManualVsAutomatedTests() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">server → pointer  (RunningServer)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">client → pointer  (HttpClient)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">passed = 5</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">failed = 1</text>
+  <rect x="62" y="266" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="283" font-size="10" fill="#1b3d1b">list → pointer  (ApiReply)</text>
+  <rect x="62" y="296" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="313" font-size="10" fill="#1b3d1b">listJson — gone: its using block has ended</text>
+  <rect x="62" y="326" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="343" font-size="10" fill="#1b3d1b">created → pointer  (ApiReply)</text>
+  <rect x="62" y="356" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="373" font-size="10" fill="#1b3d1b">deposit → pointer  (ApiReply)</text>
+  <rect x="62" y="386" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="403" font-size="10" fill="#1b3d1b">depositJson, balance — gone: using block ended</text>
+  <rect x="62" y="416" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="433" font-size="10" fill="#1b3d1b">missing → pointer  (ApiReply)</text>
+  <rect x="50" y="462" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="482" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">ApiTestingExample.Explain()</text>
+  <text x="220" y="498" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="522" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="558" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="120" width="300" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="142" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">RunningServer — server</text>
+  <rect x="472" y="152" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="169" font-size="10" fill="#7f4e00">BaseAddress = "http://127.0.0.1:&lt;port&gt;"</text>
+  <rect x="472" y="182" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="199" font-size="10" fill="#7f4e00">Client → pointer (HttpClient)</text>
+  <rect x="460" y="240" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="610.0" y="262" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">HttpClient (server.Client = client)</text>
+  <rect x="472" y="272" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="289" font-size="10" fill="#7f4e00">BaseAddress = the same address</text>
+  <text x="474" y="313" font-size="8.5" font-style="italic" fill="#a06a1f">(two pointers, ONE object)</text>
+  <polyline points="760,195 790,195 790,285 762,285" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="460" y="350" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — list</text>
+  <rect x="472" y="382" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="399" font-size="10" fill="#7f4e00">Status = 200</text>
+  <rect x="472" y="412" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="429" font-size="10" fill="#7f4e00">Body → pointer (string: JSON array)</text>
+  <text x="474" y="453" font-size="8.5" font-style="italic" fill="#a06a1f">(strings not drawn)</text>
+  <rect x="460" y="482" width="300" height="112" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — created</text>
+  <rect x="472" y="514" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="531" font-size="10" fill="#7f4e00">Status = 201</text>
+  <rect x="472" y="544" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="561" font-size="10" fill="#7f4e00">Location = "/api/accounts/3"</text>
+  <text x="474" y="585" font-size="8.5" font-style="italic" fill="#a06a1f">(Body: string, not drawn)</text>
+  <rect x="460" y="614" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="636" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — deposit</text>
+  <rect x="472" y="646" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="663" font-size="10" fill="#7f4e00">Status = 200</text>
+  <text x="474" y="687" font-size="8.5" font-style="italic" fill="#a06a1f">(Body: JSON with "balance": 550.25)</text>
+  <rect x="460" y="706" width="300" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="610.0" y="728" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ApiReply — missing</text>
+  <rect x="472" y="738" width="276" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="755" font-size="10" fill="#7f4e00">Status = 404</text>
+  <text x="474" y="779" font-size="8.5" font-style="italic" fill="#a06a1f">(the check expected 200: FAIL)</text>
+  <rect x="820" y="350" width="330" height="124" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="985.0" y="370" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the network (loopback)</text>
+  <text x="834" y="390" font-size="9.5" font-weight="bold" fill="#333333">GET /api/accounts  -&gt;  200</text>
+  <text x="834" y="406" font-size="9.5" font-weight="bold" fill="#333333">POST /api/accounts  -&gt;  201</text>
+  <text x="834" y="422" font-size="9.5" font-weight="bold" fill="#333333">POST /api/accounts/1/deposit  -&gt;  200</text>
+  <text x="834" y="438" font-size="9.5" font-weight="bold" fill="#333333">GET /api/accounts/999  -&gt;  404</text>
+  <text x="834" y="454" font-size="9.5" fill="#333333">Each reply is copied into an ApiReply.</text>
+  <polyline points="378,159 416,159 416,142 458,142" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 422,189 422,262 458,262" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,279 446,279 446,372 458,372" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,339 440,339 440,504 458,504" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,369 434,369 434,636 458,636" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,429 428,429 428,728 458,728" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1160" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1205" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1205" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="812" font-size="10.5" fill="#444"><tspan font-weight="bold">client and server.Client are two pointers to ONE HttpClient (red outline). </tspan>passed and failed are plain ints on the Stack; each Report(...) call added 1 to one of them through `ref`.</text>
+  <text x="40" y="830" font-size="10" font-style="italic" fill="#888">Every check is the same shape: a request goes out over the network (outside .NET), a reply is copied into an ApiReply, and an == compares it with what we expected.</text>
+  <text x="40" y="848" font-size="10" font-style="italic" fill="#888">The last check expected 200 on purpose; the server answered 404, so failed = 1.</text>
+</svg>
