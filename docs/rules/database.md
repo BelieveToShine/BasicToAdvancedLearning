@@ -16,8 +16,10 @@ rules apply from the first DB topic; extend them as real conventions emerge.
   instead of throwing when it is missing; (c) say in its ROADMAP tracker row whether it was run against a real SQL Server
   (and which version) or **"not yet run against a real SQL Server"**; (d) keep every SQL statement it sends as a plain string or
   EF-generated query that a reviewer can read and check against T-SQL docs.
-- Lessons use a dedicated scratch database (e.g. `BasicToAdvancedLearning`), create their own tables
-  idempotently (`IF OBJECT_ID(...) IS NULL`/drop-and-recreate) and never touch other databases.
+- Every lesson uses its OWN scratch database, named `<Initial Catalog>_<TopicFolder>` and created by `Interfaces/SqlLab.cs`
+  (`IsReady()` derives the name from the folder of the calling lesson). Lessons create their own tables idempotently
+  (drop-and-recreate, children before parents) and never touch other databases; `EnsureDeleted()` is allowed only on that lesson database and must say so on screen.
+  Point the variable only at a server where creating scratch databases is fine.
 - Never commit a connection string, password, or server name (see the secrets rule in `CLAUDE.md`).
 
 ## Read — allowed

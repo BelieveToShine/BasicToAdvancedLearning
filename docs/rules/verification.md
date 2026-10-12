@@ -29,7 +29,7 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
 - **FAIL** blocks check-in. **WARN** must each be either fixed or explained in the PR/working doc.
 - It derives the expected diagram list from the *order `Explain()` calls the demo methods*, so a
   renamed/reordered method that leaves stale diagrams is caught.
-- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 14 WARN. Your change must not add to
+- **WARN baseline** — `-All -SkipBuild` currently gives 0 FAIL / 25 WARN. Your change must not add to
   this list; anything else is yours to fix or explain.
   - *Accepted exceptions (don't "fix"):*
     - `Memory/2-Parameters.svg` (MethodsAndParameters): three-panel value/ref/out layout, so no Heap
@@ -43,7 +43,16 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -All -SkipBuil
     - `FileIO/Memory/*.svg` (all four, plus `Memory/0-Overview.svg`): a dashed grey "OUTSIDE .NET" box under the Heap for the
       operating-system file handle and the file on disk. The three locked columns, the 3 frames and the locked fills are
       untouched, so no WARN — the addition is recorded here.
-    - `Program.cs does not currently run <Topic>Example` (8 WARNs, one per older topic): only the
+    - SQL Server / network / server boxes (topics 10–20): every Memory diagram of these topics adds a dashed grey box under the Heap
+      for what lives outside the program's own variables ("OUTSIDE .NET — SQL Server: table rows", "OUTSIDE — the network",
+      "OUTSIDE THIS METHOD — the API server"), same precedent as FileIO. The three locked columns, the 3 frames and the locked
+      fills are untouched, so no WARN. `WebApiBasics/Memory/4` and `Memory/6` also have a wider Static column on a wider canvas
+      (a controller's static list / a shared probe counter); `EfCoreCrud/Memory/*` are 1300px wide with a second Heap column for
+      heap-to-heap pointers; `HttpAndRest/Memory/*` mark the shared `HttpClient` with a red stroke.
+    - React topics 21–27, Deployment (28) and `frontend/` generally: `verify-topic.ps1` does not scan them (it only reads the console
+      project). Their "Memory" diagrams are PROVISIONAL (owner decision pending, review item R15): they show where data/config lives
+      (props / state / derived / DOM, or files / image layers / environment / volume) instead of Stack/Heap/Static.
+    - `Program.cs does not currently run <Topic>Example` (19 WARNs, one per console topic except the wired Topic 9): only the
       active topic is wired; it only matters for the topic being finished.
   - *Known gaps in older topics (candidate cleanups, not blockers for new work):*
     - `Collections/Flow/4-CollectionSafety.svg`: two lines drift 1px off straight.
