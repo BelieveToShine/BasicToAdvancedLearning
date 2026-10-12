@@ -22,7 +22,7 @@
   <text x="485" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainOrderingAndAggregates()</text>
   <rect x="352" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
   <text x="360" y="168" font-size="9" fill="#333">amounts.OrderBy(amount =&gt; amount)</text>
-  <text x="360" y="190" font-size="9" fill="#333">amounts.Sum()  ·  amounts.Max()</text>
+  <text x="360" y="190" font-size="9" fill="#333">amounts.Sum()  ·  amounts.Count(…)</text>
   <text x="485" y="268" text-anchor="middle" font-size="9.5" fill="#274e13">Sort into a new sequence, or boil</text>
   <text x="485" y="284" text-anchor="middle" font-size="9.5" fill="#274e13">everything down to one number.</text>
   <rect x="650" y="100" width="290" height="250" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>

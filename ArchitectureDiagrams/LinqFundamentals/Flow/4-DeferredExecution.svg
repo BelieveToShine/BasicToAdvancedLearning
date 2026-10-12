@@ -56,6 +56,6 @@
   <line x1="220" y1="676" x2="220" y2="716" stroke="#333" stroke-width="2"/>
   <polygon points="220,676 220,694 250,685" fill="#cc0000"/>
   <text x="30" y="750" font-size="10.5" fill="#444"><tspan font-weight="bold">A query is a recipe, ToList() is the cooked plate:</tspan> deposits re-reads amounts every time; snapshot is a separate copy that never changes.</text>
-  <text x="30" y="768" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints "snapshot … 3 deposits" and "deposits … 4 deposits" — two lines. Dashed arrows = the pantry changing; solid arrows = reading it.</text>
+  <text x="30" y="768" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints "snapshot … 3 deposits" and "deposits … 4 deposits" — two lines. Dashed arrows = the pantry state at that step; solid arrows = a query reading it.</text>
   <text x="30" y="786" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
 </svg>
