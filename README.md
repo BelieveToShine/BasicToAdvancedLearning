@@ -19,9 +19,20 @@ the type after `new` (two lines — the comment in `Program.cs` shows how).
 | `ArchitectureDiagrams/<Topic>/` | The diagrams for that topic. Open the `.svg` files in a browser. Start with the architecture file, then `Flow/` and `Memory/`. |
 | `docs/` | The plan (`ROADMAP.md`), rules and specs. Start at `docs/README.md`. |
 
+## React lessons (topics 21–28)
+```
+cd frontend
+npm install
+npm run dev      # the lesson picker; pick a lesson on the left
+npx vitest run   # the tests that prove each lesson's claims
+```
+Topics 25–27 call the real bank API: start it first (`cd FullStackBank/Api && dotnet run`, with `BTAL_SQLSERVER` set; see `FullStackBank/README.md`). Topic 28's container setup is in `FullStackBank/deploy/README.md`.
+
 ## Topics
 See the tracker in [`docs/ROADMAP.md`](docs/ROADMAP.md) for what is done and what is coming next.
 
 ## Database lessons
 SQL lessons use **Microsoft SQL Server only**. Set your own connection string in the `BTAL_SQLSERVER`
-environment variable (never commit it). Without it, the database lessons print a message and skip.
+environment variable (never commit it), for example `Server=localhost,1433;User Id=sa;Password=<yours>;TrustServerCertificate=True;Initial Catalog=BasicToAdvancedLearning`.
+Each lesson creates and uses its own scratch database (`<Initial Catalog>_<LessonFolder>`), so use a server where that is fine. Without the variable, the database lessons print a message and skip.
+A throwaway local server: `docker run -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=<strong password> -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest`.

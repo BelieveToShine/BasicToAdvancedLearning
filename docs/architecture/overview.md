@@ -3,18 +3,21 @@
 ## Solution layout
 ```
 BasicToAdvancedLearning.sln
-BasicToAdvancedLearning.Console/            ← the only project today (net9.0 console app)
+BasicToAdvancedLearning.Console/            ← the lesson project for topics 1–20 (net9.0 console app)
    ├─ BasicToAdvancedLearning.Console.csproj   (RootNamespace = BasicToAdvancedLearning — see gotcha 1)
    ├─ Program.cs                               (fixed runner; depends only on ILearningTopic)
    ├─ Interfaces/ILearningTopic.cs             (void Explain();)
+   ├─ Interfaces/SqlLab.cs, WebLab.cs          (shared plumbing for the SQL Server and web topics — not lessons)
    └─ <TopicFolder>/
         ├─ <Topic>Demo.cs                      (the lesson: public ExplainX() per sub-concept)
         └─ <Topic>Example.cs                   (internal ILearningTopic adapter calling the demo)
+FullStackBank/Api/                              ← the real bank Web API (its own program, net9.0, EF Core + SQL Server); README.md + smoke.sh; deploy/ = Docker setup (topic 28)
+frontend/                                       ← React lessons (Vite + React 19): src/lessons/<Topic>/NN-*.jsx + tests (topics 21–28)
 scripts/                                        ← verify-topic.ps1, verify-docs.ps1, render-diagrams.ps1 (see docs/rules/verification.md)
 ArchitectureDiagrams/<TopicFolder>/            ← mandatory SVGs per topic (see rules/diagram-standards.md)
 docs/                                          ← this documentation tree
 ```
-Existing topic folders: `ProgrammingBasics/`, `ControlFlow/`, `MethodsAndParameters/`, `Collections/`, `OOP/`, `OOPAdvanced/`, `ExceptionHandling/`, `FileIO/`, `LinqFundamentals/`.
+Existing topic folders (console project): `ProgrammingBasics/`, `ControlFlow/`, `MethodsAndParameters/`, `Collections/`, `OOP/`, `OOPAdvanced/`, `ExceptionHandling/`, `FileIO/`, `LinqFundamentals/`, `RelationalConcepts/`, `SqlBasics/`, `SqlCrud/`, `AdoNet/`, `EfCoreBasics/`, `EfCoreCrud/`, `HttpAndRest/`, `WebApiBasics/`, `WebApiCrud/`, `ApiTesting/`, `JwtAuth/`. React lesson folders (`frontend/src/lessons/`): `ReactFundamentals/`, `ReactState/`, `ReactEffects/`, `ReactRouter/`, `ReactApiClient/`, `FullStackBank/`, `CrossLayerValidation/`, `Deployment/` (diagrams for all of them are under `ArchitectureDiagrams/<Folder>/` as usual).
 Note the Topic 1 files are named `ProgrammingBasics.cs` / `ProgrammingBasicsExample.cs` (no `Demo`
 suffix) — newer topics use `<Topic>Demo.cs`; new topics follow the newer convention. A topic may also hold
 helper-class files beside its demo (Topic 5: `BankAccount.cs`, `Bank.cs`; Topic 6: six class/interface files; Topic 7: `SafeAccount.cs`, `InsufficientFundsException.cs`) as long as they define no `ExplainX()` methods.

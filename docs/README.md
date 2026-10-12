@@ -23,6 +23,7 @@ CLAUDE.md
 BasicToAdvancedLearning.Console/<TopicFolder>/       ← the lesson code
    ├─ <Topic>Demo.cs        (the actual explained concepts + comments)
    └─ <Topic>Example.cs     (adapts the demo to ILearningTopic)
+frontend/src/lessons/<TopicFolder>/                  ← React lessons (topics 21–28); FullStackBank/ = the real API + Docker setup
 ArchitectureDiagrams/<TopicFolder>/                  ← the pictorial explanation (mandatory)
    ├─ <Topic>.svg           (architecture / concept, one file)
    ├─ Flow/0-Overview.svg + <N>-<Method>.svg          (call/return trace per method)

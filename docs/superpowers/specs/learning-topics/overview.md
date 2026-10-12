@@ -34,17 +34,37 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 7 | Exception Handling | `ExceptionHandling/` | `try`/`catch`, catch order, `finally`, custom exceptions — running example `SafeAccount` + `InsufficientFundsException` |
 | 8 | File I/O | `FileIO/` | `File.WriteAllText`/`ReadAllText`, `StreamWriter`/`StreamReader` with `using`, `Path.Combine` and `File.Exists`, `FileNotFoundException` — running example: a tiny bank statement in the temp folder |
 | 9 | LINQ Fundamentals | `LinqFundamentals/` | `Where`/`Select`, `OrderBy` and aggregates (`Sum`, `Max`, `Count`), `Any`/`All`/`First`/`FirstOrDefault`, deferred execution — running example: a `List<decimal>` of bank amounts |
+| 10 | Relational Concepts | `RelationalConcepts/` | tables/rows/columns, primary keys, foreign keys, constraints and NULLs, normalization — T-SQL via `SqlLab` on the bank tables |
+| 11 | SQL Basics | `SqlBasics/` | SELECT/WHERE, IN/BETWEEN/LIKE, ORDER BY/TOP, joins, GROUP BY and aggregates, WHERE vs HAVING |
+| 12 | SQL CRUD | `SqlCrud/` | INSERT, UPDATE, DELETE, transactions, XACT_ABORT, safe habits |
+| 13 | ADO.NET | `AdoNet/` | SqlConnection/SqlCommand, parameters (and the injection demo), SqlDataReader, SqlTransaction |
+| 14 | EF Core Basics | `EfCoreBasics/` | entity classes, DbContext/DbSet, Fluent API, a real generated migration, EnsureCreated vs Migrate |
+| 15 | EF Core CRUD | `EfCoreCrud/` | Add/SaveChanges, LINQ queries, Include, change tracking, Remove, all-or-nothing saves |
+| 16 | HTTP and REST | `HttpAndRest/` | requests/responses, methods, status codes, JSON, REST resources — in-process server via `WebLab` |
+| 17 | Web API Basics | `WebApiBasics/` | controllers, routing, model binding, action results, dependency injection, service lifetimes |
+| 18 | Web API CRUD | `WebApiCrud/` | CRUD endpoints over EF Core + SQL Server, DTOs, validation, 201/404/409 |
+| 19 | API Testing | `ApiTesting/` | OpenAPI/Swagger, Swagger UI, documenting endpoints, Postman collection and `.http` file, simple checks |
+| 20 | JWT Auth | `JwtAuth/` | 401 vs 403, what a JWT is, login and token issuing, `[Authorize]`, token lifetime |
+| 21 | React Fundamentals | `ReactFundamentals/` | JSX, components, props, lists and keys, conditional rendering (frontend lessons) |
+| 22 | React State | `ReactState/` | useState, event handlers, state updates, controlled inputs, objects and arrays |
+| 23 | React Effects | `ReactEffects/` | useEffect, dependencies, cleanup, fetching data, custom hooks |
+| 24 | React Router | `ReactRouter/` | routes and links, params, nested routes, navigation and search params, route guard preview |
+| 25 | React API Client | `ReactApiClient/` | calling the real API: GET/POST, status codes in the UI, an API module, proxy and CORS |
+| 26 | Full-stack bank | `FullStackBank/` | the end-to-end mini project; the API itself is `FullStackBank/Api/` (its own program) |
+| 27 | Cross-layer validation | `CrossLayerValidation/` | browser/API/database validation, field errors, business-rule errors, error boundaries, double submit |
+| 28 | Deployment (optional) | `Deployment/` | Docker/compose setup for API + web + SQL Server, configuration vs code |
 
 ## Running it locally
-- Prerequisite: .NET 9 SDK.
+- Prerequisites: .NET 9 SDK; for topics 10–20 a SQL Server you may create scratch databases on (set `BTAL_SQLSERVER`; see the Configuration reference); for topics 21–28 Node 22 + npm (`cd frontend && npm install && npm run dev`); Docker for topic 28.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `LinqFundamentalsExample`); change the `using` line and the type after `new` to run another (both must change, or the build fails).
+  one topic (currently `LinqFundamentalsExample`; topics 10–20 are C# lessons too, topics 21–28 are React lessons run with `npm run dev`); change the `using` line and the type after `new` to run another (both must change, or the build fails).
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
 
 ## Configuration reference
-None. There are no config keys, environment variables, or connection strings yet.
+- `BTAL_SQLSERVER` — SQL Server connection string used by topics 10–15, 18 and by `FullStackBank/Api` (never committed). Each lesson uses its own database named `<Initial Catalog>_<TopicFolder>`; the variable's own database is only the naming base. If it is missing the lesson prints a skip message.
+- `API_URL` — where the Vite dev server proxies `/api` (default `http://localhost:5080`).
 
 ## Known gaps / deliberate scope cuts
 - No unit-test project; verification is build + run + `scripts/verify-topic.ps1` + manual and independent review (see `rules/verification.md`). The script checks structure and rules, not visual quality or the truth of a diagram.
@@ -63,8 +83,7 @@ None. There are no config keys, environment variables, or connection strings yet
   `finally` (or straight after use). Every Memory diagram adds a dashed "OUTSIDE .NET" box (file handle + disk) under
   the Heap — a recorded addition to the locked shape (see `rules/verification.md`).
 - Topic 9 needs no helper classes: every method queries a `List<decimal>` built by a private `CreateAmounts()` helper
-  inside the demo. Phase 1 (topics 1–9) is complete; this spec describes the C# lesson-topic shape only — Phase 2
-  (SQL) is not covered here and needs its own category once the owner settles the open decisions (R13).
+  inside the demo. All 28 topics are built. This spec describes the lesson-topic shape (code + diagrams); the SQL/web variations are in `rules/database.md`, the ROADMAP gotchas 15–22 and `Interfaces/SqlLab.cs` / `Interfaces/WebLab.cs`; the React lessons follow the same diagram numbering under `frontend/src/lessons/`.
 - Open question: whether to add a runtime topic picker or keep the deliberate two-line swap (the `using` and the type after `new`; it doubles
   as the polymorphism teaching example).
 

@@ -144,24 +144,52 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 
 ### R11 — Open `TODO:` decisions  `needs-owner`
 - **Status:** needs-owner
-- Ticket prefix/tracker, integration branch, branch naming, PR-review tool, DB engine/folder, diagram
+- Ticket prefix/tracker, integration branch, branch naming, PR-review tool, DB folder (the engine is decided: D8), diagram
   draft/approval step. Listed by `verify-docs.ps1`. Owner answers go in `decisions.md` (Q2).
 
 ---
 
-### R13 — Phase 2 (SQL) needs owner decisions before any topic is built  `needs-owner`
+### R13 — Phase 2 (SQL): engine decided, the rest went ahead provisionally  `needs-owner`
+- **Status:** needs-owner (partly answered)
+- **Answered:** engine = **Microsoft SQL Server only** (decision D8 in `decisions.md`; written into `rules/database.md`).
+- **Done provisionally while the owner was away (please confirm or change):** SQL topics 10–12 are ordinary C# lessons that send T-SQL through
+  `Interfaces/SqlLab.cs`, so the existing demo+adapter shape, `verify-topic.ps1` and the three diagram folders apply unchanged. For "Memory" the locked
+  Stack/Heap/Static frames stay (they show the C# runner's locals) and every diagram adds the dashed "OUTSIDE .NET — SQL Server" box with the real rows
+  (the Topic 8 precedent). No `.sql` script folder was created (`rules/database.md` TODO about `sql/` vs `scripts/` is still open).
+- **Verify by:** `decisions.md` has the owner's answer to the three provisional points; `rules/diagram-standards.md` and `rules/verification.md` list the SQL-Server-box addition as an accepted exception.
+
+---
+
+### R14 — Script and rule gaps found by the deep audit (all need the owner: protected files)  `needs-owner`
 - **Status:** needs-owner
-- **Where:** `docs/ROADMAP.md` "Next"; `docs/rules/database.md` (a placeholder stub); `docs/rules/diagram-standards.md`
-  (the three mandatory diagrams are written for C#: Stack/Heap/Static); `scripts/verify-topic.ps1` (assumes a C#
-  demo + adapter per topic).
-- **Evidence:** Phase 1 ended with Topic 9. Topic 10 starts SQL; there is no agreed DB engine (open `TODO:` Q2), no
-  database rule file content, and no meaning for Stack/Heap/Static in a SQL lesson.
-- **Suggested decisions (owner):** (1) engine + tooling — SQLite is the only one a cloud/CI session can reliably run;
-  (2) replacement diagram trio for SQL (ERD / query-pipeline Flow / table before-and-after state) — a rule change, so
-  it needs a `decisions.md` entry and a `rules:` commit; (3) where SQL lessons live (console project or a `.sql` folder)
-  and what the verify script should check for them.
-- **Verify by:** `decisions.md` has the answers; `rules/database.md` and `diagram-standards.md` carry the new rules;
-  `verify-topic.ps1` supports the new topic shape.
+- `verify-topic.ps1` build check can report "0 warnings" on an incremental build that skipped compiling — use `--no-incremental`.
+- Diagonal check ignores `polyline`, relative path commands and `transform`s; it also never checks an arrow crossing a box or text overflowing a box
+  (an external text-fit script and a path-vs-rectangle script were used by hand and could be added).
+- Tracker row lookup breaks if the topic folder appears in backticks earlier in `ROADMAP.md`; the Stack/Heap/Static "Fail" check is dead for Memory/0; the variable
+  check misses `using` variables, lambdas parameters and counts braces inside string literals (a lesson with an unbalanced `{` in a string gives a false WARN).
+- The "Program.cs does not currently run X" WARN grows with every topic (now 20 console topics); consider downgrading it to an INFO or checking only the topic named by `-Topic`.
+- `verify-docs.ps1` blind spots: it checks "topics 1–N" claims only in two files; stale counts elsewhere (README, architecture overview, specs) are not detected.
+- `decisions.md`: a blank line breaks the table after D3, and there is no "who gave it" column. `rules/diagram-standards.md` should list the accepted exceptions
+  (Topic 7/8, the SQL-Server / network / server boxes, wide Static columns) instead of only `verification.md`.
+- `rules/checkin-and-pr.md` vs `governance.md`: `rules:` recording commits went to master directly while "rules changes stay on a branch" — reconcile.
+- `docs/aidlc.md` example line still describes a one-line `Program.cs` change (it is two lines).
+- `render-diagrams.ps1` needs Microsoft Edge on Windows; add a headless-Chromium option (what the review runs used).
+- `rules/database.md`: say that every lesson gets its own scratch database (done in code: `SqlLab`), and decide `sql/` vs `scripts/` for hand-run scripts.
+- **Verify by:** the owner decides per bullet; scripts fixed and `-All -SkipBuild` still agrees with the baseline.
+
+### R15 — Provisional decisions made while the owner was away  `needs-owner`
+- **Status:** needs-owner
+1. **React/deployment diagram convention.** The Stack/Heap/Static legend has no useful meaning for JSX or a compose file, so topics 21–28 keep the same folder layout
+   and numbering (`<Topic>.svg`, `Flow/`, `Memory/`) but "Memory" shows *where the data lives*: props (green), state (orange), derived values (purple), the DOM / browser /
+   SQL rows (dashed grey box). Extra colours used: light blue (module data / volumes), yellow (refs), blue (effect closures). `verify-topic.ps1` does not check these
+   folders at all (it only scans the console project): `frontend` tests and the review runs were the checks. If accepted, write it into `rules/diagram-standards.md`.
+2. **One console project for topics 1–20**, packages pinned in the csproj (EF Core 9.0.20, SqlClient 6.0.2, JwtBearer 9.0.20, Swashbuckle 10.3.0); the web topics use
+   `FrameworkReference Microsoft.AspNetCore.App` with the plain SDK and an in-process server (`WebLab`); no async/await in lessons.
+3. **Shared plumbing in `Interfaces/`** (`SqlLab.cs`, `WebLab.cs`) — not a lesson folder, so `verify-topic.ps1 -All` skips it. A better home/name may be wanted.
+4. **A real second program**, `FullStackBank/Api/`, added to the solution (no auth, HTTPS or CORS — a local learning API only), plus a Docker setup for it (topic 28, optional).
+5. **Phase order built:** 1 → 2 → 3 → 4 → 5 → 6 straight through; ROADMAP numbering unchanged.
+6. **Testing environment:** SQL Server 2022 in Docker, .NET 10 runtime with the net9.0 target, headless Chromium for diagrams and React pages. Re-run on the owner's real server and a net9 runtime.
+- **Verify by:** each point answered in `decisions.md` and reflected in `rules/`.
 
 ---
 

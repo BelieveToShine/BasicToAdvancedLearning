@@ -10,6 +10,31 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
+**Done this session (Phases 2–6, topics 10–28 — built in one unattended run; the owner reviews at the end):**
+- Topics 10–28 are implemented, each with its lesson code and the mandatory diagram set (13–15 SVGs per topic), and each went
+  through an independent fresh-context review whose findings were fixed (see the tracker rows). The owner asked for SQL Server
+  only (decision D8 in `decisions.md`; engine rules in `rules/database.md`). Real connection strings come later: lessons read
+  `BTAL_SQLSERVER`, print a friendly skip message when it is missing, and give every lesson its OWN scratch database
+  (`<Initial Catalog>_<TopicFolder>`, created automatically by `Interfaces/SqlLab.cs`).
+- **Everything below was run against SQL Server 2022 in Docker, on a .NET 10 runtime with the `net9.0` target (roll-forward).
+  Nothing has been run against the owner's own SQL Server or on a net9 runtime yet** — please do that first.
+- Shape of the new topics: SQL topics 10–12 are C# lessons that send T-SQL through `SqlLab` (so the existing `ILearningTopic`
+  shape, scripts and diagram rules still apply; every Memory diagram adds the dashed "OUTSIDE .NET — SQL Server" box, the
+  Topic 8 precedent). Web topics 16–20 host a small ASP.NET Core server inside the console process (`Interfaces/WebLab.cs`,
+  `FrameworkReference Microsoft.AspNetCore.App` on the plain SDK so web implicit usings do not leak into other topics) and call
+  it with `HttpClient`; lessons use no `async`/`await` (not taught yet). React topics 21–27 and 28's lesson page are plain-JavaScript
+  lessons in `frontend/src/lessons/<Topic>/` (Vite + React 19; `NN-Name.jsx` files are auto-listed by the picker; vitest tests prove
+  the claims). Topic 26/27 call the REAL API in `FullStackBank/Api/` (its own program; contract in `FullStackBank/README.md`).
+  Topic 28 ships a tested Docker/compose setup in `FullStackBank/deploy/`.
+- **Provisional decisions awaiting the owner** (all recorded in `review-recommendations.md` R15): SQL topics keep the C#-lesson shape with
+  the SQL-Server box added to Memory diagrams; React/deployment "Memory" diagrams show where data/config lives instead of
+  Stack/Heap/Static (extra legend colours: light blue for module data, yellow refs, blue effect closures, a volume colour);
+  one shared console project for topics 1–20; package versions pinned in the csproj; SQL Server image `2022-latest` for testing.
+- `Program.cs` runs one topic at a time exactly as before: change the `using` line and the type after `new`. After this run it is wired to
+  `LinqFundamentalsExample` (Topic 9); topics 10–20 are not wired, which is why the WARN baseline in `rules/verification.md` grew.
+- Phase 1 got a deep accuracy pass first (wrong claims, loop-back arrows through boxes, clipped footers): see the commits titled
+  "Fix Phase 1 audit findings" and "Phase 1 review round 2".
+
 **Done this session (Topic 9 — LINQ fundamentals, which completes Phase 1):**
 - Topic 9 implemented + explained with 11 diagrams (see the tracker row below). The bank thread ends Phase 1 as a
   `List<decimal>` of amounts (positive = deposit, negative = withdrawal) queried four ways — no new classes.
@@ -118,19 +143,11 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** Phase 1 is finished. Phase 2 (SQL & Database, topics 10–12) is a different kind of material —
-tables and queries, not C# objects — so STOP and settle the open questions with the owner before building
-Topic 10 (see item R13 in [`review-recommendations.md`](review-recommendations.md)):
-1. Which database engine and tooling the lessons use (SQL Server, SQLite, PostgreSQL…) — the docs still list this
-   as an open `TODO:`, and `rules/database.md` is only a placeholder stub until it is decided. A cloud build sandbox may not be able to
-   run a database server, so a file-based engine (SQLite) may be the only thing a session can actually execute.
-2. What "the three mandatory diagrams" become for SQL: Stack/Heap/Static has no meaning for a query. Propose
-   replacements (an entity-relationship diagram for the architecture view, a query-pipeline diagram for Flow, a
-   "what the table holds before and after" diagram for Memory) and get them approved before drawing anything.
-3. Whether SQL lessons live in the C# console project (running queries from code) or in their own folder of `.sql`
-   scripts, and what `verify-topic.ps1` should check for them (it currently assumes a C# demo + adapter).
-4. Folder/namespace and method list for Topic 10 (relational concepts — tables, keys, normalization), the running
-   example (the bank thread: `Customers`, `Accounts`, `Transactions`), and the branch name.
+**Next:** all 28 planned topics are built. What is left is the owner's review and these decisions (details in
+[`review-recommendations.md`](review-recommendations.md)): confirm or change the provisional choices listed in the
+status snapshot (R15), run the SQL / API / container lessons against the owner's own SQL Server (nothing so far ran against it),
+and decide which of the proposed script and rule improvements (R14) to adopt. Adding a topic 29+ follows the runbook
+below; React topics follow `frontend/` conventions (see the gotchas), database and web topics follow `rules/database.md`.
 
 ## Topic tracker
 
@@ -151,44 +168,44 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 8 | File I/O basics | ✅ | `FileIO/` | `FileIO.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (WriteAndReadText, LinesAndStreams, PathsAndExistence, FileErrors) — 11 files. One running example (a tiny bank statement in the temp folder, deleted afterwards). Flow diagrams use 4 fresh metaphors (filing cabinet, water pipe, address labels, lost-property desk). Every Memory diagram adds a dashed "OUTSIDE .NET" box for the file handle and the disk — a recorded addition to the locked shape; `Memory/2-LinesAndStreams.svg` is the key one (StreamReader → FileStream → OS handle) |
 | 9 | LINQ fundamentals | ✅ | `LinqFundamentals/` | `LinqFundamentals.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (WhereAndSelect, OrderingAndAggregates, AskingQuestions, DeferredExecution) — 11 files. One running example (a `List<decimal>` of bank amounts, no new classes). Flow diagrams use 4 fresh metaphors (conveyor with a filter gate, scoreboard, quiz show, recipe card and pantry). `Memory/4-DeferredExecution.svg` is the key one (an unrun query = iterator + lambda; `ToList()` = a separate copy) |
 
-### Phase 2 — SQL & Database
-| # | Topic | Status |
-|---|---|---|
-| 10 | Relational DB concepts — tables, keys, normalization | ⬜ |
-| 11 | SQL basics — SELECT/WHERE/ORDER BY/JOIN/GROUP BY | ⬜ |
-| 12 | SQL CRUD | ⬜ |
+### Phase 2 — SQL & Database (SQL Server only)
+| # | Topic | Status | Folder | Diagram |
+|---|---|---|---|---|
+| 10 | Relational DB concepts — tables, keys, normalization | ✅ | `RelationalConcepts/` | `RelationalConcepts.svg` (architecture: ER-style picture of Customers/Accounts/Transactions) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (TablesRowsColumns, PrimaryKeys, ForeignKeys, ConstraintsAndNulls, Normalization) — 13 files. T-SQL on SQL Server sent from C# through `Interfaces/SqlLab.cs`; the bank (Customers → Accounts → Transactions) is the running example. Every Memory diagram adds the dashed grey "OUTSIDE .NET — SQL Server" box with the real rows (Topic 8 precedent). Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
+| 11 | SQL basics — SELECT/WHERE/ORDER BY/JOIN/GROUP BY | ✅ | `SqlBasics/` | `SqlBasics.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–6 (SelectAndWhere, HandyFilters, OrderingAndTop, Joins, GroupByAndAggregates, WhereVsHaving) — 15 files. Seeds 4 customers / 6 accounts / 12 transactions; Dana Smith has no account so LEFT JOIN is interesting. `WhereVsHaving` shows the two errors SQL Server really gives (147, 207). Same SQL-Server box on every Memory diagram. Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
+| 12 | SQL CRUD — INSERT, UPDATE, DELETE, transactions | ✅ | `SqlCrud/` | `SqlCrud.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–6 (InsertRows, UpdateRows, DeleteRows, Transactions, XactAbort, SafeHabits) — 15 files. Memory diagrams show table rows before and after inside the SQL Server box. Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
 
 ### Phase 3 — Connecting C# to SQL
-| # | Topic | Status |
-|---|---|---|
-| 13 | ADO.NET basics | ⬜ |
-| 14 | EF Core — DbContext, models, migrations | ⬜ |
-| 15 | EF Core CRUD (LINQ-to-Entities) | ⬜ |
+| # | Topic | Status | Folder | Diagram |
+|---|---|---|---|---|
+| 13 | ADO.NET basics | ✅ | `AdoNet/` | `AdoNet.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (ConnectionAndCommand, Parameters, ReadingRows, Transactions) — 11 files. `Microsoft.Data.SqlClient` used directly (SqlConnection/SqlCommand/SqlDataReader/SqlTransaction); the SQL-injection demo only touches scratch tables. Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
+| 14 | EF Core — DbContext, models, migrations | ✅ | `EfCoreBasics/` | `EfCoreBasics.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (ModelClasses, DbContextAndDbSet, FluentApiConfiguration, Migrations, EnsureCreatedVsMigrate) — 13 files. Contains a REAL generated `Migrations/` folder (`dotnet ef migrations add InitialCreate`, EF Core 9.0.20). Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
+| 15 | EF Core CRUD (LINQ-to-Entities) | ✅ | `EfCoreCrud/` | `EfCoreCrud.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–6 (AddAndSave, QueryingWithLinq, RelatedData, UpdatingTrackedEntities, RemovingRows, SaveChangesIsAllOrNothing) — 15 files. The lesson prints the SQL EF really sends (via a small interceptor, `SqlSpy`). Memory diagrams are 1300px wide (second Heap column for tracker-row → entity pointers): a recorded locked-shape exception. Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
 
 ### Phase 4 — Web API
-| # | Topic | Status |
-|---|---|---|
-| 16 | HTTP & REST fundamentals | ⬜ |
-| 17 | ASP.NET Core Web API basics — controllers, routing | ⬜ |
-| 18 | CRUD endpoints backed by EF Core + SQL | ⬜ |
-| 19 | Testing APIs with Swagger/Postman | ⬜ |
-| 20 | Basic auth/authorization (JWT overview) | ⬜ |
+| # | Topic | Status | Folder | Diagram |
+|---|---|---|---|---|
+| 16 | HTTP & REST fundamentals | ✅ | `HttpAndRest/` | `HttpAndRest.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (RequestAndResponse, HttpMethods, StatusCodes, JsonBodies, RestResources) — 13 files. A tiny in-process server (`Interfaces/WebLab.cs`) answers real `HttpClient` calls; Memory diagrams add a dashed box for the network text. Run on a .NET 10 runtime with the net9.0 target (roll-forward), not on a net9 runtime. |
+| 17 | ASP.NET Core Web API basics — controllers, routing, model binding, action results, DI | ✅ | `WebApiBasics/` | `WebApiBasics.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–6 (ControllerAndAction, Routing, ModelBinding, ActionResults, DependencyInjection, ServiceLifetimes) — 15 files. `Memory/4` and `Memory/6` have a wider Static column (a controller's static list, a shared probe counter): recorded exception. Run on a .NET 10 runtime with the net9.0 target; the exact key names of a 400 ProblemDetails for broken JSON were deliberately not printed because they can differ between versions. |
+| 18 | CRUD endpoints backed by EF Core + SQL Server | ✅ | `WebApiCrud/` | `WebApiCrud.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (DbContextInDI, ReadEndpoints, CreateEndpoint, UpdateAndDelete) — 11 files. DTOs (entities never leave the API), `[ApiController]` validation, 201+Location, 409 mapped from SQL error numbers. The lesson drops its own scratch database with `EnsureDeleted()` and says so on screen. Run against SQL Server 2022 (Docker) only — not yet against the owner's server. |
+| 19 | Testing APIs with Swagger/OpenAPI and Postman | ✅ | `ApiTesting/` | `ApiTesting.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (WhatIsOpenApi, SwaggerUi, DocumentingEndpoints, PostmanAndHttpFiles, ManualVsAutomatedTests) — 13 files. Ships a real `bank-api.http` and a Postman v2.1 collection (run for real with `newman`, 8/8 passing); the lesson replays the collection against the in-process API. Swashbuckle 10.3.0. Not opened in the Postman GUI or VS Code REST Client. |
+| 20 | Basic auth/authorization — JWT overview | ✅ | `JwtAuth/` | `JwtAuth.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (AuthenticationVsAuthorization, WhatIsAJwt, IssuingATokenLogin, ProtectingEndpoints, TokenLifetime) — 13 files. Signing key generated at run time, nothing secret printed; demo users are in memory and the plain-text password compare is labelled DEMO ONLY. Memory diagrams add a dashed "OUTSIDE THIS METHOD — the API server" box. |
 
 ### Phase 5 — React Frontend
-| # | Topic | Status |
-|---|---|---|
-| 21 | React fundamentals — JSX, components, props | ⬜ |
-| 22 | State & events (useState) | ⬜ |
-| 23 | Side effects & data fetching (useEffect) | ⬜ |
-| 24 | React Router | ⬜ |
-| 25 | Calling the Web API from React | ⬜ |
+| # | Topic | Status | Folder | Diagram |
+|---|---|---|---|---|
+| 21 | React fundamentals — JSX, components, props | ✅ | `ReactFundamentals/` | `ReactFundamentals.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (Jsx, Components, Props, ListsAndKeys, ConditionalRendering) — 13 files. 36 tests; the index-key bug and the stray `0` are reproduced in a real browser. Lessons 3–5 use `useState` only as a labelled preview of Topic 22. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 22 | State & events (useState) | ✅ | `ReactState/` | `ReactState.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (UseState, EventHandlers, StateUpdates, ControlledInputs, ObjectsAndArrays) — 13 files. 25 tests (render counts proved with React's `<Profiler>`); money is kept in whole cents. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 23 | Side effects & data fetching (useEffect) | ✅ | `ReactEffects/` | `ReactEffects.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (WhatIsAnEffect, Dependencies, Cleanup, FetchingData, CustomHooks) — 13 files. 28 tests; StrictMode's development double-run and the async-effect crash were verified in a real browser. Two extra legend colours (refs, effect closures). Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 24 | React Router | ✅ | `ReactRouter/` | `ReactRouter.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (RoutesAndLinks, RouteParams, NestedRoutesAndLayouts, NavigationAndSearchParams, ProtectedRoute-preview) — 13 files. react-router-dom 7.18.4 inside `MemoryRouter`s; the guard lesson says plainly that client-side guards are UX only. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 25 | Calling the Web API from React | ✅ | `ReactApiClient/` | `ReactApiClient.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (GetFromTheApi, PostAndRefresh, StatusCodesInTheUi, ApiModule, ProxyAndCors) — 13 files. Calls the real `FullStackBank/Api` through the Vite proxy (verified in headless Chromium); shows a friendly state when the API is not running. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
 
 ### Phase 6 — Full Stack Integration
-| # | Topic | Status |
-|---|---|---|
-| 26 | End-to-end mini project (React → Web API → SQL) | ⬜ |
-| 27 | Error handling & validation across all layers | ⬜ |
-| 28 | (Optional) Deployment basics | ⬜ |
+| # | Topic | Status | Folder | Diagram |
+|---|---|---|---|---|
+| 26 | End-to-end mini project (React → Web API → SQL) | ✅ | `FullStackBank/` | `FullStackBank.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (AccountsList, AccountDetail, MoneyForm, OpenAccount, TheWholeApp) — 13 files. The React side lives in `frontend/src/lessons/FullStackBank/`; the real API (EF Core + SQL Server, rowversion concurrency, ProblemDetails errors) is its own program in `FullStackBank/Api/` (see `FullStackBank/README.md`; `FullStackBank/smoke.sh` checks 38 behaviours). No authentication, HTTPS or CORS — local learning API only. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 27 | Error handling & validation across all layers | ✅ | `CrossLayerValidation/` | `CrossLayerValidation.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per lesson 1–5 (ThreeLayers, FieldErrorsFromProblemDetails, BusinessRuleErrors, UnexpectedErrors, LoadingRetryAndDoubleSubmit) — 13 files. Every claim about which layer rejects which input was checked against the real API and the real database; the only class component is the ErrorBoundary. Lives in `frontend/src/lessons/<Folder>/` (Vite + React 19, plain JavaScript); run with `cd frontend && npm install && npm run dev`, tests with `npx vitest run`. Memory diagrams follow the PROVISIONAL React convention (where the data lives: props / state / derived / DOM) — owner decision pending (R15). |
+| 28 | (Optional) Deployment basics | ✅ | `Deployment/` | `Deployment.svg` + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per guide step 1–5 (EnvFile, ApiImage, WebImage, ComposeUp, VerifyAndTearDown) — 13 files. The container setup is real and was built and run (`FullStackBank/deploy/`: API image, nginx + React image, SQL Server, init job with a least-privilege login). Memory diagrams show where configuration lives (files / image layers / container environment / volume). Not run on Windows, Docker Desktop or ARM; HTTPS is not set up. Lesson page in `frontend/src/lessons/Deployment/`. |
 
 ## Conventions & gotchas
 
@@ -252,6 +269,33 @@ Real lessons found while building this, worth knowing so they're never rediscove
 14. **`First` throws, `FirstOrDefault` guesses.** `First` on no match throws `InvalidOperationException`;
     `FirstOrDefault` returns the type's default (`0` for a `decimal`), which can be confused with a real answer —
     ask `Any(...)` first when 0 is a legitimate value.
+15. **SQL Server only, one scratch database per lesson.** `Interfaces/SqlLab.cs` reads `BTAL_SQLSERVER`, takes the folder name of the
+    lesson that called `SqlLab.IsReady()` and uses `<Initial Catalog>_<Folder>` as that lesson's database (created if missing). So lessons
+    never share tables, and `EnsureDeleted()` (Topics 15, 18) only drops the lesson's own database — but it still deletes a whole database, so
+    point the variable only at a server where scratch databases are fine. Never commit a connection string.
+16. **Lessons must be repeatable.** Every database lesson drops/recreates its own tables (children before parents) at the start; the whole run
+    was executed twice per topic and the outputs compared byte for byte. Keep printed output free of ports, timestamps, tokens and
+    version-dependent .NET messages (print status codes, error NUMBERS, field names instead).
+17. **EF Core facts worth keeping straight.** With no precision set, EF Core 9 maps `decimal` to `decimal(18,2)` and logs a warning that values
+    which do not fit would be silently truncated; `EnsureCreated()` then `Migrate()` fails (error 2714) while `Migrate()` then `EnsureCreated()`
+    does nothing; a refused INSERT still uses up an IDENTITY value; EF does not print `BEGIN`/`COMMIT` in the command text (it starts the transaction
+    through ADO.NET). Migrations were generated with `dotnet-ef` 9.0.20 (`dotnet tool install --global dotnet-ef --version 9.0.20`).
+18. **Hosting a web server inside a console lesson.** Use `WebLab` (random free port, logging cleared, `AddControllersOnly(...)` so each topic only sees its
+    own controllers). Web usings are NOT implicit (plain SDK): add them. ASP.NET Core error bodies carry a changing `traceId` and version-dependent text:
+    print status codes and field names only. `verify-topic.ps1` counts `{`/`}` inside string literals, so an unbalanced `{` in a literal inside a lesson
+    method makes it read the next methods as part of that body and raise a false variable WARN: keep such literals brace-balanced or at class level.
+19. **Environment caveat.** The author machine had only a .NET 10 runtime, so the `net9.0` projects ran with `DOTNET_ROLL_FORWARD=Major`. Behaviour that differs
+    between 9 and 10 (for example exact ProblemDetails key names for broken JSON) is deliberately not printed. Run everything once on a net9 SDK.
+20. **React lessons.** `frontend/` is one Vite app; the picker (`src/App.jsx`) lists every `src/lessons/<Topic>/NN-*.jsx` (names start with a digit; tests and
+    helpers do not). In development StrictMode runs every effect twice on mount — counters and request logs are one higher than a production build shows
+    (say so on the page). Tests mock `fetch`; the real API was also driven in headless Chromium. An `async` function passed to `useEffect` crashes React 19
+    on cleanup/unmount (also in production builds) — the Effects lesson shows it.
+21. **Browser vs API.** A browser `fetch` resolves on 4xx/5xx (`ok` is false); it rejects only when no HTTP answer arrives. With the Vite dev proxy and the API
+    stopped, the proxy answers 502 `text/plain`. The proxy's string form sets `changeOrigin: true`, so a 201's `Location` header carries the API's own origin:
+    use its path only. CORS is enforced by the browser; a direct JSON POST to another origin stops at the OPTIONS preflight.
+22. **Containers.** Docker Hub rate limits (429) may block `node`/`nginx` pulls (use a mirror and retag locally); the `aspnet` image has no curl (the healthcheck uses
+    bash `/dev/tcp`); the API only migrates in Development (`launchSettings.json` forces Development for `dotnet run`; use `--no-launch-profile` to try Production);
+    shell scripts need LF line endings (`deploy/.gitattributes`).
 
 ## Add a new topic — runbook
 

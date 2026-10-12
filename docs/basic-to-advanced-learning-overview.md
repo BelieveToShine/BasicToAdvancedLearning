@@ -14,8 +14,8 @@ Planned track (see [`ROADMAP.md`](ROADMAP.md) for per-topic status):
 5. React frontend — 21–25
 6. Full-stack integration — 26–28
 
-Currently done: topics 1–9 — all of Phase 1 (Programming Basics, Control Flow, Methods & Parameters, Collections, OOP, OOP advanced, Exception handling, File I/O, LINQ).
-Next: Phase 2 (SQL & Database, topic 10 onward) — blocked on owner decisions listed in [`ROADMAP.md`](ROADMAP.md) and `review-recommendations.md` (R13).
+Currently done: topics 1–28 — every planned topic (C# fundamentals, SQL Server, ADO.NET and EF Core, Web API, React, the full-stack mini project and optional deployment basics). The SQL / API / container lessons were run against SQL Server 2022 in Docker only; running them against the owner's own server is the first thing to do.
+Next: the owner's review and the provisional decisions listed in [`ROADMAP.md`](ROADMAP.md) and `review-recommendations.md` (R14, R15).
 
 ## Whole-system architecture
 ```
