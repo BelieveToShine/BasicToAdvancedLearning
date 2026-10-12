@@ -46,7 +46,7 @@
   <text x="466" y="366" font-size="9.5" font-style="italic" fill="#a06a1f">↑ read from the file: a new string object</text>
   <rect x="800" y="330" width="330" height="112" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="965.0" y="350" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the operating system</text>
-  <text x="814" y="370" font-size="9.5" fill="#333333">open file handle (read position: after line 2)</text>
+  <text x="814" y="370" font-size="9.5" fill="#333333">open file handle (the reader buffers the whole small file)</text>
   <text x="814" y="386" font-size="9.5" font-weight="bold" fill="#333333">bta-statement.txt on disk:</text>
   <text x="814" y="402" font-size="9.5" fill="#333333">  Deposit 200</text>
   <text x="814" y="418" font-size="9.5" fill="#333333">  Withdraw 900 (refused)</text>

@@ -2,8 +2,8 @@ namespace BasicToAdvancedLearning.FileIO;
 
 // Topic 8: File I/O basics — writing and reading text, streams with `using`, paths and existence
 // checks, and what happens when a file is missing (Topic 7's exceptions at work). The running example
-// is a tiny bank statement. Every method works on ONE file in the operating system's temp folder and
-// deletes it afterwards, so running the lesson never leaves anything behind. Each concept gets its own
+// is a tiny bank statement. Every method that creates a file uses ONE file in the operating system's temp
+// folder and deletes it afterwards, so running the lesson never leaves anything behind. Each concept gets its own
 // method so it can be explained and demoed one at a time from FileIOExample.
 // See ArchitectureDiagrams/FileIO for the visual walkthrough.
 public class FileIODemo
@@ -79,6 +79,8 @@ public class FileIODemo
     {
         PrintHeading("3. Paths and existence — building an address and checking it");
 
+        // These steps are kept as straight-line code so the three File.Exists answers are easy to compare
+        // (methods 1 and 2 show the try/finally clean-up pattern).
         // Path.Combine joins the pieces with the right separator for this operating system.
         string folder = Path.GetTempPath();
         string path = Path.Combine(folder, StatementFileName);
@@ -107,7 +109,7 @@ public class FileIODemo
         }
         catch (FileNotFoundException ex)
         {
-            Console.WriteLine($"Caught a {ex.GetType().Name}: the statement file does not exist");
+            Console.WriteLine($"Caught a {ex.GetType().Name}: that file does not exist");
         }
 
         // The other way: ask first. File.Exists never throws, so no catch is needed.

@@ -25,7 +25,7 @@
   <rect x="60" y="290" width="300" height="80" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
   <text x="210" y="312" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#990000">catch (FileNotFoundException ex)</text>
   <text x="210" y="332" text-anchor="middle" font-size="9.5" fill="#333">Console.WriteLine("Caught a</text>
-  <text x="210" y="347" text-anchor="middle" font-size="9.5" fill="#333">FileNotFoundException: … does not exist")</text>
+  <text x="210" y="347" text-anchor="middle" font-size="9.5" fill="#333">FileNotFoundException: that file does not exist")</text>
   <text x="210" y="363" text-anchor="middle" font-size="9" font-style="italic" fill="#777">the line after ReadAllText was skipped</text>
   <line x1="210" y1="370" x2="210" y2="430" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
   <rect x="60" y="430" width="300" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
