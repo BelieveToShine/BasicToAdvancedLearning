@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1120" height="460" fill="#ffffff"/>
+  <rect x="0" y="0" width="1120" height="440" fill="#ffffff"/>
   <text x="560" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Control Flow — Foreach — Memory: Stack / Heap / Static</text>
   <text x="560" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ControlFlowDemo.ExplainForeach() is currently executing (mid-loop, at element 1 — "Banana").</text>
 
@@ -23,7 +23,7 @@
   <rect x="62" y="146" width="316" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/>
   <text x="70" y="163" font-size="10" fill="#1b3d1b">fruits → pointer  (string[])</text>
   <rect x="62" y="176" width="316" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/>
-  <text x="70" y="193" font-size="10" fill="#1b3d1b">fruit → pointer, refreshed each lap  (string)</text>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">fruit → pointer to the current element  (string)</text>
 
   <rect x="50" y="228" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="220" y="248" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">ControlFlowExample.Explain()</text>
@@ -36,13 +36,13 @@
   <!-- Heap group -->
   <rect x="430" y="108" width="490" height="240" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
 
-  <line x1="392" y1="159" x2="448" y2="150" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="392" y1="159" x2="448" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
   <rect x="450" y="122" width="450" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="675" y="142" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string[] fruits — the array object</text>
   <rect x="535" y="152" width="80" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="575" y="186" text-anchor="middle" font-size="10" fill="#7f4e00">[0]</text>
   <rect x="635" y="152" width="80" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="675" y="186" text-anchor="middle" font-size="10" fill="#7f4e00">[1]</text>
   <rect x="735" y="152" width="80" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="775" y="186" text-anchor="middle" font-size="10" fill="#7f4e00">[2]</text>
-  <text x="675" y="224" text-anchor="middle" font-size="8.5" fill="#a06a1f">each [ ] cell holds a POINTER, not the text itself</text>
+  <text font-size="8.5" fill="#a06a1f"><tspan x="822" y="262">each [ ] cell holds</tspan><tspan x="822" y="273">a POINTER, not the</tspan><tspan x="822" y="284">text itself</tspan></text>
 
   <line x1="575" y1="212" x2="575" y2="240" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
   <line x1="675" y1="212" x2="675" y2="240" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
@@ -51,9 +51,9 @@
   <rect x="535" y="242" width="80" height="54" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="575" y="273" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">"Apple"</text>
   <rect x="635" y="242" width="80" height="54" rx="6" fill="#fdebc4" stroke="#7f4e00" stroke-width="3"/><text x="675" y="273" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">"Banana"</text>
   <rect x="735" y="242" width="80" height="54" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="775" y="273" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">"Cherry"</text>
-  <text x="675" y="316" text-anchor="middle" font-size="9.5" fill="#7f4e00">↑ fruit points HERE right now (bold border = current)</text>
+  <text x="690" y="322" font-size="9.5" fill="#7f4e00">← fruit: current element (bold border)</text>
 
-  <line x1="392" y1="192" x2="633" y2="264" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <path d="M392,192 L420,192 L420,330 L675,330 L675,298" fill="none" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)"/>
 
   <!-- Static -->
   <rect x="950" y="122" width="150" height="110" rx="10" fill="#d5c9ea" fill-opacity="0.25" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4"/>
@@ -62,5 +62,6 @@
   <text x="1025" y="192" text-anchor="middle" font-size="9.5" fill="#5b4a7a">in this topic yet.</text>
 
   <text x="40" y="380" font-size="10.5" fill="#444"><tspan font-weight="bold">Two hops, not one:</tspan> fruits (Stack) → the array object (Heap) → the actual string object for the current element (also Heap). Array cells holding a reference type are pointers, never the data itself.</text>
-  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">fruit is a FRESH binding each lap (unlike the for-loop's i, which reuses one slot — see Memory/3-ForLoop.svg) — matters if you ever capture it in a lambda.</text>
+  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">fruit is a fresh variable each lap, as far as lambdas can tell (unlike the for-loop's i, which reuses one slot — see Memory/3-ForLoop.svg) — matters if you ever capture it in a lambda.</text>
+  <text x="40" y="420" font-size="10" font-style="italic" fill="#888">The literals "Apple", "Banana" and "Cherry" are interned: the runtime keeps one shared copy of each literal, so this loop does not create them lap by lap.</text>
 </svg>

@@ -8,10 +8,10 @@ namespace BasicToAdvancedLearning.OOPAdvanced;
 // See ArchitectureDiagrams/OOPAdvanced for the visual walkthrough.
 public class OOPAdvancedDemo
 {
-    // A child class reuses everything its parent has and adds its own extras.
+    // A child class reuses its parent's public and protected members and adds its own extras.
     public void ExplainInheritance()
     {
-        PrintHeading("1. Inheritance — a child reuses everything its parent has");
+        PrintHeading("1. Inheritance — a child reuses what its parent offers");
 
         // SavingsAccount is declared as `: Account`, so it already has an owner, a balance and
         // Deposit() without repeating any of that code. It only adds an interest rate.
@@ -41,7 +41,7 @@ public class OOPAdvancedDemo
         decimal totalFees = 0m;
         foreach (Account account in accounts)
         {
-            // We only ever call the Account methods, but each object runs ITS OWN override.
+            // We only ever call the Account methods, but each object runs its own version (its override, if it has one).
             Console.WriteLine($"{account.Describe()} -> monthly fee {account.MonthlyFee()}");
             totalFees += account.MonthlyFee();
         }

@@ -17,26 +17,29 @@
   <text x="930" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
 
   <rect x="40" y="112" width="400" height="270" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
-  <text x="240" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">Plain int / bool locals — one per method</text>
+  <text x="240" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">int locals — one per method; fruits/fruit hold pointers</text>
   <g font-size="10.5" fill="#1b3d1b">
     <rect x="60" y="146" width="360" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="163">temperature (int) — ExplainIfElse()</text>
     <rect x="60" y="176" width="360" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="193">dayNumber (int) — ExplainSwitch()</text>
     <rect x="60" y="206" width="360" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="223">i (int) — ExplainForLoop()</text>
     <rect x="60" y="236" width="360" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="253">countdown (int) — ExplainWhileLoop()</text>
     <rect x="60" y="266" width="360" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="283">attempts (int) — ExplainDoWhileLoop()</text>
-    <rect x="60" y="296" width="360" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="313">fruit → pointer (string) — ExplainForeach()</text>
+    <rect x="60" y="296" width="360" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="313">fruits → pointer (string[]) — ExplainForeach()</text>
+    <rect x="60" y="326" width="360" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="343">fruit → pointer (string) — ExplainForeach()</text>
   </g>
-  <text x="240" y="366" text-anchor="middle" font-size="9.5" fill="#274e13">All but the last are value types — the value sits right in the slot.</text>
+  <text x="240" y="366" text-anchor="middle" font-size="9.5" fill="#274e13">The int locals hold their value right in the slot; fruits and fruit hold pointers.</text>
 
-  <rect x="460" y="112" width="320" height="150" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
-  <rect x="480" y="130" width="280" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="620" y="152" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string[] fruits</text>
-  <text x="620" y="170" text-anchor="middle" font-size="9.5" fill="#7f4e00">the array object — 3 elements</text>
-  <text x="620" y="192" text-anchor="middle" font-size="9.5" fill="#7f4e00">each element is itself a reference</text>
-  <text x="620" y="208" text-anchor="middle" font-size="9.5" fill="#7f4e00">to its own Heap string object</text>
-  <text x="620" y="228" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">full picture → Memory/6-Foreach.svg</text>
+  <rect x="490" y="112" width="320" height="150" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="510" y="130" width="280" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="650" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">string[] fruits — the array object</text>
+  <rect x="530" y="160" width="70" height="26" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="565" y="177" text-anchor="middle" font-size="10" fill="#7f4e00">[0]</text>
+  <rect x="615" y="160" width="70" height="26" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="650" y="177" text-anchor="middle" font-size="10" fill="#7f4e00">[1]</text>
+  <rect x="700" y="160" width="70" height="26" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="735" y="177" text-anchor="middle" font-size="10" fill="#7f4e00">[2]</text>
+  <text x="650" y="204" text-anchor="middle" font-size="9.5" fill="#7f4e00">each element is a reference to a string object</text>
+  <text x="650" y="228" text-anchor="middle" font-size="9" font-style="italic" fill="#a06a1f">full picture → Memory/6-Foreach.svg</text>
 
-  <line x1="420" y1="309" x2="478" y2="220" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M420,309 L450,309 L450,150 L508,150" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M420,339 L468,339 L468,173 L528,173" fill="none" stroke="#674ea7" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#a)"/>
 
   <rect x="830" y="112" width="220" height="150" rx="10" fill="#d5c9ea" fill-opacity="0.25" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="940" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>

@@ -4,7 +4,7 @@
   </defs>
   <rect x="0" y="0" width="1100" height="500" fill="#ffffff"/>
   <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Dictionary&lt;TKey, TValue&gt; — Memory: Stack / Heap / Static</text>
-  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainDictionaries() is currently executing, after 2 entries were pinned.</text>
+  <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainDictionaries() is currently executing, after 2 entries were added.</text>
 
   <g font-size="11" fill="#333">
     <rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text>
@@ -57,5 +57,6 @@
   <text x="1020" y="150" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
 
   <text x="40" y="400" font-size="10.5" fill="#444"><tspan font-weight="bold">The key is stored too, not just the value:</tspan> phoneBook.ContainsKey("Rahul") works by hashing "Rahul" and checking for a matching key string — there's no separate list of names sitting anywhere else.</text>
-  <text x="40" y="418" font-size="10" font-style="italic" fill="#888">This is why Dictionary lookups don't slow down as more entries are added — the hash jumps almost straight to the right entry, unlike scanning a List from the start.</text>
+  <text x="40" y="438" font-size="9.5" font-style="italic" fill="#888">Simplified: the real Dictionary stores its entries in internal arrays (buckets + entries); they are drawn here as two boxes inside the dictionary object so the key/value references are easy to see.</text>
+  <text x="40" y="418" font-size="10" font-style="italic" fill="#888">This is why Dictionary lookups stay fast on average as more entries are added — the hash jumps almost straight to the right entry, unlike scanning a List from the start. (foreach order is not guaranteed.)</text>
 </svg>

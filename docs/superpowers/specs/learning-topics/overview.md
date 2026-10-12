@@ -38,7 +38,7 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `LinqFundamentalsExample`); change the type after `new` to run another.
+  one topic (currently `LinqFundamentalsExample`); change the `using` line and the type after `new` to run another (both must change, or the build fails).
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -65,7 +65,7 @@ None. There are no config keys, environment variables, or connection strings yet
 - Topic 9 needs no helper classes: every method queries a `List<decimal>` built by a private `CreateAmounts()` helper
   inside the demo. Phase 1 (topics 1–9) is complete; this spec describes the C# lesson-topic shape only — Phase 2
   (SQL) is not covered here and needs its own category once the owner settles the open decisions (R13).
-- Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
+- Open question: whether to add a runtime topic picker or keep the deliberate two-line swap (the `using` and the type after `new`; it doubles
   as the polymorphism teaching example).
 
 ## Real bugs found & fixed (as general lessons)

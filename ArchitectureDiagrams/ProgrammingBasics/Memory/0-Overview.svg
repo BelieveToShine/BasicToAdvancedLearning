@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 478" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1100" height="460" fill="#ffffff"/>
+  <rect x="0" y="0" width="1100" height="478" fill="#ffffff"/>
   <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Programming Basics — Memory: Stack / Heap / Static (high level)</text>
   <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Every variable across all three methods, at a glance — see Memory/1, /2, /3 for each method's own detailed snapshot.</text>
 
@@ -29,7 +29,7 @@
 
   <rect x="460" y="112" width="320" height="180" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
   <rect x="480" y="130" width="280" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="620" y="152" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">"Vivek"  ·  "India"</text>
+  <text x="620" y="152" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">"Vivek"  ·  "India"  (literals)</text>
   <text x="620" y="170" text-anchor="middle" font-size="9.5" fill="#7f4e00">what name / country point to</text>
 
   <rect x="480" y="200" width="280" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
@@ -41,6 +41,6 @@
   <text x="940" y="172" text-anchor="middle" font-size="10" fill="#5b4a7a">No `static` fields or</text>
   <text x="940" y="188" text-anchor="middle" font-size="10" fill="#5b4a7a">consts in this topic.</text>
 
-  <text x="40" y="410" font-size="10.5" fill="#444"><tspan font-weight="bold">Every string here is a two-part story:</tspan> the variable (a pointer) lives on the Stack; the actual characters live on the Heap. Every int/double/decimal/bool/char lives entirely on the Stack — no Heap involved.</text>
-  <text x="40" y="430" font-size="10" font-style="italic" fill="#888">Full per-method detail: Memory/1-VariablesAndDataTypes.svg · Memory/2-Operators.svg · Memory/3-InputOutput.svg.</text>
+  <text x="40" y="428" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Every string here is a two-part story:</tspan> the variable (a pointer) lives on the Stack; the actual characters live on the Heap. Every LOCAL int/double/decimal/bool/char variable</tspan><tspan x="40" dy="15.8">holds its value directly on the Stack — none of this topic's variables of those types use the Heap.</tspan></text>
+  <text x="40" y="463.8" font-size="10" font-style="italic" fill="#888">Full per-method detail: Memory/1-VariablesAndDataTypes.svg · Memory/2-Operators.svg · Memory/3-InputOutput.svg.</text>
 </svg>

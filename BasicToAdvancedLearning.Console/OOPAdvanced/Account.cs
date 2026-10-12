@@ -1,7 +1,7 @@
 namespace BasicToAdvancedLearning.OOPAdvanced;
 
 // The BASE class for Topic 6. It holds what every kind of account shares; SavingsAccount and
-// CurrentAccount inherit all of it and add their own extras. (Topic 5's BankAccount is left
+// CurrentAccount inherit its public and protected members and add their own extras. (Topic 5's BankAccount is left
 // untouched — this topic builds its own small family so nothing earlier has to change.)
 public class Account
 {
@@ -12,7 +12,9 @@ public class Account
     private readonly string _ownerName;
 
     // `protected` = visible inside this class AND inside classes that inherit from it,
-    // but hidden from everyone else. Derived classes need the balance; outsiders do not.
+    // but hidden from everyone else. Teaching shortcut: a protected FIELD lets every child change
+    // the balance directly, skipping Deposit/Withdraw. Real code keeps the field private and offers
+    // a protected property or method instead.
     protected decimal _balance;
 
     public Account(string ownerName, decimal openingBalance)
@@ -25,7 +27,7 @@ public class Account
 
     public decimal Balance => _balance;
 
-    // Adds money; refuses (returns false) if the amount is not positive.
+    // Adds money; refuses (returns false) if the amount is not positive (Topic 7 replaces this with exceptions).
     public bool Deposit(decimal amount)
     {
         if (amount <= NoMoney)
@@ -37,7 +39,8 @@ public class Account
         return true;
     }
 
-    // Takes money out; refuses (returns false) if the amount is not positive or exceeds the balance.
+    // Takes money out; refuses (returns false) if the amount is not positive or exceeds the balance
+    // (Topic 7 replaces this with exceptions).
     public bool Withdraw(decimal amount)
     {
         if (amount <= NoMoney || amount > _balance)

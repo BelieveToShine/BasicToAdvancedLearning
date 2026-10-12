@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 790" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
   </defs>
-  <rect x="0" y="0" width="900" height="760" fill="#ffffff"/>
+  <rect x="0" y="0" width="900" height="790" fill="#ffffff"/>
   <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">File errors — Sub-level Flow: the lost-property desk</text>
   <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Ask for something that is not there and the desk says no. You can handle the refusal (catch) or ask first (Exists).</text>
   <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
@@ -15,13 +15,15 @@
   <rect x="60" y="190" width="300" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="210" y="212" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">try:  string text = File.ReadAllText(missingPath);</text>
   <text x="210" y="229" text-anchor="middle" font-size="9.5" fill="#555">asks the desk for the file</text>
-  <line x1="360" y1="215" x2="560" y2="215" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="460" y="207" text-anchor="middle" font-size="9.5" fill="#555">asks for the file</text>
+  <line x1="360" y1="205" x2="560" y2="205" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="197" text-anchor="middle" font-size="9.5" fill="#555">asks for the file</text>
   <rect x="560" y="190" width="280" height="50" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="700" y="212" text-anchor="middle" font-size="10" font-weight="bold" fill="#444">the DISK (outside .NET)</text>
   <text x="700" y="229" text-anchor="middle" font-size="9.5" fill="#333">searches… there is no such file</text>
-  <polyline points="700,240 700,330 362,330" fill="none" stroke="#cc0000" stroke-width="2" marker-end="url(#a)"/>
-  <text x="531" y="322" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#cc0000">throws FileNotFoundException<animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></text>
+  <line x1="560" y1="230" x2="362" y2="230" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="460" y="244" text-anchor="middle" font-size="9.5" fill="#555">answers: no such file</text>
+  <line x1="210" y1="240" x2="210" y2="288" stroke="#cc0000" stroke-width="2" marker-end="url(#a)"/>
+  <text x="222" y="268" font-size="9.5" font-weight="bold" fill="#cc0000">ReadAllText throws FileNotFoundException<animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></text>
   <rect x="60" y="290" width="300" height="80" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
   <text x="210" y="312" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#990000">catch (FileNotFoundException ex)</text>
   <text x="210" y="332" text-anchor="middle" font-size="9.5" fill="#333">Console.WriteLine("Caught a</text>
@@ -45,6 +47,8 @@
   <text x="210" y="634" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
   <line x1="210" y1="642" x2="210" y2="682" stroke="#333" stroke-width="2"/>
   <polygon points="210,642 210,660 240,651" fill="#cc0000"/>
-  <text x="30" y="710" font-size="10.5" fill="#444"><tspan font-weight="bold">Two ways to meet a missing file:</tspan> catch the exception after the fact (Topic 7), or ask File.Exists first. Exists is simpler when "missing" is expected.</text>
+  <text x="30" y="710" font-size="10.5" fill="#444"><tspan font-weight="bold">Two ways to meet a missing file:</tspan> catch the exception after the fact (Topic 7), or ask File.Exists first. Exists is simpler when "missing" is expected, but the file can vanish after the check.</text>
   <text x="30" y="728" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the "Caught …" line and the "File.Exists says: False" line — two lines. Heading banner not drawn.</text>
+  <text x="30" y="746" font-size="10" font-style="italic" fill="#888">Note: a missing FOLDER in the path throws DirectoryNotFoundException, not FileNotFoundException, so this catch would not match it.</text>
+  <text x="30" y="764" font-size="10" font-style="italic" fill="#888">File.Exists never throws, but it also says False for a bad path or no permission, so a catch can still be needed.</text>
 </svg>

@@ -59,5 +59,5 @@
   <text x="1195" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="1195" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
   <text x="40" y="426" font-size="10.5" fill="#444"><tspan font-weight="bold">The array's element type is the INTERFACE, but the objects are real classes. </tspan>earners[0] is a SavingsAccount and earners[1] a FixedDeposit — two unrelated families sharing one array.</text>
-  <text x="40" y="444" font-size="10" font-style="italic" fill="#888">Only the contract's MonthlyInterest() is callable through the variable; the interface itself is never a Heap box. totalInterest (45) and interest (40) are plain values on the Stack.</text>
+  <text x="40" y="444" font-size="10" font-style="italic" fill="#888">Through the variable you can call only what IInterestBearing promises (MonthlyInterest()) plus members every object has; the interface itself is never a Heap box. totalInterest (45) and interest (40) are plain values on the Stack.</text>
 </svg>

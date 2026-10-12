@@ -30,7 +30,7 @@
   <rect x="456" y="158" width="328" height="70" rx="6" fill="#ffffff" stroke="#f3d3ac"/>
   <text x="466" y="176" font-size="10" fill="#333">switch (dayNumber)</text>
   <text x="466" y="192" font-size="10" fill="#333">{ case 3: ... break; ... }</text>
-  <text x="620" y="252" text-anchor="middle" font-size="9.5" fill="#8a5a10">Jumps straight to the matching</text>
+  <text x="620" y="252" text-anchor="middle" font-size="9.5" fill="#8a5a10">Runs only the matching</text>
   <text x="620" y="266" text-anchor="middle" font-size="9.5" fill="#8a5a10">case — no fallthrough in C#.</text>
 
   <rect x="840" y="110" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
@@ -40,7 +40,7 @@
   <text x="866" y="176" font-size="10" fill="#333">for (int i = 1; i &lt;= 5; i++)</text>
   <text x="866" y="192" font-size="10" fill="#333">{ Console.WriteLine(i); }</text>
   <text x="1020" y="252" text-anchor="middle" font-size="9.5" fill="#274e13">init → check → body → increment</text>
-  <text x="1020" y="266" text-anchor="middle" font-size="9.5" fill="#274e13">→ check again... (see ForLoopFlow)</text>
+  <text x="1020" y="266" text-anchor="middle" font-size="9.5" fill="#274e13">→ check again... (see Flow/3-ForLoop.svg)</text>
 
   <!-- Row 2 -->
   <rect x="40" y="320" width="360" height="190" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
@@ -67,8 +67,8 @@
   <rect x="856" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#dccbef"/>
   <text x="866" y="386" font-size="10" fill="#333">foreach (string fruit in fruits)</text>
   <text x="866" y="402" font-size="10" fill="#333">{ Console.WriteLine(fruit); }</text>
-  <text x="1020" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">Walks a collection via its</text>
-  <text x="1020" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">enumerator — no manual index.</text>
+  <text x="1020" y="462" text-anchor="middle" font-size="9.5" fill="#4a2e73">Walks a collection one element</text>
+  <text x="1020" y="476" text-anchor="middle" font-size="9.5" fill="#4a2e73">at a time — no manual index.</text>
 
   <text x="40" y="545" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → ControlFlowExample.Explain()</tspan> calls all six methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
   <text x="40" y="565" font-size="10.5" font-style="italic" fill="#888">Every method (1–6) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND its own Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>

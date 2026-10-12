@@ -1,7 +1,7 @@
 namespace BasicToAdvancedLearning.LinqFundamentals;
 
 // Topic 9: LINQ fundamentals — asking questions of a collection (Topic 4) in one readable line
-// instead of writing a loop. The running example continues the bank thread: a List<decimal> of
+// instead of writing the loop yourself. The running example continues the bank thread: a List<decimal> of
 // amounts where a positive number is a deposit and a negative number is a withdrawal.
 // `x => ...` is a LAMBDA: a tiny nameless method, read as "each x, such that ...". The methods
 // (Where, Select, OrderBy, Sum, ...) come from System.Linq, which the project already imports.
@@ -40,11 +40,12 @@ public class LinqFundamentalsDemo
 
         List<decimal> amounts = CreateAmounts();
 
-        // OrderBy returns the items in sorted order; the source list keeps its own order.
+        // OrderBy(...) only PLANS a sorted sequence (the source list keeps its own order);
+        // ToList() runs that plan and builds the new sorted list `ordered`.
         List<decimal> ordered = amounts.OrderBy(amount => amount).ToList();
 
         decimal total = amounts.Sum();
-        decimal largest = amounts.Max();
+        decimal largest = amounts.Max(); // on an EMPTY list Max() throws InvalidOperationException (Sum() would give 0)
         int withdrawalCount = amounts.Count(amount => amount < NoMoney); // Count can take a lambda too
 
         Console.WriteLine($"Sorted (OrderBy):      {string.Join(", ", ordered)}");

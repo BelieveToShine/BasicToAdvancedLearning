@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 810" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 829.8" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
   </defs>
-  <rect x="0" y="0" width="1000" height="810" fill="#ffffff"/>
+  <rect x="0" y="0" width="1000" height="829.8" fill="#ffffff"/>
   <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Programming Basics — Functional Flow (who calls whom, and where control goes back to)</text>
   <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">Read top to bottom. Every solid arrow is a call; every dashed arrow is that call returning to whoever made it.</text>
 
@@ -33,7 +33,7 @@
   <rect x="506" y="190" width="8" height="490" fill="#cfe2f3" stroke="#3d85c6"/>
   <rect x="816" y="250" width="8" height="76" fill="#cfe2f3" stroke="#3d85c6"/>
   <rect x="816" y="366" width="8" height="76" fill="#cfe2f3" stroke="#3d85c6"/>
-  <rect x="816" y="482" width="8" height="258" fill="#cfe2f3" stroke="#3d85c6"/>
+  <rect x="816" y="482" width="8" height="160" fill="#cfe2f3" stroke="#3d85c6"/>
 
   <!-- Step 1: Program.cs -> Example -->
   <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new ProgrammingBasicsExample();  topic.Explain()</text>
@@ -43,7 +43,7 @@
   <text x="665" y="242" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainVariablesAndDataTypes()</text>
   <line x1="510" y1="250" x2="820" y2="250" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
   <rect x="400" y="266" width="500" height="46" rx="6" fill="#fffbe8" stroke="#f1c232"/>
-  <text x="650" y="282" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">High level: declares one example of each basic C# data type</text>
+  <text x="650" y="282" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">High level: declares six common C# data types</text>
   <text x="650" y="298" text-anchor="middle" font-size="9.5" fill="#7f6000">Uses: Console.WriteLine (several times, one per data type)</text>
   <text x="665" y="320" text-anchor="middle" font-size="10" fill="#555">returns</text>
   <line x1="820" y1="326" x2="510" y2="326" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
@@ -65,7 +65,6 @@
   <text x="650" y="529" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">then prints one final result</text>
   <text x="650" y="545" text-anchor="middle" font-size="9.5" fill="#8a5a10">Uses: Console.Write, Console.ReadLine, Console.WriteLine</text>
 
-  <text x="650" y="590" text-anchor="middle" font-size="10" font-style="italic" fill="#8a5a10">converts the typed text safely, then branches — see Flow/3-InputOutput.svg for the succeeds/fails detail</text>
 
   <text x="665" y="636" text-anchor="middle" font-size="10" fill="#555">returns</text>
   <line x1="820" y1="642" x2="510" y2="642" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
@@ -76,8 +75,6 @@
   <circle cx="150" cy="700" r="6" fill="#cc0000"/>
   <text x="164" y="704" font-size="10.5" font-weight="bold" fill="#990000">End</text>
 
-  <text x="40" y="750" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() on ProgrammingBasicsExample, which — one at a
-  time — calls into ProgrammingBasicsDemo for each of the three concepts, waits for it to return, then moves to
-  the next. Nothing runs in parallel; nothing loops.</text>
-  <text x="40" y="775" font-size="10" font-style="italic" fill="#888">Every Demo method talks to the Console (Write/WriteLine/ReadLine) — that interaction is called out on every activation above, not left implicit.</text>
+  <text x="40" y="750.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() on ProgrammingBasicsExample, which — one at a time — calls into ProgrammingBasicsDemo for each of the</tspan><tspan x="40" dy="15.8">three concepts, waits for it to return, then moves to the next. Nothing runs in parallel; nothing loops.</tspan></text>
+  <text x="40" y="790.8" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0"><tspan x="40" dy="0">For the succeeds/fails branch inside ExplainInputOutput(), see Flow/3-InputOutput.svg. Every Demo method talks to the Console (Write/WriteLine/ReadLine) — that</tspan></tspan><tspan x="40" dy="15.0"><tspan x="40" dy="15.0">interaction is called out on every activation above, not left implicit.</tspan></tspan></text>
 </svg>

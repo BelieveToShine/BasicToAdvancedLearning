@@ -55,17 +55,19 @@ public class ExceptionHandlingDemo
             }
             catch (Exception ex)
             {
-                // The safety net for anything unexpected. It MUST come last: Exception matches
+                // A last-resort safety net — use it sparingly, because swallowing unknown errors hides bugs.
+                // The order only matters between related types, and this one is related to all of them, so it MUST come last: Exception matches
                 // everything, so any clause placed after it could never be reached (the compiler rejects it, CS0160).
                 Console.WriteLine($"{request}: unexpected problem — {ex.Message}");
             }
         }
     }
 
-    // finally runs whether the try succeeded or threw — perfect for clean-up.
+    // finally runs whether the try succeeded or threw — perfect for clean-up. (It is skipped only if
+    // the process itself dies first: a crash, a kill, or Environment.Exit.)
     public void ExplainFinally()
     {
-        PrintHeading("3. finally — clean-up that always happens");
+        PrintHeading("3. finally — clean-up that runs on success and on failure");
 
         SafeAccount account = new SafeAccount("Anita", 500m);
         decimal[] attempts = { 100m, 900m };

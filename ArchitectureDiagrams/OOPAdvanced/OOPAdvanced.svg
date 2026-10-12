@@ -15,7 +15,7 @@
   <rect x="42" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
   <text x="50" y="168" font-size="9" fill="#333">public class SavingsAccount : Account, …</text>
   <text x="50" y="190" font-size="9" fill="#333">savings.Deposit(500m);  // inherited from Account</text>
-  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">A child reuses everything its parent has</text>
+  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">A child reuses its parent's public members</text>
   <text x="175" y="284" text-anchor="middle" font-size="9.5" fill="#1a4a73">and adds its own extras.</text>
   <rect x="340" y="100" width="290" height="250" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="485" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Polymorphism</text>

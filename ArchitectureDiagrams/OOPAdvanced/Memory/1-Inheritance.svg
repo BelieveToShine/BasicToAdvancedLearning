@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 530" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 566.6" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1050" height="530" fill="#ffffff"/>
+  <rect x="0" y="0" width="1050" height="566.6" fill="#ffffff"/>
   <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Inheritance — Memory: Stack / Heap / Static</text>
   <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainInheritance() is running, right after savings.Deposit(500m).</text>
   <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
@@ -26,7 +26,7 @@
   <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
   <rect x="460" y="118" width="290" height="158" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="605.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">SavingsAccount — savings</text>
-  <text x="474" y="161" font-size="8.5" font-style="italic" fill="#a06a1f">inherited from Account</text>
+  <text x="474" y="161" font-size="8.5" font-style="italic" fill="#a06a1f">from Account (parent part)</text>
   <rect x="472" y="166" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
   <text x="480" y="183" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
   <rect x="472" y="196" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
@@ -36,7 +36,7 @@
   <text x="480" y="259" font-size="10" fill="#7f4e00">_interestRatePercent = 6</text>
   <rect x="460" y="296" width="290" height="158" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="605.0" y="318" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">CurrentAccount — current</text>
-  <text x="474" y="339" font-size="8.5" font-style="italic" fill="#a06a1f">inherited from Account</text>
+  <text x="474" y="339" font-size="8.5" font-style="italic" fill="#a06a1f">from Account (parent part)</text>
   <rect x="472" y="344" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
   <text x="480" y="361" font-size="10" fill="#7f4e00">_ownerName → pointer (string)</text>
   <rect x="472" y="374" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
@@ -55,6 +55,7 @@
   <rect x="950" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
   <text x="995" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="995" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
-  <text x="40" y="478" font-size="10.5" fill="#444"><tspan font-weight="bold">A SavingsAccount is ONE object: the parent's fields and its own sit side by side in one Heap box. </tspan>There is no second, hidden Account object behind it.</text>
-  <text x="40" y="496" font-size="10" font-style="italic" fill="#888">savings.Deposit(500m) ran Account's code against THIS object's _balance (1000 → 1500): the method is shared, the data belongs to each object. `: base(...)` ran first when `new` built it.</text>
+  <text x="40" y="478" font-size="10.5" fill="#444"><tspan font-weight="bold">A SavingsAccount is ONE object: the parent's fields and its own sit side by side in one Heap box.</tspan></text>
+  <text x="40" y="496" font-size="10" fill="#444">There is no second, hidden Account object. Private parent fields (_ownerName) are in the box too, but child code cannot touch them.</text>
+  <text x="40" y="518" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0"><tspan x="40" dy="0">savings.Deposit(500m) ran Account's code against THIS object's _balance (1000 → 1500): the method is shared, the data belongs to each object. `: base(...)` ran Account's</tspan></tspan><tspan x="40" dy="15.0"><tspan x="40" dy="15.0">constructor first, inside that same `new`. _overdraftLimit is only stored: Withdraw() never checks it.</tspan></tspan></text>
 </svg>

@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 555" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
     <marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#888"/></marker>
   </defs>
-  <rect x="0" y="0" width="900" height="530" fill="#ffffff"/>
+  <rect x="0" y="0" width="900" height="555" fill="#ffffff"/>
   <text x="450" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Dictionary&lt;TKey, TValue&gt; — Sub-level Flow: a pinboard you search by name</text>
   <text x="450" y="38" text-anchor="middle" font-size="11" fill="#666">You never ask "what's pinned 3rd?" — you ask "what's pinned under this name?"</text>
 
@@ -42,11 +42,13 @@
   <text x="670" y="270" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Check: phoneBook.ContainsKey("Rahul")</text>
   <text x="670" y="286" text-anchor="middle" font-size="9" fill="#1a4a73">not pinned → false</text>
 
-  <line x1="450" y1="298" x2="450" y2="326" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="470" y1="274" x2="518" y2="274" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="494" y="268" text-anchor="middle" font-size="9" fill="#333">then</text>
+  <path d="M670,298 L670,313 L450,313 L450,326" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
 
   <rect x="280" y="328" width="340" height="50" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
   <text x="450" y="348" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">foreach (var contact in phoneBook)</text>
-  <text x="450" y="366" text-anchor="middle" font-size="9" fill="#8a5a10">reads every pin: Vivek → ..., Anita → ...</text>
+  <text x="450" y="366" text-anchor="middle" font-size="9" fill="#8a5a10">reads every pin (order not guaranteed)</text>
 
   <line x1="450" y1="378" x2="450" y2="406" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
 
@@ -54,5 +56,5 @@
   <line x1="450" y1="428" x2="450" y2="468" stroke="#333" stroke-width="2"/>
   <polygon points="450,428 450,446 480,437" fill="#cc0000"/>
 
-  <text x="30" y="500" font-size="10.5" fill="#444"><tspan font-weight="bold">Two very different answers, same shape of question:</tspan> a lookup either lands on a real pin (returns its value) or lands on nothing (returns false/not-found) — never a crash, never a guess.</text>
+  <text x="30" y="500" font-size="10.5" fill="#444"><tspan x="30" dy="0"><tspan font-weight="bold">Two ways to ask, two different outcomes for a missing name:</tspan> the indexer phoneBook["Vivek"] returns the value when the key exists, but would THROW</tspan><tspan x="30" dy="15.8">KeyNotFoundException for a key that was never added. ContainsKey("Rahul") just answers true/false, so it is the safe way to ask first (TryGetValue is the</tspan><tspan x="30" dy="15.8">other — see Collection Safety).</tspan></text>
 </svg>

@@ -47,6 +47,6 @@
   <rect x="1100" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
   <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
-  <text x="40" y="456" font-size="10.5" fill="#444"><tspan font-weight="bold">Any, All, First and FirstOrDefault return single answers — nothing new is built on the Heap. </tspan>Every answer is a plain value on the Stack.</text>
+  <text x="40" y="456" font-size="10.5" fill="#444"><tspan font-weight="bold">Any, All, First and FirstOrDefault return single answers — no new list is built on the Heap. </tspan>Every answer is a plain value on the Stack.</text>
   <text x="40" y="474" font-size="10" font-style="italic" fill="#888">noMatch is 0, the default for a decimal: FirstOrDefault found nothing over 5000. Plain First would have thrown an InvalidOperationException there (Topic 7).</text>
 </svg>

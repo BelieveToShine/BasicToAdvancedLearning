@@ -23,7 +23,9 @@ public class CollectionsDemo
         examScores[2] = 80; // student 3's paper got re-checked
         Console.WriteLine($"Score at index 2, after a re-check: {examScores[2]}");
 
-        // ...but you can never add a 6th score or remove one — 5 slots, forever.
+        // ...but this array object can never add a 6th score or remove one — it
+        // has 5 slots for its whole life. (Array.Resize or new int[6] builds a
+        // brand-new array and copies the values across.)
         Console.WriteLine("All scores:");
         foreach (int score in examScores)
         {
@@ -68,13 +70,14 @@ public class CollectionsDemo
         // someone up by name, never by "the 3rd entry."
         Dictionary<string, string> phoneBook = new Dictionary<string, string>();
 
-        phoneBook.Add("Vivek", "9876543210");
-        phoneBook["Anita"] = "9123456789"; // the indexer can add too, not just read
+        phoneBook.Add("Vivek", "9876543210"); // Add throws ArgumentException if the key already exists
+        phoneBook["Anita"] = "9123456789"; // the indexer can add too — and silently overwrites an existing key
 
         Console.WriteLine($"Contacts saved: {phoneBook.Count}");
         Console.WriteLine($"Vivek's number: {phoneBook["Vivek"]}");
         Console.WriteLine($"Do we have Rahul's number? {phoneBook.ContainsKey("Rahul")}");
 
+        // foreach order is not guaranteed by Dictionary — don't rely on it.
         Console.WriteLine("Everyone in the phone book:");
         foreach (KeyValuePair<string, string> contact in phoneBook)
         {

@@ -23,21 +23,25 @@ public class MethodsAndParametersDemo
     {
         PrintHeading("2. Parameters — Value vs ref vs out");
 
-        // Passed BY VALUE (the default): the method gets its own COPY. Changes
-        // inside the method never affect the caller's variable.
+        // Passed BY VALUE (the default): the method gets its own COPY of the
+        // argument, so reassigning the parameter never affects the caller's
+        // variable. (For a reference type like an array or List, the copy is of
+        // the POINTER — mutating the object it points to IS visible to the caller.)
         int number = 10;
         TryDoubleByValue(number);
         Console.WriteLine($"After TryDoubleByValue: number = {number}  (unchanged)");
 
         // Passed by REF: the method receives the caller's actual variable, not a
         // copy — changes inside the method DO affect the caller's variable. The
-        // caller must initialize the variable before passing it by ref.
+        // caller must initialize the variable before passing it by ref, and must
+        // write the ref keyword at the call too.
         DoubleByRef(ref number);
         Console.WriteLine($"After DoubleByRef: number = {number}  (changed!)");
 
         // Passed by OUT: like ref, but the method is REQUIRED to assign it before
         // returning — used for "extra return values" (this is exactly how
-        // int.TryParse hands back its parsed number back in Programming Basics).
+        // int.TryParse hands its parsed number back in Programming Basics). Unlike
+        // ref, the caller does NOT need to initialize the variable first.
         ParseInput("42", out int parsed);
         Console.WriteLine($"ParseInput out result: parsed = {parsed}");
     }
@@ -61,6 +65,8 @@ public class MethodsAndParametersDemo
 
         // params lets a caller pass any number of arguments (including zero)
         // without building an array themselves — C# packs them into one for you.
+        // (With zero arguments the compiler passes a shared, cached empty array
+        // rather than allocating a new one.)
         Console.WriteLine($"Sum() = {Sum()}");
         Console.WriteLine($"Sum(1, 2, 3) = {Sum(1, 2, 3)}");
         Console.WriteLine($"Sum(10, 20, 30, 40) = {Sum(10, 20, 30, 40)}");
@@ -100,7 +106,9 @@ public class MethodsAndParametersDemo
 
     private static void ParseInput(string text, out int result)
     {
-        result = int.Parse(text); // must be assigned before this method returns
+        // Must be assigned before this method returns. (int.Parse throws on bad
+        // input — int.TryParse is the non-throwing alternative.)
+        result = int.Parse(text);
     }
 
     private static string BuildGreeting(string name, string greeting = "Hello")

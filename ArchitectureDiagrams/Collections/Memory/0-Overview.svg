@@ -38,7 +38,7 @@
   <text x="630" y="182" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/1-Arrays.svg</text>
 
   <rect x="456" y="208" width="348" height="55" rx="6" fill="#ffffff" stroke="#f0c07a"/>
-  <text x="630" y="228" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">List&lt;string&gt; — resizable, 3 string refs inside</text>
+  <text x="630" y="228" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">List&lt;string&gt; — resizable; its internal array holds 3 string refs</text>
   <text x="630" y="244" text-anchor="middle" font-size="8.5" fill="#a06a1f">→ Memory/2-Lists.svg</text>
 
   <rect x="456" y="270" width="348" height="55" rx="6" fill="#ffffff" stroke="#f0c07a"/>
@@ -51,5 +51,5 @@
   <text x="950" y="188" text-anchor="middle" font-size="10" fill="#5b4a7a">consts in this topic.</text>
 
   <text x="40" y="380" font-size="10.5" fill="#444"><tspan font-weight="bold">Every collection is a reference type.</tspan> An int or a bool sits right in its Stack slot — but an array, a List, or a Dictionary never does. The variable is always just a signpost to the Heap.</text>
-  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">That's WHY List&lt;T&gt; can grow: the Stack slot never changes size — it's the Heap object it points to that gets replaced/resized behind the scenes.</text>
+  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">That's WHY List&lt;T&gt; can grow: the Stack slot never changes size, and the List object itself stays put — only its internal array is swapped for a bigger one behind the scenes (see Memory/2).</text>
 </svg>

@@ -32,10 +32,13 @@ public class ControlFlowDemo
     {
         PrintHeading("2. Switch");
 
-        // switch jumps straight to the matching case instead of checking conditions
-        // one by one. Unlike C/Java, C# does NOT fall through to the next case by
-        // default — every case must break/return/throw (or you can list several
-        // case labels together, like 6/7 below, to share one block).
+        // switch picks the ONE matching case instead of checking conditions one by one
+        // (how the compiler does that internally — a table or a few comparisons — is its
+        // own business). Unlike C/Java, C# does NOT fall through to the next case: every
+        // case section must end with break/return/throw (or goto case/continue), but you
+        // can stack several case labels together, like 6/7 below, to share one block.
+        // Only some days are listed to keep the example short; any other number is
+        // caught by default.
         int dayNumber = 3;
 
         switch (dayNumber)
@@ -54,7 +57,7 @@ public class ControlFlowDemo
                 Console.WriteLine("Weekend");
                 break;
             default:
-                Console.WriteLine("Not a valid day number");
+                Console.WriteLine("No case above matched this number");
                 break;
         }
     }
@@ -66,7 +69,8 @@ public class ControlFlowDemo
         // for has three parts: initializer (runs once, before anything else),
         // condition (checked BEFORE every iteration, including the first — false
         // from the start means the body never runs), and increment (runs AFTER the
-        // body, right before the next condition check).
+        // body, right before the next condition check). After the last lap i++ makes
+        // i equal to 6, the check i <= 5 fails, and the loop ends.
         Console.WriteLine("Counting 1 to 5:");
         for (int i = 1; i <= 5; i++)
         {
@@ -110,8 +114,11 @@ public class ControlFlowDemo
     {
         PrintHeading("6. Foreach Loop");
 
-        // foreach walks a collection element by element via its enumerator — no
-        // manual index, and you can't modify the collection while iterating it.
+        // foreach walks a collection element by element — no manual index. You cannot
+        // assign to the loop variable (fruit), and adding or removing items of a List<T> or
+        // Dictionary while looping throws an InvalidOperationException. (For an array the
+        // compiler turns foreach into a plain index loop; for a List<T> it uses the list's
+        // enumerator — what you see on screen is the same.)
         string[] fruits = { "Apple", "Banana", "Cherry" };
 
         Console.WriteLine("Walking through an array:");

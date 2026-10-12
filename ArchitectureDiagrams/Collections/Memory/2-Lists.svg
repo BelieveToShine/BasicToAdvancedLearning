@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1100" height="480" fill="#ffffff"/>
+  <rect x="0" y="0" width="1100" height="520" fill="#ffffff"/>
   <text x="550" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">List&lt;T&gt; — Memory: Stack / Heap / Static</text>
   <text x="550" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainLists() is currently executing, after Add ×3, Insert, and Remove — 3 tasks remain.</text>
 
@@ -13,7 +13,7 @@
   </g>
 
   <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK</text>
-  <text x="650" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — two hops from the Stack</text>
+  <text x="650" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP — three Heap objects deep</text>
   <text x="980" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
 
   <rect x="30" y="108" width="380" height="280" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
@@ -30,28 +30,36 @@
   <text x="220" y="278" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
   <text x="220" y="294" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
 
-  <!-- Heap: the List object -->
-  <rect x="440" y="118" width="440" height="110" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="660" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;string&gt; — the list object (Count = 3)</text>
-  <rect x="456" y="150" width="130" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="521" y="184" text-anchor="middle" font-size="10" fill="#7f4e00">[0] → ref</text>
-  <rect x="596" y="150" width="130" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="661" y="184" text-anchor="middle" font-size="10" fill="#7f4e00">[1] → ref</text>
-  <rect x="736" y="150" width="130" height="60" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="801" y="184" text-anchor="middle" font-size="10" fill="#7f4e00">[2] → ref</text>
+  <!-- Heap: the List object (small: just fields) -->
+  <rect x="440" y="118" width="440" height="52" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="660" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">List&lt;string&gt; — the list object (Count = 3)</text>
+  <text x="660" y="156" text-anchor="middle" font-size="10" fill="#7f4e00">holds a pointer to its internal array (below)</text>
+
+  <!-- Heap: the internal array, capacity 4, 3 used -->
+  <rect x="440" y="196" width="440" height="92" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="660" y="214" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">internal string[4] — Capacity = 4, 3 slots used</text>
+  <rect x="452" y="226" width="98" height="50" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="501" y="256" text-anchor="middle" font-size="10" fill="#7f4e00">[0] → ref</text>
+  <rect x="556" y="226" width="98" height="50" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="605" y="256" text-anchor="middle" font-size="10" fill="#7f4e00">[1] → ref</text>
+  <rect x="660" y="226" width="98" height="50" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="709" y="256" text-anchor="middle" font-size="10" fill="#7f4e00">[2] → ref</text>
+  <rect x="764" y="226" width="98" height="50" rx="4" fill="none" stroke="#e69138" stroke-dasharray="4 3"/><text x="813" y="256" text-anchor="middle" font-size="10" fill="#a06a1f">[3] empty (null)</text>
 
   <!-- Heap: the 3 string objects -->
-  <rect x="456" y="260" width="130" height="46" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="521" y="288" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">"Buy groceries"</text>
-  <rect x="596" y="260" width="130" height="46" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="661" y="288" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">"Walk the dog"</text>
-  <rect x="736" y="260" width="130" height="46" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="801" y="288" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f4e00">"Call mom"</text>
+  <rect x="452" y="322" width="98" height="40" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="501" y="346" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f4e00">"Buy groceries"</text>
+  <rect x="556" y="322" width="98" height="40" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="605" y="346" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f4e00">"Walk the dog"</text>
+  <rect x="660" y="322" width="98" height="40" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/><text x="709" y="346" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f4e00">"Call mom"</text>
 
-  <line x1="521" y1="210" x2="521" y2="258" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
-  <line x1="661" y1="210" x2="661" y2="258" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
-  <line x1="801" y1="210" x2="801" y2="258" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
+  <line x1="660" y1="170" x2="660" y2="194" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="501" y1="276" x2="501" y2="320" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
+  <line x1="605" y1="276" x2="605" y2="320" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
+  <line x1="709" y1="276" x2="709" y2="320" stroke="#555" stroke-width="1.2" marker-end="url(#a)"/>
 
-  <line x1="392" y1="159" x2="454" y2="170" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
-  <text x="660" y="322" text-anchor="middle" font-size="9" fill="#a06a1f">The internal array above is resized automatically as items are added/removed.</text>
+  <line x1="392" y1="159" x2="438" y2="150" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="660" y="380" text-anchor="middle" font-size="9" fill="#a06a1f">The internal array is replaced by a bigger one (not stretched) when it fills up.</text>
 
   <rect x="930" y="118" width="130" height="110" rx="10" fill="#d5c9ea" fill-opacity="0.25" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="995" y="150" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
 
-  <text x="40" y="380" font-size="10.5" fill="#444"><tspan font-weight="bold">Two hops, just like Foreach's string[] in Control Flow:</tspan> todoList (Stack) → the list object (Heap) → each task's own string object (also Heap). "Finish homework" isn't destroyed by Remove — it's just unlinked, and the internal array shifts up.</text>
-  <text x="40" y="398" font-size="10" font-style="italic" fill="#888">The list object itself is what got replaced 3 times behind the scenes as Count outgrew its internal capacity — todoList's pointer never had to change.</text>
+  <text x="40" y="420" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Hops:</tspan> todoList (Stack) → the List object (Heap) → its internal string[] (Heap) → each task's own string object (Heap). Remove("Finish homework") didn't destroy that string: the array</tspan><tspan x="40" dy="15.8">shifted later references up and cleared the last slot, while the literal itself stays alive.</tspan></text>
+  <text x="40" y="462" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0">The List object never gets replaced — only its internal array does. Here that happened ONCE: the first Add swapped the empty array for a new string[4]; Adds 2-3 and the Insert (Count 4) fit inside</tspan><tspan x="40" dy="15.0">it. A 5th item would allocate a bigger array (capacity 8). todoList's pointer never changed.</tspan></text>
+  <text x="40" y="498" font-size="9.5" font-style="italic" fill="#888"><tspan x="40" dy="0">Simplified: List&lt;T&gt; also keeps a version counter for foreach safety; only the fields that matter here are drawn.</tspan></text>
 </svg>

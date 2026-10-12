@@ -72,5 +72,5 @@
   <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
   <text x="40" y="652" font-size="10.5" fill="#444"><tspan font-weight="bold">Each List is ONE Heap object with its cells inside, and amounts is never changed: </tspan>Where and Select build NEW lists.</text>
-  <text x="40" y="670" font-size="10" font-style="italic" fill="#888">deposits keeps the 3 amounts the lambda approved (200, 50, 1200) as plain values; labels holds pointers to 3 new strings. The lambdas finished their work inside ToList() and are not kept.</text>
+  <text x="40" y="670" font-size="10" font-style="italic" fill="#888">deposits keeps the 3 amounts the lambda approved (200, 50, 1200) as plain values; labels holds pointers to 3 new strings. The lambdas finished their work inside ToList(); no local variable keeps them.</text>
 </svg>

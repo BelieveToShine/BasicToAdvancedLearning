@@ -6,11 +6,11 @@ namespace BasicToAdvancedLearning.OOP;
 // Amounts like 500m in OOPDemo are literal on purpose: they are the data the lesson shows.
 public class BankAccount
 {
-    // A named zero, so the rule "money can never go below nothing" reads as a rule, not a bare 0.
+    // A named zero, so the rule "money cannot go below nothing" reads as a rule, not a bare 0.
     private const decimal NoMoney = 0m;
 
     // FIELDS hold each object's own data. They are private: only code inside this class
-    // can touch them (encapsulation). readonly = set once in a constructor, never again.
+    // can touch them (encapsulation). readonly = assigned only in a constructor (or at declaration), never again.
     private readonly string _ownerName;
     private decimal _balance;
 

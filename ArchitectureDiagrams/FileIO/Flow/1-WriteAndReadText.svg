@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 710" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
   </defs>
-  <rect x="0" y="0" width="900" height="700" fill="#ffffff"/>
+  <rect x="0" y="0" width="900" height="710" fill="#ffffff"/>
   <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Write and read text — Sub-level Flow: a filing-cabinet drawer</text>
   <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">One call files a whole sheet of text away; one call fetches a copy back. The cabinet is the disk, not program memory.</text>
   <text x="210" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
@@ -50,4 +50,5 @@
   <text x="30" y="640" font-size="10.5" fill="#444"><tspan font-weight="bold">Two calls, no cleaning up needed in between:</tspan> each File.* method opens and closes the file by itself.</text>
   <text x="30" y="658" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the "Wrote" line and the "Read back" line — two lines. The finally block runs File.Delete whether or not the lines above succeed.</text>
   <text x="30" y="676" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+  <text x="30" y="694" font-size="10" font-style="italic" fill="#888">The lesson uses one fixed temp file name, so it would overwrite (then delete) an existing file of that name.</text>
 </svg>

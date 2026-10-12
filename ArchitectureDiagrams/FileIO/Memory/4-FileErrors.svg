@@ -17,7 +17,7 @@
   <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
   <text x="70" y="163" font-size="10" fill="#1b3d1b">missingPath → pointer  (string)</text>
   <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
-  <text x="70" y="193" font-size="10" fill="#1b3d1b">text — declared in try, never assigned</text>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">text — declared in try, never assigned (out of scope here)</text>
   <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
   <text x="70" y="223" font-size="10" fill="#1b3d1b">ex → pointer  (FileNotFoundException)</text>
   <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>

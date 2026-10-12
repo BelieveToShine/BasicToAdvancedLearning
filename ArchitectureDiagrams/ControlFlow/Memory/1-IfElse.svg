@@ -29,7 +29,7 @@
   <text x="220" y="294" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
 
   <rect x="440" y="118" width="280" height="140" rx="10" fill="#f9cb9c" fill-opacity="0.15" stroke="#e69138" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <text x="580" y="148" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">No Heap usage here</text>
+  <text x="580" y="148" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">None of its variables on the Heap</text>
   <text x="580" y="176" text-anchor="middle" font-size="10" fill="#a06a1f">temperature is a value type</text>
   <text x="580" y="192" text-anchor="middle" font-size="10" fill="#a06a1f">(int) — entirely on the Stack.</text>
 
@@ -38,6 +38,6 @@
   <text x="855" y="176" text-anchor="middle" font-size="10" fill="#5b4a7a">No static fields/consts</text>
   <text x="855" y="192" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
-  <text x="40" y="360" font-size="10.5" fill="#444"><tspan font-weight="bold">if/else is pure control flow</tspan> over a value already sitting on the Stack — it allocates nothing new, Heap or otherwise.</text>
+  <text x="40" y="360" font-size="10.5" fill="#444"><tspan font-weight="bold">if/else is pure control flow</tspan> over a value already sitting on the Stack — none of this method's variables live on the Heap.</text>
   <text x="40" y="380" font-size="10" font-style="italic" fill="#888">Same frame shape in Memory/2-Switch.svg through Memory/6-Foreach.svg — only the active method and its variables change.</text>
 </svg>

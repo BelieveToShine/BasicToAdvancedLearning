@@ -53,5 +53,5 @@
   <text x="855" y="194" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
   <text x="40" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Defaults and names are a call-site convenience, not a memory difference:</tspan> whichever way you call it, BuildGreeting's frame ends up with the exact same two parameter slots filled the exact same way.</text>
-  <text x="40" y="440" font-size="10" font-style="italic" fill="#888">If you'd called BuildGreeting("Vivek") instead, greeting would point to the Heap string "Hello" (the default) rather than "Welcome" — same shape either way.</text>
+  <text x="40" y="440" font-size="10" font-style="italic" fill="#888">If you'd called BuildGreeting("Vivek") instead, greeting would point to the string "Hello" (the default, filled in by the compiler at the call site) rather than "Welcome" — same shape either way.</text>
 </svg>

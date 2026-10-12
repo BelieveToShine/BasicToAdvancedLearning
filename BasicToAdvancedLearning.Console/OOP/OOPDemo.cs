@@ -82,7 +82,7 @@ public class OOPDemo
         accountB.Deposit(100m);
         Console.WriteLine($"Deposited 100 via accountB -> accountA sees: {accountA.Describe()}");
 
-        // `new` is the only thing that builds a second, independent object.
+        // `=` never builds an object (it only copies the key); `new` does, so this one is independent.
         BankAccount accountC = new BankAccount("Anita", 500m);
         // ReferenceEquals asks "are these two variables pointing at the very same object?"
         Console.WriteLine($"Same object? accountA & accountB: {ReferenceEquals(accountA, accountB)}");

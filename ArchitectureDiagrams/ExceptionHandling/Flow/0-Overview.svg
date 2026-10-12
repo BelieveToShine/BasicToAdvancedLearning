@@ -37,7 +37,7 @@
   <rect x="826" y="380" width="8" height="50" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
   <text x="670" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainFinally()</text>
   <line x1="510" y1="380" x2="830" y2="380" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="670" y="397" text-anchor="middle" font-size="9.5" fill="#8a5a10">Clean-up that always happens</text>
+  <text x="670" y="397" text-anchor="middle" font-size="9.5" fill="#8a5a10">Clean-up on success and failure</text>
   <text x="670" y="409" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · see Flow/3-Finally.svg</text>
   <text x="670" y="422" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="830" y1="428" x2="510" y2="428" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 587" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="780" height="580" fill="#ffffff"/>
+  <rect x="0" y="0" width="780" height="587" fill="#ffffff"/>
   <text x="390" y="24" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a237e">While Loop — Sub-level Flow (animated)</text>
   <text x="390" y="44" text-anchor="middle" font-size="12" fill="#666">Condition is checked BEFORE every lap, including the first — a false start means the body never runs.</text>
 
@@ -24,10 +24,10 @@
   <text x="580" y="243" text-anchor="middle" font-size="10" fill="#123">countdown--;</text>
 
   <!-- Animated loop-back path -->
-  <path d="M700,232 L720,232 L720,120 L280,120 L280,188" fill="none" stroke="#8e63ce" stroke-width="2.2" stroke-dasharray="10 6" marker-end="url(#a)">
+  <path d="M700,232 L720,232 L720,182 L280,182 L280,188" fill="none" stroke="#8e63ce" stroke-width="2.2" stroke-dasharray="10 6" marker-end="url(#a)">
     <animate attributeName="stroke-dashoffset" values="16;0" dur="0.6s" repeatCount="indefinite"/>
   </path>
-  <text x="500" y="112" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5b3d8a">loop back — re-check "countdown &gt; 0 ?"</text>
+  <text x="565" y="176" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5b3d8a">loop back — re-check "countdown &gt; 0 ?"</text>
 
   <line x1="280" y1="270" x2="280" y2="300" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
   <text x="296" y="290" font-size="10.5" font-weight="bold" fill="#990000">No</text>
@@ -52,5 +52,5 @@
   <text x="280" y="495" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#990000">End</text>
 
   <text x="40" y="530" font-size="10.5" fill="#444"><tspan font-weight="bold">Same shape as a for loop, minus the separate init/increment boxes</tspan> — the decrement lives inside the body here instead.</text>
-  <text x="40" y="548" font-size="10" font-style="italic" fill="#888">If countdown started at 0, the body would never run — the check happens before the very first lap too.</text>
+  <text x="40" y="548.0" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0">After 1 is printed, countdown-- makes it 0, the check fails and "Liftoff!" prints. If countdown started at 0, the body would</tspan><tspan x="40" dy="15.0">never run — the check happens before the very first lap too.</tspan></text>
 </svg>

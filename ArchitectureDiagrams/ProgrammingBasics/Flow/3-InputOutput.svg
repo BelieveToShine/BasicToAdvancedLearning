@@ -25,7 +25,7 @@
   <line x1="400" y1="300" x2="460" y2="300" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
   <text x="430" y="290" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Yes</text>
   <rect x="462" y="275" width="280" height="50" rx="8" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.5"/>
-  <text x="602" y="304" text-anchor="middle" font-size="9.5" fill="#123">Print: "...next year you'll be N" message</text>
+  <text x="602" y="304" text-anchor="middle" font-size="9.5" fill="#123">Print: "...next year you will be N" message</text>
 
   <line x1="280" y1="350" x2="280" y2="380" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
   <text x="296" y="368" font-size="10.5" font-weight="bold" fill="#990000">No</text>

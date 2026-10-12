@@ -36,7 +36,7 @@
 
     <rect x="55" y="232" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
     <text x="63" y="246" font-weight="bold" fill="#333">decimal salary = 55000.50m;</text>
-    <text x="63" y="261" font-size="8.5" fill="#7f6000">exact fractional — use for money</text>
+    <text x="63" y="261" font-size="8.5" fill="#7f6000">base-10 digits kept exactly (money)</text>
 
     <rect x="55" y="273" width="270" height="36" rx="6" fill="#ffffff" stroke="#f0dfa0"/>
     <text x="63" y="287" font-weight="bold" fill="#333">bool isActive = true;</text>
@@ -81,8 +81,8 @@
   <rect x="760" y="150" width="220" height="90" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
   <text x="870" y="174" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8a5a10">Console Input</text>
   <text x="870" y="192" text-anchor="middle" font-size="10" fill="#5b3d10">Console.ReadLine()</text>
-  <text x="870" y="208" text-anchor="middle" font-size="9" font-style="italic" fill="#5b3d10">always returns a string</text>
-  <text x="870" y="226" text-anchor="middle" font-size="9" fill="#8a5a10">e.g. "Enter your age: 28"</text>
+  <text x="870" y="208" text-anchor="middle" font-size="9" font-style="italic" fill="#5b3d10">returns text (a string), or null if input ended</text>
+  <text x="870" y="226" text-anchor="middle" font-size="9" fill="#8a5a10">e.g. "28"  (only what was typed)</text>
 
   <!-- Stage 2 -> Input -->
   <line x1="680" y1="250" x2="758" y2="195" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
@@ -107,7 +107,7 @@
   <!-- Convert -> Output -->
   <line x1="980" y1="300" x2="1038" y2="275" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
 
-  <text x="40" y="470" font-size="11" fill="#444"><tspan font-weight="bold">How Program.cs reaches this:</tspan> Program.cs → new ILearningTopic = ProgrammingBasicsExample() → topic.Explain() → ProgrammingBasicsExample adapts that call into a new ProgrammingBasicsDemo() and calls the three methods above, top-to-bottom.</text>
-  <text x="40" y="490" font-size="11" font-style="italic" fill="#888">Golden rule: Console.ReadLine() always returns a string — always convert (TryParse) before treating input as a number.</text>
-  <text x="40" y="506" font-size="9.5" fill="#aaa">Why the indirection: Program.cs depends only on ILearningTopic, so it stays identical for every future topic — swapping topics is a one-line change.</text>
+  <text x="40" y="470.0" font-size="11" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">How Program.cs reaches this:</tspan> Program.cs → new ILearningTopic = ProgrammingBasicsExample() → topic.Explain() → ProgrammingBasicsExample adapts that call into a new ProgrammingBasicsDemo() and calls</tspan><tspan x="40" dy="16.5">the three methods above, top-to-bottom.</tspan></text>
+  <text x="40" y="506.5" font-size="11" font-style="italic" fill="#888">Golden rule: Console.ReadLine() returns text (a string, or null if input has ended) — convert it with TryParse before treating input as a number.</text>
+  <text x="40" y="522.5" font-size="9.5" fill="#aaa">Why the indirection: Program.cs depends only on ILearningTopic, so it stays identical for every future topic — swapping topics means changing two lines (the using and the type after new). The arrows above show the ORDER the steps run, not data flowing between boxes.</text>
 </svg>

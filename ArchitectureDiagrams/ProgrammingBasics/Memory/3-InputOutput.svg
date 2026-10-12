@@ -22,7 +22,7 @@
   <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">ProgrammingBasicsDemo.ExplainInputOutput() — ACTIVE</text>
   <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="163" font-size="10" fill="#1b3d1b">enteredName → pointer  (string)</text>
   <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f"/><text x="70" y="193" font-size="10" fill="#1b3d1b">enteredAgeText → pointer  (string)</text>
-  <rect x="62" y="206" width="316" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="223" font-size="10" fill="#1b3d1b">enteredAge = 29  (int, out param)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="70" y="223" font-size="10" fill="#1b3d1b">enteredAge = 28  (int, out param)</text>
 
   <rect x="50" y="268" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="220" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">ProgrammingBasicsExample.Explain()</text>
@@ -34,8 +34,8 @@
 
   <rect x="440" y="118" width="280" height="180" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
   <rect x="456" y="130" width="248" height="60" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="580" y="154" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">"Vivek"</text>
-  <text x="580" y="172" text-anchor="middle" font-size="9" fill="#7f4e00">what you actually typed for name</text>
+  <text x="580" y="154" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">"Vivek"  (example input)</text>
+  <text x="580" y="172" text-anchor="middle" font-size="9" fill="#7f4e00">whatever was typed for name (Vivek in this example)</text>
 
   <rect x="456" y="210" width="248" height="60" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="580" y="234" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f4e00">"28"</text>
@@ -49,6 +49,6 @@
   <text x="855" y="178" text-anchor="middle" font-size="10" fill="#5b4a7a">No static fields/consts</text>
   <text x="855" y="194" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
-  <text x="40" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Console.ReadLine() always allocates a NEW string on the Heap</tspan> — enteredAgeText is still the raw text "28" here; int.TryParse reads it and writes the parsed number into enteredAge (a plain Stack int), it doesn't change enteredAgeText itself.</text>
-  <text x="40" y="440" font-size="10" font-style="italic" fill="#888">Compare with Memory/1-VariablesAndDataTypes.svg's name/country — same "Stack pointer → Heap string" shape.</text>
+  <text x="40" y="420.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Console.ReadLine() builds a NEW string on the Heap for the text typed (or returns null if input has ended)</tspan> — enteredAgeText is still the raw text "28" here;</tspan><tspan x="40" dy="15.8">int.TryParse reads it and writes the parsed number into enteredAge (a plain Stack int), it doesn't change enteredAgeText itself. (The 29 in the printed</tspan><tspan x="40" dy="15.8">message is computed later, as enteredAge + 1.) (The 29 in the printed message is computed later, as enteredAge + 1.)</tspan></text>
+  <text x="40" y="471.6" font-size="10" font-style="italic" fill="#888">Compare with Memory/1-VariablesAndDataTypes.svg's name/country — same "Stack pointer → Heap string" shape.</text>
 </svg>

@@ -49,5 +49,5 @@
   <text x="975" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="975" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
   <text x="40" y="396" font-size="10.5" fill="#444"><tspan font-weight="bold">accountA and accountB are two pointers to ONE object. </tspan>Deposit(100m) through accountB changed the 600 that accountA sees. accountC came from a second `new`, so it still holds 500.</text>
-  <text x="40" y="414" font-size="10" font-style="italic" fill="#888">Both objects point at a single "Anita": identical string literals are stored once and shared (interned).</text>
+  <text x="40" y="414" font-size="10" font-style="italic" fill="#888">Both objects point at a single "Anita": identical string literals are stored once and shared (interned); strings built at run time are not shared automatically.</text>
 </svg>

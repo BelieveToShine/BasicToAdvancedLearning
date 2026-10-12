@@ -19,7 +19,7 @@
   <text x="66" y="176" font-size="10" fill="#333">int[] examScores = { 85, 92, 78, 60, 95 };</text>
   <text x="66" y="192" font-size="10" fill="#333">examScores[2] = 80;  foreach (int score in ...)</text>
   <text x="220" y="252" text-anchor="middle" font-size="9.5" fill="#7f6000">A fixed number of slots, set at</text>
-  <text x="220" y="266" text-anchor="middle" font-size="9.5" fill="#7f6000">creation — 5 in, 5 forever.</text>
+  <text x="220" y="266" text-anchor="middle" font-size="9.5" fill="#7f6000">creation — this array never grows.</text>
 
   <rect x="440" y="110" width="360" height="190" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="620" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · List&lt;T&gt;</text>
@@ -44,10 +44,10 @@
   <text x="420" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">4 · Collection Safety</text>
   <text x="420" y="358" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainCollectionSafety()</text>
   <rect x="256" y="368" width="328" height="70" rx="6" fill="#ffffff" stroke="#b8d9ef"/>
-  <text x="266" y="386" font-size="10" fill="#333">if (index &gt;= 0 &amp;&amp; index &lt; examScores.Length)</text>
-  <text x="266" y="402" font-size="10" fill="#333">phoneBook.TryGetValue("Rahul", out var number)</text>
+  <text x="266" y="386" font-size="9.5" fill="#333">if (indexToCheck &gt;= 0 &amp;&amp; indexToCheck &lt; examScores.Length)</text>
+  <text x="266" y="402" font-size="9.5" fill="#333">phoneBook.TryGetValue("Rahul", out string? rahulNumber)</text>
   <text x="420" y="462" text-anchor="middle" font-size="9.5" fill="#1a4a73">Check first, so a bad index or a</text>
-  <text x="420" y="476" text-anchor="middle" font-size="9.5" fill="#1a4a73">missing key never crashes you.</text>
+  <text x="420" y="476" text-anchor="middle" font-size="9.5" fill="#1a4a73">missing key doesn't throw an exception.</text>
 
   <rect x="640" y="320" width="360" height="190" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
   <text x="820" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">5 · Choosing the Right Collection</text>

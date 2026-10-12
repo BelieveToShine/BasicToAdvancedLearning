@@ -34,7 +34,7 @@
   <text x="605.0" y="219" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">StreamReader — reader</text>
   <rect x="472" y="229" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
   <text x="480" y="246" font-size="10" fill="#7f4e00">_stream → pointer (FileStream)</text>
-  <text x="474" y="270" font-size="8.5" font-style="italic" fill="#a06a1f">(decoder and buffer not shown)</text>
+  <text x="474" y="270" font-size="8.5" font-style="italic" fill="#a06a1f">(decoder + buffer not shown; 1st read fills the buffer)</text>
   <rect x="800" y="197" width="270" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="935.0" y="219" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">FileStream</text>
   <rect x="812" y="229" width="246" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
@@ -46,7 +46,7 @@
   <text x="466" y="366" font-size="9.5" font-style="italic" fill="#a06a1f">↑ read from the file: a new string object</text>
   <rect x="800" y="330" width="330" height="112" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="965.0" y="350" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the operating system</text>
-  <text x="814" y="370" font-size="9.5" fill="#333333">open file handle (the reader buffers the whole small file)</text>
+  <text x="814" y="370" font-size="9.5" fill="#333333">open file handle</text>
   <text x="814" y="386" font-size="9.5" font-weight="bold" fill="#333333">bta-statement.txt on disk:</text>
   <text x="814" y="402" font-size="9.5" fill="#333333">  Deposit 200</text>
   <text x="814" y="418" font-size="9.5" fill="#333333">  Withdraw 900 (refused)</text>
@@ -59,5 +59,5 @@
   <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
   <text x="40" y="466" font-size="10.5" fill="#444"><tspan font-weight="bold">StreamReader and FileStream are .NET objects on the Heap; the file handle and the file are NOT. </tspan>The stream is only a doorway to the operating system — which is why it must be closed (disposed), not just forgotten.</text>
-  <text x="40" y="484" font-size="10" font-style="italic" fill="#888">writer and its using block are already over: Dispose() at the closing brace flushed the three lines to disk and released that handle. `line` is a new string read from the file; lineCount counts 2 so far.</text>
+  <text x="40" y="484" font-size="10" font-style="italic" fill="#888">writer and its using block are already over: Dispose() at the closing brace handed the three lines to the operating system and released that handle. `line` is a new string read from the file; lineCount counts 2 so far.</text>
 </svg>

@@ -8,7 +8,7 @@ public class SavingsAccount : Account, IInterestBearing
     private const decimal PercentDivisor = 100m;
     private const decimal MonthsInYear = 12m;
 
-    // Added by SavingsAccount on top of everything it inherits from Account.
+    // Added by SavingsAccount on top of what it inherits from Account.
     private readonly decimal _interestRatePercent;
 
     // `: base(...)` runs Account's constructor first, so the inherited fields are set up

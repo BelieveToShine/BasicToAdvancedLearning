@@ -31,21 +31,21 @@
   <text x="220" y="294" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
 
   <!-- Heap: the array object -->
-  <rect x="460" y="118" width="440" height="130" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <rect x="452" y="118" width="456" height="130" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="680" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">int[5] — the array object itself</text>
-  <rect x="476" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="516" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[0]</text><text x="516" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">85</text>
-  <rect x="562" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="602" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[1]</text><text x="602" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">92</text>
-  <rect x="648" y="152" width="80" height="70" rx="4" fill="#ffe0c2" stroke="#cc0000" stroke-width="2"/><text x="688" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[2]</text><text x="688" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">80</text>
-  <rect x="734" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="774" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[3]</text><text x="774" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">60</text>
-  <rect x="820" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="860" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[4]</text><text x="860" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">95</text>
+  <rect x="466" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="506" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[0]</text><text x="506" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">85</text>
+  <rect x="552" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="592" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[1]</text><text x="592" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">92</text>
+  <rect x="638" y="152" width="80" height="70" rx="4" fill="#ffe0c2" stroke="#cc0000" stroke-width="2"/><text x="678" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[2]</text><text x="678" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">80</text>
+  <rect x="724" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="764" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[3]</text><text x="764" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">60</text>
+  <rect x="810" y="152" width="80" height="70" rx="4" fill="#fff3e6" stroke="#e69138"/><text x="850" y="174" text-anchor="middle" font-size="9" fill="#a06a1f">[4]</text><text x="850" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#7f4e00">95</text>
   <text x="680" y="238" text-anchor="middle" font-size="8.5" fill="#a06a1f">[2] was overwritten in place — the box didn't move or resize</text>
 
-  <line x1="392" y1="159" x2="458" y2="180" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="392" y1="159" x2="450" y2="180" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
 
   <rect x="930" y="118" width="90" height="130" rx="10" fill="#d5c9ea" fill-opacity="0.25" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="975" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="975" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
 
   <text x="40" y="410" font-size="10.5" fill="#444"><tspan font-weight="bold">The int values sit INLINE in the array's own Heap box</tspan> — unlike a string[], there's no second hop here, because int is a value type. Only the array object as a whole is on the Heap.</text>
-  <text x="40" y="428" font-size="10" font-style="italic" fill="#888">The array's size (5) is baked into this Heap object when it's created — that's the real reason it can never grow.</text>
+  <text x="40" y="428" font-size="10" font-style="italic" fill="#888">The array's size (5) is baked into this Heap object when it's created — this object can never grow. (Array.Resize or new int[6] builds a NEW array and copies the values across.)</text>
 </svg>

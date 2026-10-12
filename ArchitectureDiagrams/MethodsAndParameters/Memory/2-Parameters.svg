@@ -19,7 +19,7 @@
   <rect x="61" y="128" width="308" height="22" rx="4" fill="#ffffff" stroke="#8fbf8f"/><text x="215" y="143" text-anchor="middle" font-size="9.5" fill="#1b3d1b">number = 10</text>
 
   <line x1="215" y1="155" x2="215" y2="182" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
-  <text x="215" y="170" text-anchor="middle" font-size="9" fill="#555">a COPY is made</text>
+  <text x="223" y="173" text-anchor="start" font-size="9" fill="#555">a COPY is made</text>
 
   <rect x="45" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="215" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">TryDoubleByValue(value) frame</text>
@@ -35,7 +35,7 @@
   <rect x="421" y="128" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="575" y="143" text-anchor="middle" font-size="9.5" fill="#3d2a6b">number = 10 → 20</text>
 
   <line x1="575" y1="155" x2="575" y2="182" stroke="#674ea7" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="575" y="170" text-anchor="middle" font-size="9" fill="#674ea7">SAME slot, no copy</text>
+  <text x="583" y="173" text-anchor="start" font-size="9" fill="#674ea7">SAME slot, no copy</text>
 
   <rect x="405" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="575" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">DoubleByRef(ref value) frame</text>
@@ -51,7 +51,7 @@
   <rect x="781" y="128" width="308" height="22" rx="4" fill="#e5d4f0" stroke="#674ea7" stroke-width="2"/><text x="935" y="143" text-anchor="middle" font-size="9.5" fill="#3d2a6b">parsed — uninitialized → 42</text>
 
   <line x1="935" y1="155" x2="935" y2="182" stroke="#674ea7" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="935" y="170" text-anchor="middle" font-size="9" fill="#674ea7">SAME slot, MUST assign</text>
+  <text x="943" y="173" text-anchor="start" font-size="9" fill="#674ea7">SAME slot, MUST assign</text>
 
   <rect x="765" y="184" width="340" height="55" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="935" y="202" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">ParseInput(out result) frame</text>
@@ -60,6 +60,6 @@
   <text x="935" y="264" text-anchor="middle" font-size="10" fill="#333">After return: parsed is now 42.</text>
   <text x="935" y="280" text-anchor="middle" font-size="9" font-style="italic" fill="#888">Same sharing as ref — but the compiler demands result gets assigned.</text>
 
-  <text x="30" y="330" font-size="10.5" fill="#444"><tspan font-weight="bold">The call site looks almost identical in all three</tspan> — one method name, one argument. What actually happens in memory is invisible unless you know the keyword.</text>
-  <text x="30" y="350" font-size="10" font-style="italic" fill="#888">No Heap or Static involvement anywhere on this page — this entire topic lives on the Stack. That's exactly why it's worth its own diagram.</text>
+  <text x="30" y="330.0" font-size="10.5" fill="#444"><tspan x="30" dy="0"><tspan font-weight="bold">At the call site the keyword is the only clue:</tspan> TryDoubleByValue(number), DoubleByRef(ref number), ParseInput("42", out parsed) — ref and out must be written at the call too (and out</tspan><tspan x="30" dy="15.8">needs no value beforehand). What actually happens in memory is invisible unless you know the keyword.</tspan></text>
+  <text x="30" y="365.8" font-size="10" font-style="italic" fill="#888"><tspan x="30" dy="0">Only the ints are drawn — they are all on the Stack, and nothing here is Static. (ParseInput's text parameter points to the string "42" on the Heap; omitted to keep the focus on the three int</tspan><tspan x="30" dy="15.0">slots.) Callee frames sit beside the caller's frame, not stacked under it, so the shared slot is easy to see.</tspan></text>
 </svg>

@@ -64,6 +64,6 @@
   <text x="130" y="452" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
   <line x1="130" y1="460" x2="130" y2="500" stroke="#333" stroke-width="2"/>
   <polygon points="130,460 130,478 160,469" fill="#cc0000"/>
-  <text x="30" y="530" font-size="10.5" fill="#444"><tspan font-weight="bold">Why bother?</tspan> Every change to _balance goes through ONE door, so the rules (positive amounts, no overdraft) can never be skipped.</text>
+  <text x="30" y="530" font-size="10.5" fill="#444"><tspan font-weight="bold">Why bother?</tspan> Every change to _balance goes through ONE door, so the rules (positive amounts, no overdraft) cannot be skipped by code outside the class.</text>
   <text x="30" y="548" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints each result and the balance, read through the read-only Balance property. A property reads like a field but cannot be assigned from outside.</text>
 </svg>

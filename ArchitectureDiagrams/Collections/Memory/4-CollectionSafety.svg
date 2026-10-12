@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 520" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 552" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1050" height="520" fill="#ffffff"/>
+  <rect x="0" y="0" width="1050" height="552" fill="#ffffff"/>
   <text x="525" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Collection Safety — Memory: Stack / Heap / Static</text>
   <text x="525" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainCollectionSafety() is currently executing, right after both checks failed.</text>
 
@@ -33,14 +33,14 @@
   <text x="220" y="368" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
   <text x="220" y="384" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
 
-  <!-- Heap: the two collections, reused from methods 1 & 3 -->
+  <!-- Heap: this method builds its own array and dictionary -->
   <rect x="460" y="146" width="340" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="630" y="168" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">int[5] examScores — same object as Memory/1</text>
-  <text x="630" y="186" text-anchor="middle" font-size="9" fill="#a06a1f">only 5 valid indexes: 0 to 4</text>
+  <text x="630" y="168" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">int[5] examScores — this method's own array</text>
+  <text x="630" y="186" text-anchor="middle" font-size="9" fill="#a06a1f">valid indexes 0 to 4 (index 2 is 78 here, not Memory/1's 80)</text>
 
   <rect x="460" y="216" width="340" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
-  <text x="630" y="238" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">Dictionary phoneBook — same object as Memory/3</text>
-  <text x="630" y="256" text-anchor="middle" font-size="9" fill="#a06a1f">only "Vivek" and "Anita" are pinned</text>
+  <text x="630" y="238" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">Dictionary phoneBook — this method's own dictionary</text>
+  <text x="630" y="256" text-anchor="middle" font-size="9" fill="#a06a1f">only "Vivek" and "Anita" were added</text>
 
   <line x1="392" y1="159" x2="458" y2="174" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
   <line x1="392" y1="219" x2="458" y2="244" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
@@ -50,6 +50,6 @@
   <text x="975" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="975" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
 
-  <text x="40" y="470" font-size="10.5" fill="#444"><tspan font-weight="bold">Neither failed check touched the Heap at all.</tspan> No new array cell, no new dictionary entry was read — the check happened entirely on the Stack, before either collection was ever asked for something it didn't have.</text>
-  <text x="40" y="488" font-size="10" font-style="italic" fill="#888">Compare the dashed "rahulNumber → null" row above with Memory/3-Dictionaries.svg's real entries — this is what an out parameter looks like when nothing was found.</text>
+  <text x="40" y="470" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Neither check ever read a missing item.</tspan> The index test only compared 10 with examScores.Length (read from the array object on the Heap) and skipped the lookup; TryGetValue searched</tspan><tspan x="40" dy="15.8">the dictionary, found no "Rahul" key, and returned false instead of throwing. Both collections were consulted — but nothing that doesn't exist was ever touched.</tspan></text>
+  <text x="40" y="526" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0">Compare the dashed "rahulNumber → null" row above with Memory/3-Dictionaries.svg's real entries (a different dictionary built the same way) — this is what an out parameter looks like when</tspan><tspan x="40" dy="15.0">nothing was found.</tspan></text>
 </svg>

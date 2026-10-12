@@ -13,8 +13,8 @@ public class ProgrammingBasicsDemo
         // kind of value it can hold, how much memory it uses, and what
         // operations are valid on it.
         int age = 28;                  // whole numbers
-        double price = 499.99;         // fractional numbers (approximate, fast)
-        decimal salary = 55000.50m;    // fractional numbers needing exact precision — use for money; note the 'm' suffix
+        double price = 499.99;         // fractional numbers (approximate, fast — e.g. 0.1 + 0.2 == 0.3 is FALSE for double)
+        decimal salary = 55000.50m;    // base-10 fractions kept exactly (~28 digits) — use for money; note the 'm' suffix. It still rounds on things like 1/3
         bool isActive = true;          // true / false only
         char grade = 'A';              // exactly one character — single quotes
         string name = "Vivek";         // text — double quotes
@@ -79,8 +79,8 @@ public class ProgrammingBasicsDemo
         // Console.Write / Console.WriteLine send text OUT to the screen.
         Console.Write("Enter your name: ");
 
-        // Console.ReadLine() reads text IN from the user — it ALWAYS returns a string,
-        // even if the user types a number.
+        // Console.ReadLine() reads text IN from the user. It returns text (a string) even if the
+        // user types a number — or null if there is no more input (hence the `string?` type below).
         string? enteredName = Console.ReadLine();
 
         Console.Write("Enter your age: ");

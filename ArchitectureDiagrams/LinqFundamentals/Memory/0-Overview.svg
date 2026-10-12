@@ -40,7 +40,8 @@
   <text x="960" y="190" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">Nothing here yet</text>
   <text x="960" y="214" text-anchor="middle" font-size="10" fill="#5b4a7a">The lesson declares no</text>
   <text x="960" y="230" text-anchor="middle" font-size="10" fill="#5b4a7a">static members. (The compiler</text>
-  <text x="960" y="246" text-anchor="middle" font-size="10" fill="#5b4a7a">caches lambdas in hidden ones.)</text>
+  <text x="960" y="246" text-anchor="middle" font-size="10" fill="#5b4a7a">may cache non-capturing</text>
+  <text x="960" y="262" text-anchor="middle" font-size="10" fill="#5b4a7a">lambdas in hidden ones.)</text>
   <text x="40" y="374" font-size="10.5" fill="#444"><tspan font-weight="bold">A query you have not enumerated holds no results.</tspan> `deposits` in Memory/4 is an iterator that remembers WHERE to look (the list) and WHAT to look for (the lambda).</text>
   <text x="40" y="394" font-size="10" font-style="italic" fill="#888">ToList() is the moment that plan runs and a separate copy is built — which is why snapshot and deposits can disagree afterwards.</text>
 </svg>

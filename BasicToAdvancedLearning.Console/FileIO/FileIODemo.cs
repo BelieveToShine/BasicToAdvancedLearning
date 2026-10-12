@@ -3,7 +3,8 @@ namespace BasicToAdvancedLearning.FileIO;
 // Topic 8: File I/O basics — writing and reading text, streams with `using`, paths and existence
 // checks, and what happens when a file is missing (Topic 7's exceptions at work). The running example
 // is a tiny bank statement. Every method that creates a file uses ONE file in the operating system's temp
-// folder and deletes it afterwards, so running the lesson never leaves anything behind. Each concept gets its own
+// folder and deletes it afterwards, so running the lesson never leaves anything behind (it would
+// overwrite a file of the same name there, so the name is deliberately unusual). Each concept gets its own
 // method so it can be explained and demoed one at a time from FileIOExample.
 // See ArchitectureDiagrams/FileIO for the visual walkthrough.
 public class FileIODemo
@@ -45,7 +46,8 @@ public class FileIODemo
         try
         {
             // A StreamWriter holds the file open while you write. The `using` block calls Dispose()
-            // at its closing brace, which flushes the text to disk and releases the file.
+            // at its closing brace, which hands any buffered text to the operating system and releases the
+            // file. Without `using`, the last buffered lines could be lost and (on Windows) the file stay locked.
             using (StreamWriter writer = new StreamWriter(path))
             {
                 writer.WriteLine("Deposit 200");
@@ -104,7 +106,7 @@ public class FileIODemo
 
         try
         {
-            string text = File.ReadAllText(missingPath); // throws: there is no such file
+            string text = File.ReadAllText(missingPath); // throws: there is no such file (a missing FOLDER would throw DirectoryNotFoundException instead)
             Console.WriteLine(text); // never runs
         }
         catch (FileNotFoundException ex)
@@ -112,9 +114,10 @@ public class FileIODemo
             Console.WriteLine($"Caught a {ex.GetType().Name}: that file does not exist");
         }
 
-        // The other way: ask first. File.Exists never throws, so no catch is needed.
+        // The other way: ask first. File.Exists never throws, but the answer can go stale before you act
+        // on it (another program may delete the file), and it says false for a bad path too, so a catch can still be needed.
         bool canRead = File.Exists(missingPath);
-        Console.WriteLine($"File.Exists says: {canRead} — checking first avoids the exception");
+        Console.WriteLine($"File.Exists says: {canRead} — checking first can avoid the exception");
     }
 
     // Builds the full path of the lesson's file inside the temp folder.

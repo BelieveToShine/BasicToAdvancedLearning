@@ -6,14 +6,14 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 
 ## Status snapshot — 2026-10-12
 
-**Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0),
-(path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
+**Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0).
+Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
 **Done this session (Topic 9 — LINQ fundamentals, which completes Phase 1):**
 - Topic 9 implemented + explained with 11 diagrams (see the tracker row below). The bank thread ends Phase 1 as a
   `List<decimal>` of amounts (positive = deposit, negative = withdrawal) queried four ways — no new classes.
-  `Program.cs` now runs Topic 9 (`LinqFundamentalsExample`). **Phase 1 (C# Fundamentals, topics 1–9) is complete.**
+  At the end of that session `Program.cs` ran Topic 9 (`LinqFundamentalsExample`). **Phase 1 (C# Fundamentals, topics 1–9) is complete.**
 - Topic 9 decisions (all five from the old plan list were settled): folder/namespace `LinqFundamentals`
   (no segment named `Linq`); methods `WhereAndSelect`, `OrderingAndAggregates`, `AskingQuestions`,
   `DeferredExecution`; Flow metaphors: a conveyor with a filter gate, a scoreboard, a quiz show, a recipe card
@@ -29,7 +29,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 **Earlier session (Topic 8 — File I/O basics):**
 - Topic 8 implemented + explained with 11 diagrams (see the tracker row below). One tiny bank statement
   (`bta-statement.txt`) is written, read and deleted in the OS temp folder by the methods that create it, so running
-  the lesson never leaves files behind or touches the repo. `Program.cs` now runs Topic 8 (`FileIOExample`).
+  the lesson never leaves files behind or touches the repo. At the end of that session `Program.cs` ran Topic 8 (`FileIOExample`).
 - Topic 8 decisions (all five from the old plan list were settled): folder/namespace `FileIO` (no segment
   shadows `File` or `Path`); methods `WriteAndReadText`, `LinesAndStreams`, `PathsAndExistence`, `FileErrors`;
   Flow metaphors: a filing-cabinet drawer, a water pipe with a tap, postal address labels, a lost-property desk.
@@ -48,7 +48,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
   with `SafeAccount`, whose `Withdraw()` THROWS (a built-in `ArgumentOutOfRangeException`, or the custom
   `InsufficientFundsException : Exception` carrying a `Shortfall`) instead of returning `false` like Topic 5's
   `BankAccount` — Topic 5's "exceptions arrive in Topic 7" comment is now paid off, with no earlier topic edited.
-  `Program.cs` now runs Topic 7 (`ExceptionHandlingExample`).
+  At the end of that session `Program.cs` ran Topic 7 (`ExceptionHandlingExample`).
 - Topic 7 decisions (all five from the old plan list were settled): folder/namespace `ExceptionHandling`;
   methods `TryCatch` (a built-in `FormatException`), `CatchOrder`, `Finally`, `CustomExceptions`; Memory
   diagrams keep the locked 3 frames EXCEPT `Memory/4-CustomExceptions.svg`, which shows 4 frames at the
@@ -65,8 +65,8 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Topic 6 implemented + explained with 11 diagrams (see the tracker row below). The bank thread continues
   with its own small family in the OOPAdvanced folder so Topic 5's code stays untouched: `Account` (base) →
   `SavingsAccount`, `CurrentAccount`; `Transaction` (abstract) → `DepositTransaction`,
-  `WithdrawalTransaction`; `IInterestBearing` (interface) ← `SavingsAccount`, `FixedDeposit`. `Program.cs`
-  now runs Topic 6 (`OOPAdvancedExample`).
+  `WithdrawalTransaction`; `IInterestBearing` (interface) ← `SavingsAccount`, `FixedDeposit`.
+  At the end of that session `Program.cs` ran Topic 6 (`OOPAdvancedExample`).
 - Topic 6 decisions (all five from the old plan list were settled): folder/namespace `OOPAdvanced`; methods
   `Inheritance`, `Polymorphism`, `AbstractClasses`, `Interfaces`; Memory diagrams keep the locked 3 frames —
   a derived object is ONE Heap box with the parent's fields and its own captioned separately, and an array
@@ -78,7 +78,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 **Earlier session (Topic 5 — OOP):**
 - Topic 5 implemented + explained with 13 diagrams (see the tracker row below): running example is a
   `BankAccount` (`BankAccount.cs`), plus a static `Bank` class (`Bank.cs`) that only the last method uses.
-  `Program.cs` now runs Topic 5 (`OOPExample`).
+  At the end of that session `Program.cs` ran Topic 5 (`OOPExample`).
 - Topic 5 decisions (all five from the old plan list were settled): folder/namespace `OOP`; methods
   `ClassesAndObjects`, `Constructors`, `Encapsulation`, `ReferencesVsCopies`, `StaticMembers`; Memory
   diagrams keep the locked 3 frames and show each object as a Heap box listing its real field values
@@ -207,7 +207,7 @@ Real lessons found while building this, worth knowing so they're never rediscove
    ILearningTopic topic = new <Topic>Example();
    topic.Explain();
    ```
-   Moving to the next topic is a one-line change (swap the type after `new`) — `Program.cs` itself
+   Moving to the next topic means changing TWO lines (the `using` for the topic's namespace and the type after `new`) — `Program.cs` itself
    never grows or needs re-reading. It's also a working example of interfaces/polymorphism baked
    into the project's own structure.
 3. **Two files per topic, not one.** `<Topic>Demo.cs` is the actual lesson (the concepts, with
@@ -242,9 +242,9 @@ Real lessons found while building this, worth knowing so they're never rediscove
     temp path in a diagram: it differs per operating system (`/tmp/…` vs `C:\Users\…`) — the diagrams write
     `"<temp folder>/…"`.
 12. **`using` is what closes a stream.** `using (StreamWriter writer = …) { … }` calls `Dispose()` at the closing
-    brace, flushing the buffered text to disk and releasing the file. A stream you forget to dispose can keep a
-    file locked; a stream left un-flushed can lose its last lines. `ReadLine()` returns `null` at the end of the
-    file — that is the loop's stop signal.
+    brace, which hands the buffered text to the operating system and releases the file handle. A stream you forget
+    to dispose can lose its last buffered lines, and on Windows can leave the file locked for other programs.
+    `ReadLine()` returns `null` at the end of the file — that is the loop's stop signal.
 13. **A LINQ query is a plan until something enumerates it.** `Where`/`Select`/`OrderBy` return a lazy sequence;
     `ToList()`, `Count()`, `Sum()`, `First()` and a `foreach` are what actually run it — and each enumeration
     re-reads the source. That is why a `ToList()` taken earlier and a query run later can disagree (Topic 9,

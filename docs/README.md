@@ -45,7 +45,7 @@ ArchitectureDiagrams/<TopicFolder>/                  ← the pictorial explanati
 | [`rules/verification.md`](rules/verification.md) | **Mandatory gate**: build+run, `scripts/verify-topic.ps1`, manual diagram checklist, independent fresh-context review, `scripts/verify-docs.ps1`. Also the acceptance test for the docs themselves. |
 | [`superpowers/specs/README.md`](superpowers/specs/README.md) | Spec format + category index (what feature docs exist). |
 | [`todo/`](todo/README.md) | Per-task working docs; folded into specs at check-in, then archived. |
-| `scripts/verify-topic.ps1`, `scripts/verify-docs.ps1`, `scripts/render-diagrams.ps1` | Automated cross-checks (PowerShell 5.1+, no extra installs). Topic check: diagram set vs call order, XML, routing, locked colours, variable names, wiring, tracker. Docs check: links, indexing, stale counts, protected-file changes, open review items, open TODOs. Render: SVG to PNG so diagrams can be viewed. |
+| `scripts/verify-topic.ps1`, `scripts/verify-docs.ps1`, `scripts/render-diagrams.ps1` | Automated cross-checks (PowerShell 7 `pwsh` recommended; `render-diagrams.ps1` additionally needs Microsoft Edge). Topic check: diagram set vs call order, XML, routing, locked colours, variable names, wiring, tracker. Docs check: links, indexing, stale counts, protected-file changes, open review items, open TODOs. Render: SVG to PNG so diagrams can be viewed. |
 | `BasicToAdvancedLearning.Console/Interfaces/ILearningTopic.cs` | The one contract every topic implements (`Explain()`), keeping `Program.cs` a fixed two-line runner. |
 
 ## Reading order for a task

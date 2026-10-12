@@ -4,7 +4,7 @@
   </defs>
   <rect x="0" y="0" width="900" height="520" fill="#ffffff"/>
   <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Ordering and aggregates — Sub-level Flow: a scoreboard</text>
-  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The same five amounts go to four judges. OrderBy lines them up; Sum, Max and Count each announce one number.</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The same five amounts go to four judges. OrderBy sorts (ToList() keeps the result); Sum, Max and Count each announce one number.</text>
   <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
   <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
   <polygon points="450,54 450,72 480,63" fill="#38761d"/>
@@ -19,8 +19,9 @@
   <polyline points="450,176 765,176 765,212" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
   <rect x="40" y="214" width="190" height="96" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="135" y="236" text-anchor="middle" font-size="9" font-weight="bold" fill="#274e13">OrderBy(amount =&gt; amount)</text>
-  <text x="135" y="258" text-anchor="middle" font-size="9.5" fill="#333">lines them up in a NEW list</text>
-  <text x="135" y="286" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">-900 · -75 · 50 · 200 · 1200</text>
+  <text x="135" y="254" text-anchor="middle" font-size="9.5" fill="#333">plans the sorted order;</text>
+  <text x="135" y="268" text-anchor="middle" font-size="9.5" fill="#333">.ToList() builds a NEW list</text>
+  <text x="135" y="292" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">-900 · -75 · 50 · 200 · 1200</text>
   <rect x="250" y="214" width="190" height="96" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
   <text x="345" y="236" text-anchor="middle" font-size="9" font-weight="bold" fill="#7f6000">Sum()</text>
   <text x="345" y="258" text-anchor="middle" font-size="9.5" fill="#333">adds every amount</text>
@@ -41,7 +42,8 @@
   <text x="450" y="370" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
   <line x1="450" y1="378" x2="450" y2="418" stroke="#333" stroke-width="2"/>
   <polygon points="450,378 450,396 480,387" fill="#cc0000"/>
-  <text x="30" y="450" font-size="10.5" fill="#444"><tspan font-weight="bold">Sorting and counting leave the list alone:</tspan> OrderBy builds a new sorted list; the aggregates only read amounts and hand back one number each.</text>
+  <text x="30" y="450" font-size="10.5" fill="#444"><tspan font-weight="bold">Sorting and counting leave the list alone:</tspan> OrderBy(…).ToList() builds a new sorted list; the aggregates only read amounts and hand back one number each.</text>
   <text x="30" y="468" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the sorted list, the untouched original, and one line with Sum, largest and withdrawals — three lines.</text>
   <text x="30" y="486" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+  <text x="30" y="504" font-size="10" font-style="italic" fill="#888">Edge case: on an EMPTY list Max() throws InvalidOperationException, while Sum() simply returns 0.</text>
 </svg>

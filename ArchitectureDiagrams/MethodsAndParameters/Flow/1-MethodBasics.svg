@@ -39,5 +39,5 @@
   <polygon points="830,150 830,168 860,159" fill="#cc0000"/>
   <text x="830" y="140" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
 
-  <text x="30" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Every off-ramp always lands back on the road</tspan> — a method call never leaves the caller behind. AddNumbers hands back a value; Greet hands back nothing but control still returns.</text>
+  <text x="30" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Every off-ramp always lands back on the road</tspan> — a normal method call returns control to its caller. AddNumbers hands back a value; Greet hands back nothing but control still returns.</text>
 </svg>

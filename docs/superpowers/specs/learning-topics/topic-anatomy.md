@@ -25,7 +25,7 @@ describe the same method.
 ## Why this shape (rejected alternatives)
 - **One class holding both lesson and runner plumbing** — rejected: it mixes teaching code with
   interface wiring juniors don't need yet.
-- **A runtime menu in `Program.cs`** — rejected for now: the one-line type swap is itself a live
+- **A runtime menu in `Program.cs`** — rejected for now: the two-line swap (the `using` and the type after `new`) is itself a live
   polymorphism example, and keeps `Program.cs` fixed.
 - **GIFs for loops** — rejected: no tooling on the machine; animated SMIL SVG stays text/diffable.
 - **One shared Memory diagram per topic** — rejected: a learner stuck on one method should open exactly

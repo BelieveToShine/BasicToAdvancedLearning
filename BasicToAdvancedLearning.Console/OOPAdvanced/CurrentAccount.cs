@@ -6,7 +6,7 @@ public class CurrentAccount : Account
 {
     private const decimal CurrentAccountFee = 10m;
 
-    // Added by CurrentAccount on top of everything it inherits from Account. It is stored and shown
+    // Added by CurrentAccount on top of what it inherits from Account. It is stored and shown
     // but not enforced here: Withdraw() is inherited unchanged and still refuses anything above the balance.
     private readonly decimal _overdraftLimit;
 

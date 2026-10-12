@@ -42,6 +42,6 @@
   <text x="855" y="176" text-anchor="middle" font-size="10" fill="#5b4a7a">No static fields/consts</text>
   <text x="855" y="192" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
-  <text x="40" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Three overloads, three unrelated frame shapes.</tspan> Describe(int) would push a frame with one int; Describe(string) would push a frame with a Stack pointer into the Heap. Calling Describe(5, 10) never touches either of the other two.</text>
-  <text x="40" y="440" font-size="10" font-style="italic" fill="#888">The compiler decided WHICH of the three to call before the program ever ran — there's no runtime lookup happening here, unlike a switch.</text>
+  <text x="40" y="420.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Three overloads, three unrelated frame shapes.</tspan> Describe(int) would push a frame with one int; Describe(string) would push a frame with a Stack pointer into</tspan><tspan x="40" dy="15.8">the Heap. Calling Describe(5, 10) never touches either of the other two.</tspan></text>
+  <text x="40" y="455.8" font-size="10" font-style="italic" fill="#888">The compiler decided WHICH of the three to call before the program ever ran — there's no runtime lookup here, unlike virtual calls (a later topic).</text>
 </svg>
