@@ -10,7 +10,25 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
-**Done this session (Topic 6 — OOP advanced):**
+**Done this session (Topic 7 — Exception handling):**
+- Topic 7 implemented + explained with 11 diagrams (see the tracker row below). The bank thread continues
+  with `SafeAccount`, whose `Withdraw()` THROWS (a built-in `ArgumentOutOfRangeException`, or the custom
+  `InsufficientFundsException : Exception` carrying a `Shortfall`) instead of returning `false` like Topic 5's
+  `BankAccount` — Topic 5's "exceptions arrive in Topic 7" comment is now paid off, with no earlier topic edited.
+  `Program.cs` now runs Topic 7 (`ExceptionHandlingExample`).
+- Topic 7 decisions (all five from the old plan list were settled): folder/namespace `ExceptionHandling`;
+  methods `TryCatch` (a built-in `FormatException`), `CatchOrder`, `Finally`, `CustomExceptions`; Memory
+  diagrams keep the locked 3 frames EXCEPT `Memory/4-CustomExceptions.svg`, which shows 4 frames at the
+  instant of the throw (see below); Flow metaphors: a safety net, sorting chutes, a toll booth, a parcel
+  thrown up a stairwell.
+- **Recorded locked-shape exception:** `Memory/4-CustomExceptions.svg` has 4 stack frames (`Withdraw`,
+  `ExplainCustomExceptions`, `Explain`, `Main`) because its whole point is that the failing method has not
+  been unwound yet; it also shows the exception object on the Heap with no variable pointing at it. Same
+  precedent as the instance-frame exception in `rules/diagram-standards.md`; listed in `verification.md`.
+- An exception is drawn as an ordinary Heap object (`Message` pointer + any custom fields); `ex` is just a
+  pointer. Message text from .NET itself is not quoted in diagrams because it changes between .NET versions.
+
+**Earlier session (Topic 6 — OOP advanced):**
 - Topic 6 implemented + explained with 11 diagrams (see the tracker row below). The bank thread continues
   with its own small family in the OOPAdvanced folder so Topic 5's code stays untouched: `Account` (base) →
   `SavingsAccount`, `CurrentAccount`; `Transaction` (abstract) → `DepositTransaction`,
@@ -67,20 +85,22 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 7 (Exception handling) and follow the "Add a new topic" runbook below.
+**Next:** pick Topic 8 (File I/O basics) and follow the "Add a new topic" runbook below.
 
-**Decisions to settle in the Topic 7 plan (get the human's approval before building)** — the docs
+**Decisions to settle in the Topic 8 plan (get the human's approval before building)** — the docs
 deliberately do not pre-decide these, so propose an answer for each and ask:
-1. Folder/namespace name (e.g. `ExceptionHandling`).
-2. The `ExplainX()` method list (title implies try/catch, finally, throwing, custom exceptions; `using`
-   and exception filters are judgement calls) and the running example — Topic 5's `BankAccount` carries a comment
-   that "exceptions arrive in Topic 7", so reworking a `Withdraw` that today returns `false` into one that
-   throws is the natural thread (use a new class; don't edit earlier topics).
-3. How Memory diagrams show an exception object on the Heap and the call stack unwinding — the locked shape
-   has exactly 3 frames; unwinding may need a deeper stack on ONE diagram, which is a recorded exception
-   (see "Instance methods and constructors" in `rules/diagram-standards.md` for the precedent).
+1. Folder/namespace name (e.g. `FileIO` — avoid a segment that shadows a BCL type: a namespace segment named
+   `File` or `Path` would break unqualified `File.*` / `Path.*`, see gotcha 1).
+2. The `ExplainX()` method list (title implies reading/writing text, line-by-line streams, paths and existence
+   checks; `using`/`Dispose` and file errors from Topic 7 are the natural extras) and the running example — a
+   bank transaction log or statement. Write to the OS temp folder and clean up, so a demo run never leaves
+   files in the repo.
+3. How Memory diagrams show a stream: the .NET object is on the Heap but it wraps an operating-system file
+   handle that is NOT on the Heap — decide how to draw that honestly (a labelled "outside the CLR" box?), and
+   what `using` / `Dispose` looks like at the instant it runs.
 4. Flow-diagram metaphors (used so far: lockers, filmstrip, pinboard, checkpoints, signpost, blueprint-and-stamp,
-   assembly line, teller window, house keys, noticeboard, family tree, remote, form, wall socket — pick fresh ones).
+   assembly line, teller window, house keys, noticeboard, family tree, remote, form, wall socket, safety net,
+   sorting chutes, toll booth, stairwell — pick fresh ones).
 5. Branch name (see `rules/checkin-and-pr.md`).
 
 ## Topic tracker
@@ -98,7 +118,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 4 | Collections — arrays, List, Dictionary | ✅ | `Collections/` | `Collections.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (Arrays, Lists, Dictionaries, CollectionSafety, ChoosingACollection). One running example set (exam scores, to-do list, phone book) threads through all five. Flow diagrams use 5 different metaphors (row of lockers, growing filmstrip, pinboard, security checkpoints, signpost fork) per the "encouraged variety" rule |
 | 5 | OOP — classes, objects, constructors, encapsulation | ✅ | `OOP/` | `OOP.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (ClassesAndObjects, Constructors, Encapsulation, ReferencesVsCopies, StaticMembers) — 13 files. One running example (a `BankAccount`, plus a static `Bank`) threads through all five. Flow diagrams use 5 fresh metaphors (blueprint and stamp, assembly line, teller window and vault, house keys, town noticeboard). `Memory/5-StaticMembers.svg` is the first diagram with real Static content; `Memory/4-ReferencesVsCopies.svg` is the key one (two pointers, one object) |
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ✅ | `OOPAdvanced/` | `OOPAdvanced.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (Inheritance, Polymorphism, AbstractClasses, Interfaces) — 11 files. One running family (`Account` → `SavingsAccount`/`CurrentAccount`; abstract `Transaction`; interface `IInterestBearing` with `SavingsAccount` and `FixedDeposit`) threads through all four. Flow diagrams use 4 fresh metaphors (family tree, universal remote, form with a blank, wall socket and plugs). `Memory/1-Inheritance.svg` is the key one (parent + own fields in one Heap box); `Memory/2`–`4` show arrays of pointers to different classes |
-| 7 | Exception handling | ⬜ | | |
+| 7 | Exception handling | ✅ | `ExceptionHandling/` | `ExceptionHandling.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (TryCatch, CatchOrder, Finally, CustomExceptions) — 11 files. One running example (`SafeAccount.Withdraw` throwing a built-in and a custom `InsufficientFundsException`) threads through methods 2–4. Flow diagrams use 4 fresh metaphors (safety net, sorting chutes, toll booth, parcel up a stairwell). `Memory/4-CustomExceptions.svg` is the key one and a recorded locked-shape exception (4 frames at the instant of the throw) |
 | 8 | File I/O basics | ⬜ | | |
 | 9 | LINQ fundamentals | ⬜ | | |
 
@@ -180,6 +200,13 @@ Real lessons found while building this, worth knowing so they're never rediscove
    Memory diagram can name it.) A child class also calls `: base(...)` to run the parent's constructor first.
 8. **Each topic builds its own classes.** Topic 6 does not inherit from Topic 5's `BankAccount`; it makes
    `Account` so earlier topics never change. Keep names distinct across topics (`BankAccount` vs `Account`).
+9. **Don't quote .NET's own exception messages in diagrams or comments.** `decimal.Parse("abc")` says
+   "The input string 'abc' was not in a correct format." on current .NET and a different sentence on older
+   versions. Topic 7's diagrams show `"…was not in a correct format."` only; messages we write ourselves
+   (`InsufficientFundsException`) can be quoted exactly.
+10. **Catch clauses are checked top to bottom, and `catch (Exception)` matches everything** — it must be last, or
+    the compiler rejects the clause after it (CS0160). `finally` runs on success AND failure, which is why its
+    `Console.WriteLine` appears once per lap in the output.
 
 ## Add a new topic — runbook
 

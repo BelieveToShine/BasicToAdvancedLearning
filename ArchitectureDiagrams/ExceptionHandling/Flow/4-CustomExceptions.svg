@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Custom Exceptions — Sub-level Flow: a parcel thrown up the stairwell</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Withdraw throws a custom exception. It has no catch, so the exception travels UP to the caller, which does.</text>
+  <text x="240" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="240" y1="54" x2="240" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="240,54 240,72 270,63" fill="#38761d"/>
+  <line x1="240" y1="92" x2="240" y2="110" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="110" width="360" height="70" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="240" y="132" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">ExplainCustomExceptions()  — the upper floor</text>
+  <text x="240" y="152" text-anchor="middle" font-size="10" fill="#333">try { account.Withdraw(900m); }</text>
+  <text x="240" y="169" text-anchor="middle" font-size="9" fill="#555">(account holds 500)</text>
+  <line x1="240" y1="180" x2="240" y2="260" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="250" y="224" font-size="9.5" fill="#555">calls Withdraw(900m)</text>
+  <rect x="60" y="260" width="360" height="80" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="240" y="282" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a5a10">SafeAccount.Withdraw(decimal amount)  — the lower floor</text>
+  <text x="240" y="302" text-anchor="middle" font-size="9.5" fill="#333">900 &gt; _balance (500), so:</text>
+  <text x="240" y="320" text-anchor="middle" font-size="9" font-weight="bold" fill="#cc0000">throw new InsufficientFundsException(amount - _balance)</text>
+  <line x1="420" y1="304" x2="600" y2="304" stroke="#cc0000" stroke-width="2" marker-end="url(#a)"/>
+  <text x="510" y="282" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#cc0000">throws it up</text>
+  <text x="510" y="294" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#cc0000">Shortfall = 400</text>
+  <rect x="600" y="230" width="240" height="100" rx="10" fill="#fff4f4" stroke="#cc0000" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="720" y="252" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">catch (InsufficientFundsException ex)</text>
+  <text x="720" y="274" text-anchor="middle" font-size="9.5" fill="#333">decimal shortfall = ex.Shortfall;</text>
+  <text x="720" y="292" text-anchor="middle" font-size="9.5" fill="#333">Console.WriteLine(… short by 400)</text>
+  <text x="720" y="316" text-anchor="middle" font-size="9.5" font-weight="bold" font-style="italic" fill="#990000">execution resumes HERE</text>
+  <text x="240" y="362" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">Withdraw never finishes: its frame is discarded</text>
+  <polyline points="720,330 720,400 450,400 450,420" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="434" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="442" x2="450" y2="482" stroke="#333" stroke-width="2"/>
+  <polygon points="450,442 450,460 480,451" fill="#cc0000"/>
+  <text x="30" y="520" font-size="10.5" fill="#444"><tspan font-weight="bold">Exceptions travel UP the call stack:</tspan> Withdraw has no catch, so the runtime discards its frame and looks in the caller — which handles it.</text>
+  <text x="30" y="538" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the shortfall and then the untouched balance — two lines. See Memory/4: at the instant of the throw the exception object already exists on the Heap.</text>
+  <text x="30" y="556" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

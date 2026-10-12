@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Catch order — Sub-level Flow: sorting chutes, first match wins</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each request tries Withdraw. If it throws, the exception falls into the FIRST catch clause that fits.</text>
+  <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="450,54 450,72 480,63" fill="#38761d"/>
+  <line x1="450" y1="92" x2="450" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="100" width="780" height="34" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450" y="122" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">foreach (decimal request in requests)  —  three laps: -5m, 900m, 100m</text>
+  <line x1="450" y1="134" x2="450" y2="170" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="170" width="780" height="54" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="2"/>
+  <text x="450" y="192" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">try:  account.Withdraw(request);</text>
+  <text x="450" y="211" text-anchor="middle" font-size="9.5" fill="#555">if it throws, the clauses below are tried top to bottom — the first match wins</text>
+  <line x1="135" y1="224" x2="135" y2="282" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="345" y1="224" x2="345" y2="282" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="555" y1="224" x2="555" y2="282" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <line x1="765" y1="224" x2="765" y2="282" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="143" y="258" font-size="9" fill="#cc0000">throws (-5m)</text>
+  <text x="353" y="258" font-size="9" fill="#cc0000">throws (900m)</text>
+  <text x="563" y="258" font-size="9" fill="#777">nothing else</text>
+  <text x="773" y="258" font-size="9" fill="#274e13">no throw (100m)</text>
+  <rect x="40" y="282" width="190" height="90" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="135" y="304" text-anchor="middle" font-size="9.5" fill="#8a5a10">1st catch:</text>
+  <text x="135" y="324" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">ArgumentOutOfRangeException</text>
+  <text x="135" y="350" text-anchor="middle" font-size="9" fill="#333">-5m: not a positive amount</text>
+  <rect x="250" y="282" width="190" height="90" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="345" y="304" text-anchor="middle" font-size="9.5" fill="#8a5a10">2nd catch:</text>
+  <text x="345" y="324" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">InsufficientFundsException</text>
+  <text x="345" y="350" text-anchor="middle" font-size="9" fill="#333">900m: short by 400</text>
+  <rect x="460" y="282" width="190" height="90" rx="8" fill="#f4f4f4" stroke="#aaaaaa" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="555" y="304" text-anchor="middle" font-size="9.5" fill="#777777">last catch (safety net):</text>
+  <text x="555" y="324" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#777777">Exception</text>
+  <text x="555" y="350" text-anchor="middle" font-size="9" fill="#333">unused today — nothing else threw</text>
+  <rect x="670" y="282" width="190" height="90" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="765" y="304" text-anchor="middle" font-size="9.5" fill="#274e13">no exception:</text>
+  <text x="765" y="324" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Withdrew 100</text>
+  <text x="765" y="350" text-anchor="middle" font-size="9" fill="#333">balance is now 400</text>
+  <polyline points="135,372 135,400 450,400" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="345,372 345,400 450,400" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="555,372 555,400 450,400" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="765,372 765,400 450,400" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="450" y1="400" x2="450" y2="418" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="432" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="440" x2="450" y2="480" stroke="#333" stroke-width="2"/>
+  <polygon points="450,440 450,458 480,449" fill="#cc0000"/>
+  <text x="30" y="520" font-size="10.5" fill="#444"><tspan font-weight="bold">Put the specific catches first and the general one last:</tspan> Exception matches everything, so a clause placed after it could never run.</text>
+  <text x="30" y="538" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints one line per lap — three lines. -5m and 900m end in a catch; 100m prints "Withdrew 100; balance is now 400" from the try.</text>
+  <text x="30" y="556" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

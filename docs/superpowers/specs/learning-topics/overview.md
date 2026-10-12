@@ -31,11 +31,12 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 4 | Collections | `Collections/` | arrays, `List<T>`, `Dictionary<TKey,TValue>`, collection safety, choosing a collection |
 | 5 | OOP | `OOP/` | classes & objects, constructors (and overloads), encapsulation, references vs copies, static members — running example `BankAccount` (+ static `Bank`) |
 | 6 | OOP Advanced | `OOPAdvanced/` | inheritance, polymorphism (`virtual`/`override`), abstract classes, interfaces — running family `Account` → `SavingsAccount`/`CurrentAccount`, abstract `Transaction`, `IInterestBearing` |
+| 7 | Exception Handling | `ExceptionHandling/` | `try`/`catch`, catch order, `finally`, custom exceptions — running example `SafeAccount` + `InsufficientFundsException` |
 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `OOPAdvancedExample`); change the type after `new` to run another.
+  one topic (currently `ExceptionHandlingExample`); change the type after `new` to run another.
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -53,6 +54,9 @@ None. There are no config keys, environment variables, or connection strings yet
 - Topic 6's classes live in several files beside `OOPAdvancedDemo.cs` (`Account.cs`, `SavingsAccount.cs`,
   `CurrentAccount.cs`, `Transaction.cs` — which also holds its two concrete children —, `IInterestBearing.cs`,
   `FixedDeposit.cs`); none defines an `ExplainX()` method.
+- Topic 7's `SafeAccount.cs` and `InsufficientFundsException.cs` sit beside `ExceptionHandlingDemo.cs`; neither
+  defines an `ExplainX()` method. `Memory/4-CustomExceptions.svg` is the topic's one locked-shape exception
+  (4 frames, shown at the instant of the throw).
 - Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
   as the polymorphism teaching example).
 

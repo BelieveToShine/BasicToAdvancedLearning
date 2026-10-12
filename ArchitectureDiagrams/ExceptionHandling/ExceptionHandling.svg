@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="560" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# Exception Handling — try/catch, Catch Order, finally, Custom Exceptions</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">ExceptionHandlingDemo.cs holds the logic; SafeAccount.cs and InsufficientFundsException.cs are the running example. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="150" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="166" y="72">try / catch</text></g>
+  <g font-size="10" fill="#333"><rect x="260" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="276" y="72">Catch order</text></g>
+  <g font-size="10" fill="#333"><rect x="370" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="386" y="72">finally</text></g>
+  <g font-size="10" fill="#333"><rect x="450" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="466" y="72">Custom exceptions</text></g>
+  <rect x="30" y="100" width="290" height="250" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="175" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · try / catch</text>
+  <text x="175" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainTryCatch()</text>
+  <rect x="42" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="50" y="168" font-size="9" fill="#333">decimal amount = decimal.Parse(typedAmount);</text>
+  <text x="50" y="190" font-size="9" fill="#333">catch (FormatException ex)</text>
+  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">try runs risky code; catch is the</text>
+  <text x="175" y="284" text-anchor="middle" font-size="9.5" fill="#1a4a73">safety net that stops a crash.</text>
+  <rect x="340" y="100" width="290" height="250" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="485" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Catch order</text>
+  <text x="485" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainCatchOrder()</text>
+  <rect x="352" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="360" y="168" font-size="9" fill="#333">catch (ArgumentOutOfRangeException)</text>
+  <text x="360" y="190" font-size="9" fill="#333">catch (InsufficientFundsException ex)</text>
+  <text x="485" y="268" text-anchor="middle" font-size="9.5" fill="#274e13">Clauses are checked top to bottom;</text>
+  <text x="485" y="284" text-anchor="middle" font-size="9.5" fill="#274e13">the first that fits wins.</text>
+  <rect x="650" y="100" width="290" height="250" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="795" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · finally</text>
+  <text x="795" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainFinally()</text>
+  <rect x="662" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="670" y="168" font-size="9" fill="#333">finally { sessionsClosed++; … }</text>
+  <text x="670" y="190" font-size="9" fill="#333">Session 1 closed · Session 2 closed</text>
+  <text x="795" y="268" text-anchor="middle" font-size="9.5" fill="#8a5a10">Clean-up that runs whether the try</text>
+  <text x="795" y="284" text-anchor="middle" font-size="9.5" fill="#8a5a10">succeeded or threw.</text>
+  <rect x="960" y="100" width="290" height="250" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1105" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">4 · Custom exceptions</text>
+  <text x="1105" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainCustomExceptions()</text>
+  <rect x="972" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="980" y="168" font-size="9" fill="#333">throw new InsufficientFundsException(…)</text>
+  <text x="980" y="190" font-size="9" fill="#333">decimal shortfall = ex.Shortfall;</text>
+  <text x="1105" y="268" text-anchor="middle" font-size="9.5" fill="#4a2e73">Throw your own exception type, with</text>
+  <text x="1105" y="284" text-anchor="middle" font-size="9.5" fill="#4a2e73">data attached for the catcher.</text>
+  <text x="40" y="395" font-size="11" fill="#444"><tspan font-weight="bold">The example the lesson builds:</tspan> SafeAccount.Withdraw() throws ArgumentOutOfRangeException (bad amount) or InsufficientFundsException (a custom exception : Exception, carrying Shortfall).</text>
+  <text x="40" y="440" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → ExceptionHandlingExample.Explain()</tspan> calls all four methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="460" font-size="10.5" font-style="italic" fill="#888">Every method (1–4) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>
