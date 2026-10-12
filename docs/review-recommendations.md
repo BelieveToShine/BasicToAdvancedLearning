@@ -149,6 +149,22 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 
 ---
 
+### R13 — Phase 2 (SQL) needs owner decisions before any topic is built  `needs-owner`
+- **Status:** needs-owner
+- **Where:** `docs/ROADMAP.md` "Next"; `docs/rules/database.md` (empty); `docs/rules/diagram-standards.md`
+  (the three mandatory diagrams are written for C#: Stack/Heap/Static); `scripts/verify-topic.ps1` (assumes a C#
+  demo + adapter per topic).
+- **Evidence:** Phase 1 ended with Topic 9. Topic 10 starts SQL; there is no agreed DB engine (open `TODO:` Q2), no
+  database rule file content, and no meaning for Stack/Heap/Static in a SQL lesson.
+- **Suggested decisions (owner):** (1) engine + tooling — SQLite is the only one a cloud/CI session can reliably run;
+  (2) replacement diagram trio for SQL (ERD / query-pipeline Flow / table before-and-after state) — a rule change, so
+  it needs a `decisions.md` entry and a `rules:` commit; (3) where SQL lessons live (console project or a `.sql` folder)
+  and what the verify script should check for them.
+- **Verify by:** `decisions.md` has the answers; `rules/database.md` and `diagram-standards.md` carry the new rules;
+  `verify-topic.ps1` supports the new topic shape.
+
+---
+
 ## C. Process gaps and the measures that now address them
 | Gap seen | Measure | Where | Status |
 |---|---|---|---|

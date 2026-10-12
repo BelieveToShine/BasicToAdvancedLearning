@@ -33,11 +33,12 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 6 | OOP Advanced | `OOPAdvanced/` | inheritance, polymorphism (`virtual`/`override`), abstract classes, interfaces — running family `Account` → `SavingsAccount`/`CurrentAccount`, abstract `Transaction`, `IInterestBearing` |
 | 7 | Exception Handling | `ExceptionHandling/` | `try`/`catch`, catch order, `finally`, custom exceptions — running example `SafeAccount` + `InsufficientFundsException` |
 | 8 | File I/O | `FileIO/` | `File.WriteAllText`/`ReadAllText`, `StreamWriter`/`StreamReader` with `using`, `Path.Combine` and `File.Exists`, `FileNotFoundException` — running example: a tiny bank statement in the temp folder |
+| 9 | LINQ Fundamentals | `LinqFundamentals/` | `Where`/`Select`, `OrderBy` and aggregates (`Sum`, `Max`, `Count`), `Any`/`All`/`First`/`FirstOrDefault`, deferred execution — running example: a `List<decimal>` of bank amounts |
 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `FileIOExample`); change the type after `new` to run another.
+  one topic (currently `LinqFundamentalsExample`); change the type after `new` to run another.
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -61,6 +62,9 @@ None. There are no config keys, environment variables, or connection strings yet
 - Topic 8 touches the real file system, so the methods that create a file use ONE file in `Path.GetTempPath()` and delete it in a
   `finally` (or straight after use). Every Memory diagram adds a dashed "OUTSIDE .NET" box (file handle + disk) under
   the Heap — a recorded addition to the locked shape (see `rules/verification.md`).
+- Topic 9 needs no helper classes: every method queries a `List<decimal>` built by a private `CreateAmounts()` helper
+  inside the demo. Phase 1 (topics 1–9) is complete; this spec describes the C# lesson-topic shape only — Phase 2
+  (SQL) is not covered here and needs its own category once the owner settles the open decisions (R13).
 - Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
   as the polymorphism teaching example).
 

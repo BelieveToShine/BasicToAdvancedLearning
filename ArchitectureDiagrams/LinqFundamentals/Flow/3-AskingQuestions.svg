@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="640" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Asking questions — Sub-level Flow: a quiz show</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each question is put to the same list. The answer is a single value — a yes/no buzzer or one winning item.</text>
+  <text x="220" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="220" y1="54" x2="220" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="220,54 220,72 250,63" fill="#38761d"/>
+  <line x1="220" y1="92" x2="220" y2="104" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="20" y="104" width="400" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="124" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a4a73">bool anyWithdrawal = amounts.Any(amount =&gt; amount &lt; NoMoney);</text>
+  <text x="220" y="144" text-anchor="middle" font-size="9.5" fill="#333">is AT LEAST ONE amount a withdrawal?</text>
+  <line x1="420" y1="132" x2="540" y2="132" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="106" width="320" height="52" rx="26" fill="#eaf6ea" stroke="#6aa84f" stroke-width="2"/>
+  <text x="700" y="137" text-anchor="middle" font-size="11" font-weight="bold" fill="#274e13">YES  →  true</text>
+  <line x1="220" y1="160" x2="220" y2="204" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="20" y="204" width="400" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="224" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a4a73">bool allDeposits = amounts.All(amount =&gt; amount &gt; NoMoney);</text>
+  <text x="220" y="244" text-anchor="middle" font-size="9.5" fill="#333">is EVERY amount a deposit?</text>
+  <line x1="420" y1="232" x2="540" y2="232" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="206" width="320" height="52" rx="26" fill="#fdebd9" stroke="#e69138" stroke-width="2"/>
+  <text x="700" y="237" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a10">NO  →  false</text>
+  <line x1="220" y1="260" x2="220" y2="304" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="20" y="304" width="400" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="324" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a4a73">decimal firstLarge = amounts.First(amount =&gt; amount &gt; LargeAmount);</text>
+  <text x="220" y="344" text-anchor="middle" font-size="9.5" fill="#333">the FIRST amount over 1000</text>
+  <line x1="420" y1="332" x2="540" y2="332" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="306" width="320" height="52" rx="26" fill="#fffbe8" stroke="#f1c232" stroke-width="2"/>
+  <text x="700" y="337" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f6000">spotlight  →  1200</text>
+  <line x1="220" y1="360" x2="220" y2="404" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="20" y="404" width="400" height="56" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="424" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a4a73">decimal noMatch = amounts.FirstOrDefault(amount =&gt; amount &gt; HugeAmount);</text>
+  <text x="220" y="444" text-anchor="middle" font-size="9.5" fill="#333">the first amount over 5000 — if there is one</text>
+  <line x1="420" y1="432" x2="540" y2="432" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="540" y="406" width="320" height="52" rx="26" fill="#f0eaf7" stroke="#8e63ce" stroke-width="2"/>
+  <text x="700" y="437" text-anchor="middle" font-size="11" font-weight="bold" fill="#4a2e73">nobody  →  0 (the default)</text>
+  <text x="540" y="482" font-size="9" font-style="italic" fill="#cc0000">First would THROW (Topic 7) if nothing matched;</text>
+  <text x="540" y="496" font-size="9" font-style="italic" fill="#cc0000">FirstOrDefault hands back the default instead.</text>
+  <line x1="220" y1="460" x2="220" y2="500" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="220" y="514" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="220" y1="522" x2="220" y2="562" stroke="#333" stroke-width="2"/>
+  <polygon points="220,522 220,540 250,531" fill="#cc0000"/>
+  <text x="30" y="590" font-size="10.5" fill="#444"><tspan font-weight="bold">Questions, not new lists:</tspan> Any, All, First and FirstOrDefault each return ONE answer; nothing new is built.</text>
+  <text x="30" y="608" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the Any/All line, the "First amount over 1000" line and the FirstOrDefault line — three lines.</text>
+  <text x="30" y="626" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

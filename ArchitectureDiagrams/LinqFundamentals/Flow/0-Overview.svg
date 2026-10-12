@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="700" fill="#ffffff"/>
+  <text x="500" y="24" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">LINQ Fundamentals — Functional Flow (high level: who calls whom, in what order)</text>
+  <text x="500" y="44" text-anchor="middle" font-size="12" fill="#666">For the detail of any one method, zoom into its own Flow/&lt;N&gt;-&lt;Name&gt;.svg (named in each note below).</text>
+  <g font-size="11" fill="#333"><line x1="380" y1="64" x2="416" y2="64" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/><text x="422" y="68">Call (→)</text><line x1="530" y1="64" x2="566" y2="64" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/><text x="572" y="68">Return (←)</text></g>
+  <rect x="60" y="80" width="180" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="150" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Program.cs (Main)</text>
+  <rect x="370" y="80" width="280" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="510" y="97" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">LinqFundamentalsExample</text>
+  <text x="510" y="112" text-anchor="middle" font-size="9" fill="#666">(implements ILearningTopic)</text>
+  <rect x="700" y="80" width="260" height="42" rx="8" fill="#eef2f7" stroke="#555" stroke-width="1.3"/>
+  <text x="830" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">LinqFundamentalsDemo</text>
+  <line x1="150" y1="122" x2="150" y2="610" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="510" y1="122" x2="510" y2="610" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="830" y1="122" x2="830" y2="610" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect x="146" y="170" width="8" height="440" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <rect x="506" y="190" width="8" height="380" rx="0" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1"/>
+  <text x="330" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">new LinqFundamentalsExample();  topic.Explain()</text>
+  <line x1="150" y1="190" x2="510" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="826" y="190" width="8" height="50" rx="0" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="670" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainWhereAndSelect()</text>
+  <line x1="510" y1="190" x2="830" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="207" text-anchor="middle" font-size="9.5" fill="#1a4a73">Filter, then transform — into NEW lists</text>
+  <text x="670" y="219" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · see Flow/1-WhereAndSelect.svg</text>
+  <text x="670" y="232" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="830" y1="238" x2="510" y2="238" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="826" y="285" width="8" height="50" rx="0" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="670" y="277" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainOrderingAndAggregates()</text>
+  <line x1="510" y1="285" x2="830" y2="285" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="302" text-anchor="middle" font-size="9.5" fill="#274e13">Sort it, then boil it down to one number</text>
+  <text x="670" y="314" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · see Flow/2-OrderingAndAggregates.svg</text>
+  <text x="670" y="327" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="830" y1="333" x2="510" y2="333" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="826" y="380" width="8" height="50" rx="0" fill="#fdebd9" stroke="#e69138" stroke-width="1"/>
+  <text x="670" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainAskingQuestions()</text>
+  <line x1="510" y1="380" x2="830" y2="380" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="397" text-anchor="middle" font-size="9.5" fill="#8a5a10">Any, All, First — single answers</text>
+  <text x="670" y="409" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · see Flow/3-AskingQuestions.svg</text>
+  <text x="670" y="422" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="830" y1="428" x2="510" y2="428" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="826" y="475" width="8" height="50" rx="0" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1"/>
+  <text x="670" y="467" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainDeferredExecution()</text>
+  <line x1="510" y1="475" x2="830" y2="475" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="670" y="492" text-anchor="middle" font-size="9.5" fill="#4a2e73">A query is a plan, not an answer</text>
+  <text x="670" y="504" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine · see Flow/4-DeferredExecution.svg</text>
+  <text x="670" y="517" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <line x1="830" y1="523" x2="510" y2="523" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="330" y="552" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
+  <line x1="510" y1="558" x2="150" y2="558" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <circle cx="150" cy="578" r="6" fill="#cc0000"/>
+  <text x="164" y="582" font-size="10.5" font-weight="bold" fill="#990000">End</text>
+  <text x="40" y="640" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; LinqFundamentalsExample calls all four LinqFundamentalsDemo methods one after another, waiting for each to return.</text>
+  <text x="40" y="660" font-size="10" font-style="italic" fill="#888">The LINQ methods (Where, Select, OrderBy, Sum…) belong to .NET's System.Linq, so they get no lifeline here — each method's own Flow diagram shows the pipeline.</text>
+</svg>

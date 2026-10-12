@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Where and Select — Sub-level Flow: a conveyor with a filter gate and a labeller</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Items ride the belt through Where (keep or drop) and Select (relabel). ToList() collects each result into a NEW list.</text>
+  <text x="130" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="130" y1="54" x2="130" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="130,54 130,72 160,63" fill="#38761d"/>
+  <line x1="130" y1="92" x2="130" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="100" width="180" height="70" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="130" y="122" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">amounts  (5 items)</text>
+  <text x="130" y="142" text-anchor="middle" font-size="9.5" fill="#333">200 · -900 · 50</text>
+  <text x="130" y="158" text-anchor="middle" font-size="9.5" fill="#333">1200 · -75</text>
+  <line x1="220" y1="135" x2="290" y2="135" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="290" y="100" width="230" height="70" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="2"/>
+  <text x="405" y="122" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">Where(amount =&gt; amount &gt; NoMoney)</text>
+  <text x="405" y="142" text-anchor="middle" font-size="9.5" fill="#333">the filter gate: keep deposits</text>
+  <text x="405" y="158" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">only items it approves pass</text>
+  <line x1="520" y1="135" x2="590" y2="135" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="555" y="127" text-anchor="middle" font-size="9.5" fill="#555">ToList()</text>
+  <rect x="590" y="100" width="270" height="70" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="725" y="122" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">deposits  (a NEW list)</text>
+  <text x="725" y="144" text-anchor="middle" font-size="10" fill="#333">200 · 50 · 1200</text>
+  <text x="725" y="160" text-anchor="middle" font-size="9" font-style="italic" fill="#555">amounts itself is untouched</text>
+  <line x1="405" y1="170" x2="405" y2="220" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="290" y="222" width="230" height="46" rx="8" fill="#f4f4f4" stroke="#aaaaaa" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="405" y="242" text-anchor="middle" font-size="10" font-weight="bold" fill="#777">rejected: -900, -75</text>
+  <text x="405" y="258" text-anchor="middle" font-size="9" font-style="italic" fill="#777">dropped — never reach deposits</text>
+  <line x1="725" y1="170" x2="725" y2="320" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="733" y="252" font-size="9.5" fill="#555">feeds the next stage</text>
+  <rect x="590" y="322" width="270" height="70" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="2"/>
+  <text x="725" y="344" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">Select(amount =&gt; $"+{amount}")</text>
+  <text x="725" y="364" text-anchor="middle" font-size="9.5" fill="#333">the labeller: every item becomes</text>
+  <text x="725" y="380" text-anchor="middle" font-size="9.5" fill="#333">a short text label</text>
+  <line x1="590" y1="357" x2="520" y2="357" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="555" y="349" text-anchor="middle" font-size="9.5" fill="#555">ToList()</text>
+  <rect x="290" y="322" width="230" height="70" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="405" y="344" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">labels  (a NEW list of text)</text>
+  <text x="405" y="366" text-anchor="middle" font-size="10" fill="#333">"+200" · "+50" · "+1200"</text>
+  <line x1="405" y1="392" x2="405" y2="440" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="405" y="454" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="405" y1="462" x2="405" y2="502" stroke="#333" stroke-width="2"/>
+  <polygon points="405,462 405,480 435,471" fill="#cc0000"/>
+  <text x="30" y="520" font-size="10.5" fill="#444"><tspan font-weight="bold">Where and Select never change the list they read:</tspan> each ToList() builds a new list at the end of the belt.</text>
+  <text x="30" y="538" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the three lists (all amounts, deposits, labels) — three lines, each joined with string.Join. The lambdas are throw-away rules used only while the belt runs.</text>
+  <text x="30" y="556" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

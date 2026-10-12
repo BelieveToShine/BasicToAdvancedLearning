@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 810" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="810" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Deferred execution — Sub-level Flow: a recipe card and a pantry</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Writing the query only writes a recipe. The pantry (amounts) is read each time you cook — ToList() and Count().</text>
+  <text x="200" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="200" y1="54" x2="200" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="200,54 200,72 230,63" fill="#38761d"/>
+  <line x1="200" y1="92" x2="200" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="100" width="360" height="60" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="122" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">IEnumerable&lt;decimal&gt; deposits = amounts.Where(…);</text>
+  <text x="220" y="142" text-anchor="middle" font-size="9.5" fill="#555">writes the RECIPE — nothing is cooked yet</text>
+  <line x1="220" y1="160" x2="220" y2="200" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="200" width="360" height="60" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="222" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">amounts.Add(1200m);</text>
+  <text x="220" y="242" text-anchor="middle" font-size="9.5" fill="#555">the pantry changes AFTER the recipe was written</text>
+  <line x1="220" y1="260" x2="220" y2="300" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="300" width="360" height="60" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="322" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">List&lt;decimal&gt; snapshot = deposits.ToList();</text>
+  <text x="220" y="342" text-anchor="middle" font-size="9.5" fill="#555">COOKS now: reads the pantry, plates a copy</text>
+  <line x1="220" y1="360" x2="220" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="400" width="360" height="60" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="422" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">amounts.Add(75m);</text>
+  <text x="220" y="442" text-anchor="middle" font-size="9.5" fill="#555">the pantry changes again; the plate does not</text>
+  <line x1="220" y1="460" x2="220" y2="500" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="500" width="360" height="60" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220" y="522" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">int liveCount = deposits.Count();</text>
+  <text x="220" y="542" text-anchor="middle" font-size="9.5" fill="#555">COOKS again from the current pantry</text>
+  <rect x="560" y="100" width="290" height="500" rx="10" fill="#f6efe3" stroke="#a0843c" stroke-width="1.5"/>
+  <text x="705" y="122" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f6000">amounts — the PANTRY</text>
+  <text x="705" y="138" text-anchor="middle" font-size="8.5" font-style="italic" fill="#8a7430">the list `deposits` points at (it never copies it)</text>
+  <rect x="580" y="108" width="250" height="44" rx="8" fill="#ffffff" stroke="#a0843c" stroke-width="1.5"/>
+  <text x="705" y="134" text-anchor="middle" font-size="9.5" fill="#333">pantry: 200 · -900 · 50</text>
+  <line x1="400" y1="130" x2="578" y2="130" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="580" y="208" width="250" height="44" rx="8" fill="#ffffff" stroke="#a0843c" stroke-width="1.5"/>
+  <text x="705" y="234" text-anchor="middle" font-size="9.5" fill="#333">now 4 items: … · 1200</text>
+  <line x1="400" y1="230" x2="578" y2="230" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="580" y="308" width="250" height="44" rx="8" fill="#ffffff" stroke="#e69138" stroke-width="2.5"/>
+  <text x="705" y="334" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">READ → deposits found: 200 · 50 · 1200</text>
+  <line x1="400" y1="330" x2="578" y2="330" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="580" y="408" width="250" height="44" rx="8" fill="#ffffff" stroke="#a0843c" stroke-width="1.5"/>
+  <text x="705" y="434" text-anchor="middle" font-size="9.5" fill="#333">now 5 items: … · 75</text>
+  <line x1="400" y1="430" x2="578" y2="430" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="580" y="508" width="250" height="44" rx="8" fill="#ffffff" stroke="#e69138" stroke-width="2.5"/>
+  <text x="705" y="534" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">READ again → 200 · 50 · 1200 · 75</text>
+  <line x1="400" y1="530" x2="578" y2="530" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="490" y="322" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#cc7a00">COOKS NOW<animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></text>
+  <text x="490" y="522" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#cc7a00">COOKS AGAIN<animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></text>
+  <line x1="220" y1="560" x2="220" y2="600" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="602" width="360" height="40" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="220" y="626" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">snapshotCount = snapshot.Count  →  3   (the plate)</text>
+  <line x1="220" y1="642" x2="220" y2="654" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="220" y="668" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="220" y1="676" x2="220" y2="716" stroke="#333" stroke-width="2"/>
+  <polygon points="220,676 220,694 250,685" fill="#cc0000"/>
+  <text x="30" y="750" font-size="10.5" fill="#444"><tspan font-weight="bold">A query is a recipe, ToList() is the cooked plate:</tspan> deposits re-reads amounts every time; snapshot is a separate copy that never changes.</text>
+  <text x="30" y="768" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints "snapshot … 3 deposits" and "deposits … 4 deposits" — two lines. Dashed arrows = the pantry changing; solid arrows = reading it.</text>
+  <text x="30" y="786" font-size="10" font-style="italic" fill="#888">Each method also opens with PrintHeading(): four more Console.WriteLine calls for the title banner (not drawn).</text>
+</svg>

@@ -10,7 +10,23 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
-**Done this session (Topic 8 — File I/O basics):**
+**Done this session (Topic 9 — LINQ fundamentals, which completes Phase 1):**
+- Topic 9 implemented + explained with 11 diagrams (see the tracker row below). The bank thread ends Phase 1 as a
+  `List<decimal>` of amounts (positive = deposit, negative = withdrawal) queried four ways — no new classes.
+  `Program.cs` now runs Topic 9 (`LinqFundamentalsExample`). **Phase 1 (C# Fundamentals, topics 1–9) is complete.**
+- Topic 9 decisions (all five from the old plan list were settled): folder/namespace `LinqFundamentals`
+  (no segment named `Linq`); methods `WhereAndSelect`, `OrderingAndAggregates`, `AskingQuestions`,
+  `DeferredExecution`; Flow metaphors: a conveyor with a filter gate, a scoreboard, a quiz show, a recipe card
+  and a pantry. No locked-shape exception was needed.
+- Memory diagrams draw a `List<T>` as ONE Heap box of cells (Topic 4's precedent). `Where`/`Select`/`OrderBy`
+  results are always NEW lists once `ToList()` runs, and the source list is never edited. `Memory/4` shows an
+  unrun query honestly: an iterator object holding a pointer to the source list and a pointer to the lambda
+  (itself an object), while `snapshot` is a separate copy — the picture of deferred execution.
+- The iterator is drawn as "Where iterator (.NET's internal class, simplified)" because the real type name and
+  fields are internal and vary by .NET version; the compiler's hidden static cache for non-capturing lambdas
+  is mentioned in the footer but not drawn (the lesson declares no static members).
+
+**Earlier session (Topic 8 — File I/O basics):**
 - Topic 8 implemented + explained with 11 diagrams (see the tracker row below). One tiny bank statement
   (`bta-statement.txt`) is written, read and deleted in the OS temp folder by the methods that create it, so running
   the lesson never leaves files behind or touches the repo. `Program.cs` now runs Topic 8 (`FileIOExample`).
@@ -102,24 +118,19 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 9 (LINQ fundamentals) and follow the "Add a new topic" runbook below.
-
-**Decisions to settle in the Topic 9 plan (get the human's approval before building)** — the docs
-deliberately do not pre-decide these, so propose an answer for each and ask:
-1. Folder/namespace name (e.g. `LinqFundamentals` — avoid a segment named `Linq`, which would sit beside
-   `System.Linq` and invite confusion, see gotcha 1).
-2. The `ExplainX()` method list (title implies filtering with `Where`, projecting with `Select`, ordering,
-   aggregating with `Count`/`Sum`/`Average`, `First`/`Any`; deferred execution and `ToList()` are the big
-   judgement call) and the running example — a list of bank transactions is the natural thread (Topic 4's
-   `List<T>` and Topic 6's classes are prerequisites).
-3. How Memory diagrams show a LINQ query: `Where`/`Select` return a small iterator object that holds a pointer
-   to the source and the lambda — nothing runs until you enumerate (deferred execution); `ToList()` builds a
-   new list. Decide how a lambda (closure) appears on the Heap, and what instant to snapshot.
-4. Flow-diagram metaphors (used so far: lockers, filmstrip, pinboard, checkpoints, signpost, blueprint-and-stamp,
-   assembly line, teller window, house keys, noticeboard, family tree, remote, form, wall socket, safety net,
-   sorting chutes, toll booth, stairwell, filing cabinet, water pipe, address labels, lost-property desk —
-   pick fresh ones; a conveyor with filters or a coffee-machine pipeline would suit LINQ).
-5. Branch name (see `rules/checkin-and-pr.md`).
+**Next:** Phase 1 is finished. Phase 2 (SQL & Database, topics 10–12) is a different kind of material —
+tables and queries, not C# objects — so STOP and settle the open questions with the owner before building
+Topic 10 (see item R13 in [`review-recommendations.md`](review-recommendations.md)):
+1. Which database engine and tooling the lessons use (SQL Server, SQLite, PostgreSQL…) — the docs still list this
+   as an open `TODO:`, and `rules/database.md` is empty until it is decided. A cloud build sandbox may not be able to
+   run a database server, so a file-based engine (SQLite) may be the only thing a session can actually execute.
+2. What "the three mandatory diagrams" become for SQL: Stack/Heap/Static has no meaning for a query. Propose
+   replacements (an entity-relationship diagram for the architecture view, a query-pipeline diagram for Flow, a
+   "what the table holds before and after" diagram for Memory) and get them approved before drawing anything.
+3. Whether SQL lessons live in the C# console project (running queries from code) or in their own folder of `.sql`
+   scripts, and what `verify-topic.ps1` should check for them (it currently assumes a C# demo + adapter).
+4. Folder/namespace and method list for Topic 10 (relational concepts — tables, keys, normalization), the running
+   example (the bank thread: `Customers`, `Accounts`, `Transactions`), and the branch name.
 
 ## Topic tracker
 
@@ -138,7 +149,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ✅ | `OOPAdvanced/` | `OOPAdvanced.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (Inheritance, Polymorphism, AbstractClasses, Interfaces) — 11 files. One running family (`Account` → `SavingsAccount`/`CurrentAccount`; abstract `Transaction`; interface `IInterestBearing` with `SavingsAccount` and `FixedDeposit`) threads through all four. Flow diagrams use 4 fresh metaphors (family tree, universal remote, form with a blank, wall socket and plugs). `Memory/1-Inheritance.svg` is the key one (parent + own fields in one Heap box); `Memory/2`–`4` show arrays of pointers to different classes |
 | 7 | Exception handling | ✅ | `ExceptionHandling/` | `ExceptionHandling.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (TryCatch, CatchOrder, Finally, CustomExceptions) — 11 files. One running example (`SafeAccount.Withdraw` throwing a built-in and a custom `InsufficientFundsException`) threads through methods 2–4. Flow diagrams use 4 fresh metaphors (safety net, sorting chutes, toll booth, parcel up a stairwell). `Memory/4-CustomExceptions.svg` is the key one and a recorded locked-shape exception (4 frames at the instant of the throw) |
 | 8 | File I/O basics | ✅ | `FileIO/` | `FileIO.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (WriteAndReadText, LinesAndStreams, PathsAndExistence, FileErrors) — 11 files. One running example (a tiny bank statement in the temp folder, deleted afterwards). Flow diagrams use 4 fresh metaphors (filing cabinet, water pipe, address labels, lost-property desk). Every Memory diagram adds a dashed "OUTSIDE .NET" box for the file handle and the disk — a recorded addition to the locked shape; `Memory/2-LinesAndStreams.svg` is the key one (StreamReader → FileStream → OS handle) |
-| 9 | LINQ fundamentals | ⬜ | | |
+| 9 | LINQ fundamentals | ✅ | `LinqFundamentals/` | `LinqFundamentals.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (WhereAndSelect, OrderingAndAggregates, AskingQuestions, DeferredExecution) — 11 files. One running example (a `List<decimal>` of bank amounts, no new classes). Flow diagrams use 4 fresh metaphors (conveyor with a filter gate, scoreboard, quiz show, recipe card and pantry). `Memory/4-DeferredExecution.svg` is the key one (an unrun query = iterator + lambda; `ToList()` = a separate copy) |
 
 ### Phase 2 — SQL & Database
 | # | Topic | Status |
@@ -234,6 +245,13 @@ Real lessons found while building this, worth knowing so they're never rediscove
     brace, flushing the buffered text to disk and releasing the file. A stream you forget to dispose can keep a
     file locked; a stream left un-flushed can lose its last lines. `ReadLine()` returns `null` at the end of the
     file — that is the loop's stop signal.
+13. **A LINQ query is a plan until something enumerates it.** `Where`/`Select`/`OrderBy` return a lazy sequence;
+    `ToList()`, `Count()`, `Sum()`, `First()` and a `foreach` are what actually run it — and each enumeration
+    re-reads the source. That is why a `ToList()` taken earlier and a query run later can disagree (Topic 9,
+    Memory/4). Use `ToList()` to freeze a result; never assume a query variable holds data.
+14. **`First` throws, `FirstOrDefault` guesses.** `First` on no match throws `InvalidOperationException`;
+    `FirstOrDefault` returns the type's default (`0` for a `decimal`), which can be confused with a real answer —
+    ask `Any(...)` first when 0 is a legitimate value.
 
 ## Add a new topic — runbook
 
