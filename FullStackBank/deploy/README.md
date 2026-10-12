@@ -195,9 +195,12 @@ A harmless line in the API log, `Overriding HTTP_PORTS '8080' and HTTPS_PORTS ''
 | `db` never becomes healthy | `MSSQL_SA_PASSWORD` is too weak for SQL Server (8+ characters, 3 of 4 character kinds; read `docker compose logs db`), or you changed it after the first start (see the last row) |
 | `service "db-init" didn't complete successfully` | the setup scripts failed: `docker compose logs db-init` (we triggered this on purpose with an invalid database name; `api` and `web` were then not started) |
 | `Bind for 0.0.0.0:8080 failed: port is already allocated` | something on your computer uses `WEB_PORT`; change it in `.env` |
+| `429 Too Many Requests` while pulling `node`/`nginx` | Docker Hub rate limit: log in with `docker login`, wait, or pull the images from a mirror and tag them with the Docker Hub names |
 | page loads but "API not reachable" / 502 | `docker compose ps`: is `api` healthy? `docker compose logs api` |
 | changed C# or React code but nothing changed | images are not rebuilt automatically: `docker compose up --build` |
 | you changed `MSSQL_SA_PASSWORD` in `.env` after the first start | SQL Server keeps the old admin password in the volume (`APP_DB_PASSWORD` is re-applied by `db-init`, the admin one is not). We tried it: with a new `MSSQL_SA_PASSWORD` the `db` container never became healthy and `api`/`web` could not start. Put the old value back, or `docker compose down -v` and start again (this deletes the data) |
+
+Note: the base images (`mssql/server:2022-latest`, `nginx:alpine`, `dotnet/sdk:9.0`, `aspnet:9.0`) are not pinned to a digest, so a build next year may behave differently from the one that was tested. The `Dockerfile.*.dockerignore` files need BuildKit (the default in current Docker).
 
 ## Not covered (on purpose)
 

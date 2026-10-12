@@ -1,6 +1,6 @@
 # Basic to Advanced Learning
 
-Learn C# (and then SQL, EF Core, Web API) one small topic at a time. Every topic is a tiny runnable
+Learn C#, then SQL Server, EF Core, Web API, React and a full-stack app, one small topic at a time (28 topics). Every topic is a tiny runnable
 program plus hand-drawn diagrams that show what happens step by step (Flow) and what sits in memory
 while it runs (Memory).
 
@@ -9,7 +9,7 @@ while it runs (Memory).
 cd BasicToAdvancedLearning.Console
 dotnet run
 ```
-Needs the .NET 9 SDK. `Program.cs` runs one topic at a time; to run another, change the `using` line and
+Needs the .NET 9 SDK (if you only have a newer SDK/runtime, set `DOTNET_ROLL_FORWARD=Major`). `Program.cs` runs one topic at a time; to run another, change the `using` line and
 the type after `new` (two lines — the comment in `Program.cs` shows how).
 
 ## Where things are
@@ -17,6 +17,8 @@ the type after `new` (two lines — the comment in `Program.cs` shows how).
 |---|---|
 | `BasicToAdvancedLearning.Console/<Topic>/` | The lesson code. Read the `*Demo.cs` file top to bottom — the comments are the explanation. |
 | `ArchitectureDiagrams/<Topic>/` | The diagrams for that topic. Open the `.svg` files in a browser. Start with the architecture file, then `Flow/` and `Memory/`. |
+| `frontend/` | The React lessons (topics 21–28) — Vite + React; needs Node 22. |
+| `FullStackBank/` | The real bank Web API used by topics 25–27 (`Api/`), its smoke test, and the Docker setup for topic 28 (`deploy/`, needs Docker). |
 | `docs/` | The plan (`ROADMAP.md`), rules and specs. Start at `docs/README.md`. |
 
 ## React lessons (topics 21–28)

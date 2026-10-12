@@ -67,7 +67,7 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 - `API_URL` — where the Vite dev server proxies `/api` (default `http://localhost:5080`).
 
 ## Known gaps / deliberate scope cuts
-- No unit-test project; verification is build + run + `scripts/verify-topic.ps1` + manual and independent review (see `rules/verification.md`). The script checks structure and rules, not visual quality or the truth of a diagram.
+- No C# unit-test project (the React lessons have 234 vitest tests); verification is build + run + `scripts/verify-topic.ps1` + manual and independent review (see `rules/verification.md`). The script checks structure and rules, not visual quality or the truth of a diagram.
 - `Program.cs` runs one topic at a time — no menu to pick a topic at runtime.
 - Topic 1 file names (`ProgrammingBasics.cs`, `ProgrammingBasicsExample.cs`) predate the
   `<Topic>Demo.cs` convention.

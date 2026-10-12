@@ -27,7 +27,7 @@ helper-class files beside its demo (Topic 5: `BankAccount.cs`, `Bank.cs`; Topic 
 |---|---|
 | Teaching code + explanatory comments | `<Topic>Demo.cs` — no knowledge of `ILearningTopic` |
 | Runner plumbing (call order of `ExplainX()` methods) | `<Topic>Example.cs` |
-| Choosing which topic runs | `Program.cs` — the one `new <Topic>Example()` line |
+| Choosing which topic runs | `Program.cs` — the `using` line and the one `new <Topic>Example()` line |
 | The contract between runner and topics | `Interfaces/ILearningTopic.cs` |
 | Visual explanation | `ArchitectureDiagrams/<TopicFolder>/` |
 
@@ -41,8 +41,7 @@ helper-class files beside its demo (Topic 5: `BankAccount.cs`, `Bank.cs`; Topic 
    to avoid the default `BasicToAdvancedLearning.Console`. Full story in `ROADMAP.md`.
 2. **`Program.cs` never references a concrete topic except in the one `new` line** — don't add logic there.
 3. `ILearningTopic` and the `*Example` adapters are `internal`; demos are `public`.
-4. TODO: add further gotchas here as later phases (SQL, EF Core, Web API, React) add projects.
+4. SQL, EF Core, Web API, React and container gotchas: see `ROADMAP.md` gotchas 15–22.
 
 ## Future shape
-Later phases add projects/folders (Web API, React client, database scripts). When one is introduced,
-add it to this file's layout and create a spec category for it.
+The SQL, Web API, React and Docker pieces now exist (see the layout above); they are covered by the `learning-topics/` spec rather than a separate spec category. Add any new project or folder to this file's layout.

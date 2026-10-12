@@ -20,7 +20,7 @@ Next: the owner's review and the provisional decisions listed in [`ROADMAP.md`](
 ## Whole-system architecture
 ```
 Program.cs (Main)
-   │  ILearningTopic topic = new <Topic>Example();   ← the only line that changes per topic
+   │  ILearningTopic topic = new <Topic>Example();   ← (with its `using` line) the only two lines that change per topic
    ▼
 <Topic>Example : ILearningTopic          (thin adapter — Explain() calls the demo in order)
    │
@@ -41,5 +41,4 @@ Program.cs (Main)
   `MuhilWorkingRepo` branch also exists). TODO: confirm the branching/integration model.
 - **Issue tracker** — TODO: none wired yet.
 - **PR-validation AI tool** — TODO: none wired yet.
-- **Databases / third-party APIs** — none today. Phases 2–6 will introduce SQL, EF Core, ASP.NET Core
-  and React; add each here (and a spec category) when its topic starts.
+- **Databases / third-party services** — Microsoft SQL Server only (decision D8; connection string in the environment variable `BTAL_SQLSERVER`, never committed). Docker for topic 28; NuGet packages are pinned in the csproj files, npm packages in `frontend/package.json`.
