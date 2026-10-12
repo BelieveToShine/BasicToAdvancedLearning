@@ -122,7 +122,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 tables and queries, not C# objects — so STOP and settle the open questions with the owner before building
 Topic 10 (see item R13 in [`review-recommendations.md`](review-recommendations.md)):
 1. Which database engine and tooling the lessons use (SQL Server, SQLite, PostgreSQL…) — the docs still list this
-   as an open `TODO:`, and `rules/database.md` is empty until it is decided. A cloud build sandbox may not be able to
+   as an open `TODO:`, and `rules/database.md` is only a placeholder stub until it is decided. A cloud build sandbox may not be able to
    run a database server, so a file-based engine (SQLite) may be the only thing a session can actually execute.
 2. What "the three mandatory diagrams" become for SQL: Stack/Heap/Static has no meaning for a query. Propose
    replacements (an entity-relationship diagram for the architecture view, a query-pipeline diagram for Flow, a

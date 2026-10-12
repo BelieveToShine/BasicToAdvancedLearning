@@ -151,7 +151,7 @@ along the way. Each item says where it is, the evidence, the suggested fix, and 
 
 ### R13 — Phase 2 (SQL) needs owner decisions before any topic is built  `needs-owner`
 - **Status:** needs-owner
-- **Where:** `docs/ROADMAP.md` "Next"; `docs/rules/database.md` (empty); `docs/rules/diagram-standards.md`
+- **Where:** `docs/ROADMAP.md` "Next"; `docs/rules/database.md` (a placeholder stub); `docs/rules/diagram-standards.md`
   (the three mandatory diagrams are written for C#: Stack/Heap/Static); `scripts/verify-topic.ps1` (assumes a C#
   demo + adapter per topic).
 - **Evidence:** Phase 1 ended with Topic 9. Topic 10 starts SQL; there is no agreed DB engine (open `TODO:` Q2), no

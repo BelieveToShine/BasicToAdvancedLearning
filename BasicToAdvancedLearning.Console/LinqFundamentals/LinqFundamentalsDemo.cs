@@ -104,6 +104,7 @@ public class LinqFundamentalsDemo
         return new List<decimal> { 200m, -900m, 50m, 1200m, -75m };
     }
 
+    // Prints a three-line banner (rule, title, rule) so each lesson section is easy to spot in the output.
     private static void PrintHeading(string title)
     {
         Console.WriteLine();

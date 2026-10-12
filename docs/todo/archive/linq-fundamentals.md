@@ -20,4 +20,10 @@ Plan, decisions and status for Topic 9, the last topic of Phase 1. Once shipped,
 - [x] Code: demo + adapter, `Program.cs` wired
 - [x] 11 diagrams drawn
 - [x] Docs: ROADMAP tracker + snapshot + gotchas 13–14 + Phase 2 handoff, learning-topics spec, overview, architecture, R13
-- [ ] Verification layers 1–5, then check-in (recorded in the end-of-work report)
+- [x] Layer 1: `dotnet build` 0 warnings / 0 errors; `dotnet run` output compared with the comments and diagrams
+- [x] Layer 2: `verify-topic.ps1 -Topic LinqFundamentals` = 0 FAIL / 0 WARN; `-All -SkipBuild` = 0 FAIL / 14 WARN (baseline)
+- [x] Layer 3: headless-Chromium PNG renders (no Edge here) viewed one by one — `LinqFundamentals.svg`, `Flow/0`–`Flow/4`,
+      `Memory/0`–`Memory/4`, 11 of 11 (Flow/4 and the architecture diagram re-viewed after the review's wording tweaks)
+- [x] Layer 4: one fresh-context subagent review before any push — no blockers, no should-fix; its nits were applied in a
+      follow-up commit
+- [x] Layer 5: `verify-docs.ps1` = 0 FAIL
