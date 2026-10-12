@@ -56,7 +56,7 @@ public class ExceptionHandlingDemo
             catch (Exception ex)
             {
                 // The safety net for anything unexpected. It MUST come last: Exception matches
-                // everything, so any clause placed after it could never be reached.
+                // everything, so any clause placed after it could never be reached (the compiler rejects it, CS0160).
                 Console.WriteLine($"{request}: unexpected problem — {ex.Message}");
             }
         }

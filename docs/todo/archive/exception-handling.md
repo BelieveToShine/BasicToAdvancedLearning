@@ -20,4 +20,10 @@ Plan, decisions and status for Topic 7. Once shipped, the behaviour is folded in
 - [x] Code: demo, adapter, two class files, `Program.cs` wired
 - [x] 11 diagrams drawn
 - [x] Docs: ROADMAP tracker + snapshot + gotchas, learning-topics spec, overview, architecture
-- [ ] Verification layers 1–5, then check-in (recorded in the end-of-work report)
+- [x] Layer 1: `dotnet build` 0 warnings / 0 errors, `dotnet run` output compared with the comments and diagrams
+- [x] Layer 2: `verify-topic.ps1 -Topic ExceptionHandling` = 0 FAIL / 0 WARN; `-All -SkipBuild` = 0 FAIL / 12 WARN (baseline)
+- [x] Layer 3: headless-Chromium PNG renders (no Edge here) viewed one by one — `ExceptionHandling.svg`, `Flow/0`–`Flow/4`,
+      `Memory/0`–`Memory/4`, 11 of 11 (Memory/1 and Memory/2 re-viewed after the review's wording fixes)
+- [x] Layer 4: one fresh-context subagent review before the push; its should-fix (stale snapshot date) and
+      several nits were fixed in a follow-up commit
+- [x] Layer 5: `verify-docs.ps1` = 0 FAIL

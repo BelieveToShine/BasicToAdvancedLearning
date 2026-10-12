@@ -4,7 +4,7 @@ Tracks what's done, what's next, and how to add a topic without re-explaining th
 scratch. Update this file whenever a topic starts, finishes, or the plan changes — see
 [`README.md`](README.md) for how this fits the rest of the docs.
 
-## Status snapshot — 2026-10-09
+## Status snapshot — 2026-10-12
 
 **Solution scaffolded**: `BasicToAdvancedLearning.sln` + `BasicToAdvancedLearning.Console` (net9.0),
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
@@ -202,7 +202,7 @@ Real lessons found while building this, worth knowing so they're never rediscove
    `Account` so earlier topics never change. Keep names distinct across topics (`BankAccount` vs `Account`).
 9. **Don't quote .NET's own exception messages in diagrams or comments.** `decimal.Parse("abc")` says
    "The input string 'abc' was not in a correct format." on current .NET and a different sentence on older
-   versions. Topic 7's diagrams show `"…was not in a correct format."` only; messages we write ourselves
+   versions. Topic 7's diagrams show only the fragment `"…was not in a correct format."` (common to old and new wording); messages we write ourselves
    (`InsufficientFundsException`) can be quoted exactly.
 10. **Catch clauses are checked top to bottom, and `catch (Exception)` matches everything** — it must be last, or
     the compiler rejects the clause after it (CS0160). `finally` runs on success AND failure, which is why its

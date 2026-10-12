@@ -62,5 +62,5 @@
   <text x="1095" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
   <text x="1095" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
   <text x="40" y="548" font-size="10.5" fill="#444"><tspan font-weight="bold">The clause that matched is catch (InsufficientFundsException ex): </tspan>`ex` points at the exception object, which carries _shortfall = 400 (900 asked, 500 available).</text>
-  <text x="40" y="566" font-size="10" font-style="italic" fill="#888">Catch order matters: ArgumentOutOfRangeException first, InsufficientFundsException next, plain Exception last — the first clause that fits wins. The -5 lap is done; the 100 lap comes next.</text>
+  <text x="40" y="566" font-size="10" font-style="italic" fill="#888">Clauses are tried top to bottom and the first that fits wins; plain Exception must be LAST (the compiler rejects any clause after it). The -5 lap is done; the 100 lap comes next.</text>
 </svg>
