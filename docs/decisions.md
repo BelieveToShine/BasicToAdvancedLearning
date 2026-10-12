@@ -16,12 +16,13 @@ section 4 first. Never edit or delete an entry — add a new one that supersedes
 | D5 | 2026-10-09 | "push it to master" — the `rules/governance-and-review` branch (`6458b23`) | one-off (that push only; does **not** answer Q1) | `master` fast-forwarded and pushed. **Deviation:** no independent layer-4 review was run on this change before the push (governance §8); only `verify-docs.ps1` (0 FAIL) was run. |
 | D6 | 2026-10-09 | Answer to Q1, picked from the fixing-session question "Is direct-to-master check-in with no PR a STANDING policy for completed topics, or one-off?": **"Standing policy"**. Same session, earlier: "While pushing also push to master.. no need of PR.. by pass that" | **standing** (completed lesson topics only; conditions in `rules/checkin-and-pr.md`) | `rules/checkin-and-pr.md` (single source); `CLAUDE.md` and `aidlc.md` now link to it |
 | D7 | 2026-10-09 | Answer to review item R5: **"Amend the rule text"** — metaphor-style Flow diagrams may name the result variable and show a `new` as the object arriving; every real `Console.*` call must still be shown or footnoted | one-off decision, applied now | `rules/diagram-standards.md` section 2 |
+| D8 | 2026-10-12 | "Complete all the phases and keep.. one by one.. i will come and review at the end.. For SQL use MS SQL only.. In that standards write the context.. We can give the actual connections later and test with Actual DB." — DB engine is **Microsoft SQL Server only** (T-SQL, `Microsoft.Data.SqlClient`, EF Core SqlServer); real connection strings are supplied later and the lessons are tested against a real server then | **standing** (engine); one-off (build all remaining C# phases in order, owner reviews at the end) | `rules/database.md` (single source); closes Q2's DB-engine part |
 
 ## Open questions awaiting the owner
 | ID | Question | Why it matters | Status |
 |---|---|---|---|
 | Q1 | Is **direct-to-`master` check-in with no PR** a **standing** policy for completed topics, or was it one-off? | A session wrote it into `rules/checkin-and-pr.md` as a standing "Owner instruction", citing a chat instruction no entry here backs. It contradicts `CLAUDE.md` and `aidlc.md`. See review item R1. | **closed** — answered by D6 |
-| Q2 | Ticket prefix / issue tracker, integration branch, branch naming, PR-review tool, DB engine | Listed as `TODO:` in the docs (`verify-docs.ps1` lists them) | open |
+| Q2 | Ticket prefix / issue tracker, integration branch, branch naming, PR-review tool (DB engine answered by D8) | Listed as `TODO:` in the docs (`verify-docs.ps1` lists them) | open |
 
 When the owner answers a question: add a `D<n>` row, mark the question closed, and update the canonical
 rule file in the same `rules:` commit.
