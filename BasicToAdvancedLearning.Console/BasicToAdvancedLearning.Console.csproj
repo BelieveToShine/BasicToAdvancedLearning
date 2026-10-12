@@ -12,4 +12,23 @@
     <RootNamespace>BasicToAdvancedLearning</RootNamespace>
   </PropertyGroup>
 
+  <!-- Packages for the database / web topics (10+). SQL Server is the only engine (docs/decisions.md D8).
+       Versions are pinned so every clone restores exactly what was tested. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.20" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.20">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.20" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.0" />
+  </ItemGroup>
+
+  <!-- The Web API topics (16+) host a small ASP.NET Core server inside this console program. Using
+       Microsoft.NET.Sdk (not the Web SDK) keeps web-only implicit usings out of every other topic. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
 </Project>
