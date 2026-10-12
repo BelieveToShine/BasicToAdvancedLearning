@@ -38,32 +38,37 @@
 
   <text x="665" y="182" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainArrays()</text>
   <line x1="510" y1="190" x2="820" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="665" y="210" text-anchor="middle" font-size="9.5" fill="#7f6000">Fixed-size row of 5 exam scores · Console.WriteLine — see Flow/1-Arrays.svg</text>
-  <text x="665" y="228" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <text x="665" y="205" text-anchor="middle" font-size="9.5" fill="#7f6000">Fixed-size row of 5 exam scores · Uses: Console.WriteLine</text>
+  <text x="665" y="217" text-anchor="middle" font-size="9.5" fill="#7f6000">see Flow/1-Arrays.svg</text>
+  <text x="665" y="230" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="820" y1="236" x2="510" y2="236" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
   <text x="665" y="277" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainLists()</text>
   <line x1="510" y1="285" x2="820" y2="285" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="665" y="305" text-anchor="middle" font-size="9.5" fill="#274e13">A growing/shrinking to-do list · Console.WriteLine — see Flow/2-Lists.svg</text>
-  <text x="665" y="323" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <text x="665" y="300" text-anchor="middle" font-size="9.5" fill="#274e13">A growing/shrinking to-do list · Uses: Console.WriteLine</text>
+  <text x="665" y="312" text-anchor="middle" font-size="9.5" fill="#274e13">see Flow/2-Lists.svg</text>
+  <text x="665" y="325" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="820" y1="331" x2="510" y2="331" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
   <text x="665" y="372" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainDictionaries()</text>
   <line x1="510" y1="380" x2="820" y2="380" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="665" y="400" text-anchor="middle" font-size="9.5" fill="#8a5a10">A phone-book lookup by name · Console.WriteLine — see Flow/3-Dictionaries.svg</text>
-  <text x="665" y="418" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <text x="665" y="395" text-anchor="middle" font-size="9.5" fill="#8a5a10">A phone-book lookup by name · Uses: Console.WriteLine</text>
+  <text x="665" y="407" text-anchor="middle" font-size="9.5" fill="#8a5a10">see Flow/3-Dictionaries.svg</text>
+  <text x="665" y="420" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="820" y1="426" x2="510" y2="426" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
   <text x="665" y="467" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainCollectionSafety()</text>
   <line x1="510" y1="475" x2="820" y2="475" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="665" y="495" text-anchor="middle" font-size="9.5" fill="#1a4a73">Bounds check + TryGetValue · Console.WriteLine — see Flow/4-CollectionSafety.svg</text>
-  <text x="665" y="513" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <text x="665" y="490" text-anchor="middle" font-size="9.5" fill="#1a4a73">Bounds check + TryGetValue · Uses: Console.WriteLine</text>
+  <text x="665" y="502" text-anchor="middle" font-size="9.5" fill="#1a4a73">see Flow/4-CollectionSafety.svg</text>
+  <text x="665" y="515" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="820" y1="521" x2="510" y2="521" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
   <text x="665" y="562" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#123">ExplainChoosingACollection()</text>
   <line x1="510" y1="570" x2="820" y2="570" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <text x="665" y="590" text-anchor="middle" font-size="9.5" fill="#4a2e73">The decision cheat-sheet · Console.WriteLine — see Flow/5-ChoosingACollection.svg</text>
-  <text x="665" y="608" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
+  <text x="665" y="585" text-anchor="middle" font-size="9.5" fill="#4a2e73">The decision cheat-sheet · Uses: Console.WriteLine</text>
+  <text x="665" y="597" text-anchor="middle" font-size="9.5" fill="#4a2e73">see Flow/5-ChoosingACollection.svg</text>
+  <text x="665" y="610" text-anchor="middle" font-size="9.5" fill="#555">returns</text>
   <line x1="820" y1="616" x2="510" y2="616" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
   <text x="330" y="642" text-anchor="middle" font-size="10" fill="#555">Explain() returns — program ends</text>
@@ -72,5 +77,5 @@
   <circle cx="150" cy="668" r="6" fill="#cc0000"/>
   <text x="164" y="672" font-size="10.5" font-weight="bold" fill="#990000">End</text>
 
-  <text x="40" y="720.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; CollectionsExample calls all five CollectionsDemo methods one after another, waiting for each to</tspan><tspan x="40" dy="15.8">return. The same three examples (scores, to-do list, phone book) are rebuilt fresh inside each method — nothing is shared between them.</tspan></text>
+  <text x="40" y="720.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Where to where, in one line:</tspan> Program.cs calls Explain() once; CollectionsExample calls all five CollectionsDemo methods one after another, waiting for each to</tspan><tspan x="40" dy="15.8">return. The same three examples (scores, to-do list, phone book) are rebuilt fresh inside methods 1–4 — nothing is shared between them.</tspan></text>
 </svg>

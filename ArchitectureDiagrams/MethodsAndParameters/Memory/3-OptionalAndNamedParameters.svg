@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 490" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
   </defs>
-  <rect x="0" y="0" width="1000" height="490" fill="#ffffff"/>
+  <rect x="0" y="0" width="1000" height="500" fill="#ffffff"/>
   <text x="500" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Optional &amp; Named Parameters — Memory: Stack / Heap / Static</text>
   <text x="500" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: BuildGreeting(greeting: "Welcome", name: "Vivek") is currently executing.</text>
 
@@ -52,6 +52,6 @@
   <text x="855" y="178" text-anchor="middle" font-size="10" fill="#5b4a7a">No static fields/consts</text>
   <text x="855" y="194" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
-  <text x="40" y="420" font-size="10.5" fill="#444"><tspan font-weight="bold">Defaults and names are a call-site convenience, not a memory difference:</tspan> whichever way you call it, BuildGreeting's frame ends up with the exact same two parameter slots filled the exact same way.</text>
-  <text x="40" y="440" font-size="10" font-style="italic" fill="#888">If you'd called BuildGreeting("Vivek") instead, greeting would point to the string "Hello" (the default, filled in by the compiler at the call site) rather than "Welcome" — same shape either way.</text>
+  <text x="40" y="430" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Defaults and names are a call-site convenience, not a memory difference:</tspan> whichever way you call it, BuildGreeting's frame ends up with</tspan><tspan x="40" dy="15.8">the exact same two parameter slots filled the exact same way.</tspan></text>
+  <text x="40" y="465.8" font-size="10" font-style="italic" fill="#888"><tspan x="40" dy="0">If you'd called BuildGreeting("Vivek") instead, greeting would point to the string "Hello" (the default, filled in by the compiler at</tspan><tspan x="40" dy="15.0">the call site) rather than "Welcome" — same shape either way.</tspan></text>
 </svg>

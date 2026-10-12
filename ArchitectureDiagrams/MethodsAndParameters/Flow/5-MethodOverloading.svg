@@ -19,24 +19,24 @@
   <rect x="120" y="300" width="200" height="58" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
   <text x="220" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#4a2e73">Describe(int number)</text>
   <text x="220" y="341" text-anchor="middle" font-size="9" fill="#4a2e73">overload #1 — one int in</text>
-  <path d="M220,358 L220,388 L300,388 L300,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="260" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a single number: 5"</text>
+  <path d="M220,358 L220,388 L350,388 L350,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="285" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a single number: 5"</text>
 
   <text x="470" y="188" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">call: Describe(5, 10)</text>
   <line x1="470" y1="211" x2="470" y2="298" stroke="#2c3e50" stroke-width="2" marker-end="url(#a)"/>
   <rect x="370" y="300" width="200" height="58" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
   <text x="470" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Describe(int a, int b)</text>
   <text x="470" y="341" text-anchor="middle" font-size="9" fill="#1a4a73">overload #2 — two ints in</text>
-  <path d="M470,358 L470,388 L550,388 L550,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="510" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a range: 5 to 10"</text>
+  <path d="M470,358 L470,388 L600,388 L600,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="535" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a range: 5 to 10"</text>
 
   <text x="720" y="188" text-anchor="middle" font-size="9" font-weight="bold" fill="#333">call: Describe("Vivek")</text>
   <line x1="720" y1="211" x2="720" y2="298" stroke="#2c3e50" stroke-width="2" marker-end="url(#a)"/>
   <rect x="620" y="300" width="200" height="58" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
   <text x="720" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Describe(string text)</text>
   <text x="720" y="341" text-anchor="middle" font-size="9" fill="#274e13">overload #3 — a string in</text>
-  <path d="M720,358 L720,388 L800,388 L800,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="760" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a piece of text: \"Vivek\""</text>
+  <path d="M720,358 L720,388 L850,388 L850,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="785" y="404" text-anchor="middle" font-size="8.5" fill="#555">returns "a piece of text: \"Vivek\""</text>
 
   <line x1="930" y1="150" x2="930" y2="205" stroke="#333" stroke-width="2"/>
   <polygon points="930,150 930,168 960,159" fill="#cc0000"/>

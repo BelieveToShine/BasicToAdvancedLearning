@@ -49,6 +49,6 @@
   <text x="855" y="178" text-anchor="middle" font-size="10" fill="#5b4a7a">No static fields/consts</text>
   <text x="855" y="194" text-anchor="middle" font-size="10" fill="#5b4a7a">in this topic yet.</text>
 
-  <text x="40" y="420.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Console.ReadLine() builds a NEW string on the Heap for the text typed (or returns null if input has ended)</tspan> — enteredAgeText is still the raw text "28" here;</tspan><tspan x="40" dy="15.8">int.TryParse reads it and writes the parsed number into enteredAge (a plain Stack int), it doesn't change enteredAgeText itself. (The 29 in the printed</tspan><tspan x="40" dy="15.8">message is computed later, as enteredAge + 1.) (The 29 in the printed message is computed later, as enteredAge + 1.)</tspan></text>
+  <text x="40" y="420.0" font-size="10.5" fill="#444"><tspan x="40" dy="0"><tspan font-weight="bold">Console.ReadLine() builds a NEW string on the Heap for the text typed (or returns null if input has ended)</tspan> — enteredAgeText is still the raw text "28" here;</tspan><tspan x="40" dy="15.8">int.TryParse reads it and writes the parsed number into enteredAge (a plain Stack int), it doesn't change enteredAgeText itself. (The 29 in the printed</tspan><tspan x="40" dy="15.8">message is computed later, as enteredAge + 1.)</tspan></text>
   <text x="40" y="471.6" font-size="10" font-style="italic" fill="#888">Compare with Memory/1-VariablesAndDataTypes.svg's name/country — same "Stack pointer → Heap string" shape.</text>
 </svg>

@@ -115,8 +115,8 @@ public class ControlFlowDemo
         PrintHeading("6. Foreach Loop");
 
         // foreach walks a collection element by element — no manual index. You cannot
-        // assign to the loop variable (fruit), and adding or removing items of a List<T> or
-        // Dictionary while looping throws an InvalidOperationException. (For an array the
+        // assign to the loop variable (fruit), and adding items to a List<T> or Dictionary (or
+        // removing from a List<T>) while looping throws an InvalidOperationException. (For an array the
         // compiler turns foreach into a plain index loop; for a List<T> it uses the list's
         // enumerator — what you see on screen is the same.)
         string[] fruits = { "Apple", "Banana", "Cherry" };

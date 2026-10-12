@@ -28,8 +28,8 @@
     <rect x="56" y="242" width="328" height="40" rx="4" fill="#eaf6ea" stroke="#6aa84f"/>
     <text x="66" y="260" font-weight="bold">phoneBook → pointer</text><text x="66" y="276" font-size="8.5" fill="#3f6b3f">ExplainDictionaries()</text>
   </g>
-  <text x="220" y="330" text-anchor="middle" font-size="9.5" fill="#274e13">Small, fixed-size pointer, no matter how</text>
-  <text x="220" y="346" text-anchor="middle" font-size="9.5" fill="#274e13">big the collection behind it grows.</text>
+  <text x="220" y="312" text-anchor="middle" font-size="9.5" fill="#274e13">Small, fixed-size pointer, no matter how</text>
+  <text x="220" y="328" text-anchor="middle" font-size="9.5" fill="#274e13">big the collection behind it grows.</text>
 
   <rect x="440" y="112" width="380" height="230" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
   <text x="630" y="134" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">The real objects — this is where the data is</text>

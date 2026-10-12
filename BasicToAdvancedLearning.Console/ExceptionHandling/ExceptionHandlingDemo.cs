@@ -63,8 +63,8 @@ public class ExceptionHandlingDemo
         }
     }
 
-    // finally runs whether the try succeeded or threw — perfect for clean-up. (It is skipped only if
-    // the process itself dies first: a crash, a kill, or Environment.Exit.)
+    // finally runs whether the try succeeded or threw — perfect for clean-up. (It is skipped if
+    // the process itself ends first: a crash, a kill, or Environment.Exit.)
     public void ExplainFinally()
     {
         PrintHeading("3. finally — clean-up that runs on success and on failure");

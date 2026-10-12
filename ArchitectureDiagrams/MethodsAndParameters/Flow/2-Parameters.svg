@@ -20,8 +20,8 @@
   <rect x="120" y="300" width="200" height="58" rx="10" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
   <text x="220" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">pass by VALUE</text>
   <text x="220" y="341" text-anchor="middle" font-size="9" fill="#7f6000">gets its OWN copy</text>
-  <path d="M220,358 L220,388 L300,388 L300,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="260" y="404" text-anchor="middle" font-size="9" fill="#555">returns — number still 10</text>
+  <path d="M220,358 L220,388 L350,388 L350,211" fill="none" stroke="#888" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="285" y="404" text-anchor="middle" font-size="9" fill="#555">returns — number still 10</text>
 
   <!-- Call 2: DoubleByRef (purple, shared) -->
   <text x="470" y="188" text-anchor="middle" font-size="9" font-weight="bold" fill="#3d2a6b">call: DoubleByRef(ref number)</text>
@@ -29,8 +29,8 @@
   <rect x="370" y="300" width="200" height="58" rx="10" fill="#e5d4f0" stroke="#674ea7" stroke-width="2.2"/>
   <text x="470" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">pass by REF</text>
   <text x="470" y="341" text-anchor="middle" font-size="9" fill="#3d2a6b">SAME slot as number</text>
-  <path d="M470,358 L470,388 L550,388 L550,211" fill="none" stroke="#674ea7" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="510" y="404" text-anchor="middle" font-size="9" fill="#3d2a6b">returns — number now 20 (shared!)</text>
+  <path d="M470,358 L470,388 L600,388 L600,211" fill="none" stroke="#674ea7" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="535" y="404" text-anchor="middle" font-size="9" fill="#3d2a6b">returns — number now 20 (shared!)</text>
 
   <!-- Call 3: ParseInput (purple, shared) -->
   <text x="720" y="188" text-anchor="middle" font-size="9" font-weight="bold" fill="#3d2a6b">call: ParseInput("42", out parsed)</text>
@@ -38,8 +38,8 @@
   <rect x="620" y="300" width="200" height="58" rx="10" fill="#e5d4f0" stroke="#674ea7" stroke-width="2.2"/>
   <text x="720" y="323" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">pass by OUT</text>
   <text x="720" y="341" text-anchor="middle" font-size="9" fill="#3d2a6b">SAME slot, MUST assign</text>
-  <path d="M720,358 L720,388 L800,388 L800,211" fill="none" stroke="#674ea7" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#d)"/>
-  <text x="760" y="404" text-anchor="middle" font-size="9" fill="#3d2a6b">returns — parsed now 42 (shared!)</text>
+  <path d="M720,358 L720,388 L850,388 L850,211" fill="none" stroke="#674ea7" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <text x="785" y="404" text-anchor="middle" font-size="9" fill="#3d2a6b">returns — parsed now 42 (shared!)</text>
 
   <line x1="930" y1="150" x2="930" y2="205" stroke="#333" stroke-width="2"/>
   <polygon points="930,150 930,168 960,159" fill="#cc0000"/>

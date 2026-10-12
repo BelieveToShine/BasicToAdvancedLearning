@@ -28,8 +28,8 @@
   <text x="500" y="370" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">accounts[2] → Account</text>
   <text x="500" y="392" text-anchor="middle" font-size="9.5" fill="#333">no override: base version returns 5</text>
   <polyline points="620,140 660,140 660,490 622,490" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <polyline points="620,260 660,260 660,490" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
-  <polyline points="620,380 660,380 660,490" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="620,260 660,260 660,490" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="620,380 660,380 660,490" fill="none" stroke="#333" stroke-width="1.6"/>
   <rect x="380" y="460" width="240" height="60" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
   <text x="500" y="484" text-anchor="middle" font-size="10" font-weight="bold" fill="#4a2e73">totalFees += account.MonthlyFee()</text>
   <text x="500" y="502" text-anchor="middle" font-size="10" fill="#333">0 + 10 + 5 = 15</text>

@@ -44,7 +44,7 @@
   <line x1="510" y1="250" x2="820" y2="250" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
   <rect x="400" y="266" width="500" height="46" rx="6" fill="#fffbe8" stroke="#f1c232"/>
   <text x="650" y="282" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">High level: declares six common C# data types</text>
-  <text x="650" y="298" text-anchor="middle" font-size="9.5" fill="#7f6000">Uses: Console.WriteLine (several times, one per data type)</text>
+  <text x="650" y="298" text-anchor="middle" font-size="9.5" fill="#7f6000">Uses: Console.WriteLine (one line per variable, 7 in all)</text>
   <text x="665" y="320" text-anchor="middle" font-size="10" fill="#555">returns</text>
   <line x1="820" y1="326" x2="510" y2="326" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 
@@ -53,7 +53,7 @@
   <line x1="510" y1="366" x2="820" y2="366" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
   <rect x="400" y="382" width="500" height="46" rx="6" fill="#f3effb" stroke="#674ea7"/>
   <text x="650" y="398" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">High level: runs arithmetic, comparison, logical and assignment operators</text>
-  <text x="650" y="414" text-anchor="middle" font-size="9.5" fill="#3d2a6b">Uses: Console.WriteLine (several times, one per result)</text>
+  <text x="650" y="414" text-anchor="middle" font-size="9.5" fill="#3d2a6b">Uses: Console.WriteLine (one line per result, 13 in all)</text>
   <text x="665" y="436" text-anchor="middle" font-size="10" fill="#555">returns</text>
   <line x1="820" y1="442" x2="510" y2="442" stroke="#333" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a)"/>
 

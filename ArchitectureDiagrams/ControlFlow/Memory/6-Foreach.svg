@@ -62,6 +62,6 @@
   <text x="1025" y="192" text-anchor="middle" font-size="9.5" fill="#5b4a7a">in this topic yet.</text>
 
   <text x="40" y="380" font-size="10.5" fill="#444"><tspan font-weight="bold">Two hops, not one:</tspan> fruits (Stack) → the array object (Heap) → the actual string object for the current element (also Heap). Array cells holding a reference type are pointers, never the data itself.</text>
-  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">fruit is a fresh variable each lap, as far as lambdas can tell (unlike the for-loop's i, which reuses one slot — see Memory/3-ForLoop.svg) — matters if you ever capture it in a lambda.</text>
+  <text x="40" y="400" font-size="10" font-style="italic" fill="#888">fruit is a fresh variable each lap (since C# 5), unlike the for-loop's i, which reuses one slot — see Memory/3-ForLoop.svg) — matters if you ever capture it in a lambda.</text>
   <text x="40" y="420" font-size="10" font-style="italic" fill="#888">The literals "Apple", "Banana" and "Cherry" are interned: the runtime keeps one shared copy of each literal, so this loop does not create them lap by lap.</text>
 </svg>
