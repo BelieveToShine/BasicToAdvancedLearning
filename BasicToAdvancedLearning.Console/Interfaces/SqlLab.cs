@@ -8,8 +8,10 @@ namespace BasicToAdvancedLearning.Interfaces;
 //
 // The connection string is NEVER in source. Set it in an environment variable before running:
 //   BTAL_SQLSERVER = Server=localhost,1433;User Id=sa;Password=<yours>;TrustServerCertificate=True;Initial Catalog=BasicToAdvancedLearning
-// The database named in "Initial Catalog" is created for you if it does not exist yet. It is a
-// scratch database: lessons drop and recreate their own tables in it.
+// Every lesson gets its OWN scratch database, named "<Initial Catalog>_<TopicFolder>" (for example
+// BasicToAdvancedLearning_SqlCrud), created for you if it does not exist yet. So one lesson never
+// touches another lesson's tables, and a lesson may drop and recreate its own tables (or even its
+// whole database) freely. Only use a server where creating scratch databases is fine.
 //
 // Topics 10-12 are SQL lessons: they send T-SQL text through Run / Show so the lesson stays about
 // SQL. How C# really talks to SQL Server (SqlConnection, SqlCommand, parameters) is Topic 13.
@@ -17,14 +19,22 @@ internal static class SqlLab
 {
     public const string EnvironmentVariable = "BTAL_SQLSERVER";
 
-    // null when the variable is not set.
-    public static string? ConnectionString => Environment.GetEnvironmentVariable(EnvironmentVariable);
+    private static string? _lessonConnectionString;
+
+    // The connection string the CURRENT lesson should use: the variable's value with the database name
+    // changed to this lesson's own scratch database (set by IsReady). null when the variable is not set.
+    public static string? ConnectionString =>
+        _lessonConnectionString ?? Environment.GetEnvironmentVariable(EnvironmentVariable);
+
+    // The lesson's folder name, taken from the file that called IsReady (the compiler fills the argument in).
+    private static string TopicOf(string callerFile) =>
+        new DirectoryInfo(Path.GetDirectoryName(callerFile) ?? ".").Name;
 
     // Call first in Explain(). Returns false (after printing why) when the lesson cannot run, so a
     // missing server is a friendly message instead of a crash.
-    public static bool IsReady()
+    public static bool IsReady([System.Runtime.CompilerServices.CallerFilePath] string callerFile = "")
     {
-        string? connectionString = ConnectionString;
+        string? connectionString = Environment.GetEnvironmentVariable(EnvironmentVariable);
         if (string.IsNullOrWhiteSpace(connectionString))
         {
             Console.WriteLine($"This lesson talks to SQL Server. Set the {EnvironmentVariable} environment variable to a");
@@ -34,6 +44,13 @@ internal static class SqlLab
 
         try
         {
+            var builder = new SqlConnectionStringBuilder(connectionString);
+            string baseName = string.IsNullOrEmpty(builder.InitialCatalog) || builder.InitialCatalog.Equals("master", StringComparison.OrdinalIgnoreCase)
+                ? "BasicToAdvancedLearning"
+                : builder.InitialCatalog;
+            builder.InitialCatalog = baseName + "_" + TopicOf(callerFile);
+            connectionString = builder.ConnectionString;
+            _lessonConnectionString = connectionString;
             EnsureDatabase(connectionString);
             using var connection = new SqlConnection(connectionString);
             connection.Open();
