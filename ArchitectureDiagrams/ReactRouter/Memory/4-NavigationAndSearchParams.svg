@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 606" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="606" fill="#ffffff"/>
+  <text x="550.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Navigation and search params: Memory: where the data lives</text>
+  <text x="550.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: at /accounts?type=Savings. The filter value lives in the URL (router), not in component state.</text>
+  <g font-size="11" fill="#333"><rect x="99.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="119.0" y="71">props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="367.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="387.0" y="71">state (owned by the component or router)</text></g>
+  <g font-size="11" fill="#333"><rect x="647.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="667.0" y="71">derived / computed</text></g>
+  <g font-size="11" fill="#333"><rect x="795.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="815.0" y="71">DOM / browser</text></g>
+  <g font-size="11" fill="#333"><rect x="913.0" y="60" width="14" height="14" rx="2" fill="#ffffff" stroke="#888888"/><text x="933.0" y="71">constant</text></g>
+  <rect x="30" y="84" width="1040" height="132" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,150.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">ROUTER</text>
+  <rect x="30" y="250" width="1040" height="144" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,322.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">COMPONENTS</text>
+  <rect x="30" y="436" width="1040" height="114" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,493.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM / BROWSER</text>
+  <rect x="75" y="108" width="190" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="170.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">location</text>
+  <text x="170.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">pathname = "/accounts"</text>
+  <text x="170.0" y="157" text-anchor="middle" font-size="9.5" fill="#333">search = "?type=Savings"</text>
+  <rect x="855" y="108" width="190" height="100" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="950.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">NavLink check</text>
+  <text x="950.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">pathname is "/accounts" or</text>
+  <text x="950.0" y="157" text-anchor="middle" font-size="9.5" fill="#333">below it: isActive = true</text>
+  <rect x="75" y="276" width="190" height="110" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="170.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">type</text>
+  <text x="170.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">"Savings" (a string)</text>
+  <text x="170.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">searchParams.get("type")</text>
+  <rect x="335" y="276" width="190" height="110" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="430.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">shown</text>
+  <text x="430.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">[ Asha Rao, Chen Li ]</text>
+  <text x="430.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">filtered, recomputed</text>
+  <rect x="595" y="276" width="190" height="110" rx="8" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+  <text x="690.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">ACCOUNTS (module)</text>
+  <text x="690.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">Asha Savings, Ben Current,</text>
+  <text x="690.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">Chen Savings</text>
+  <rect x="855" y="276" width="190" height="110" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="950.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;NavLink to="/accounts"&gt;</text>
+  <text x="950.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">props: to (read-only)</text>
+  <text x="950.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">no "end" prop</text>
+  <rect x="75" y="462" width="190" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="170.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;strong&gt;Savings&lt;/strong&gt;</text>
+  <text x="170.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">the "type" read-out</text>
+  <rect x="335" y="462" width="190" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="430.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;li&gt; x 2</text>
+  <text x="430.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">Asha Rao (Savings)</text>
+  <text x="430.0" y="511" text-anchor="middle" font-size="9.5" fill="#333">Chen Li (Savings)</text>
+  <rect x="855" y="462" width="190" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="950.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;a class="active"</text>
+  <text x="950.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">aria-current="page"</text>
+  <text x="950.0" y="511" text-anchor="middle" font-size="9.5" fill="#333">href="/accounts"&gt;</text>
+  <polyline points="170.0,208 170.0,276" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="176.0" y="246.0" font-size="9.5" font-style="italic" fill="#444">get("type")</text>
+  <polyline points="265,158 855,158" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560.0" y="152" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">NavLink compares pathname with its "to"</text>
+  <polyline points="950.0,208 950.0,276" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="956.0" y="235.0" font-size="9.5" font-style="italic" fill="#444">isActive -&gt;</text>
+  <text x="956.0" y="246.0" font-size="9.5" font-style="italic" fill="#444">class</text>
+  <polyline points="265,331 335,331" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300.0" y="314" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">used by</text>
+  <text x="300.0" y="325" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">filter</text>
+  <polyline points="595,331 525,331" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560.0" y="314" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">filtered</text>
+  <text x="560.0" y="325" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">from</text>
+  <polyline points="170.0,386 170.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="176.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="430.0,386 430.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="436.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="950.0,386 950.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="956.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="566" font-size="10.5" font-style="italic" fill="#777">Filter in the URL = shareable and survives a refresh. A filter kept in useState would be lost on refresh and could not be linked to.</text>
+  <text x="40" y="584" font-size="10.5" font-style="italic" fill="#777">Values read from the query string are strings (or null when missing).</text>
+</svg>

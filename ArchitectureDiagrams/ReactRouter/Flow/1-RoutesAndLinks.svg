@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 432" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="432" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Routes and Links: Sub-level Flow: a switchboard operator</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">Clicking a Link changes the router's location, not the page: the operator reconnects the call, the phone stays on.</text>
+  <g font-size="11" fill="#333"><rect x="235.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="255.0" y="71">browser / user</text></g>
+  <g font-size="11" fill="#333"><rect x="359.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="379.0" y="71">router state</text></g>
+  <g font-size="11" fill="#333"><rect x="471.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="491.0" y="71">computed by the router</text></g>
+  <g font-size="11" fill="#333"><rect x="643.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="663.0" y="71">your component / DOM output</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Click &lt;Link to="/accounts"&gt;</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">the user clicks the link</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">(it is a real &lt;a href&gt;)</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Link onClick handler</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">calls event.preventDefault()</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">so the browser loads nothing</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Router sets location</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">pathname = "/accounts"</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">the page itself stays open</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">&lt;Routes&gt; compares</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">"/" no, "/accounts" yes</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">first matching path wins</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">&lt;Accounts /&gt; element</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">returned by the matching</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">&lt;Route element&gt;</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">DOM: changed part only</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">&lt;h3&gt;Accounts: ...&lt;/h3&gt;</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">replaces the old &lt;h3&gt;</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">clicks state outside &lt;Routes&gt;</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">clicks = 2 is still 2</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">(the component was not re-created)</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Contrast: a plain &lt;a href&gt;</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">no preventDefault: the browser</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">loads a new page; state is lost</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">click event</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">tells router</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">URL changed</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">React updates</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="276.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">state outside</text>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">is untouched</text>
+  <text x="40" y="390" font-size="10.5" font-style="italic" fill="#777">Test: the Link click is already cancelled when it reaches document; a plain &lt;a&gt; click is not. Counter stays 2 after navigating.</text>
+  <text x="40" y="408" font-size="10.5" font-style="italic" fill="#777">The grey box is not part of the Link path: it shows what a plain &lt;a href&gt; would do instead. (Modified clicks such as ctrl-click are left to the browser.)</text>
+</svg>

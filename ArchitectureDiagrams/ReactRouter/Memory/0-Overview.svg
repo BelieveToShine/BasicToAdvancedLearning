@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 624" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="624" fill="#ffffff"/>
+  <text x="550.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Router: Memory: where the data lives</text>
+  <text x="550.0" y="46" text-anchor="middle" font-size="12" fill="#666">Overview across the five lessons: the router owns the URL, components own their own state, the DOM is only output.</text>
+  <g font-size="11" fill="#333"><rect x="143.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="163.0" y="71">props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="411.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="431.0" y="71">state (owned by the component or router)</text></g>
+  <g font-size="11" fill="#333"><rect x="691.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="711.0" y="71">derived / computed</text></g>
+  <g font-size="11" fill="#333"><rect x="839.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="859.0" y="71">DOM / browser</text></g>
+  <rect x="30" y="84" width="1040" height="132" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,150.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">ROUTER</text>
+  <rect x="30" y="250" width="1040" height="144" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,322.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">COMPONENTS</text>
+  <rect x="30" y="436" width="1040" height="114" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,493.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM / BROWSER</text>
+  <rect x="75" y="108" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">location</text>
+  <text x="155.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">pathname, search, state</text>
+  <text x="155.0" y="157" text-anchor="middle" font-size="9.5" fill="#333">lessons 1-5</text>
+  <rect x="855" y="108" width="160" height="100" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="935.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">route match + params</text>
+  <text x="935.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">derived from location</text>
+  <text x="935.0" y="157" text-anchor="middle" font-size="9.5" fill="#333">lessons 1-4</text>
+  <rect x="75" y="276" width="160" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">clicks = 2</text>
+  <text x="155.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">lesson 1, in the demo</text>
+  <rect x="270" y="276" width="160" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="350.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">note = "call Asha"</text>
+  <text x="350.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">lesson 3, in the layout</text>
+  <rect x="465" y="276" width="160" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="545.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">isLoggedIn = false</text>
+  <text x="545.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">lesson 5, in the demo</text>
+  <rect x="660" y="276" width="160" height="110" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="740.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">props: to, onLogin</text>
+  <text x="740.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">read-only, from parent</text>
+  <rect x="75" y="462" width="160" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="155.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">text of the page</text>
+  <text x="155.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">clicks counter "2"</text>
+  <rect x="270" y="462" width="160" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="350.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">input value</text>
+  <text x="350.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">"call Asha"</text>
+  <rect x="465" y="462" width="160" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="545.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">status text</text>
+  <text x="545.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">"not logged in"</text>
+  <rect x="855" y="462" width="160" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="935.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">matched page</text>
+  <text x="935.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">e.g. Accounts</text>
+  <polyline points="235,158 855,158" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="545.0" y="152" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">compare with the Route paths</text>
+  <polyline points="935.0,208 935.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="941.0" y="339.0" font-size="9.5" font-style="italic" fill="#444">chooses the page</text>
+  <polyline points="155.0,386 155.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="161.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="350.0,386 350.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="356.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="545.0,386 545.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="551.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="625,331 660,331" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="642.5" y="325" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">passes</text>
+  <text x="40" y="566" font-size="10.5" font-style="italic" fill="#777">Router state and component state (both orange) are "state": data remembered between renders. The URL is state too.</text>
+  <text x="40" y="584" font-size="10.5" font-style="italic" fill="#777">Derived values (purple) are recomputed from state, never stored. Props (green) are read-only: a child may not change them.</text>
+  <text x="40" y="602" font-size="10.5" font-style="italic" fill="#777">clicks = 2, note = "call Asha" and isLoggedIn = false are three separate lesson instants shown side by side, not one screen.</text>
+</svg>

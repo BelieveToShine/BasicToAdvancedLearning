@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="580" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">AccountDetail: Memory: where the data lives</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: account 1 open. id and version are props from the parent; account and transactions are two separate copies of API answers.</text>
+  <g font-size="11" fill="#333"><rect x="61.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="81.0" y="71">props (read-only, from the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="305.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="325.0" y="71">state (owned by a component)</text></g>
+  <g font-size="11" fill="#333"><rect x="513.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="533.0" y="71">derived / formatted</text></g>
+  <g font-size="11" fill="#333"><rect x="667.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="687.0" y="71">DOM (browser output)</text></g>
+  <g font-size="11" fill="#333"><rect x="827.0" y="60" width="14" height="14" rx="2" fill="#e8edf3" stroke="#4a5d70"/><text x="847.0" y="71">SQL Server rows (outside the browser)</text></g>
+  <rect x="30" y="84" width="1090" height="118" rx="10" fill="#f4f6f8" stroke="#4a5d70" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,143.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">SQL SERVER</text>
+  <rect x="30" y="234" width="1090" height="150" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,309.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">REACT STATE</text>
+  <rect x="30" y="416" width="1090" height="100" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,466.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM</text>
+  <rect x="290" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="370.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts row</text>
+  <text x="370.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">AccountId 1, ACC-1001</text>
+  <text x="370.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">Savings, Balance 5000.00</text>
+  <text x="370.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">owner: Asha Rao</text>
+  <rect x="505" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="585.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Transactions rows</text>
+  <text x="585.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">#1 Deposit 5000.00</text>
+  <text x="585.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">WHERE AccountId = 1</text>
+  <text x="585.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">ORDER BY id DESC</text>
+  <rect x="75" y="258" width="160" height="100" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="155.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">AccountDetail props</text>
+  <text x="155.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">id = 1</text>
+  <text x="155.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">version = 0</text>
+  <text x="155.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">onBack (function)</text>
+  <rect x="290" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="370.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">account (useLoad)</text>
+  <text x="370.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">{ status: "ok", data: {</text>
+  <text x="370.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">customerName: "Asha Rao",</text>
+  <text x="370.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">balance: 5000 } }</text>
+  <rect x="505" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">txns (useLoad)</text>
+  <text x="585.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">{ status: "ok", data: [</text>
+  <text x="585.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">{transactionId: 1, kind:</text>
+  <text x="585.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">"Deposit", amount: 5000}]}</text>
+  <rect x="720" y="258" width="160" height="100" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="800.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">text for the screen</text>
+  <text x="800.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">money(5000) = "5000.00"</text>
+  <text x="800.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">utc("2026-10-12T18:07:41Z")</text>
+  <text x="800.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">= "2026-10-12 18:07:41 UTC"</text>
+  <rect x="290" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="370.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">summary line</text>
+  <text x="370.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;strong&gt;5000.00&lt;/strong&gt;</text>
+  <rect x="505" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="585.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">table body</text>
+  <text x="585.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;tr&gt; 1 Deposit 5000.00</text>
+  <polyline points="370.0,190 370.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="376.0" y="228.0" font-size="9.5" font-style="italic" fill="#444">GET /api/accounts/1</text>
+  <polyline points="585.0,190 585.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="228.0" font-size="9.5" font-style="italic" fill="#444">GET .../1/transactions</text>
+  <polyline points="235,308 290,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="262.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">id in URL</text>
+  <text x="262.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">and deps</text>
+  <polyline points="665,308 720,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="692.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">formatted</text>
+  <text x="692.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">for display</text>
+  <polyline points="370.0,358 370.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="376.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="585.0,358 585.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="534" font-size="10.5" font-style="italic" fill="#777">id and version are props: read-only here, owned by the parent screen. Changing either re-runs both requests (they are in the deps list).</text>
+  <text x="40" y="552" font-size="10.5" font-style="italic" fill="#777">The transaction list is shown in the order the API sent it; React keeps no second sorted copy.</text>
+</svg>

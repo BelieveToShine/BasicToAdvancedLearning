@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 626" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="626" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Fundamentals — 04 Lists and keys — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: a note was typed in row 0 of both lists, then "Remove Asha Rao" was pressed. The page re-rendered.</text>
+  <g font-size="11" fill="#333"><rect x="30" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="50" y="71">Props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="284" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="304" y="71">State (owned by the component)</text></g>
+  <g font-size="11" fill="#333"><rect x="494" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="514" y="71">Derived / computed during render</text></g>
+  <g font-size="11" fill="#333"><rect x="715" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="735" y="71">Module data (file level)</text></g>
+  <g font-size="11" fill="#333"><rect x="891" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888" stroke-dasharray="3 2"/><text x="911" y="71">DOM / browser</text></g>
+  <text x="270.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">COMPONENTS — functions React calls, and the data each one holds</text>
+  <text x="842.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="84" y="110" width="416" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="128" font-size="11" font-weight="bold" fill="#222">Lesson()  — the parent page</text>
+  <rect x="94" y="136" width="396" height="38" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="102" y="152" font-size="10" font-weight="bold" fill="#7f4e00">state  list   (preview, Topic 22; survives re-renders)</text>
+  <text x="102" y="166" font-size="10" fill="#7f4e00">[ Ben Carter, Chen Li ]     (was 3 accounts: Asha is removed)</text>
+  <rect x="84" y="224" width="416" height="154" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="242" font-size="11" font-weight="bold" fill="#222">AccountRows()  — key = index  (the bug)</text>
+  <rect x="94" y="250" width="396" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="102" y="266" font-size="10" font-weight="bold" fill="#274e13">props  list</text>
+  <text x="102" y="280" font-size="10" fill="#274e13">[ Ben Carter (CUR-2001), Chen Li (SAV-3001) ]</text>
+  <rect x="94" y="296" width="396" height="66" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="312" font-size="10" font-weight="bold" fill="#3d2a6b">keys React compares with the previous render</text>
+  <text x="102" y="326" font-size="10" fill="#3d2a6b">row 0 → key 0   (Ben Carter)   same key as old row 0 (Asha)</text>
+  <text x="102" y="340" font-size="10" fill="#3d2a6b">row 1 → key 1   (Chen Li)</text>
+  <text x="102" y="354" font-size="10" fill="#3d2a6b">so React KEEPS old row 0’s &lt;li&gt; and &lt;input&gt;</text>
+  <rect x="84" y="392" width="416" height="154" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="410" font-size="11" font-weight="bold" fill="#222">AccountRows()  — key = account id  (right)</text>
+  <rect x="94" y="418" width="396" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="102" y="434" font-size="10" font-weight="bold" fill="#274e13">props  list</text>
+  <text x="102" y="448" font-size="10" fill="#274e13">[ Ben Carter (CUR-2001), Chen Li (SAV-3001) ]</text>
+  <rect x="94" y="464" width="396" height="66" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="480" font-size="10" font-weight="bold" fill="#3d2a6b">keys React compares with the previous render</text>
+  <text x="102" y="494" font-size="10" fill="#3d2a6b">row 0 → key 'CUR-2001'   (Ben Carter)   matches old row 1</text>
+  <text x="102" y="508" font-size="10" fill="#3d2a6b">row 1 → key 'SAV-3001'   (Chen Li)</text>
+  <text x="102" y="522" font-size="10" fill="#3d2a6b">old key 'SAV-1001' is missing → React REMOVES that &lt;li&gt;</text>
+  <polyline points="84,176 60,176 60,258 83,258" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <polyline points="84,176 60,176 60,426 83,426" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="68" y="204" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">props down: the same list to both</text>
+  <rect x="644" y="254" width="376" height="70" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="832.0" y="274" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — left list (index keys)</text>
+  <text x="654" y="294" font-size="10" font-weight="bold" fill="#cc0000">&lt;li&gt;Note for Ben Carter  &lt;input&gt; typed: "note A"&lt;/li&gt;</text>
+  <text x="654" y="309" font-size="10" fill="#333">&lt;li&gt;Note for Chen Li  &lt;input&gt; typed: ""&lt;/li&gt;</text>
+  <rect x="644" y="422" width="376" height="70" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="832.0" y="442" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — right list (id keys)</text>
+  <text x="654" y="462" font-size="10" fill="#333">&lt;li&gt;Note for Ben Carter  &lt;input&gt; typed: ""&lt;/li&gt;</text>
+  <text x="654" y="477" font-size="10" fill="#333">&lt;li&gt;Note for Chen Li  &lt;input&gt; typed: ""&lt;/li&gt;</text>
+  <line x1="500" y1="306" x2="643" y2="306" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="299" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <line x1="500" y1="474" x2="643" y2="474" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="467" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <text x="832.0" y="338" text-anchor="middle" font-size="10" font-weight="bold" fill="#cc0000">↑ Asha’s note, now beside Ben: the bug</text>
+  <text x="832.0" y="506" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">the typed text lives in the &lt;input&gt; DOM node,</text>
+  <text x="832.0" y="519" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">not in props or state — so only keys decide who keeps it</text>
+  <text x="30" y="582" font-size="10.5" fill="#444"><tspan font-weight="bold">Keys decide which old DOM node a new row reuses. </tspan>With key = id the note leaves with Asha; with key = index it stays on row 0.</text>
+  <text x="30" y="599" font-size="10" font-style="italic" fill="#888">Test proof: &gt; 04 Lists and keys (same &lt;input&gt; element reused with index keys; Ben keeps his own with id keys).</text>
+</svg>

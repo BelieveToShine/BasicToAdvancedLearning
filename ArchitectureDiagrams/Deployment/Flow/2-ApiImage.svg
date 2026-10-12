@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 440" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="440" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Deployment — Step 2: Build the API image — Flow</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Dockerfile.api, top to bottom: stage 1 compiles with the SDK, stage 2 keeps only the published files.</text>
+  <g font-size="11" fill="#333"><rect x="131" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="151" y="71">files / source</text></g>
+  <g font-size="11" fill="#333"><rect x="270" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="290" y="71">image (built, read-only)</text></g>
+  <g font-size="11" fill="#333"><rect x="471" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="491" y="71">running container</text></g>
+  <g font-size="11" fill="#333"><rect x="628" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="648" y="71">volume (data)</text></g>
+  <g font-size="11" fill="#333"><rect x="762" y="60" width="14" height="14" rx="2" fill="#f1f1f1" stroke="#777777"/><text x="782" y="71">process / command</text></g>
+  <rect x="15" y="100" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="85.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">FROM sdk:9.0</text>
+  <text x="85.0" y="135" text-anchor="middle" font-size="9.5" fill="#3d2a6b">stage "build": the</text>
+  <text x="85.0" y="149" text-anchor="middle" font-size="9.5" fill="#3d2a6b">compiler + NuGet</text>
+  <text x="85.0" y="163" text-anchor="middle" font-size="9.5" fill="#3d2a6b">(~1.25 GB, never</text>
+  <text x="85.0" y="177" text-anchor="middle" font-size="9.5" fill="#3d2a6b">shipped)</text>
+  <rect x="235" y="100" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="305.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">COPY *.csproj</text>
+  <text x="305.0" y="135" text-anchor="middle" font-size="9.5" fill="#3d2a6b">dotnet restore</text>
+  <text x="305.0" y="149" text-anchor="middle" font-size="9.5" fill="#3d2a6b">packages downloaded</text>
+  <text x="305.0" y="163" text-anchor="middle" font-size="9.5" fill="#3d2a6b">once: this layer is</text>
+  <text x="305.0" y="177" text-anchor="middle" font-size="9.5" fill="#3d2a6b">cached</text>
+  <rect x="455" y="100" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="525.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">COPY source</text>
+  <text x="525.0" y="135" text-anchor="middle" font-size="9.5" fill="#3d2a6b">dotnet publish</text>
+  <text x="525.0" y="149" text-anchor="middle" font-size="9.5" fill="#3d2a6b">-c Release -o /out</text>
+  <text x="525.0" y="163" text-anchor="middle" font-size="9.5" fill="#3d2a6b">-&gt; the compiled</text>
+  <text x="525.0" y="177" text-anchor="middle" font-size="9.5" fill="#3d2a6b">API in /out</text>
+  <line x1="155" y1="150.0" x2="233" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="375" y1="150.0" x2="453" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="15" y="270" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="85.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">FROM aspnet:9.0</text>
+  <text x="85.0" y="305" text-anchor="middle" font-size="9.5" fill="#3d2a6b">stage "runtime": only</text>
+  <text x="85.0" y="319" text-anchor="middle" font-size="9.5" fill="#3d2a6b">the small runtime,</text>
+  <text x="85.0" y="333" text-anchor="middle" font-size="9.5" fill="#3d2a6b">no compiler</text>
+  <rect x="235" y="270" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="305.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">COPY --from=build</text>
+  <text x="305.0" y="305" text-anchor="middle" font-size="9.5" fill="#3d2a6b">/out -&gt; /app</text>
+  <text x="305.0" y="319" text-anchor="middle" font-size="9.5" fill="#3d2a6b">(the published</text>
+  <text x="305.0" y="333" text-anchor="middle" font-size="9.5" fill="#3d2a6b">files, nothing else)</text>
+  <rect x="455" y="270" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="525.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">ENV, USER, start</text>
+  <text x="525.0" y="305" text-anchor="middle" font-size="9.5" fill="#3d2a6b">URLS=http://+:8080</text>
+  <text x="525.0" y="319" text-anchor="middle" font-size="9.5" fill="#3d2a6b">USER $APP_UID (not</text>
+  <text x="525.0" y="333" text-anchor="middle" font-size="9.5" fill="#3d2a6b">root), dotnet *.dll</text>
+  <rect x="675" y="270" width="140" height="100" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="745.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">API image</text>
+  <text x="745.0" y="305" text-anchor="middle" font-size="9.5" fill="#3d2a6b">~350 MB, no secrets</text>
+  <text x="745.0" y="319" text-anchor="middle" font-size="9.5" fill="#3d2a6b">inside; start with</text>
+  <text x="745.0" y="333" text-anchor="middle" font-size="9.5" fill="#3d2a6b">docker compose up</text>
+  <line x1="155" y1="320.0" x2="233" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="195.0" y="303.0" text-anchor="middle" font-size="9" fill="#333">copy</text>
+  <text x="195.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">only /out</text>
+  <line x1="375" y1="320.0" x2="453" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="595" y1="320.0" x2="673" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="635.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">result</text>
+  <polyline points="525.0,200 525.0,235 305.0,235 305.0,268" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="515.0" y="229" text-anchor="end" font-size="9" fill="#333">the /out folder is copied across (build stage is then discarded)</text>
+  <text x="40" y="410" font-size="10.5" fill="#444"><tspan font-weight="bold">Why two stages: </tspan>the final image has the runtime but not the SDK, so it is smaller and has less in it that an attacker could use.</text>
+  <text x="40" y="428" font-size="10" font-style="italic" fill="#888">Reading from top to bottom = the order of the lines in Dockerfile.api. The FROM of stage 2 starts a fresh image: nothing of stage 1 is carried over except what COPY --from fetches.</text>
+</svg>

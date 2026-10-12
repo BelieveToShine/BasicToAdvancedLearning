@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="750" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">ThreeLayers — Flow: the same bad input at three checkers</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Left: a negative amount (A) and an unknown kind (B). Right: a duplicate account number (C), which only the database can see.</text>
+  <g font-size="10.5" fill="#333"><rect x="40" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="60" y="61">A check or rule runs</text></g>
+  <g font-size="10.5" fill="#333"><rect x="186.0" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="206.0" y="61">Request / user action</text></g>
+  <g font-size="10.5" fill="#333"><rect x="337.6" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="357.6" y="61">Stored / decided value</text></g>
+  <g font-size="10.5" fill="#333"><rect x="494.8" y="50" width="14" height="14" rx="2" fill="#f4cccc" stroke="#cc0000"/><text x="514.8" y="61">Refusal (error answer)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="652.0" y="50" width="14" height="14" rx="2" fill="#d9ead3" stroke="#6aa84f"/><text x="672.0" y="61">Allowed</text></g>
+  <g font-size="10.5" fill="#333"><rect x="725.2" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="745.2" y="61">Screen</text></g>
+  <rect x="60" y="86" width="300" height="50" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="210.0" y="104" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">A: Deposit -5     B: kind "Bonus"</text>
+  <text x="210.0" y="121" text-anchor="middle" font-size="9.5" fill="#333">body goes into the form / the raw fetch</text>
+  <rect x="540" y="86" width="300" height="50" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="690.0" y="104" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">C: accountNumber "ACC-1001" (exists)</text>
+  <text x="690.0" y="121" text-anchor="middle" font-size="9.5" fill="#333">format is fine: 1-20 letters, digits, -</text>
+  <rect x="60" y="176" width="300" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="210.0" y="194" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">1. Browser check (button 1)</text>
+  <text x="210.0" y="211" text-anchor="middle" font-size="9.5" fill="#333">checkTransactionInBrowser(body)</text>
+  <text x="210.0" y="226" text-anchor="middle" font-size="9.5" fill="#333">returns a list of messages; no request</text>
+  <line x1="210" y1="136" x2="210" y2="174" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="160" font-size="9" font-style="italic" fill="#555">ask the browser</text>
+  <rect x="540" y="176" width="300" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="690.0" y="194" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">1. Browser check (button 1)</text>
+  <text x="690.0" y="211" text-anchor="middle" font-size="9.5" fill="#333">checkAccountInBrowser(body): no messages</text>
+  <text x="690.0" y="226" text-anchor="middle" font-size="9.5" fill="#333">it cannot know the number is taken</text>
+  <line x1="690" y1="136" x2="690" y2="174" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="698" y="160" font-size="9" font-style="italic" fill="#555">ask the browser</text>
+  <rect x="60" y="296" width="300" height="62" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="210.0" y="314" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">2. Raw fetch (button 2): browser skipped</text>
+  <text x="210.0" y="331" text-anchor="middle" font-size="9.5" fill="#333">callApi("POST", url, body)</text>
+  <text x="210.0" y="346" text-anchor="middle" font-size="9.5" fill="#333">same as curl: nothing stops it</text>
+  <line x1="210" y1="238" x2="210" y2="294" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="270" font-size="9" font-style="italic" fill="#555">user ignores the message</text>
+  <rect x="540" y="296" width="300" height="62" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="690.0" y="314" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">2. Raw fetch (button 2)</text>
+  <text x="690.0" y="331" text-anchor="middle" font-size="9.5" fill="#333">callApi("POST", "/api/accounts", body)</text>
+  <line x1="690" y1="238" x2="690" y2="294" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="698" y="270" font-size="9" font-style="italic" fill="#555">passed, send it</text>
+  <rect x="60" y="416" width="300" height="62" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="210.0" y="434" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">API validation answers 400</text>
+  <text x="210.0" y="451" text-anchor="middle" font-size="9.5" fill="#333">errors: {amount: [...]} or {kind: [...]}</text>
+  <text x="210.0" y="466" text-anchor="middle" font-size="9.5" fill="#333">the action (and any SQL) never runs</text>
+  <line x1="210" y1="358" x2="210" y2="414" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="392" font-size="9" font-style="italic" fill="#555">POST</text>
+  <rect x="540" y="416" width="300" height="62" rx="8" fill="#d9ead3" stroke="#6aa84f" stroke-width="1.8"/>
+  <text x="690.0" y="434" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">API validation passes</text>
+  <text x="690.0" y="451" text-anchor="middle" font-size="9.5" fill="#333">the action runs: it adds the row</text>
+  <text x="690.0" y="466" text-anchor="middle" font-size="9.5" fill="#333">and calls SaveChanges (no look-up first)</text>
+  <line x1="690" y1="358" x2="690" y2="414" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="698" y="392" font-size="9" font-style="italic" fill="#555">POST</text>
+  <rect x="540" y="524" width="300" height="62" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="690.0" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">3. Database: UNIQUE index refuses</text>
+  <text x="690.0" y="559" text-anchor="middle" font-size="9.5" fill="#333">SQL error 2601 (IX_Accounts_AccountNumber)</text>
+  <text x="690.0" y="574" text-anchor="middle" font-size="9.5" fill="#333">the row is not inserted</text>
+  <line x1="690" y1="478" x2="690" y2="522" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="698" y="504" font-size="9" font-style="italic" fill="#555">INSERT</text>
+  <rect x="540" y="632" width="300" height="52" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="690.0" y="650" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">API answers 409 "Duplicate value"</text>
+  <text x="690.0" y="667" text-anchor="middle" font-size="9.5" fill="#333">exception handler maps 2601 to 409</text>
+  <line x1="690" y1="586" x2="690" y2="630" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="698" y="612" font-size="9" font-style="italic" fill="#555">exception</text>
+  <rect x="60" y="524" width="300" height="62" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="210.0" y="542" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Database not reached</text>
+  <text x="210.0" y="559" text-anchor="middle" font-size="9.5" fill="#333">verdict shown in the table: not reached</text>
+  <text x="210.0" y="574" text-anchor="middle" font-size="9.5" fill="#333">(the CHECKs still exist: see the sqlcmd table)</text>
+  <line x1="210" y1="478" x2="210" y2="522" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="218" y="504" font-size="9" font-style="italic" fill="#555">nothing to insert</text>
+  <text x="30" y="716" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where: </tspan>bad value, browser check (can be skipped), API 400, or API pass then database 2601 then API 409.</text>
+  <text x="30" y="734" font-size="10" font-style="italic" fill="#888">Every request on this page is refused, so no data changes.</text>
+</svg>

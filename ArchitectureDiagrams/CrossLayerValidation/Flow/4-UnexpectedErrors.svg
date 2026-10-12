@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="720" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">UnexpectedErrors — Flow: when it is not the user's fault</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: the fire alarm. The user needs one calm sentence, the developer needs the details somewhere else.</text>
+  <g font-size="10.5" fill="#333"><rect x="40" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="60" y="61">A check or rule runs</text></g>
+  <g font-size="10.5" fill="#333"><rect x="186.0" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="206.0" y="61">Request / user action</text></g>
+  <g font-size="10.5" fill="#333"><rect x="337.6" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="357.6" y="61">Stored / decided value</text></g>
+  <g font-size="10.5" fill="#333"><rect x="494.8" y="50" width="14" height="14" rx="2" fill="#f4cccc" stroke="#cc0000"/><text x="514.8" y="61">Refusal (error answer)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="652.0" y="50" width="14" height="14" rx="2" fill="#d9ead3" stroke="#6aa84f"/><text x="672.0" y="61">Allowed</text></g>
+  <g font-size="10.5" fill="#333"><rect x="725.2" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="745.2" y="61">Screen</text></g>
+  <rect x="40" y="84" width="250" height="62" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="165.0" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">callApi(...) runs fetch</text>
+  <text x="165.0" y="119" text-anchor="middle" font-size="9.5" fill="#333">one request leaves the browser</text>
+  <rect x="40" y="196" width="250" height="62" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="165.0" y="214" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">fetch rejects (TypeError)</text>
+  <text x="165.0" y="231" text-anchor="middle" font-size="9.5" fill="#333">no HTTP answer at all</text>
+  <text x="165.0" y="246" text-anchor="middle" font-size="9.5" fill="#333">result.network = true, status 0</text>
+  <rect x="325" y="196" width="250" height="62" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="450.0" y="214" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">5xx WITH problem+json body</text>
+  <text x="450.0" y="231" text-anchor="middle" font-size="9.5" fill="#333">500 "An unexpected error occurred"</text>
+  <text x="450.0" y="246" text-anchor="middle" font-size="9.5" fill="#333">no exception text, no SQL</text>
+  <rect x="610" y="196" width="250" height="62" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="735.0" y="214" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">5xx WITHOUT one (e.g. 502)</text>
+  <text x="735.0" y="231" text-anchor="middle" font-size="9.5" fill="#333">a proxy or gateway answered</text>
+  <text x="735.0" y="246" text-anchor="middle" font-size="9.5" fill="#333">text/plain, empty body</text>
+  <line x1="165" y1="146" x2="165" y2="194" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="173" y="176" font-size="9" font-style="italic" fill="#555">server unreachable</text>
+  <polyline points="290,100 735,100 735,194" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560" y="93" text-anchor="middle" font-size="9" font-style="italic" fill="#555">proxy in front, API stopped</text>
+  <polyline points="290,130 450,130 450,194" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300" y="123" font-size="9" font-style="italic" fill="#555">API throws inside</text>
+  <rect x="40" y="310" width="250" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="165.0" y="328" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">classify = "network"</text>
+  <text x="165.0" y="345" text-anchor="middle" font-size="9.5" fill="#333">friendlyMessage: "Could not</text>
+  <text x="165.0" y="360" text-anchor="middle" font-size="9.5" fill="#333">reach the server..."</text>
+  <rect x="325" y="310" width="250" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="450.0" y="328" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">classify = "server"</text>
+  <text x="450.0" y="345" text-anchor="middle" font-size="9.5" fill="#333">generic sentence + traceId</text>
+  <text x="450.0" y="360" text-anchor="middle" font-size="9.5" fill="#333">as a reference to quote</text>
+  <rect x="610" y="310" width="250" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="735.0" y="328" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">classify = "gateway"</text>
+  <text x="735.0" y="345" text-anchor="middle" font-size="9.5" fill="#333">"API not reachable - start it</text>
+  <text x="735.0" y="360" text-anchor="middle" font-size="9.5" fill="#333">(see FullStackBank/README.md)"</text>
+  <line x1="165" y1="258" x2="165" y2="308" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="450" y1="258" x2="450" y2="308" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="735" y1="258" x2="735" y2="308" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="173" y="288" font-size="9" font-style="italic" fill="#555">status 0</text>
+  <text x="458" y="288" font-size="9" font-style="italic" fill="#555">status 500</text>
+  <text x="743" y="288" font-size="9" font-style="italic" fill="#555">status 502</text>
+  <rect x="40" y="440" width="400" height="76" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="240.0" y="458" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">A component throws WHILE RENDERING</text>
+  <text x="240.0" y="475" text-anchor="middle" font-size="9.5" fill="#333">e.g. accounts.map when accounts is the error object</text>
+  <text x="240.0" y="490" text-anchor="middle" font-size="9.5" fill="#333">ErrorBoundary.getDerivedStateFromError(error)</text>
+  <rect x="480" y="440" width="380" height="76" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="670.0" y="458" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Fallback replaces only that part</text>
+  <text x="670.0" y="475" text-anchor="middle" font-size="9.5" fill="#333">"This part of the page could not be shown" + Try again</text>
+  <text x="670.0" y="490" text-anchor="middle" font-size="9.5" fill="#333">the rest of the page keeps working</text>
+  <line x1="440" y1="478" x2="478" y2="478" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="459" y="470" text-anchor="middle" font-size="9" font-style="italic" fill="#555">caught</text>
+  <rect x="40" y="566" width="820" height="70" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="450.0" y="584" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">NOT caught by a boundary: event-handler errors, setTimeout / promise errors</text>
+  <text x="450.0" y="601" text-anchor="middle" font-size="9.5" fill="#333">they reach window ("error" / "unhandledrejection") only; try/catch or .catch() them yourself,</text>
+  <text x="450.0" y="616" text-anchor="middle" font-size="9.5" fill="#333">or throw from a state updater to hand the error to the nearest boundary.</text>
+  <text x="30" y="676" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where: </tspan>fetch, one of three failure shapes, classify, one generic sentence; render errors take the boundary route.</text>
+  <text x="30" y="694" font-size="10" font-style="italic" fill="#888">The recorded 500 and 502 answers on the page are copies of real ones; the network failure is a real fetch to an address nothing answers on.</text>
+</svg>

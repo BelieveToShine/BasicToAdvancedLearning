@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 572" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="572" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">FullStackBank: Sub-level Flow: ordering at a restaurant</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">You (React) order through a waiter (fetch); the pass window (proxy) hands it to the chef (API) who fetches ingredients (SQL Server).</text>
+  <g font-size="11" fill="#333"><rect x="233.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="253.0" y="71">React (browser)</text></g>
+  <g font-size="11" fill="#333"><rect x="363.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="383.0" y="71">React state</text></g>
+  <g font-size="11" fill="#333"><rect x="469.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="489.0" y="71">Vite dev-server proxy</text></g>
+  <g font-size="11" fill="#333"><rect x="635.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="655.0" y="71">Web API (C#)</text></g>
+  <g font-size="11" fill="#333"><rect x="747.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="767.0" y="71">SQL Server</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">1 React: click or mount</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">a handler or an effect</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">decides: "I need data"</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">2 api.js: fetch(url)</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">a RELATIVE url, e.g.</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">/api/accounts?type=Savings</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">3 Vite proxy</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">sees the path starts /api</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">and forwards it to the API</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">4 Controller</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">finds the action for the</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">URL, checks the input</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">5 EF Core</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">turns the work into SQL:</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">SELECT / INSERT / UPDATE</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">6 SQL Server</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">reads or writes the rows</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">in Accounts / Transactions</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">7 API answers</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">a status (200, 201, 404, 409,</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">422...) and a JSON body</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">8 fetch resolves</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">api.js returns the data, or</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">throws an ApiError</text>
+  <rect x="40" y="408" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="135.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">9 React: setState</text>
+  <text x="135.0" y="442" text-anchor="middle" font-size="10" fill="#333">status "ok" + data, or the</text>
+  <text x="135.0" y="457" text-anchor="middle" font-size="10" fill="#333">error, is kept in state</text>
+  <rect x="310" y="408" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">10 Render</text>
+  <text x="405.0" y="442" text-anchor="middle" font-size="10" fill="#333">the table / balance / red</text>
+  <text x="405.0" y="457" text-anchor="middle" font-size="10" fill="#333">error box shows the state</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">calls</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">sent to</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">hands to</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">asks</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">sends SQL</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">result</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">travels back</text>
+  <polyline points="945.0,338 945.0,373.0 135.0,373.0 135.0,408" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="367.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">then</text>
+  <polyline points="230,450.0 310,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">state change</text>
+  <text x="40" y="532" font-size="10.5" font-style="italic" fill="#777">Every lesson is this same trip with a different order: lesson 1 and 2 read (GET), lessons 3 and 4 write (POST), lesson 5 joins them.</text>
+  <text x="40" y="550" font-size="10.5" font-style="italic" fill="#777">The pantry (SQL Server) is only ever visited by the chef; the diner (React) can only see what the waiter brings back.</text>
+</svg>

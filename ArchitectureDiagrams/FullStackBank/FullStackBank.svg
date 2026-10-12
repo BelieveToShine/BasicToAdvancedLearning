@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="640" fill="#ffffff"/>
+  <text x="660.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">FullStackBank: what the mini project is made of</text>
+  <text x="660.0" y="46" text-anchor="middle" font-size="12" fill="#666">One request travels React -&gt; fetch -&gt; Vite proxy -&gt; Web API -&gt; SQL Server and back. The lesson files are the left column.</text>
+  <g font-size="11" fill="#333"><rect x="385.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="405.0" y="71">React lessons</text></g>
+  <g font-size="11" fill="#333"><rect x="503.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="523.0" y="71">Vite dev server</text></g>
+  <g font-size="11" fill="#333"><rect x="633.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="653.0" y="71">Web API (FullStackBank/Api)</text></g>
+  <g font-size="11" fill="#333"><rect x="835.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="855.0" y="71">SQL Server</text></g>
+  <rect x="20" y="90" width="370" height="440" rx="10" fill="#f6fbfe" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a5276">BROWSER: React lessons (frontend/src/lessons/FullStackBank)</text>
+  <rect x="480" y="90" width="140" height="440" rx="10" fill="#fffdf2" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="550.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7d6608">VITE DEV SERVER</text>
+  <rect x="710" y="90" width="250" height="440" rx="10" fill="#f7f3fb" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="835.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2c6b">WEB API (ASP.NET Core)</text>
+  <rect x="1050" y="90" width="250" height="440" rx="10" fill="#f4f4f4" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1175.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">SQL SERVER (outside the browser)</text>
+  <rect x="35" y="120" width="340" height="58" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="137" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">01 AccountsList</text>
+  <text x="205.0" y="154" text-anchor="middle" font-size="9.5" fill="#333">GET /api/accounts?type=</text>
+  <text x="205.0" y="169" text-anchor="middle" font-size="9.5" fill="#333">filter = state; API filters</text>
+  <rect x="35" y="186" width="340" height="58" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="203" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">02 AccountDetail</text>
+  <text x="205.0" y="220" text-anchor="middle" font-size="9.5" fill="#333">GET /api/accounts/{id}</text>
+  <text x="205.0" y="235" text-anchor="middle" font-size="9.5" fill="#333">GET /api/accounts/{id}/transactions</text>
+  <rect x="35" y="252" width="340" height="58" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="269" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">03 MoneyForm</text>
+  <text x="205.0" y="286" text-anchor="middle" font-size="9.5" fill="#333">POST /api/accounts/{id}/transactions</text>
+  <text x="205.0" y="301" text-anchor="middle" font-size="9.5" fill="#333">then re-fetch the account</text>
+  <rect x="35" y="318" width="340" height="58" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="205.0" y="335" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">04 OpenAccount</text>
+  <text x="205.0" y="352" text-anchor="middle" font-size="9.5" fill="#333">POST /api/accounts -&gt; 201 / 409</text>
+  <text x="205.0" y="367" text-anchor="middle" font-size="9.5" fill="#333">customerId, number, type</text>
+  <rect x="35" y="384" width="340" height="58" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="205.0" y="401" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">05 TheWholeApp</text>
+  <text x="205.0" y="418" text-anchor="middle" font-size="9.5" fill="#333">screen state wires 01-04</text>
+  <text x="205.0" y="433" text-anchor="middle" font-size="9.5" fill="#333">list / detail / open</text>
+  <rect x="35" y="450" width="340" height="58" rx="8" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+  <text x="205.0" y="467" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">api.js + parts.jsx (not lessons)</text>
+  <text x="205.0" y="484" text-anchor="middle" font-size="9.5" fill="#333">api.js: the only place with fetch + URLs</text>
+  <text x="205.0" y="499" text-anchor="middle" font-size="9.5" fill="#333">parts.jsx: useLoad, ErrorView, Journey panel</text>
+  <rect x="490" y="240" width="120" height="110" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="550.0" y="257" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">proxy "/api"</text>
+  <text x="550.0" y="274" text-anchor="middle" font-size="9.5" fill="#333">vite.config.js</text>
+  <text x="550.0" y="289" text-anchor="middle" font-size="9.5" fill="#333">server.proxy:</text>
+  <text x="550.0" y="304" text-anchor="middle" font-size="9.5" fill="#333">API_URL or</text>
+  <text x="550.0" y="319" text-anchor="middle" font-size="9.5" fill="#333">localhost:5080</text>
+  <rect x="725" y="120" width="220" height="160" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="835.0" y="137" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">AccountsController</text>
+  <text x="835.0" y="154" text-anchor="middle" font-size="9.5" fill="#333">GET  /api/accounts[?type=]</text>
+  <text x="835.0" y="169" text-anchor="middle" font-size="9.5" fill="#333">GET  /api/accounts/{id}</text>
+  <text x="835.0" y="184" text-anchor="middle" font-size="9.5" fill="#333">GET  /api/accounts/{id}/transactions</text>
+  <text x="835.0" y="199" text-anchor="middle" font-size="9.5" fill="#333">POST /api/accounts</text>
+  <text x="835.0" y="214" text-anchor="middle" font-size="9.5" fill="#333">POST /api/accounts/{id}/transactions</text>
+  <text x="835.0" y="229" text-anchor="middle" font-size="9.5" fill="#333">(errors: problem+json)</text>
+  <rect x="725" y="305" width="220" height="80" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="835.0" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">EF Core (BankDbContext)</text>
+  <text x="835.0" y="339" text-anchor="middle" font-size="9.5" fill="#333">turns C# queries and Add/Save</text>
+  <text x="835.0" y="354" text-anchor="middle" font-size="9.5" fill="#333">into SELECT / INSERT / UPDATE</text>
+  <rect x="725" y="410" width="220" height="90" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="835.0" y="427" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Rules on the server</text>
+  <text x="835.0" y="444" text-anchor="middle" font-size="9.5" fill="#333">400 invalid input, 404 unknown id</text>
+  <text x="835.0" y="459" text-anchor="middle" font-size="9.5" fill="#333">409 duplicate number, 422 insufficient</text>
+  <text x="835.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">funds: the browser only displays them</text>
+  <rect x="1065" y="120" width="220" height="110" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="1175.0" y="137" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Customers</text>
+  <text x="1175.0" y="154" text-anchor="middle" font-size="9.5" fill="#333">CustomerId, FullName, Email</text>
+  <text x="1175.0" y="169" text-anchor="middle" font-size="9.5" fill="#333">1 Asha Rao  2 Ben Carter</text>
+  <text x="1175.0" y="184" text-anchor="middle" font-size="9.5" fill="#333">3 Chen Li</text>
+  <rect x="1065" y="250" width="220" height="110" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="1175.0" y="267" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts</text>
+  <text x="1175.0" y="284" text-anchor="middle" font-size="9.5" fill="#333">AccountId, AccountNumber (UNIQUE),</text>
+  <text x="1175.0" y="299" text-anchor="middle" font-size="9.5" fill="#333">AccountType, Balance</text>
+  <text x="1175.0" y="314" text-anchor="middle" font-size="9.5" fill="#333">ACC-1001 / 1002 / 1003</text>
+  <rect x="1065" y="380" width="220" height="110" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="1175.0" y="397" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Transactions</text>
+  <text x="1175.0" y="414" text-anchor="middle" font-size="9.5" fill="#333">TransactionId, AccountId, Amount,</text>
+  <text x="1175.0" y="429" text-anchor="middle" font-size="9.5" fill="#333">Kind, CreatedAt</text>
+  <text x="1175.0" y="444" text-anchor="middle" font-size="9.5" fill="#333">opening deposits, newest = highest id</text>
+  <polyline points="390,250 480,250" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435.0" y="233" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">fetch("/api/...")</text>
+  <text x="435.0" y="244" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">relative URL</text>
+  <polyline points="480,330 390,330" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="435.0" y="344" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">JSON + status</text>
+  <text x="435.0" y="355" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">to the caller</text>
+  <polyline points="620,250 710,250" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665.0" y="233" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">forwards the</text>
+  <text x="665.0" y="244" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">same path</text>
+  <polyline points="710,330 620,330" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="665.0" y="344" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">JSON + status</text>
+  <text x="665.0" y="355" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">passed back</text>
+  <polyline points="960,250 1050,250" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="1005.0" y="233" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">EF Core sends</text>
+  <text x="1005.0" y="244" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="1050,330 960,330" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="1005.0" y="344" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">rows come</text>
+  <text x="1005.0" y="355" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">back</text>
+  <text x="40" y="562" font-size="10.5" font-style="italic" fill="#777">The browser never talks to SQL Server: only the API does.</text>
+  <text x="40" y="580" font-size="10.5" font-style="italic" fill="#777">The proxy exists in development so page and API share one origin (no CORS setup); production is topic 28.</text>
+  <text x="40" y="598" font-size="10.5" font-style="italic" fill="#777">All five lessons use the same api.js. API port 5080 by default (README); proxy target = API_URL.</text>
+  <text x="40" y="616" font-size="10.5" font-style="italic" fill="#777">The API has no authentication: it is a local learning API only.</text>
+</svg>

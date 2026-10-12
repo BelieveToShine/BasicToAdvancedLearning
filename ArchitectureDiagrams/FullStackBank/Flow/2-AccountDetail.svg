@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1210 470" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1210" height="470" fill="#ffffff"/>
+  <text x="605.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">AccountDetail: Sub-level Flow: ordering at a restaurant</text>
+  <text x="605.0" y="46" text-anchor="middle" font-size="12" fill="#666">One click starts TWO independent orders at the same time: the account and its transactions. Each has its own state.</text>
+  <g font-size="11" fill="#333"><rect x="298.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="318.0" y="71">React (browser)</text></g>
+  <g font-size="11" fill="#333"><rect x="428.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="448.0" y="71">React state</text></g>
+  <g font-size="11" fill="#333"><rect x="534.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="554.0" y="71">Vite dev-server proxy</text></g>
+  <g font-size="11" fill="#333"><rect x="700.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="720.0" y="71">Web API (C#)</text></g>
+  <g font-size="11" fill="#333"><rect x="812.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="832.0" y="71">SQL Server</text></g>
+  <rect x="30" y="190" width="170" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="115.0" y="207" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Click "Open ACC-1001"</text>
+  <text x="115.0" y="224" text-anchor="middle" font-size="10" fill="#333">onOpen(1)</text>
+  <text x="115.0" y="239" text-anchor="middle" font-size="10" fill="#333">setOpenId(1)</text>
+  <rect x="275" y="190" width="170" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="360.0" y="207" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">&lt;AccountDetail id=1&gt;</text>
+  <text x="360.0" y="224" text-anchor="middle" font-size="10" fill="#333">two useLoad effects</text>
+  <text x="360.0" y="239" text-anchor="middle" font-size="10" fill="#333">both start "loading"</text>
+  <polyline points="200,232 275,232" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="237.5" y="224" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="445,232 473,232 473,152 520,152" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="473,232 473,312 520,312" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="360.0" y="290" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">both requests start at once</text>
+  <rect x="520" y="110" width="170" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="605.0" y="127" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">GET /api/accounts/1</text>
+  <text x="605.0" y="144" text-anchor="middle" font-size="10" fill="#333">via proxy and API</text>
+  <text x="605.0" y="159" text-anchor="middle" font-size="10" fill="#333">AccountsController.GetById</text>
+  <rect x="765" y="110" width="170" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="850.0" y="127" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server</text>
+  <text x="850.0" y="144" text-anchor="middle" font-size="10" fill="#333">SELECT ... FROM Accounts</text>
+  <text x="850.0" y="159" text-anchor="middle" font-size="10" fill="#333">WHERE AccountId = 1</text>
+  <rect x="1010" y="110" width="170" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1095.0" y="127" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">state: account</text>
+  <text x="1095.0" y="144" text-anchor="middle" font-size="10" fill="#333">Asha Rao, ACC-1001,</text>
+  <text x="1095.0" y="159" text-anchor="middle" font-size="10" fill="#333">balance 5000 -&gt; "5000.00"</text>
+  <polyline points="690,152 765,152" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="727.5" y="144" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="935,152 1010,152" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="972.5" y="129" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">rows,</text>
+  <text x="972.5" y="141" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">200 + JSON</text>
+  <rect x="520" y="270" width="170" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="605.0" y="287" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">GET .../1/transactions</text>
+  <text x="605.0" y="304" text-anchor="middle" font-size="10" fill="#333">via proxy and API</text>
+  <text x="605.0" y="319" text-anchor="middle" font-size="10" fill="#333">GetTransactions</text>
+  <rect x="765" y="270" width="170" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="850.0" y="287" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server</text>
+  <text x="850.0" y="304" text-anchor="middle" font-size="10" fill="#333">SELECT ... FROM Transactions</text>
+  <text x="850.0" y="319" text-anchor="middle" font-size="10" fill="#333">ORDER BY TransactionId DESC</text>
+  <rect x="1010" y="270" width="170" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1095.0" y="287" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">state: transactions</text>
+  <text x="1095.0" y="304" text-anchor="middle" font-size="10" fill="#333">[ #1 Deposit 5000.00 ]</text>
+  <text x="1095.0" y="319" text-anchor="middle" font-size="10" fill="#333">kept in the API's order</text>
+  <polyline points="690,312 765,312" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="727.5" y="304" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="935,312 1010,312" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="972.5" y="289" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">rows,</text>
+  <text x="972.5" y="301" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">200 + JSON</text>
+  <text x="1095.0" y="212" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">renders the summary line</text>
+  <text x="1095.0" y="372" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">renders the table rows</text>
+  <text x="40" y="430" font-size="10.5" font-style="italic" fill="#777">Newest first is decided by the API (ORDER BY TransactionId DESC); React does not sort. If one order fails (e.g. 404 for id 9999) only its own box shows the error.</text>
+  <text x="40" y="448" font-size="10.5" font-style="italic" fill="#777">Real 404 for an unknown id: both requests fail on their own, each state becomes an error and each shows a red box. The 5000.00 is JSON 5000.00 parsed to the number 5000.</text>
+</svg>

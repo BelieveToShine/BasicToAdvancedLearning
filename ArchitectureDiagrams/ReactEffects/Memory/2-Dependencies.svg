@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 880" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="880" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Dependencies — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Top: Probe after 'Add a transaction' and then a second 'Show the run counts'. Bottom: StaleTicker vs FixedTicker after 3 ticks.</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="436" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">Probe (React memory)</text>
+  <rect x="560" y="104" width="460" height="436" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">WHAT REACT REMEMBERS between renders (not readable by your code)</text>
+  <rect x="50" y="116" width="410" height="66" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <rect x="60" y="148" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="164.5" font-size="10" fill="#274e13">owner = 'Asha Rao'</text>
+  <rect x="50" y="208" width="410" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="228" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <rect x="60" y="240" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="256.5" font-size="9.5" fill="#7f4e00">transactions = 1</text>
+  <rect x="60" y="270" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="286.5" font-size="9.5" fill="#7f4e00">snapshot = { everyRender: 3, onceOnMount: 1, whenOwnerChanges: 1 }</text>
+  <rect x="50" y="376" width="410" height="140" rx="10" fill="#fff2cc" stroke="#bf9000" stroke-width="1.6"/>
+  <text x="255.0" y="396" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">REF  runs.current</text>
+  <text x="255.0" y="412" text-anchor="middle" font-size="9" font-style="italic" fill="#7f6000">survives renders; writing to it does not cause a render</text>
+  <rect x="60" y="422" width="390" height="26" rx="4" fill="#fffaea" stroke="#bf9000" stroke-width="1"/>
+  <text x="68" y="438.5" font-size="10" fill="#7f6000">everyRender: 4</text>
+  <rect x="60" y="452" width="390" height="26" rx="4" fill="#fffaea" stroke="#bf9000" stroke-width="1"/>
+  <text x="68" y="468.5" font-size="10" fill="#7f6000">onceOnMount: 1</text>
+  <rect x="60" y="482" width="390" height="26" rx="4" fill="#fffaea" stroke="#bf9000" stroke-width="1"/>
+  <text x="68" y="498.5" font-size="10" fill="#7f6000">whenOwnerChanges: 1</text>
+  <rect x="580" y="116" width="420" height="140" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="790.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">DEPENDENCY LISTS (one per effect)</text>
+  <text x="790.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">compared with the next render's values (Object.is)</text>
+  <rect x="590" y="162" width="400" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="598" y="178.5" font-size="10" fill="#1c4587">effect 1: no array   -&gt; runs after every render</text>
+  <rect x="590" y="192" width="400" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="598" y="208.5" font-size="10" fill="#1c4587">effect 2: remembered []   (never differs)</text>
+  <rect x="590" y="222" width="400" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="598" y="238.5" font-size="10" fill="#1c4587">effect 3: remembered ['Asha Rao']</text>
+  <rect x="580" y="300" width="420" height="106" rx="8" fill="#ffffff" stroke="#999" stroke-width="1"/>
+  <text x="594" y="322" font-size="9.5" font-weight="bold" fill="#333">Why snapshot says 3 but the ref says 4:</text>
+  <text x="594" y="342" font-size="9.5" fill="#333">the button copied the ref when clicked (3); the click then</text>
+  <text x="594" y="362" font-size="9.5" fill="#333">re-rendered Probe, so the every-render effect ran once more</text>
+  <text x="594" y="382" font-size="9.5" fill="#333">(4). State holds a copy of one moment; the ref keeps changing.</text>
+  <rect x="30" y="584" width="450" height="196" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="578" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">StaleTicker / FixedTicker (React memory)</text>
+  <rect x="560" y="584" width="460" height="196" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="578" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BROWSER TIMERS (outside React)</text>
+  <rect x="50" y="596" width="410" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="616" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">StaleTicker  STATE</text>
+  <rect x="60" y="628" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="644.5" font-size="10" fill="#7f4e00">count = 1   (stuck)</text>
+  <rect x="50" y="684" width="410" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="704" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">FixedTicker  STATE</text>
+  <rect x="60" y="716" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="732.5" font-size="10" fill="#7f4e00">count = 3</text>
+  <rect x="580" y="596" width="420" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="616" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">timer 1 callback (a closure)</text>
+  <rect x="590" y="628" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="644.5" font-size="10" fill="#444444">count = 0, captured at render 1: setCount(0 + 1)</text>
+  <rect x="580" y="684" width="420" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="704" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">timer 2 callback (a closure)</text>
+  <rect x="590" y="716" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="732.5" font-size="10" fill="#444444">setCount(c =&gt; c + 1): captures no count</text>
+  <line x1="578" y1="640" x2="462" y2="640" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="632" font-size="9.5" font-style="italic" fill="#444">tick: setCount(1)</text>
+  <line x1="578" y1="728" x2="462" y2="728" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="720" font-size="9.5" font-style="italic" fill="#444">tick: add 1 to latest</text>
+  <text x="40" y="810" font-size="10" font-style="italic" fill="#888">The closure froze count at 0 when the [] effect was created, so every tick asks for 0 + 1. The updater form asks React to add 1 to whatever count is now.</text>
+  <text x="40" y="828" font-size="10" font-style="italic" fill="#888">The lists decide only WHEN the effect function runs again; React compares them after every render.</text>
+</svg>

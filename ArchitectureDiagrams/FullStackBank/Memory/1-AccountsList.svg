@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="580" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">AccountsList: Memory: where the data lives</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: filter "Savings" chosen and the answer has arrived. The filter is state; the rows are a copy of what SQL Server returned.</text>
+  <g font-size="11" fill="#333"><rect x="61.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="81.0" y="71">props (read-only, from the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="305.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="325.0" y="71">state (owned by a component)</text></g>
+  <g font-size="11" fill="#333"><rect x="513.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="533.0" y="71">derived / formatted</text></g>
+  <g font-size="11" fill="#333"><rect x="667.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="687.0" y="71">DOM (browser output)</text></g>
+  <g font-size="11" fill="#333"><rect x="827.0" y="60" width="14" height="14" rx="2" fill="#e8edf3" stroke="#4a5d70"/><text x="847.0" y="71">SQL Server rows (outside the browser)</text></g>
+  <rect x="30" y="84" width="1090" height="118" rx="10" fill="#f4f6f8" stroke="#4a5d70" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,143.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">SQL SERVER</text>
+  <rect x="30" y="234" width="1090" height="150" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,309.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">REACT STATE</text>
+  <rect x="30" y="416" width="1090" height="100" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,466.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM</text>
+  <rect x="75" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="155.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts rows</text>
+  <text x="155.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">1 ACC-1001 Savings 5000.00</text>
+  <text x="155.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">2 ACC-1002 Current 1200.50</text>
+  <text x="155.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">3 ACC-1003 Savings 300.00</text>
+  <rect x="290" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="370.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Customers rows</text>
+  <text x="370.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">1 Asha Rao  2 Ben Carter</text>
+  <text x="370.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">3 Chen Li</text>
+  <text x="370.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">joined for the owner name</text>
+  <rect x="75" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">AccountsList: type</text>
+  <text x="155.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">type = "Savings"</text>
+  <text x="155.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">set by the button click</text>
+  <rect x="290" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="370.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">useLoad state</text>
+  <text x="370.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">{ status: "ok",</text>
+  <text x="370.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">data: [ACC-1001,</text>
+  <text x="370.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">ACC-1003] }</text>
+  <rect x="505" y="258" width="160" height="100" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="585.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">money(a.balance)</text>
+  <text x="585.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">5000 -&gt; "5000.00"</text>
+  <text x="585.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">300 -&gt; "300.00"</text>
+  <text x="585.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">display only, not stored</text>
+  <rect x="75" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="155.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">buttons</text>
+  <text x="155.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">Savings: aria-pressed</text>
+  <rect x="290" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="370.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">table body</text>
+  <text x="370.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">2 &lt;tr&gt;: ACC-1001,</text>
+  <text x="370.0" y="489" text-anchor="middle" font-size="9.5" fill="#333">ACC-1003</text>
+  <rect x="505" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="585.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">cells</text>
+  <text x="585.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">"5000.00", "300.00"</text>
+  <polyline points="185.0,190 185.0,224 370.0,224 370.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="225.0" y="218" font-size="9.5" font-style="italic" fill="#444">GET /api/accounts?type=Savings: a copy</text>
+  <polyline points="290,148 235,148" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="262.5" y="131" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">joined by</text>
+  <text x="262.5" y="142" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">the API</text>
+  <polyline points="235,308 290,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="262.5" y="280" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">type in</text>
+  <text x="262.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">deps: new</text>
+  <text x="262.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">GET</text>
+  <polyline points="450,308 505,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="477.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">data.map</text>
+  <text x="477.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">formats</text>
+  <polyline points="155.0,358 155.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="161.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="370.0,358 370.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="376.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="585.0,358 585.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="534" font-size="10.5" font-style="italic" fill="#777">"Savings" is state, so a click re-renders AND (through the deps list) triggers a new request: the WHERE runs in SQL Server, not in JavaScript.</text>
+  <text x="40" y="552" font-size="10.5" font-style="italic" fill="#777">The JSON number 5000.00 is parsed to the JS number 5000; money() adds the two decimals back for display.</text>
+</svg>

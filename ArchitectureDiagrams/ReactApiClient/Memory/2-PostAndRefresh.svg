@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 920" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="920" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">POST and refresh — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: strategy B chosen, one account just opened (a real run: E2E-noxz1, id 24, 6 accounts before).</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="706" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">OpenAccountForm + AccountsPage (React memory)</text>
+  <rect x="560" y="104" width="460" height="706" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BROWSER, NETWORK, SERVER (outside React)</text>
+  <rect x="50" y="116" width="410" height="240" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">OpenAccountForm  STATE</text>
+  <text x="255.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">the form owns what it types and the last result</text>
+  <rect x="60" y="162" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="179.5" font-size="10" fill="#7f4e00">customerId = '1'   (TEXT from the &lt;input&gt;)</text>
+  <rect x="60" y="194" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="211.5" font-size="10" fill="#7f4e00">accountNumber = 'E2E-noxz1'   accountType = 'Current'</text>
+  <rect x="60" y="226" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="243.5" font-size="10" fill="#7f4e00">sending = false</text>
+  <rect x="60" y="258" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="275.5" font-size="10" fill="#7f4e00">result = { status: 201, location: '.../api/accounts/24', ... }</text>
+  <text x="64" y="304" font-size="9" font-style="italic" fill="#7f4e00">after the 201 it calls onCreated(account) on its parent</text>
+  <rect x="50" y="372" width="410" height="88" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="392" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">OpenAccountForm  PROPS</text>
+  <text x="255.0" y="408" text-anchor="middle" font-size="9" font-style="italic" fill="#274e13">the form never touches the list itself</text>
+  <rect x="60" y="418" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="434.5" font-size="10" fill="#274e13">onCreated = handleCreated   (from the parent)</text>
+  <rect x="50" y="476" width="410" height="170" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="496" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">AccountsPage  STATE</text>
+  <text x="255.0" y="512" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">owns the list; gets counts GET /api/accounts requests</text>
+  <rect x="60" y="522" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="538.5" font-size="10" fill="#7f4e00">accounts = [ ... 7 accounts, last: E2E-noxz1 (id 24) ]</text>
+  <rect x="60" y="552" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="568.5" font-size="10" fill="#7f4e00">strategy = 'refetch'   gets = 2   refreshing = false</text>
+  <rect x="60" y="582" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="598.5" font-size="10" fill="#7f4e00">(gets = 2 in a production build; the dev page shows +1: StrictMode)</text>
+  <rect x="60" y="612" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="628.5" font-size="10" fill="#7f4e00">error = null</text>
+  <rect x="50" y="668" width="410" height="110" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="688" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED  (not stored)</text>
+  <text x="255.0" y="704" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">built when submitting / rendering</text>
+  <rect x="60" y="714" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="730.5" font-size="10" fill="#3d2a6b">the JSON body: customerId becomes Number(...) = 1</text>
+  <rect x="60" y="744" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="760.5" font-size="10" fill="#3d2a6b">'Created account E2E-noxz1 (id 24), balance 0.00.'</text>
+  <rect x="580" y="116" width="420" height="170" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">REQUEST (a plain object, then bytes)</text>
+  <text x="790.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">JSON.stringify turned the object into text</text>
+  <rect x="590" y="162" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="178.5" font-size="10" fill="#444444">POST /api/accounts</text>
+  <rect x="590" y="192" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="208.5" font-size="10" fill="#444444">Content-Type: application/json</text>
+  <rect x="590" y="222" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="238.5" font-size="10" fill="#444444">body (a STRING): {"customerId":1,"accountNumber":"E2E-noxz1",</text>
+  <rect x="590" y="252" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="268.5" font-size="10" fill="#444444">  "accountType":"Current"}</text>
+  <rect x="580" y="316" width="420" height="140" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="336" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">RESPONSE</text>
+  <text x="790.0" y="352" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">Location = the API's own address (lesson 5)</text>
+  <rect x="590" y="362" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="378.5" font-size="10" fill="#444444">201 Created</text>
+  <rect x="590" y="392" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="408.5" font-size="10" fill="#444444">Location: http://localhost:5080/api/accounts/24</text>
+  <rect x="590" y="422" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="438.5" font-size="10" fill="#444444">body: { accountId: 24, ..., balance: 0 }</text>
+  <rect x="580" y="496" width="420" height="96" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="516" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">SQL SERVER  Accounts table</text>
+  <text x="790.0" y="532" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">the row the INSERT created</text>
+  <rect x="590" y="542" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="558.5" font-size="10" fill="#444444">AccountId 24, ACC number E2E-noxz1, Current, Balance 0.00</text>
+  <line x1="460" y1="200" x2="578" y2="200" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="192" font-size="9.5" font-style="italic" fill="#444">send: fetch POST</text>
+  <line x1="578" y1="340" x2="462" y2="340" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="332" font-size="9.5" font-style="italic" fill="#444">answer: 201 + body</text>
+  <line x1="790" y1="286" x2="790" y2="314" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="304.0" font-size="9.5" font-style="italic" fill="#444">API validates, inserts</text>
+  <line x1="790" y1="456" x2="790" y2="494" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="479.0" font-size="9.5" font-style="italic" fill="#444">row exists now</text>
+  <text x="40" y="846" font-size="10" font-style="italic" fill="#888">Strategy A would write the returned account straight into accounts (no GET, gets stays 1); strategy B sends GET /api/accounts again (gets 2) and replaces accounts.</text>
+  <text x="40" y="864" font-size="10" font-style="italic" fill="#888">A text &lt;input&gt; always gives a string in state; the number the API wants is made at the moment of sending. The new account has balance 0: money arrives through transactions.</text>
+</svg>

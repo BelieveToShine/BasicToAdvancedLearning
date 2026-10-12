@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 925" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="925" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">What is an effect — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: BalanceTitle just after "Deposit 50" (balance 100 to 150), once its effect has run. Below: FeeRight vs FeeWrong with balance = 2000.</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="488" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BalanceTitle (React memory)</text>
+  <rect x="560" y="104" width="460" height="488" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">THE BROWSER AND BEYOND (outside React)</text>
+  <rect x="50" y="116" width="410" height="66" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <rect x="60" y="148" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="164.5" font-size="10" fill="#274e13">(none: BalanceTitle takes no props)</text>
+  <rect x="50" y="218" width="410" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="238" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <rect x="60" y="250" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="266.5" font-size="10" fill="#7f4e00">balance = 150</text>
+  <rect x="60" y="280" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="296.5" font-size="10" fill="#7f4e00">seenByEffect = 'Balance: 150'</text>
+  <rect x="60" y="310" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="326.5" font-size="10" fill="#7f4e00">tabTitle = null</text>
+  <rect x="50" y="390" width="410" height="90" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="410" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED  (not stored)</text>
+  <text x="255.0" y="426" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">calculated again on every render</text>
+  <rect x="60" y="436" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="452.5" font-size="10" fill="#3d2a6b">label = 'Balance: 150'</text>
+  <rect x="50" y="506" width="410" height="66" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="526" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT  useEffect(..., [label])</text>
+  <rect x="60" y="538" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="554.5" font-size="10" fill="#1c4587">deps React remembers: ['Balance: 150']</text>
+  <rect x="580" y="390" width="420" height="90" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="410" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">DOM (the page)</text>
+  <text x="790.0" y="426" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">written by React at the commit</text>
+  <rect x="590" y="436" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="452.5" font-size="10" fill="#444444">&lt;strong id="balance-text"&gt;Balance: 150&lt;/strong&gt;</text>
+  <rect x="580" y="506" width="420" height="66" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="526" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">BROWSER</text>
+  <rect x="590" y="538" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="554.5" font-size="10" fill="#444444">document.title = 'Balance: 150'</text>
+  <line x1="255" y1="344" x2="255" y2="388" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="370.0" font-size="9.5" font-style="italic" fill="#444">render reads balance</text>
+  <line x1="255" y1="480" x2="255" y2="504" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="496.0" font-size="9.5" font-style="italic" fill="#444">after the commit, the effect gets label</text>
+  <line x1="460" y1="435" x2="578" y2="435" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="427" font-size="9.5" font-style="italic" fill="#444">commit: writes text</text>
+  <line x1="460" y1="538" x2="578" y2="538" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="530" font-size="9.5" font-style="italic" fill="#444">effect sets title</text>
+  <polyline points="790,390 790,292 462,292" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="570" y="284" font-size="9.5" font-style="italic" fill="#444">effect reads the DOM text, then setSeenByEffect</text>
+  <rect x="30" y="624" width="450" height="212" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="618" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">FeeRight (calculated in render)</text>
+  <rect x="560" y="624" width="460" height="212" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="618" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">FeeWrong (copied into state by an effect)</text>
+  <rect x="50" y="636" width="410" height="66" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="656" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <rect x="60" y="668" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="684.5" font-size="10" fill="#274e13">balance = 2000   (from the Lesson page state)</text>
+  <rect x="50" y="726" width="410" height="84" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="746" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED</text>
+  <text x="255.0" y="762" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">recalculated every render</text>
+  <rect x="60" y="772" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="788.5" font-size="10" fill="#3d2a6b">fee = 20   (balance * 0.01)</text>
+  <rect x="580" y="636" width="420" height="66" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="790.0" y="656" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <rect x="590" y="668" width="400" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="598" y="684.5" font-size="10" fill="#274e13">balance = 2000   (from the Lesson page state)</text>
+  <rect x="580" y="726" width="420" height="84" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="790.0" y="746" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <text x="790.0" y="762" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">filled by an effect: one extra render</text>
+  <rect x="590" y="772" width="400" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="598" y="788.5" font-size="10" fill="#7f4e00">fee = 20   (a COPY of a calculated value)</text>
+  <line x1="255" y1="702" x2="255" y2="724" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="717.0" font-size="9.5" font-style="italic" fill="#444">render calculates</text>
+  <line x1="790" y1="702" x2="790" y2="724" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="717.0" font-size="9.5" font-style="italic" fill="#444">effect copies</text>
+  <text x="40" y="866" font-size="10" font-style="italic" fill="#888">Top: label is never stored; it is worked out in every render. The effect runs after the commit, so the page already shows the new text when the effect reads it.</text>
+  <text x="40" y="884" font-size="10" font-style="italic" fill="#888">Bottom: both end up showing 20.00, but FeeWrong keeps a second copy of the number in state and needs a second render to update it (proved with Profiler in the tests).</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 760" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="760" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Fetching data — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: AccountsList after Reload was clicked once. Request B answered first; request A has not answered yet (the test controls the order).</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="586" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">AccountsList (React memory)</text>
+  <rect x="560" y="104" width="460" height="586" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">NETWORK (outside React)</text>
+  <rect x="50" y="120" width="410" height="104" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT RUN #1  (reloadCount = 0)</text>
+  <text x="255.0" y="156" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">closure of the first run; its fetch is still waiting</text>
+  <rect x="60" y="166" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="182.5" font-size="10" fill="#1c4587">ignore = true   (its cleanup already ran)</text>
+  <rect x="50" y="300" width="410" height="104" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT RUN #2  (reloadCount = 1)</text>
+  <text x="255.0" y="336" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">closure of the current run</text>
+  <rect x="60" y="346" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="362.5" font-size="10" fill="#1c4587">ignore = false</text>
+  <rect x="50" y="478" width="410" height="156" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="498" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <rect x="60" y="510" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="526.5" font-size="10" fill="#7f4e00">state.status = 'success'</text>
+  <rect x="60" y="540" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="556.5" font-size="10" fill="#7f4e00">state.data = [ { accountId: 2, customerName: 'Ben Carter', ... } ]</text>
+  <rect x="60" y="570" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="586.5" font-size="10" fill="#7f4e00">state.error = null</text>
+  <rect x="60" y="600" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="616.5" font-size="10" fill="#7f4e00">reloadCount = 1</text>
+  <rect x="580" y="120" width="420" height="104" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">REQUEST A  (sent by run #1)</text>
+  <text x="790.0" y="156" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">its answer will arrive late</text>
+  <rect x="590" y="166" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="182.5" font-size="10" fill="#444444">GET /api/accounts  ...  no answer yet</text>
+  <rect x="580" y="300" width="420" height="104" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">REQUEST B  (sent by run #2)</text>
+  <rect x="590" y="332" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="348.5" font-size="10" fill="#444444">answered: [ { accountId: 2, customerName: 'Ben Carter',</text>
+  <rect x="590" y="362" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="378.5" font-size="10" fill="#444444">  accountNumber: 'ACC-1002', accountType: 'Current', balance: 300 } ]</text>
+  <line x1="460" y1="172" x2="578" y2="172" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="164" font-size="9.5" font-style="italic" fill="#444">load() sent it</text>
+  <line x1="460" y1="352" x2="578" y2="352" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="344" font-size="9.5" font-style="italic" fill="#444">load() sent it</text>
+  <line x1="578" y1="200" x2="462" y2="200" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="192" font-size="9.5" font-style="italic" fill="#444">late: ignore? yes</text>
+  <line x1="578" y1="380" x2="462" y2="380" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="372" font-size="9.5" font-style="italic" fill="#444">answer: ignore? no</text>
+  <line x1="255" y1="404" x2="255" y2="476" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="444.0" font-size="9.5" font-style="italic" fill="#444">ignore is false: setState({ status: success, data })</text>
+  <text x="60" y="252" font-size="9.5" fill="#444">A's answer, when it comes, finds ignore = true and is thrown away:</text>
+  <text x="60" y="266" font-size="9.5" fill="#444">state is not touched. B already updated the page.</text>
+  <text x="40" y="720" font-size="10" font-style="italic" fill="#888">State holds one object { status, data, error } so loading, error and data can never disagree; the ignore flags live in the closures of the two effect runs, not in state.</text>
+  <text x="40" y="738" font-size="10" font-style="italic" fill="#888">JSON from the server: [{ accountId, customerName, accountNumber, accountType, balance }]. In development StrictMode runs the effect twice (two requests; the first answer is ignored).</text>
+</svg>

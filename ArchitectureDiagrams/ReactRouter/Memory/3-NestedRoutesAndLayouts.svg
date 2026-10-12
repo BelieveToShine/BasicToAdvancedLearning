@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 606" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="606" fill="#ffffff"/>
+  <text x="550.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Nested routes and layouts: Memory: where the data lives</text>
+  <text x="550.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: at /accounts/1 after typing "call Asha" in the layout's note box.</text>
+  <g font-size="11" fill="#333"><rect x="143.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="163.0" y="71">props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="411.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="431.0" y="71">state (owned by the component or router)</text></g>
+  <g font-size="11" fill="#333"><rect x="691.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="711.0" y="71">derived / computed</text></g>
+  <g font-size="11" fill="#333"><rect x="839.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="859.0" y="71">DOM / browser</text></g>
+  <rect x="30" y="84" width="1040" height="132" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,150.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">ROUTER</text>
+  <rect x="30" y="250" width="1040" height="144" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,322.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">COMPONENTS</text>
+  <rect x="30" y="436" width="1040" height="114" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,493.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM / BROWSER</text>
+  <rect x="335" y="108" width="190" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="430.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">location</text>
+  <text x="430.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">pathname = "/accounts/1"</text>
+  <rect x="595" y="108" width="190" height="100" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="690.0" y="125" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">matched routes</text>
+  <text x="690.0" y="142" text-anchor="middle" font-size="9.5" fill="#333">parent "/accounts" -&gt; layout</text>
+  <text x="690.0" y="157" text-anchor="middle" font-size="9.5" fill="#333">child ":id" -&gt; id = "1"</text>
+  <rect x="75" y="276" width="190" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="170.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;AccountsLayout /&gt;</text>
+  <text x="170.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">props: none</text>
+  <text x="170.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">state: note = "call Asha"</text>
+  <rect x="335" y="276" width="190" height="110" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="430.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;Outlet /&gt;</text>
+  <text x="430.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">draws the matching child</text>
+  <text x="430.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">(no HTML of its own)</text>
+  <rect x="595" y="276" width="190" height="110" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="690.0" y="293" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;AccountDetail /&gt;</text>
+  <text x="690.0" y="310" text-anchor="middle" font-size="9.5" fill="#333">props: none</text>
+  <text x="690.0" y="325" text-anchor="middle" font-size="9.5" fill="#333">id = "1" -&gt; Asha Rao</text>
+  <rect x="75" y="462" width="190" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="170.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;input value="call Asha"&gt;</text>
+  <text x="170.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">inside the framed &lt;div&gt;</text>
+  <rect x="595" y="462" width="190" height="80" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="690.0" y="479" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">&lt;h3&gt;Asha Rao&lt;/h3&gt;</text>
+  <text x="690.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">&lt;p&gt;Balance: 1200.00&lt;/p&gt;</text>
+  <polyline points="525,158 595,158" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560.0" y="141" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">match parent</text>
+  <text x="560.0" y="152" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">+ child</text>
+  <polyline points="660.0,208 660.0,236 170.0,236 170.0,276" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="176.0" y="231" font-size="9.5" font-style="italic" fill="#444">parent route's element</text>
+  <polyline points="720.0,208 720.0,276" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="726.0" y="235.0" font-size="9.5" font-style="italic" fill="#444">child route's</text>
+  <text x="726.0" y="246.0" font-size="9.5" font-style="italic" fill="#444">element</text>
+  <polyline points="265,331 335,331" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300.0" y="314" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">layout</text>
+  <text x="300.0" y="325" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">draws it</text>
+  <polyline points="525,331 595,331" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="560.0" y="314" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">child goes</text>
+  <text x="560.0" y="325" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">here</text>
+  <polyline points="170.0,386 170.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="176.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders note</text>
+  <polyline points="690.0,386 690.0,462" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="696.0" y="428.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="566" font-size="10.5" font-style="italic" fill="#777">The note belongs to the LAYOUT, so it survives while the Outlet swaps children: the layout stays at the same place in the tree.</text>
+  <text x="40" y="584" font-size="10.5" font-style="italic" fill="#777">Going to "/" (a route outside the parent) removes the layout, and its state goes with it.</text>
+</svg>

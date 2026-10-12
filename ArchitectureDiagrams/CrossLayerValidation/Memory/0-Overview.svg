@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 648" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="648" fill="#ffffff"/>
+  <text x="525" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">CrossLayerValidation — Memory overview: where the data lives</text>
+  <text x="525" y="46" text-anchor="middle" font-size="12" fill="#666">One concrete instant per lesson (values from the real runs / tests). State and props feed derived values, which become what the DOM shows.</text>
+  <g font-size="11" fill="#333"><rect x="60" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="80" y="71">State (kept by React)</text></g>
+  <g font-size="11" fill="#333"><rect x="236" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="256" y="71">Props (read-only, from parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="466" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="486" y="71">Derived / this-render values</text></g>
+  <g font-size="11" fill="#333"><rect x="684" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="4 3"/><text x="704" y="71">DOM / browser</text></g>
+  <text x="125.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">LESSON</text>
+  <text x="385.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a10">STATE / PROPS — kept by React</text>
+  <text x="645.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">DERIVED — worked out each render</text>
+  <text x="915.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="810" y="116" width="210" height="420" rx="10" fill="#f4f4f4" stroke="#888888" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="915.0" y="130" text-anchor="middle" font-size="10" font-weight="bold" fill="#555">DOM / outside React</text>
+  <rect x="30" y="132" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="148" font-size="10" font-weight="bold" fill="#333333">01 Three layers</text>
+  <text x="38" y="163" font-size="10" fill="#333333">results of each check</text>
+  <rect x="290" y="132" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="148" font-size="10" font-weight="bold" fill="#7f4e00">cards.duplicate:</text>
+  <text x="298" y="163" font-size="10" fill="#7f4e00">browser [] , api HTTP 409</text>
+  <rect x="550" y="132" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="148" font-size="10" font-weight="bold" fill="#3d2a6b">databaseVerdict:</text>
+  <text x="558" y="163" font-size="10" fill="#3d2a6b">UNIQUE index, 2601</text>
+  <text x="820" y="154" font-size="10" fill="#333">Row C: passed it,</text>
+  <text x="820" y="169" font-size="10" fill="#333">HTTP 409 (conflict)</text>
+  <line x1="480" y1="162.0" x2="548" y2="162.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="157.0" text-anchor="middle" font-size="9" fill="#555">verdict</text>
+  <rect x="30" y="216" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="232" font-size="10" font-weight="bold" fill="#333333">02 Field errors</text>
+  <text x="38" y="247" font-size="10" fill="#333333">one answer, split up</text>
+  <rect x="290" y="216" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="232" font-size="10" font-weight="bold" fill="#7f4e00">result: status 400,</text>
+  <text x="298" y="247" font-size="10" fill="#7f4e00">problem.errors 2 keys</text>
+  <rect x="550" y="216" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="232" font-size="10" font-weight="bold" fill="#3d2a6b">byField: accountNumber,</text>
+  <text x="558" y="247" font-size="10" fill="#3d2a6b">accountType; general []</text>
+  <text x="820" y="238" font-size="10" fill="#333">2 messages under</text>
+  <text x="820" y="253" font-size="10" fill="#333">their inputs</text>
+  <line x1="480" y1="246.0" x2="548" y2="246.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="241.0" text-anchor="middle" font-size="9" fill="#555">split</text>
+  <rect x="30" y="300" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="316" font-size="10" font-weight="bold" fill="#333333">03 Business rules</text>
+  <text x="38" y="331" font-size="10" fill="#333333">status picks the box</text>
+  <rect x="290" y="300" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="316" font-size="10" font-weight="bold" fill="#7f4e00">result: status 422</text>
+  <text x="298" y="331" font-size="10" fill="#7f4e00">Insufficient funds</text>
+  <rect x="550" y="300" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="316" font-size="10" font-weight="bold" fill="#3d2a6b">kind = "business"</text>
+  <text x="558" y="331" font-size="10" fill="#3d2a6b">byField = {}</text>
+  <text x="820" y="322" font-size="10" fill="#333">form-level message,</text>
+  <text x="820" y="337" font-size="10" fill="#333">no input invalid</text>
+  <line x1="480" y1="330.0" x2="548" y2="330.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="325.0" text-anchor="middle" font-size="9" fill="#555">classify</text>
+  <rect x="30" y="384" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="400" font-size="10" font-weight="bold" fill="#333333">04 Unexpected</text>
+  <text x="38" y="415" font-size="10" fill="#333333">error boundary</text>
+  <rect x="290" y="384" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="400" font-size="10" font-weight="bold" fill="#7f4e00">accounts = error object</text>
+  <text x="298" y="415" font-size="10" fill="#7f4e00">boundary error = TypeError</text>
+  <rect x="550" y="384" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="400" font-size="10" font-weight="bold" fill="#3d2a6b">accounts.map throws</text>
+  <text x="558" y="415" font-size="10" fill="#3d2a6b">while rendering</text>
+  <text x="820" y="406" font-size="10" fill="#333">fallback box with</text>
+  <text x="820" y="421" font-size="10" fill="#333">Try again</text>
+  <line x1="480" y1="414.0" x2="548" y2="414.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="409.0" text-anchor="middle" font-size="9" fill="#555">render</text>
+  <rect x="30" y="468" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="484" font-size="10" font-weight="bold" fill="#333333">05 Double submit</text>
+  <text x="38" y="499" font-size="10" fill="#333333">guard + retry</text>
+  <rect x="290" y="468" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="484" font-size="10" font-weight="bold" fill="#7f4e00">pending = true</text>
+  <text x="298" y="499" font-size="10" fill="#7f4e00">inFlight ref = true</text>
+  <rect x="550" y="468" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="484" font-size="10" font-weight="bold" fill="#3d2a6b">label "Sending..."</text>
+  <text x="558" y="499" font-size="10" fill="#3d2a6b">button disabled</text>
+  <text x="820" y="490" font-size="10" fill="#333">one request sent;</text>
+  <text x="820" y="505" font-size="10" fill="#333">count 10 -&gt; 11</text>
+  <line x1="480" y1="498.0" x2="548" y2="498.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="493.0" text-anchor="middle" font-size="9" fill="#555">render</text>
+  <text x="30" y="570" font-size="10.5" fill="#444"><tspan font-weight="bold">State and props are the inputs; derived values are rebuilt each render; </tspan>the DOM only ever shows what the last render produced.</text>
+  <text x="30" y="588" font-size="10" font-style="italic" fill="#888">The 4th column also notes what the real API did, because that is where the data finally lands (read back with GET).</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 820" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="820" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">GET from the API — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: AccountsList after the 200 answer was read and rendered (the seeded bank).</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="606" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">AccountsList (React memory)</text>
+  <rect x="560" y="104" width="460" height="606" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BROWSER AND NETWORK (outside React)</text>
+  <rect x="50" y="116" width="410" height="200" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE  { status, data, error, unreachable, response }</text>
+  <text x="255.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">ONE object, so loading / error / data cannot disagree</text>
+  <rect x="60" y="162" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="178.5" font-size="10" fill="#7f4e00">status = 'success'</text>
+  <rect x="60" y="192" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="208.5" font-size="10" fill="#7f4e00">data = [ {1 Asha Rao ACC-1001 Savings 5000},</text>
+  <rect x="60" y="222" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="238.5" font-size="10" fill="#7f4e00">   {2 Ben Carter ACC-1002 Current 1200.5}, {3 Chen Li ... 300} ]</text>
+  <rect x="60" y="252" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="268.5" font-size="10" fill="#7f4e00">error = null   unreachable = false</text>
+  <rect x="60" y="282" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="298.5" font-size="10" fill="#7f4e00">response = { status: 200, ok: true, contentType }</text>
+  <rect x="50" y="340" width="410" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="360" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE  (separate useState)</text>
+  <rect x="60" y="372" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="388.5" font-size="10" fill="#7f4e00">reloadCount = 0</text>
+  <rect x="50" y="440" width="410" height="120" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED  (not stored)</text>
+  <text x="255.0" y="476" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">built from state while rendering</text>
+  <rect x="60" y="486" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="502.5" font-size="10" fill="#3d2a6b">3 table rows, key = accountId (1, 2, 3)</text>
+  <rect x="60" y="516" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="532.5" font-size="10" fill="#3d2a6b">'Step 1 gave: status 200, ok true, ...'</text>
+  <rect x="50" y="584" width="410" height="96" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT RUN #1  [reloadCount]</text>
+  <text x="255.0" y="620" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">closure of the current run</text>
+  <rect x="60" y="630" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="646.5" font-size="10" fill="#1c4587">ignore = false   (its cleanup has not run)</text>
+  <rect x="580" y="116" width="420" height="120" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">GET /api/accounts</text>
+  <text x="790.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">the request that was sent</text>
+  <rect x="590" y="162" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="178.5" font-size="10" fill="#444444">page origin (Vite) -&gt; proxy -&gt; Bank API</text>
+  <rect x="590" y="192" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="208.5" font-size="10" fill="#444444">answer: 200, array of 3 accounts</text>
+  <rect x="580" y="290" width="420" height="170" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="310" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch RESPONSE</text>
+  <text x="790.0" y="326" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">arrived at "step 1"; body read at "step 2"</text>
+  <rect x="590" y="336" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="352.5" font-size="10" fill="#444444">status = 200   ok = true</text>
+  <rect x="590" y="366" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="382.5" font-size="10" fill="#444444">headers: Content-Type: application/json; ...</text>
+  <rect x="590" y="396" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="412.5" font-size="10" fill="#444444">body: JSON text, read ONCE by response.json()</text>
+  <polyline points="790,236 790,288" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="270" font-size="9.5" font-style="italic" fill="#444">the answer comes back as</text>
+  <line x1="578" y1="330" x2="462" y2="330" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="322" font-size="9.5" font-style="italic" fill="#444">json() -&gt; data</text>
+  <line x1="255" y1="406" x2="255" y2="438" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="426.0" font-size="9.5" font-style="italic" fill="#444">render maps data to rows</text>
+  <text x="40" y="750" font-size="10" font-style="italic" fill="#888">If the API is stopped nothing in state changes shape: status becomes error and unreachable true (fetch rejected, or a text/plain 502 from the Vite proxy).</text>
+  <text x="40" y="768" font-size="10" font-style="italic" fill="#888">The Response itself is not kept in state: only data and three facts about the answer (status, ok, Content-Type) are copied into state.</text>
+</svg>

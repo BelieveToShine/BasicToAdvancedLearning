@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 566" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="566" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Fundamentals — 01 JSX — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: the Statement component has just rendered the first time (balance worked out, DOM written).</text>
+  <g font-size="11" fill="#333"><rect x="30" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="50" y="71">Props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="284" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="304" y="71">State (owned by the component)</text></g>
+  <g font-size="11" fill="#333"><rect x="494" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="514" y="71">Derived / computed during render</text></g>
+  <g font-size="11" fill="#333"><rect x="715" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="735" y="71">Module data (file level)</text></g>
+  <g font-size="11" fill="#333"><rect x="891" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888" stroke-dasharray="3 2"/><text x="911" y="71">DOM / browser</text></g>
+  <text x="270.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">COMPONENTS — functions React calls, and the data each one holds</text>
+  <text x="842.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="40" y="110" width="460" height="126" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="128" font-size="11" font-weight="bold" fill="#222">01-Jsx.jsx — module scope (created once, when the file loads)</text>
+  <rect x="50" y="136" width="440" height="38" rx="6" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="58" y="152" font-size="10" font-weight="bold" fill="#1a4a73">customer</text>
+  <text x="58" y="166" font-size="10" fill="#1a4a73">{ name: 'Asha Rao', accountNumber: 'SAV-1001' }</text>
+  <rect x="50" y="182" width="440" height="38" rx="6" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="58" y="198" font-size="10" font-weight="bold" fill="#1a4a73">transactions</text>
+  <text x="58" y="212" font-size="10" fill="#1a4a73">[ {Deposit 500}, {Withdrawal 120.5}, {Deposit 75} ]</text>
+  <rect x="40" y="276" width="460" height="126" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="294" font-size="11" font-weight="bold" fill="#222">Statement()  — runs on every render, no props, no state</text>
+  <rect x="50" y="302" width="440" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="58" y="318" font-size="10" font-weight="bold" fill="#3d2a6b">balance  (worked out during this render)</text>
+  <text x="58" y="332" font-size="10" fill="#3d2a6b">500 - 120.5 + 75 = 454.5   formatMoney → "454.50"</text>
+  <rect x="50" y="348" width="440" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="58" y="364" font-size="10" font-weight="bold" fill="#3d2a6b">React elements it returned  (descriptions, not DOM)</text>
+  <text x="58" y="378" font-size="10" fill="#3d2a6b">Fragment → [ h3, p, table, br, label, input ]</text>
+  <polyline points="500,222 526,222 526,310 501,310" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="534" y="240" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">read inside</text>
+  <text x="534" y="251" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">{ … } braces</text>
+  <rect x="664" y="292" width="356" height="190" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="842.0" y="312" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — real elements React created</text>
+  <text x="674" y="332" font-size="10" fill="#333">&lt;h3 class="statement-title"&gt;Statement for Asha Rao&lt;/h3&gt;</text>
+  <text x="674" y="347" font-size="10" fill="#333">&lt;p&gt;Account SAV-1001 - balance</text>
+  <text x="674" y="362" font-size="10" fill="#333">   &lt;strong style="color: …"&gt;454.50&lt;/strong&gt;&lt;/p&gt;</text>
+  <text x="674" y="377" font-size="10" fill="#333">&lt;table&gt; … 3 rows: Deposit 500.00,</text>
+  <text x="674" y="392" font-size="10" fill="#333">        Withdrawal 120.50, Deposit 75.00 &lt;/table&gt;</text>
+  <text x="674" y="407" font-size="10" fill="#333">&lt;br&gt;</text>
+  <text x="674" y="422" font-size="10" fill="#333">&lt;label for="stmt-note"&gt;Note for this statement: &lt;/label&gt;</text>
+  <text x="674" y="437" font-size="10" fill="#333">&lt;input id="stmt-note"&gt;</text>
+  <text x="674" y="452" font-size="10" fill="#333"></text>
+  <text x="674" y="467" font-size="10" fill="#999">no wrapper &lt;div&gt;: a Fragment adds nothing to the DOM</text>
+  <line x1="500" y1="372" x2="663" y2="372" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="366" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <text x="30" y="516" font-size="10.5" fill="#444"><tspan font-weight="bold">Only the DOM is what the user sees. </tspan>The elements are throw-away descriptions; balance is recomputed from the module data on every render — it is never stored.</text>
+  <text x="30" y="533" font-size="10" font-style="italic" fill="#888">Test proof: ReactFundamentals.test.jsx &gt; 01 JSX (balance 454.50, className → class attribute, six sibling tags with no wrapper).</text>
+</svg>

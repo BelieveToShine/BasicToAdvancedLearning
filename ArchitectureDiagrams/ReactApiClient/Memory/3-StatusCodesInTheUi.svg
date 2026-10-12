@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 820" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="820" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Status codes in the UI — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: StatusLab right after the "422" button finished (a real run: temporary account id 29).</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="606" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">StatusLab (React memory)</text>
+  <rect x="560" y="104" width="460" height="606" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">THE THREE ANSWERS (outside React)</text>
+  <rect x="50" y="116" width="410" height="110" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <text x="255.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">each entry: { label, status, ok, contentType, body }</text>
+  <rect x="60" y="162" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="178.5" font-size="10" fill="#7f4e00">running = null</text>
+  <rect x="60" y="192" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="208.5" font-size="10" fill="#7f4e00">result = { key: '422', shown: 1, entries: [ 3 summaries ] }</text>
+  <rect x="50" y="232" width="410" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="252" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">entries[0]  (setup)</text>
+  <rect x="60" y="264" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="280.5" font-size="10" fill="#7f4e00">status 201, ok true, body: account LAB-22L9UJ (id 29)</text>
+  <rect x="50" y="312" width="410" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">entries[1]  (shown = 1: the answer being taught)</text>
+  <rect x="60" y="344" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="360.5" font-size="10" fill="#7f4e00">status 422, ok false, Content-Type application/problem+json</text>
+  <rect x="60" y="374" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="390.5" font-size="10" fill="#7f4e00">body.title = 'Insufficient funds'</text>
+  <rect x="60" y="404" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="420.5" font-size="10" fill="#7f4e00">body.detail = 'Account 29 has a balance of 0.00; ...'</text>
+  <rect x="50" y="452" width="410" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="472" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">entries[2]  (tidy-up)</text>
+  <rect x="60" y="484" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="500.5" font-size="10" fill="#7f4e00">status 204, ok true, body: null  (empty body, no JSON)</text>
+  <rect x="50" y="540" width="410" height="104" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="560" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED  (not stored)</text>
+  <text x="255.0" y="576" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">looked up in STATUS_GUIDE at render time</text>
+  <rect x="60" y="586" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="602.5" font-size="10" fill="#3d2a6b">guideFor(422).ui = 'The request was valid, a rule refused it: ...'</text>
+  <rect x="580" y="232" width="420" height="66" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="252" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">ANSWER 1  POST /api/accounts</text>
+  <rect x="590" y="264" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="280.5" font-size="10" fill="#444444">201 Created  (new account, balance 0.00)</text>
+  <rect x="580" y="312" width="420" height="106" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">ANSWER 2  POST .../transactions</text>
+  <rect x="590" y="344" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="360.5" font-size="10" fill="#444444">422 Unprocessable (problem+json)</text>
+  <rect x="590" y="374" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="390.5" font-size="10" fill="#444444">request body was { kind: Withdrawal, amount: 10 }</text>
+  <rect x="580" y="452" width="420" height="66" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="472" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">ANSWER 3  DELETE /api/accounts/29</text>
+  <rect x="590" y="484" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="500.5" font-size="10" fill="#444444">204 No Content: zero bytes of body</text>
+  <line x1="578" y1="263" x2="462" y2="263" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="255" font-size="9.5" font-style="italic" fill="#444">summarised</text>
+  <line x1="578" y1="365" x2="462" y2="365" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="357" font-size="9.5" font-style="italic" fill="#444">readBody -&gt; entry</text>
+  <line x1="578" y1="483" x2="462" y2="483" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="475" font-size="9.5" font-style="italic" fill="#444">null body</text>
+  <text x="40" y="750" font-size="10" font-style="italic" fill="#888">Every answer is turned into the same small entry, so the table and guideFor treat 201, 422 and 204 the same way. response.ok = (status 200-299): true, false, true here.</text>
+  <text x="40" y="768" font-size="10" font-style="italic" fill="#888">Nothing was rejected: 422 is an answer. A rejected fetch would make an entry with status null. In the bank the account is gone again after step 3 (the lab tidies up).</text>
+</svg>

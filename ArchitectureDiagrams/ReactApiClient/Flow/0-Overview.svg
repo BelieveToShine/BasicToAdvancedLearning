@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 914" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="914" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">ReactApiClient — Flow overview: one call from a component to the bank API and back</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Example: opening an account. Numbers follow the order of events; the lesson that explains each part is in brackets.</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">React component</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">api.js (lesson 4)</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser + Vite dev server</text>
+  <rect x="831" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="958.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#e69138"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Click: api.createAccount({...})</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#7f4e00">the component says WHAT it wants</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#7f4e00">it does not know about fetch</text>
+  <rect x="293" y="198" width="255" height="86" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="307" cy="212" r="9" fill="#3d85c6"/><text x="307" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="428.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">Build the request</text>
+  <text x="420.5" y="232" text-anchor="middle" font-size="9.5" fill="#1c4587">URL = '/api' + '/accounts'</text>
+  <text x="420.5" y="246" text-anchor="middle" font-size="9.5" fill="#1c4587">headers: Content-Type: application/json</text>
+  <text x="420.5" y="260" text-anchor="middle" font-size="9.5" fill="#1c4587">body = JSON.stringify(object)</text>
+  <polyline points="279,128.0 420.5,128.0 420.5,196" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="186" font-size="9.5" font-style="italic" fill="#444">calls request(method, path, body)</text>
+  <rect x="562" y="318" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="332" r="9" fill="#888888"/><text x="576" y="336" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="697.5" y="336" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch('/api/accounts', ...)</text>
+  <text x="689.5" y="352" text-anchor="middle" font-size="9.5" fill="#444444">relative URL: the page's own origin</text>
+  <text x="689.5" y="366" text-anchor="middle" font-size="9.5" fill="#444444">Vite forwards it to the API (lesson 5)</text>
+  <polyline points="548,241.0 689.5,241.0 689.5,316" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="306" font-size="9.5" font-style="italic" fill="#444">sends it (lessons 1, 2)</text>
+  <rect x="831" y="424" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="845" cy="438" r="9" fill="#888888"/><text x="845" y="442" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="966.5" y="442" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Validate, save, answer</text>
+  <text x="958.5" y="458" text-anchor="middle" font-size="9.5" fill="#444444">201 + Location + new account</text>
+  <text x="958.5" y="472" text-anchor="middle" font-size="9.5" fill="#444444">or 400 / 409 / 422 / 500 problem+json</text>
+  <polyline points="817,354.0 958.5,354.0 958.5,422" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="966.5" y="412" font-size="9.5" font-style="italic" fill="#444">forwarded by the proxy</text>
+  <rect x="562" y="530" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="544" r="9" fill="#888888"/><text x="576" y="548" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="697.5" y="548" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch RESOLVES with a Response</text>
+  <text x="689.5" y="564" text-anchor="middle" font-size="9.5" fill="#444444">status, ok, headers are known now</text>
+  <text x="689.5" y="578" text-anchor="middle" font-size="9.5" fill="#444444">only "no answer at all" rejects</text>
+  <polyline points="831,460.0 689.5,460.0 689.5,528" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="518" font-size="9.5" font-style="italic" fill="#444">answer passed back</text>
+  <rect x="293" y="636" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="307" cy="650" r="9" fill="#3d85c6"/><text x="307" y="654" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="428.5" y="654" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">Read the body, check ok</text>
+  <text x="420.5" y="670" text-anchor="middle" font-size="9.5" fill="#1c4587">ok: return { status, data, location }</text>
+  <text x="420.5" y="684" text-anchor="middle" font-size="9.5" fill="#1c4587">not ok: throw new ApiError(...) (lesson 3)</text>
+  <polyline points="562,566.0 420.5,566.0 420.5,634" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="624" font-size="9.5" font-style="italic" fill="#444">Response handed over</text>
+  <rect x="24" y="742" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="756" r="9" fill="#e69138"/><text x="38" y="760" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="159.5" y="760" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">setState, or catch (ApiError)</text>
+  <text x="151.5" y="776" text-anchor="middle" font-size="9.5" fill="#7f4e00">success: list/message updates</text>
+  <text x="151.5" y="790" text-anchor="middle" font-size="9.5" fill="#7f4e00">failure: err.kind picks the message</text>
+  <polyline points="293,672.0 151.5,672.0 151.5,740" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="730" font-size="9.5" font-style="italic" fill="#444">value returned, or error thrown</text>
+  <text x="40" y="850" font-size="10" font-style="italic" fill="#888">Lesson 1 shows the GET version, lesson 2 the POST, lesson 3 what each status should do on screen, lesson 4 moves steps 2 and 6 into one module,</text>
+  <text x="40" y="868" font-size="10" font-style="italic" fill="#888">lesson 5 explains step 3: why the browser talks to the Vite server first and what CORS is.</text>
+  <text x="40" y="886" font-size="10" font-style="italic" fill="#888">Colours: orange = component state, blue = api.js work, grey dashed = browser / network / server (outside React).</text>
+</svg>

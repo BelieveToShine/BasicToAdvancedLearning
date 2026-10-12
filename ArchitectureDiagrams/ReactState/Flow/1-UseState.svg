@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 730" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="730" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">useState — Flow: state is the notebook, ordinary variables are sticky notes</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The sticky note is thrown away after each render; the notebook entry is looked up again by the next one.</text>
+  <g font-size="10.5" fill="#333"><rect x="90" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="110" y="61">Render (component function runs)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="299.2" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="319.2" y="61">Event</text></g>
+  <g font-size="10.5" fill="#333"><rect x="357.2" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="377.2" y="61">State change</text></g>
+  <g font-size="10.5" fill="#333"><rect x="454.4" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="474.4" y="61">DOM / screen</text></g>
+  <rect x="150" y="80" width="600" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="450.0" y="98" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render 1: useState(100) — first time only</text>
+  <text x="450.0" y="115" text-anchor="middle" font-size="9.5" fill="#333">React stores 100 in its notebook; balance = 100</text>
+  <text x="450.0" y="130" text-anchor="middle" font-size="9.5" fill="#333">ordinaryBalance = 100 (a new local variable)</text>
+  <line x1="450.0" y1="142" x2="450.0" y2="174" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458.0" y="161.0" font-size="9" font-style="italic" fill="#555">returns JSX</text>
+  <rect x="150" y="174" width="600" height="62" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="450.0" y="192" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Screen shows: State 100 / Ordinary 100</text>
+  <line x1="450.0" y1="236" x2="450.0" y2="268" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458.0" y="255.0" font-size="9" font-style="italic" fill="#555">user clicks Deposit 10</text>
+  <rect x="150" y="268" width="600" height="62" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="450.0" y="286" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">deposit() runs</text>
+  <text x="450.0" y="303" text-anchor="middle" font-size="9.5" fill="#333">ordinaryBalance = 110 (this call only); setBalance(100 + 10)</text>
+  <line x1="450.0" y1="330" x2="450.0" y2="362" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458.0" y="349.0" font-size="9" font-style="italic" fill="#555">setter called</text>
+  <rect x="150" y="362" width="600" height="62" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.8"/>
+  <text x="450.0" y="380" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">React stores 110 and schedules a re-render</text>
+  <line x1="450.0" y1="424" x2="450.0" y2="456" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458.0" y="443.0" font-size="9" font-style="italic" fill="#555">component function called again</text>
+  <rect x="150" y="456" width="600" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="450.0" y="474" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render 2: useState(100) returns 110, NOT 100</text>
+  <text x="450.0" y="491" text-anchor="middle" font-size="9.5" fill="#333">the 100 is ignored now; ordinaryBalance = 100 again (new variable)</text>
+  <line x1="450.0" y1="518" x2="450.0" y2="550" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458.0" y="537.0" font-size="9" font-style="italic" fill="#555">returns JSX</text>
+  <rect x="150" y="550" width="600" height="62" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="450.0" y="568" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Screen shows: State 110 / Ordinary 100</text>
+  <text x="30" y="690" font-size="10.5" fill="#444"><tspan font-weight="bold">The sticky note (ordinaryBalance) lost its +10; the notebook (balance) kept it. </tspan></text>
+</svg>

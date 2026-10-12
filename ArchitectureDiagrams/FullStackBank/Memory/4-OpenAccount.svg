@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="580" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">OpenAccount: Memory: where the data lives</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: ACC-2001 was opened (201). The new row and its accountId come from SQL Server; React keeps the typed text and the answer.</text>
+  <g font-size="11" fill="#333"><rect x="61.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="81.0" y="71">props (read-only, from the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="305.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="325.0" y="71">state (owned by a component)</text></g>
+  <g font-size="11" fill="#333"><rect x="513.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="533.0" y="71">derived / formatted</text></g>
+  <g font-size="11" fill="#333"><rect x="667.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="687.0" y="71">DOM (browser output)</text></g>
+  <g font-size="11" fill="#333"><rect x="827.0" y="60" width="14" height="14" rx="2" fill="#e8edf3" stroke="#4a5d70"/><text x="847.0" y="71">SQL Server rows (outside the browser)</text></g>
+  <rect x="30" y="84" width="1090" height="118" rx="10" fill="#f4f6f8" stroke="#4a5d70" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,143.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">SQL SERVER</text>
+  <rect x="30" y="234" width="1090" height="150" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,309.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">REACT STATE</text>
+  <rect x="30" y="416" width="1090" height="100" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,466.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM</text>
+  <rect x="75" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="155.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts rows</text>
+  <text x="155.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">3 ACC-1003 Savings 300.00</text>
+  <text x="155.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">5 ACC-2001 Savings 0.00 (new)</text>
+  <text x="155.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">AccountId 4 was skipped</text>
+  <rect x="290" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="370.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">UNIQUE index</text>
+  <text x="370.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">AccountNumber values:</text>
+  <text x="370.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">ACC-1001..1003, ACC-2001</text>
+  <text x="370.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">a duplicate is refused</text>
+  <rect x="75" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">OpenAccountForm state</text>
+  <text x="155.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">customerId "1"</text>
+  <text x="155.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">accountNumber "ACC-2001"</text>
+  <text x="155.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">accountType "Savings"</text>
+  <rect x="290" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="370.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">busy / error</text>
+  <text x="370.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">busy = false</text>
+  <text x="370.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">error = null (or the</text>
+  <text x="370.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">409 ApiError)</text>
+  <rect x="505" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Lesson state</text>
+  <text x="585.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">screen = "list"</text>
+  <text x="585.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">created = {accountId: 5,</text>
+  <text x="585.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">ACC-2001, balance: 0}</text>
+  <rect x="720" y="258" width="160" height="100" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="800.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">onCreated (prop)</text>
+  <text x="800.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">function from the parent;</text>
+  <text x="800.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">called with the 201</text>
+  <text x="800.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">body (the account)</text>
+  <rect x="75" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="155.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">form inputs</text>
+  <text x="155.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">text kept if 409</text>
+  <rect x="505" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="585.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">status text</text>
+  <text x="585.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">"Opened account ACC-2001</text>
+  <text x="585.0" y="489" text-anchor="middle" font-size="9.5" fill="#333">(accountId 5, ...)"</text>
+  <polyline points="125.0,258 125.0,190" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="119.0" y="232" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">POST body</text>
+  <polyline points="185.0,190 185.0,224 585.0,224 585.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="225.0" y="218" font-size="9.5" font-style="italic" fill="#444">201 body: the new account</text>
+  <polyline points="290,148 235,148" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="262.5" y="131" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">refuses a</text>
+  <text x="262.5" y="142" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">duplicate</text>
+  <polyline points="720,308 665,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="692.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">calls it with</text>
+  <text x="692.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">the account</text>
+  <polyline points="155.0,358 155.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="161.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="585.0,358 585.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="534" font-size="10.5" font-style="italic" fill="#777">accountId 5 was created by SQL Server (IDENTITY); React could not have known it. The refused duplicate attempt earlier used up id 4.</text>
+  <text x="40" y="552" font-size="10.5" font-style="italic" fill="#777">On 409 the same form stays on screen with its typed values; the error object sits in state and renders as a red box.</text>
+</svg>

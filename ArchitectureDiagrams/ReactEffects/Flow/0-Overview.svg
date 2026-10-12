@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 624" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="624" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">ReactEffects — Flow overview: render, commit, effect, and back again</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">One update, step by step. Lesson numbers show where each part is taught.</text>
+  <rect x="40" y="120" width="220" height="76" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="54" cy="134" r="9" fill="#674ea7"/><text x="54" y="138" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="158.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">RENDER</text>
+  <text x="150.0" y="154" text-anchor="middle" font-size="9.5" fill="#3d2a6b">your component runs</text>
+  <text x="150.0" y="168" text-anchor="middle" font-size="9.5" fill="#3d2a6b">props + state in, JSX out</text>
+  <rect x="340" y="120" width="220" height="76" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="354" cy="134" r="9" fill="#888888"/><text x="354" y="138" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="458.0" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">COMMIT</text>
+  <text x="450.0" y="154" text-anchor="middle" font-size="9.5" fill="#444444">React updates the browser DOM</text>
+  <text x="450.0" y="168" text-anchor="middle" font-size="9.5" fill="#444444">the DOM shows the new output</text>
+  <polygon points="750,114 855,158 750,202 645,158" fill="#fff2cc" stroke="#bf9000" stroke-width="1.6"/>
+  <text x="750" y="162" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">deps changed?</text>
+  <line x1="260" y1="158" x2="338" y2="158" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">JSX</text>
+  <line x1="560" y1="158" x2="643" y2="158" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="607" y="148" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">after commit</text>
+  <rect x="650" y="56" width="200" height="36" rx="10" fill="#ffffff" stroke="#999999" stroke-width="1.6"/>
+  <text x="750.0" y="76" text-anchor="middle" font-size="10" font-weight="bold" fill="#333333">no: skip the effect</text>
+  <line x1="750" y1="114" x2="750" y2="94" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="758" y="108" font-size="9.5" font-style="italic" fill="#444">same deps (lesson 2)</text>
+  <rect x="640" y="270" width="220" height="76" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="654" cy="284" r="9" fill="#3d85c6"/><text x="654" y="288" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="758.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">CLEANUP (old run)</text>
+  <text x="750.0" y="304" text-anchor="middle" font-size="9.5" fill="#1c4587">the function the last effect returned</text>
+  <text x="750.0" y="318" text-anchor="middle" font-size="9.5" fill="#1c4587">runs first (lesson 3)</text>
+  <line x1="750" y1="202" x2="750" y2="268" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="758" y="238" font-size="9.5" font-style="italic" fill="#444">yes: different deps (lesson 2)</text>
+  <rect x="340" y="270" width="220" height="76" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="354" cy="284" r="9" fill="#3d85c6"/><text x="354" y="288" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="458.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT RUNS</text>
+  <text x="450.0" y="304" text-anchor="middle" font-size="9.5" fill="#1c4587">your useEffect function</text>
+  <text x="450.0" y="318" text-anchor="middle" font-size="9.5" fill="#1c4587">does the outside work</text>
+  <line x1="640" y1="308" x2="562" y2="308" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="600" y="298" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">then</text>
+  <rect x="350" y="430" width="300" height="96" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="500.0" y="450" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE REACT</text>
+  <text x="500.0" y="466" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">where the effect starts or reads things</text>
+  <rect x="360" y="476" width="280" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="368" y="492.5" font-size="10" fill="#444444">tab title / timer / feed / network (lessons 1-4)</text>
+  <line x1="450" y1="346" x2="450" y2="428" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458" y="392" font-size="9.5" font-style="italic" fill="#444">starts or reads</text>
+  <rect x="40" y="430" width="220" height="76" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="54" cy="444" r="9" fill="#e69138"/><text x="54" y="448" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="158.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">setState</text>
+  <text x="150.0" y="464" text-anchor="middle" font-size="9.5" fill="#7f4e00">an answer arrives: tick, feed</text>
+  <text x="150.0" y="478" text-anchor="middle" font-size="9.5" fill="#7f4e00">message, fetch result (lesson 4)</text>
+  <line x1="350" y1="478" x2="262" y2="478" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="305" y="468" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">answer</text>
+  <line x1="150" y1="430" x2="150" y2="198" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="158" y="330" font-size="9.5" font-style="italic" fill="#444">state changed: render again</text>
+  <text x="40" y="556" font-size="10.5" fill="#444"><tspan font-weight="bold">Lesson 5 packs this whole loop for fetching into one function, useFetch; </tspan>every component that calls it runs its own copy of the loop.</text>
+  <text x="40" y="574" font-size="10" font-style="italic" fill="#888">On the very first render there is no previous run, so the effect always runs once; later it runs only when the dependencies differ.</text>
+  <text x="40" y="592" font-size="10" font-style="italic" fill="#888">Cleanup also runs when the component is removed from the page (unmount), and an effect with [] deps runs once after the first render.</text>
+  <text x="40" y="610" font-size="10" font-style="italic" fill="#888">Colours: purple = render / calculated values, orange = state, blue = effect or cleanup, grey dashed = DOM / browser / outside React.</text>
+</svg>

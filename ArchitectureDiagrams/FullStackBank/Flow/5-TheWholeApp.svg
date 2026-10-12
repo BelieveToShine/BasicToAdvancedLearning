@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 418" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="418" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">TheWholeApp: Sub-level Flow: ordering at a restaurant</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">No new idea: a menu (screen state) decides which of the earlier orders to place next.</text>
+  <g font-size="11" fill="#333"><rect x="233.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="253.0" y="71">React (browser)</text></g>
+  <g font-size="11" fill="#333"><rect x="363.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="383.0" y="71">React state</text></g>
+  <g font-size="11" fill="#333"><rect x="469.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="489.0" y="71">Vite dev-server proxy</text></g>
+  <g font-size="11" fill="#333"><rect x="635.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="655.0" y="71">Web API (C#)</text></g>
+  <g font-size="11" fill="#333"><rect x="747.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="767.0" y="71">SQL Server</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Screen: list</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">screen = {name: "list"}</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">AccountsList mounts</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">GET /api/accounts</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">3 rows (seed data)</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">shown in a table</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Screen: detail</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">screen = {name:"detail",</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">id: 2}; key = 2</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Balance + transactions</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">AccountDetail (lesson 2)</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">balance 1200.50</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">POST transaction</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">deposit 25.50 (lesson 3)</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">201, then version + 1</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Balance re-fetched</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">1226.00 from the API,</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">not added up in React</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Screen: open</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">screen = {name: "open"}</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">OpenAccountForm (lesson 4)</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Detail of the new one</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">onCreated -&gt; {detail, id: 6}</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">GET account 6: balance 0.00</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">GET</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">click "Open"</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">2 GETs</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">send money</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">re-fetch</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="276.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">click "Open an</text>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">account"</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">POST, 201</text>
+  <text x="40" y="378" font-size="10.5" font-style="italic" fill="#777">One piece of state, screen, replaces the address bar here; a browser refresh returns to the list (URL-based screens are topic 24).</text>
+  <text x="40" y="396" font-size="10.5" font-style="italic" fill="#777">Every box with data in it is one more trip: the Journey panel at the bottom of each lesson lists the last six.</text>
+</svg>

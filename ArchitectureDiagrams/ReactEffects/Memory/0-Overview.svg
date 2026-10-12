@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 830" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="830" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">ReactEffects — Memory overview: where each piece of data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Green = props (from the parent), orange = state, purple = derived (calculated in render), yellow = ref. Example values from the lessons.</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="668" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">YOUR COMPONENT (React keeps this between renders)</text>
+  <rect x="50" y="120" width="410" height="110" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="140" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <text x="255.0" y="156" text-anchor="middle" font-size="9" font-style="italic" fill="#274e13">passed in by the parent, read-only for this component</text>
+  <rect x="60" y="166" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="182.5" font-size="10" fill="#274e13">owner = 'Asha Rao'   (lesson 2)</text>
+  <rect x="60" y="196" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="212.5" font-size="10" fill="#274e13">accountId = 'ACC-1002'   (lesson 3)</text>
+  <rect x="50" y="260" width="410" height="110" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED VALUES</text>
+  <text x="255.0" y="296" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">calculated during render, not stored</text>
+  <rect x="60" y="306" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="322.5" font-size="10" fill="#3d2a6b">label = 'Balance: 150'   (lesson 1)</text>
+  <rect x="60" y="336" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="352.5" font-size="10" fill="#3d2a6b">total = 1500.5   (lesson 5)</text>
+  <rect x="50" y="400" width="410" height="110" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="420" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT + CLEANUP</text>
+  <text x="255.0" y="436" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">kept by React; lessons 1-4</text>
+  <rect x="60" y="446" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="462.5" font-size="10" fill="#1c4587">effect function: runs after the commit</text>
+  <rect x="60" y="476" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="492.5" font-size="10" fill="#1c4587">cleanup function: kept until the next run</text>
+  <rect x="50" y="540" width="410" height="140" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="560" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <text x="255.0" y="576" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">survives re-renders; changing it triggers a render</text>
+  <rect x="60" y="586" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="602.5" font-size="10" fill="#7f4e00">balance = 150   (lesson 1)</text>
+  <rect x="60" y="616" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="632.5" font-size="10" fill="#7f4e00">seconds = 2   (lesson 3)</text>
+  <rect x="60" y="646" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="662.5" font-size="10" fill="#7f4e00">{ status: 'success', data: [...] }   (lesson 4)</text>
+  <rect x="50" y="696" width="410" height="66" rx="10" fill="#fff2cc" stroke="#bf9000" stroke-width="1.6"/>
+  <text x="255.0" y="716" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">REF</text>
+  <rect x="60" y="728" width="390" height="26" rx="4" fill="#fffaea" stroke="#bf9000" stroke-width="1"/>
+  <text x="68" y="744.5" font-size="10" fill="#7f6000">runs.current = { everyRender: 4, ... }   (lesson 2)</text>
+  <rect x="560" y="104" width="460" height="668" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">THE BROWSER AND BEYOND (outside React)</text>
+  <rect x="580" y="260" width="420" height="110" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">DOM</text>
+  <text x="790.0" y="296" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">the page the user sees</text>
+  <rect x="590" y="306" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="322.5" font-size="10" fill="#444444">&lt;strong id="balance-text"&gt;Balance: 150&lt;/strong&gt;</text>
+  <rect x="590" y="336" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="352.5" font-size="10" fill="#444444">&lt;tr&gt; per account (lesson 4)</text>
+  <rect x="580" y="400" width="420" height="250" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="420" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE REACT</text>
+  <text x="790.0" y="436" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">things an effect starts, reads or listens to</text>
+  <rect x="590" y="446" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="462.5" font-size="10" fill="#444444">document.title = 'Balance: 150'</text>
+  <rect x="590" y="476" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="492.5" font-size="10" fill="#444444">timer: setInterval, 1 pending</text>
+  <rect x="590" y="506" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="522.5" font-size="10" fill="#444444">feed.listeners: ACC-1002 -&gt; [callback]</text>
+  <rect x="590" y="536" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="552.5" font-size="10" fill="#444444">GET /api/accounts -&gt; [{accountId, customerName, ...}]</text>
+  <line x1="255" y1="230" x2="255" y2="258" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="248.0" font-size="9.5" font-style="italic" fill="#444">render reads props + state</text>
+  <line x1="460" y1="315" x2="578" y2="315" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="307" font-size="9.5" font-style="italic" fill="#444">commit: writes DOM</text>
+  <line x1="460" y1="455" x2="578" y2="455" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="447" font-size="9.5" font-style="italic" fill="#444">effect starts / sets</text>
+  <line x1="578" y1="610" x2="462" y2="610" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="602" font-size="9.5" font-style="italic" fill="#444">answer: setState</text>
+  <text x="40" y="796" font-size="10" font-style="italic" fill="#888">Props are owned by the parent; state by the component; derived values are not stored anywhere (they are recalculated). Everything on the right is not React memory.</text>
+  <text x="40" y="814" font-size="10" font-style="italic" fill="#888">An effect is the bridge: it reads or changes things on the right, and answers come back into the left side only through setState.</text>
+</svg>

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 652" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="652" fill="#ffffff"/>
+  <text x="550.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Fundamentals — Memory overview: where the data lives, lesson by lesson</text>
+  <text x="550.0" y="46" text-anchor="middle" font-size="12" fill="#666">One row per lesson: which kinds of data the lesson is about, and what ends up in the DOM.</text>
+  <g font-size="11" fill="#333"><rect x="30" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="50" y="71">Props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="284" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="304" y="71">State (owned by the component)</text></g>
+  <g font-size="11" fill="#333"><rect x="494" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="514" y="71">Derived / computed during render</text></g>
+  <g font-size="11" fill="#333"><rect x="715" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="735" y="71">Module data (file level)</text></g>
+  <g font-size="11" fill="#333"><rect x="891" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888" stroke-dasharray="3 2"/><text x="911" y="71">DOM / browser</text></g>
+  <text x="107" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a237e">Lesson</text>
+  <rect x="20" y="112" width="175" height="76" rx="8" fill="#eef1fb" stroke="#3d4fa8" stroke-width="1.5"/>
+  <text x="107.5" y="145.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a237e">01  JSX</text>
+  <text x="107.5" y="159.5" text-anchor="middle" font-size="10.5" fill="#333">JSX → elements</text>
+  <rect x="208" y="112" width="200" height="76" rx="8" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="308.0" y="145.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a4a73">customer, transactions</text>
+  <text x="308.0" y="159.0" text-anchor="middle" font-size="10" fill="#1a4a73">file-level constants</text>
+  <rect x="416" y="112" width="200" height="76" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="516.0" y="145.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">balance 454.5</text>
+  <text x="516.0" y="159.0" text-anchor="middle" font-size="10" fill="#3d2a6b">and the returned elements</text>
+  <line x1="618" y1="150" x2="884" y2="150" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="752.0" y="142" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <rect x="886" y="112" width="194" height="76" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="983.0" y="145.0" text-anchor="middle" font-size="10" fill="#333">h3, p, table, br,</text>
+  <text x="983.0" y="159.0" text-anchor="middle" font-size="10" fill="#333">label, input (no wrapper)</text>
+  <rect x="20" y="208" width="175" height="76" rx="8" fill="#eef1fb" stroke="#3d4fa8" stroke-width="1.5"/>
+  <text x="107.5" y="241.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a237e">02  Components</text>
+  <text x="107.5" y="255.5" text-anchor="middle" font-size="10.5" fill="#333">one function, many uses</text>
+  <rect x="208" y="208" width="200" height="76" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="308.0" y="241.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">AccountList returns</text>
+  <text x="308.0" y="255.0" text-anchor="middle" font-size="10" fill="#3d2a6b">3 AccountCard uses</text>
+  <rect x="416" y="208" width="200" height="76" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="516.0" y="241.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">3 separate props objects</text>
+  <text x="516.0" y="255.0" text-anchor="middle" font-size="10" fill="#274e13">one per AccountCard call</text>
+  <line x1="618" y1="246" x2="884" y2="246" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="752.0" y="238" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <rect x="886" y="208" width="194" height="76" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="983.0" y="241.0" text-anchor="middle" font-size="10" fill="#333">three card &lt;div&gt;s</text>
+  <text x="983.0" y="255.0" text-anchor="middle" font-size="10" fill="#333">inside one list &lt;div&gt;</text>
+  <rect x="20" y="304" width="175" height="76" rx="8" fill="#eef1fb" stroke="#3d4fa8" stroke-width="1.5"/>
+  <text x="107.5" y="337.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a237e">03  Props</text>
+  <text x="107.5" y="351.5" text-anchor="middle" font-size="10.5" fill="#333">inputs from the parent</text>
+  <rect x="208" y="304" width="200" height="76" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="308.0" y="337.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">viewed = 'CUR-2001'</text>
+  <text x="308.0" y="351.0" text-anchor="middle" font-size="10" fill="#7f4e00">owned by the parent</text>
+  <rect x="416" y="304" width="200" height="76" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="516.0" y="337.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">owner, balance, type,</text>
+  <text x="516.0" y="351.0" text-anchor="middle" font-size="10" fill="#274e13">onView, children</text>
+  <line x1="618" y1="342" x2="884" y2="342" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="752.0" y="334" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <rect x="886" y="304" width="194" height="76" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="983.0" y="337.0" text-anchor="middle" font-size="10" fill="#333">cards + "The parent</text>
+  <text x="983.0" y="351.0" text-anchor="middle" font-size="10" fill="#333">last heard: CUR-2001"</text>
+  <rect x="20" y="400" width="175" height="76" rx="8" fill="#eef1fb" stroke="#3d4fa8" stroke-width="1.5"/>
+  <text x="107.5" y="433.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a237e">04  Lists and keys</text>
+  <text x="107.5" y="447.5" text-anchor="middle" font-size="10.5" fill="#333">identity of each row</text>
+  <rect x="208" y="400" width="200" height="76" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="308.0" y="433.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">list: 3 → 2 accounts</text>
+  <text x="308.0" y="447.0" text-anchor="middle" font-size="10" fill="#7f4e00">owned by the parent</text>
+  <rect x="416" y="400" width="200" height="76" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="516.0" y="433.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">list, passed to each</text>
+  <text x="516.0" y="447.0" text-anchor="middle" font-size="10" fill="#274e13">AccountRows</text>
+  <rect x="624" y="400" width="200" height="76" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="724.0" y="433.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">keys: 0,1  or  ids</text>
+  <text x="724.0" y="447.0" text-anchor="middle" font-size="10" fill="#3d2a6b">compared each render</text>
+  <line x1="826" y1="438" x2="884" y2="438" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="856.0" y="430" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <rect x="886" y="400" width="194" height="76" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="983.0" y="433.0" text-anchor="middle" font-size="10" fill="#333">typed note lives in the</text>
+  <text x="983.0" y="447.0" text-anchor="middle" font-size="10" fill="#333">&lt;input&gt;, not in React</text>
+  <rect x="20" y="496" width="175" height="76" rx="8" fill="#eef1fb" stroke="#3d4fa8" stroke-width="1.5"/>
+  <text x="107.5" y="529.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a237e">05  Conditional</text>
+  <text x="107.5" y="543.5" text-anchor="middle" font-size="10.5" fill="#333">what to draw</text>
+  <rect x="208" y="496" width="200" height="76" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="308.0" y="529.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f4e00">list = [ ]</text>
+  <text x="308.0" y="543.0" text-anchor="middle" font-size="10" fill="#7f4e00">owned by the parent</text>
+  <rect x="416" y="496" width="200" height="76" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="516.0" y="529.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#274e13">transactions = [ ]</text>
+  <text x="516.0" y="543.0" text-anchor="middle" font-size="10" fill="#274e13">same list to both</text>
+  <rect x="624" y="496" width="200" height="76" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="724.0" y="529.0" text-anchor="middle" font-size="10" font-weight="bold" fill="#3d2a6b">length &amp;&amp; … → 0</text>
+  <text x="724.0" y="543.0" text-anchor="middle" font-size="10" fill="#3d2a6b">length &gt; 0 ? … → false</text>
+  <line x1="826" y1="534" x2="884" y2="534" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="856.0" y="526" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <rect x="886" y="496" width="194" height="76" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="983.0" y="529.0" text-anchor="middle" font-size="10" fill="#333">"0"  versus</text>
+  <text x="983.0" y="543.0" text-anchor="middle" font-size="10" fill="#333">"No transactions yet."</text>
+  <text x="30" y="602" font-size="10.5" fill="#444"><tspan font-weight="bold">Props are the parent’s data lent to a child; state is a component’s own data; derived values are recomputed every render. </tspan></text>
+  <text x="30" y="619" font-size="10" font-style="italic" fill="#888">Memory here means "who owns the data", not Stack/Heap: React works with plain JavaScript values. (Provisional convention for React topics.)</text>
+</svg>

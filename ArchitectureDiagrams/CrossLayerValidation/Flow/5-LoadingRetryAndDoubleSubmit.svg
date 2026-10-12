@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 730" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="730" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">LoadingRetryAndDoubleSubmit — Flow: a guard stands between the click and the request</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: a ticket window with one clerk. A second customer who pushes in while the first is being served is turned away.</text>
+  <g font-size="10.5" fill="#333"><rect x="40" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="60" y="61">A check or rule runs</text></g>
+  <g font-size="10.5" fill="#333"><rect x="186.0" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="206.0" y="61">Request / user action</text></g>
+  <g font-size="10.5" fill="#333"><rect x="337.6" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="357.6" y="61">Stored / decided value</text></g>
+  <g font-size="10.5" fill="#333"><rect x="494.8" y="50" width="14" height="14" rx="2" fill="#f4cccc" stroke="#cc0000"/><text x="514.8" y="61">Refusal (error answer)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="652.0" y="50" width="14" height="14" rx="2" fill="#d9ead3" stroke="#6aa84f"/><text x="672.0" y="61">Allowed</text></g>
+  <g font-size="10.5" fill="#333"><rect x="725.2" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="745.2" y="61">Screen</text></g>
+  <rect x="300" y="84" width="300" height="50" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="450.0" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">Click "Deposit 1.00" (or a second click)</text>
+  <text x="450.0" y="119" text-anchor="middle" font-size="9.5" fill="#333">deposit() runs</text>
+  <rect x="40" y="190" width="260" height="74" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="170.0" y="208" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Guard: inFlight.current ?</text>
+  <text x="170.0" y="225" text-anchor="middle" font-size="9.5" fill="#333">a ref: changes at once</text>
+  <text x="170.0" y="240" text-anchor="middle" font-size="9.5" fill="#333">every call sees the latest value</text>
+  <polyline points="300,120 170,120 170,188" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="178" y="150" font-size="9" font-style="italic" fill="#555">handler called</text>
+  <rect x="40" y="320" width="260" height="56" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="170.0" y="338" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">true: return (ignored)</text>
+  <text x="170.0" y="355" text-anchor="middle" font-size="9.5" fill="#333">no request, the user sees "Sending..."</text>
+  <line x1="170" y1="264" x2="170" y2="318" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="178" y="296" font-size="9" font-style="italic" fill="#555">already sending</text>
+  <rect x="340" y="320" width="260" height="76" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.8"/>
+  <text x="470.0" y="338" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">false: take the guard</text>
+  <text x="470.0" y="355" text-anchor="middle" font-size="9.5" fill="#333">inFlight = true, pending = true</text>
+  <text x="470.0" y="370" text-anchor="middle" font-size="9.5" fill="#333">button disabled, label "Sending..."</text>
+  <polyline points="300,227 470,227 470,318" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="310" y="220" font-size="9" font-style="italic" fill="#555">free</text>
+  <rect x="340" y="446" width="260" height="56" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="470.0" y="464" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">await postDeposit(...)</text>
+  <text x="470.0" y="481" text-anchor="middle" font-size="9.5" fill="#333">request leaves (after the pretend delay)</text>
+  <line x1="470" y1="396" x2="470" y2="444" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="478" y="424" font-size="9" font-style="italic" fill="#555">POST</text>
+  <rect x="340" y="552" width="260" height="62" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="470.0" y="570" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">finally: guard off, pending off</text>
+  <text x="470.0" y="587" text-anchor="middle" font-size="9.5" fill="#333">runs on success AND on failure</text>
+  <line x1="470" y1="502" x2="470" y2="550" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="478" y="530" font-size="9" font-style="italic" fill="#555">answer or failure</text>
+  <rect x="640" y="446" width="220" height="68" rx="8" fill="#d9ead3" stroke="#6aa84f" stroke-width="1.8"/>
+  <text x="750.0" y="464" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">201: count + 1</text>
+  <text x="750.0" y="481" text-anchor="middle" font-size="9.5" fill="#333">onDone() reloads balance</text>
+  <text x="750.0" y="496" text-anchor="middle" font-size="9.5" fill="#333">and transaction count</text>
+  <rect x="640" y="552" width="220" height="76" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="750.0" y="570" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">failure: button says Try again</text>
+  <text x="750.0" y="587" text-anchor="middle" font-size="9.5" fill="#333">"may or may not have been made:</text>
+  <text x="750.0" y="602" text-anchor="middle" font-size="9.5" fill="#333">compare the count first"</text>
+  <polyline points="600,474 640,474" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="600" y1="474" x2="638" y2="474" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="619" y="466" text-anchor="middle" font-size="9" font-style="italic" fill="#555">2xx</text>
+  <polyline points="600,492 620,492 620,583 638,583" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="624" y="545" font-size="9" font-style="italic" fill="#555">else</text>
+  <text x="30" y="674" font-size="10.5" fill="#444"><tspan font-weight="bold">Where to where: </tspan>click, ref guard, pending state, request, finally, then new count or Try again.</text>
+  <text x="30" y="692" font-size="10" font-style="italic" fill="#888">Without the guard two requests start. If they overlap the API saves one and answers the other 409; if the second starts after the first finished, both are saved.</text>
+  <text x="30" y="710" font-size="10" font-style="italic" fill="#888">The disabled button alone stops a real double click; the ref also stops two calls inside one event (tests prove both).</text>
+</svg>

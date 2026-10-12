@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="700" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Custom hooks — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: after the test clicked "Reload the table" once. Two components call the same hook; each owns separate state.</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="496" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">TWO COMPONENTS (React memory)</text>
+  <rect x="560" y="104" width="460" height="496" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">WEB API (outside React)</text>
+  <rect x="50" y="116" width="410" height="140" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">AccountsTable: useFetch instance</text>
+  <text x="255.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">private: its own state and its own effect</text>
+  <rect x="60" y="162" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="178.5" font-size="10" fill="#7f4e00">status = 'success'</text>
+  <rect x="60" y="192" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="208.5" font-size="10" fill="#7f4e00">data = [ ACC-1001 1200.5, ACC-1002 300 ]</text>
+  <rect x="60" y="222" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="238.5" font-size="10" fill="#7f4e00">reloadCount = 1   (Reload clicked once)</text>
+  <rect x="50" y="300" width="410" height="140" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">TotalBalance: useFetch instance</text>
+  <text x="255.0" y="336" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">private: its own state and its own effect</text>
+  <rect x="60" y="346" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="362.5" font-size="10" fill="#7f4e00">status = 'success'</text>
+  <rect x="60" y="376" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="392.5" font-size="10" fill="#7f4e00">data = [ ACC-1001 1200.5, ACC-1002 300 ]</text>
+  <rect x="60" y="406" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="422.5" font-size="10" fill="#7f4e00">reloadCount = 0   (never reloaded)</text>
+  <rect x="50" y="484" width="410" height="96" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">TotalBalance: DERIVED</text>
+  <text x="255.0" y="520" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">added up while rendering; not stored</text>
+  <rect x="60" y="530" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="546.5" font-size="10" fill="#3d2a6b">total = 1500.5   (shown as 1500.50)</text>
+  <line x1="255" y1="440" x2="255" y2="482" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="263" y="465.0" font-size="9.5" font-style="italic" fill="#444">render sums data</text>
+  <rect x="580" y="116" width="420" height="110" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">requests from AccountsTable</text>
+  <text x="790.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">the number = order the requests were made</text>
+  <rect x="590" y="162" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="178.5" font-size="10" fill="#444444">#1  GET /api/accounts   on mount</text>
+  <rect x="590" y="192" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="208.5" font-size="10" fill="#444444">#3  GET /api/accounts   after Reload</text>
+  <rect x="580" y="300" width="420" height="80" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">requests from TotalBalance</text>
+  <rect x="590" y="332" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="348.5" font-size="10" fill="#444444">#2  GET /api/accounts   on mount</text>
+  <line x1="460" y1="175" x2="578" y2="175" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="167" font-size="9.5" font-style="italic" fill="#444">effect: fetch</text>
+  <line x1="460" y1="205" x2="578" y2="205" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="197" font-size="9.5" font-style="italic" fill="#444">effect: fetch again</text>
+  <line x1="460" y1="347" x2="578" y2="347" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="339" font-size="9.5" font-style="italic" fill="#444">effect: fetch</text>
+  <rect x="580" y="484" width="420" height="96" rx="10" fill="#ffffff" stroke="#999999" stroke-width="1.6"/>
+  <text x="790.0" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">fetch was called 3 times in this test</text>
+  <text x="594" y="534" font-size="9.5" fill="#333">A real response.json() builds a new array for every response,</text>
+  <text x="594" y="550" font-size="9.5" fill="#333">so each component holds its own copy of the data.</text>
+  <text x="40" y="636" font-size="10" font-style="italic" fill="#888">A custom hook shares logic, not state: the two useFetch instances were created by two separate calls and never see each other.</text>
+  <text x="40" y="654" font-size="10" font-style="italic" fill="#888">To share ONE copy of the data you would keep it in a common parent and pass it down as props. In development StrictMode runs each effect twice (4 requests on the page).</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 790" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="790" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">React Fundamentals — 04 Lists and keys — Sub-level Flow: coat-check tickets</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The key is the ticket stub. After a change, React matches NEW rows to OLD rows by their tickets and reuses the matching DOM.</text>
+  <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="450,54 450,72 480,63" fill="#38761d"/>
+  <line x1="450" y1="92" x2="450" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="200" y="100" width="500" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="120.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">Array of data  (state in the parent)</text>
+  <text x="450.0" y="133.5" text-anchor="middle" font-size="9.5" fill="#333">accounts = [ Asha SAV-1001, Ben CUR-2001, Chen SAV-3001 ]</text>
+  <line x1="450" y1="150" x2="450" y2="188" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="167.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">accounts.map(…): one row per item</text>
+  <rect x="200" y="188" width="500" height="50" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="450.0" y="208.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">Each &lt;li&gt; gets a key  (its ticket)</text>
+  <text x="450.0" y="221.5" text-anchor="middle" font-size="9.5" fill="#333">index tickets: 0, 1, 2      id tickets: SAV-1001, CUR-2001, SAV-3001</text>
+  <line x1="450" y1="238" x2="450" y2="276" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="255.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">React draws the first render</text>
+  <rect x="200" y="276" width="500" height="50" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="450.0" y="296.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">DOM: 3 rows.  User types "note A" into row 0</text>
+  <text x="450.0" y="309.5" text-anchor="middle" font-size="9.5" fill="#333">the typed text is held by the &lt;input&gt; DOM node, not by React</text>
+  <line x1="450" y1="326" x2="450" y2="364" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="460" y="343.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">user presses  Remove Asha Rao</text>
+  <rect x="200" y="364" width="500" height="50" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="450.0" y="384.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">State (preview, Topic 22) becomes  list = [ Ben, Chen ]</text>
+  <text x="450.0" y="397.5" text-anchor="middle" font-size="9.5" fill="#333">parent re-renders; React compares NEW tickets with OLD tickets</text>
+  <polyline points="450,414 450,446 220,446 220,474" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="450,446 680,446 680,474" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="200" y="440" text-anchor="end" font-size="9.5" font-style="italic" fill="#555">key = index</text>
+  <text x="700" y="440" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">key = id</text>
+  <rect x="30" y="474" width="380" height="120" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="220.0" y="508.75" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">key = index  (the bug)</text>
+  <text x="220.0" y="522.25" text-anchor="middle" font-size="9.5" fill="#333">new row 0 has ticket 0 — same as OLD row 0</text>
+  <text x="220.0" y="535.75" text-anchor="middle" font-size="9.5" fill="#333">React REUSES old row 0's &lt;li&gt; and &lt;input&gt;</text>
+  <text x="220.0" y="549.25" text-anchor="middle" font-size="9.5" fill="#333">label changes to Ben Carter, typed "note A" stays</text>
+  <text x="220.0" y="562.75" text-anchor="middle" font-size="9.5" fill="#333">→ Asha's note now sits beside Ben</text>
+  <rect x="490" y="474" width="380" height="120" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="680.0" y="508.75" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">key = account id  (right)</text>
+  <text x="680.0" y="522.25" text-anchor="middle" font-size="9.5" fill="#333">ticket SAV-1001 is missing from the new list</text>
+  <text x="680.0" y="535.75" text-anchor="middle" font-size="9.5" fill="#333">React REMOVES that &lt;li&gt; and its &lt;input&gt;</text>
+  <text x="680.0" y="549.25" text-anchor="middle" font-size="9.5" fill="#333">ticket CUR-2001 matches old row 1: Ben keeps</text>
+  <text x="680.0" y="562.75" text-anchor="middle" font-size="9.5" fill="#333">his own (empty) input → the note left with Asha</text>
+  <polyline points="220,594 220,626 450,626" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="680,594 680,626 450,626" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="450" y1="626" x2="450" y2="654" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="662" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="670" x2="450" y2="710" stroke="#333" stroke-width="2"/>
+  <polygon points="450,670 450,688 480,679" fill="#cc0000"/>
+  <text x="30" y="740" font-size="10.5" fill="#444"><tspan font-weight="bold">Good key = unique among siblings + stable for the same item. </tspan>React warns (in development) about missing or duplicate keys.</text>
+  <text x="30" y="757" font-size="10" font-style="italic" fill="#888">The two Remove demos on the page share the same data; only the key differs. The 04 lesson page prints nothing to a console.</text>
+</svg>

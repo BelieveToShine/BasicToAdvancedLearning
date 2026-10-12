@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 600" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="600" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">FullStackBank: Memory: where the data lives</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Overview of the five lessons: the real data is SQL Server rows; React state only holds copies of the last answers plus the screen's own controls.</text>
+  <g font-size="11" fill="#333"><rect x="61.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="81.0" y="71">props (read-only, from the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="305.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="325.0" y="71">state (owned by a component)</text></g>
+  <g font-size="11" fill="#333"><rect x="513.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="533.0" y="71">derived / formatted</text></g>
+  <g font-size="11" fill="#333"><rect x="667.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="687.0" y="71">DOM (browser output)</text></g>
+  <g font-size="11" fill="#333"><rect x="827.0" y="60" width="14" height="14" rx="2" fill="#e8edf3" stroke="#4a5d70"/><text x="847.0" y="71">SQL Server rows (outside the browser)</text></g>
+  <rect x="30" y="84" width="1090" height="118" rx="10" fill="#f4f6f8" stroke="#4a5d70" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,143.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">SQL SERVER</text>
+  <rect x="30" y="234" width="1090" height="150" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,309.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">REACT STATE</text>
+  <rect x="30" y="416" width="1090" height="100" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,466.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM</text>
+  <rect x="75" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="155.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts rows</text>
+  <text x="155.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">1 ACC-1001 Savings 5000.00</text>
+  <text x="155.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">2 ACC-1002 Current 1200.50</text>
+  <text x="155.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">3 ACC-1003 Savings 300.00</text>
+  <rect x="290" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="370.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Transactions rows</text>
+  <text x="370.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">1 Deposit 5000.00 (acct 1)</text>
+  <text x="370.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">2 Deposit 1200.50 (acct 2)</text>
+  <text x="370.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">3 Deposit 300.00 (acct 3)</text>
+  <rect x="75" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">lesson 1: AccountsList</text>
+  <text x="155.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">type = "Savings"</text>
+  <text x="155.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">list = {status: "ok",</text>
+  <text x="155.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">data: 2 accounts}</text>
+  <rect x="290" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="370.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">lesson 2: AccountDetail</text>
+  <text x="370.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">account copy (5000)</text>
+  <text x="370.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">transactions copy: [#1]</text>
+  <text x="370.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">both from a GET</text>
+  <rect x="505" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">lesson 3/4: forms</text>
+  <text x="585.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">kind "Deposit", amount "25.5"</text>
+  <text x="585.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">busy, error, done...</text>
+  <text x="585.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">form fields = typed text</text>
+  <rect x="720" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="800.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">lesson 5: BankApp</text>
+  <text x="800.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">screen = {name: "detail",</text>
+  <text x="800.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">id: 1}</text>
+  <text x="800.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">decides what is shown</text>
+  <rect x="935" y="258" width="160" height="100" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="1015.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">props (read-only)</text>
+  <text x="1015.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">AccountDetail id = 1</text>
+  <text x="1015.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">MoneyForm accountId = 1</text>
+  <text x="1015.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">callbacks: onOpen, onDone</text>
+  <rect x="75" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="155.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">table rows</text>
+  <text x="155.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">2 &lt;tr&gt; shown</text>
+  <rect x="290" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="370.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">balance + list</text>
+  <text x="370.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;strong&gt;5000.00&lt;/strong&gt;</text>
+  <rect x="505" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="585.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">inputs and messages</text>
+  <text x="585.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;input&gt;, red error box</text>
+  <rect x="720" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="800.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">the visible screen</text>
+  <text x="800.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">list / detail / form</text>
+  <polyline points="125.0,190 125.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="119.0" y="210" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">GET (a copy)</text>
+  <polyline points="340.0,190 340.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="334.0" y="210" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">GET (a copy)</text>
+  <polyline points="585.0,258 585.0,224 400.0,224 400.0,190" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="406.0" y="218" font-size="9.5" font-style="italic" fill="#444">POST writes rows (Accounts and Transactions)</text>
+  <polyline points="400.0,224 185.0,224 185.0,190" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="880,308 935,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="907.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">passes</text>
+  <text x="907.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">as props</text>
+  <polyline points="155.0,358 155.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="161.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="370.0,358 370.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="376.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="585.0,358 585.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="800.0,358 800.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="806.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="534" font-size="10.5" font-style="italic" fill="#777">The rows in SQL Server are the truth; every box in the REACT STATE band holds a COPY or a typed value and is lost on refresh.</text>
+  <text x="40" y="552" font-size="10.5" font-style="italic" fill="#777">Lesson 3 POST changes an Accounts balance and adds a Transactions row; lesson 4 POST adds an Accounts row.</text>
+  <text x="40" y="570" font-size="10.5" font-style="italic" fill="#777">Values are the fresh seed data of the real API (README); the five lesson instants are shown side by side, not as one screen.</text>
+</svg>

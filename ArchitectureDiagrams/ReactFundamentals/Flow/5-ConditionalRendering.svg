@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="750" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">React Fundamentals — 05 Conditional rendering — Sub-level Flow: a fork in the road</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">The same empty list takes two roads. Only one road leaves a stray "0" on the page.</text>
+  <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="450,54 450,72 480,63" fill="#38761d"/>
+  <line x1="450" y1="92" x2="450" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="250" y="100" width="400" height="50" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450.0" y="120.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">State: list = [ ]  (after 'Empty the account')</text>
+  <text x="450.0" y="133.5" text-anchor="middle" font-size="9.5" fill="#333">both panels get transactions = [ ]</text>
+  <polyline points="450,150 450,182 220,182 220,210" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="450,182 680,182 680,210" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="200" y="176" text-anchor="end" font-size="9.5" font-style="italic" fill="#555">buggy panel</text>
+  <text x="700" y="176" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">fixed panel</text>
+  <rect x="30" y="210" width="380" height="62" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="220.0" y="236.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">{ transactions.length &amp;&amp; &lt;ul&gt;…&lt;/ul&gt; }</text>
+  <text x="220.0" y="249.5" text-anchor="middle" font-size="9.5" fill="#333">length is the number 0</text>
+  <rect x="490" y="210" width="380" height="62" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="680.0" y="236.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">{ transactions.length &gt; 0 ? &lt;ul&gt;…&lt;/ul&gt;</text>
+  <text x="680.0" y="249.5" text-anchor="middle" font-size="9.5" fill="#333">: &lt;p&gt;No transactions yet.&lt;/p&gt; }   (a real boolean)</text>
+  <line x1="220" y1="272" x2="220" y2="322" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="230" y="295.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">0 &amp;&amp; … stops at the first</text>
+  <text x="230" y="306.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">falsy value: gives back 0</text>
+  <line x1="680" y1="272" x2="680" y2="322" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="690" y="295.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">0 &gt; 0 is false, so the</text>
+  <text x="690" y="306.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">ternary takes its second branch</text>
+  <rect x="30" y="322" width="380" height="62" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="220.0" y="348.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">Expression result: the number 0</text>
+  <text x="220.0" y="361.5" text-anchor="middle" font-size="9.5" fill="#333">React draws numbers as text</text>
+  <rect x="490" y="322" width="380" height="62" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="680.0" y="348.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">Expression result:</text>
+  <text x="680.0" y="361.5" text-anchor="middle" font-size="9.5" fill="#333">&lt;p&gt;No transactions yet.&lt;/p&gt;</text>
+  <line x1="220" y1="384" x2="220" y2="434" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="230" y="407.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">React writes DOM</text>
+  <line x1="680" y1="384" x2="680" y2="434" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="690" y="407.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">React writes DOM</text>
+  <rect x="30" y="434" width="380" height="54" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="220.0" y="456.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">Page shows:  0</text>
+  <text x="220.0" y="469.5" text-anchor="middle" font-size="9.5" fill="#333">a stray digit: the BUG</text>
+  <rect x="490" y="434" width="380" height="54" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="680.0" y="456.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">Page shows:  No transactions yet.</text>
+  <text x="680.0" y="469.5" text-anchor="middle" font-size="9.5" fill="#333">the fix</text>
+  <polyline points="220,488 220,520 450,520" fill="none" stroke="#333" stroke-width="1.6"/>
+  <polyline points="680,488 680,520 450,520" fill="none" stroke="#333" stroke-width="1.6"/>
+  <line x1="450" y1="520" x2="450" y2="548" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="450" y="556" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="450" y1="564" x2="450" y2="604" stroke="#333" stroke-width="2"/>
+  <polygon points="450,564 450,582 480,573" fill="#cc0000"/>
+  <rect x="30" y="628" width="840" height="62" rx="6" fill="#fffef5" stroke="#c9b458" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="40" y="644" font-size="10" font-weight="bold" fill="#6b5a00">What React draws</text>
+  <text x="40" y="660" font-size="9.5" fill="#444">true, false, null and undefined draw nothing; strings and numbers are drawn.  A component can return null (BalanceLine with no account).</text>
+  <text x="40" y="674" font-size="9.5" fill="#444">condition &amp;&amp; &lt;X /&gt; is safe when the condition is a real boolean (balance &lt; 0 &amp;&amp; &lt;OVERDRAWN /&gt;): false draws nothing.</text>
+  <text x="30" y="712" font-size="10.5" fill="#444"><tspan font-weight="bold">Fix for the 0 gotcha: </tspan>make the condition a boolean (length &gt; 0) or use a ternary.</text>
+  <text x="30" y="729" font-size="10" font-style="italic" fill="#888">No Console output here: a React lesson prints into the page itself, and ReactFundamentals.test.jsx checks what it shows.</text>
+</svg>

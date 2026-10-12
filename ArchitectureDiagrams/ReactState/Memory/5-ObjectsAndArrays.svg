@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 416" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="416" fill="#ffffff"/>
+  <text x="525" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Objects and arrays — Memory: where the data lives</text>
+  <text x="525" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: the WRONG-way button was pressed once. The object was edited in place, so the data is ahead of the screen.</text>
+  <g font-size="11" fill="#333"><rect x="60" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="80" y="71">State (kept by React)</text></g>
+  <g font-size="11" fill="#333"><rect x="236" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="256" y="71">Props (read-only, from parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="466" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="486" y="71">Derived / this-render values</text></g>
+  <g font-size="11" fill="#333"><rect x="684" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="4 3"/><text x="704" y="71">DOM / browser</text></g>
+  <text x="125.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a10">STATE — owned by the component</text>
+  <text x="385.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">PROPS — read-only, from the parent</text>
+  <text x="645.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">DERIVED — worked out each render</text>
+  <text x="915.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="810" y="116" width="210" height="168" rx="10" fill="#f4f4f4" stroke="#888888" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="915.0" y="130" text-anchor="middle" font-size="10" font-weight="bold" fill="#555">DOM (browser)</text>
+  <rect x="30" y="132" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="38" y="148" font-size="10" font-weight="bold" fill="#7f4e00">Bank (parent): accounts</text>
+  <text x="38" y="163" font-size="10" fill="#7f4e00">Asha Rao balance 110</text>
+  <text x="38" y="178" font-size="10" fill="#7f4e00">Ben Carter balance 250</text>
+  <rect x="290" y="132" width="190" height="60" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="298" y="148" font-size="10" font-weight="bold" fill="#274e13">AccountList props</text>
+  <text x="298" y="163" font-size="10" fill="#274e13">accounts = SAME array</text>
+  <text x="298" y="178" font-size="10" fill="#274e13">same array: React sees no change</text>
+  <text x="820" y="154" font-size="10" fill="#333">Asha Rao: 100  (stale)</text>
+  <text x="820" y="169" font-size="10" fill="#333">Ben Carter: 250</text>
+  <line x1="220" y1="162.0" x2="288" y2="162.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="254.0" y="157.0" text-anchor="middle" font-size="9" fill="#555">prop</text>
+  <line x1="480" y1="162.0" x2="808" y2="162.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="644.0" y="157.0" text-anchor="middle" font-size="9" fill="#555">last render</text>
+  <rect x="290" y="216" width="190" height="60" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="298" y="232" font-size="10" font-weight="bold" fill="#274e13">TotalBalance props</text>
+  <text x="298" y="247" font-size="10" fill="#274e13">accounts = SAME array</text>
+  <text x="298" y="262" font-size="10" fill="#274e13">one array, two readers</text>
+  <rect x="550" y="216" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="232" font-size="10" font-weight="bold" fill="#3d2a6b">total</text>
+  <text x="558" y="247" font-size="10" fill="#3d2a6b">total = 350</text>
+  <text x="558" y="262" font-size="10" fill="#3d2a6b">from the last render</text>
+  <text x="820" y="238" font-size="10" fill="#333">Total: 350  (stale)</text>
+  <line x1="480" y1="246.0" x2="548" y2="246.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="241.0" text-anchor="middle" font-size="9" fill="#555">reduce</text>
+  <line x1="740" y1="246.0" x2="808" y2="246.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="774.0" y="241.0" text-anchor="middle" font-size="9" fill="#555">last render</text>
+  <text x="30" y="318" font-size="10.5" fill="#444"><tspan font-weight="bold">Edited in place: the array reference is unchanged, so React sees no new value and does not re-render. </tspan>Memory says 110, the screen says 100.</text>
+  <text x="30" y="336" font-size="10" font-style="italic" fill="#888">After any later render (the lesson's "Unrelated re-render" button) the screen reads the edited object: Asha Rao 110, total 360. A copy via map + spread avoids the mismatch.</text>
+  <text x="30" y="354" font-size="10" font-style="italic" fill="#888">Bank (the parent) passes the same accounts array to both children as the prop accounts: lifting state up.</text>
+</svg>

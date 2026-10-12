@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 572" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="572" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">AccountsList: Sub-level Flow: ordering at a restaurant</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">Choosing a filter is a new order: the kitchen does the filtering, the diner only gets the dishes he asked for.</text>
+  <g font-size="11" fill="#333"><rect x="233.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="253.0" y="71">React (browser)</text></g>
+  <g font-size="11" fill="#333"><rect x="363.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="383.0" y="71">React state</text></g>
+  <g font-size="11" fill="#333"><rect x="469.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="489.0" y="71">Vite dev-server proxy</text></g>
+  <g font-size="11" fill="#333"><rect x="635.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="655.0" y="71">Web API (C#)</text></g>
+  <g font-size="11" fill="#333"><rect x="747.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="767.0" y="71">SQL Server</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">First render</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">status "loading", type ""</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">nothing to show yet</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Effect: useLoad</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">calls api.listAccounts("")</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">deps: [type]</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">GET /api/accounts</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">no ?type= when type is ""</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">sent by fetch</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Vite proxy + API</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">path starts with /api, so</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">the controller GetAll runs</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">EF Core</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">type is null: no WHERE</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">ORDER BY AccountId</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server SELECT</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">FROM Accounts (+ owner</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">name): 3 seed rows</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">200 + JSON array</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">ACC-1001, ACC-1002,</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">ACC-1003</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">setState: ok</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">data = the 3 accounts</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">status = "ok"</text>
+  <rect x="40" y="408" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Render: 3 rows</text>
+  <text x="135.0" y="442" text-anchor="middle" font-size="10" fill="#333">balance 5000.00 via</text>
+  <text x="135.0" y="457" text-anchor="middle" font-size="10" fill="#333">toFixed(2)</text>
+  <rect x="310" y="408" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="405.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">type = "Savings"</text>
+  <text x="405.0" y="442" text-anchor="middle" font-size="10" fill="#333">state changes, so the</text>
+  <text x="405.0" y="457" text-anchor="middle" font-size="10" fill="#333">effect runs again</text>
+  <rect x="580" y="408" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">?type=Savings</text>
+  <text x="675.0" y="442" text-anchor="middle" font-size="10" fill="#333">WHERE AccountType = ...</text>
+  <text x="675.0" y="457" text-anchor="middle" font-size="10" fill="#333">is done by SQL Server</text>
+  <rect x="850" y="408" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="945.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Render: 2 rows</text>
+  <text x="945.0" y="442" text-anchor="middle" font-size="10" fill="#333">ACC-1001 and ACC-1003;</text>
+  <text x="945.0" y="457" text-anchor="middle" font-size="10" fill="#333">Ben (Current) never sent</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">effect runs</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">fetch</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">via proxy</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">queries</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">rows</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">resolves</text>
+  <polyline points="945.0,338 945.0,373.0 135.0,373.0 135.0,408" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="367.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">then render</text>
+  <polyline points="230,450.0 310,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">click Savings</text>
+  <polyline points="500,450.0 580,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">same trip</text>
+  <polyline points="770,450.0 850,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">answers</text>
+  <text x="40" y="532" font-size="10.5" font-style="italic" fill="#777">Values are the fresh seed data (README): Savings = ACC-1001 and ACC-1003. A reply that arrives late for an old filter is ignored (test).</text>
+  <text x="40" y="550" font-size="10.5" font-style="italic" fill="#777">If the API is down, step 2 fails ("no answer" or a non-JSON error from the proxy) and the page shows "API not reachable" instead of a blank page.</text>
+</svg>

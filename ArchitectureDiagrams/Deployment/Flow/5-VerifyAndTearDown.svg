@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 430" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="430" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Deployment — Step 5: Check it end to end, then tear down — Flow</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Top row: one request travelling through the stack. Bottom row: what stopping the stack does to your data.</text>
+  <g font-size="11" fill="#333"><rect x="131" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="151" y="71">files / source</text></g>
+  <g font-size="11" fill="#333"><rect x="270" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="290" y="71">image (built, read-only)</text></g>
+  <g font-size="11" fill="#333"><rect x="471" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="491" y="71">running container</text></g>
+  <g font-size="11" fill="#333"><rect x="628" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="648" y="71">volume (data)</text></g>
+  <g font-size="11" fill="#333"><rect x="762" y="60" width="14" height="14" rx="2" fill="#f1f1f1" stroke="#777777"/><text x="782" y="71">process / command</text></g>
+  <rect x="15" y="100" width="140" height="100" rx="9" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="85.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">browser or curl</text>
+  <text x="85.0" y="135" text-anchor="middle" font-size="9.5" fill="#444444">GET localhost:8080/</text>
+  <text x="85.0" y="149" text-anchor="middle" font-size="9.5" fill="#444444">api/accounts</text>
+  <text x="85.0" y="163" text-anchor="middle" font-size="9.5" fill="#444444"></text>
+  <rect x="235" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="305.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">web: nginx</text>
+  <text x="305.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">location /api/ matches;</text>
+  <text x="305.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">proxy_pass</text>
+  <text x="305.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">http://api:8080</text>
+  <rect x="455" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="525.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">api: ASP.NET Core</text>
+  <text x="525.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">AccountsController</text>
+  <text x="525.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">asks EF Core for</text>
+  <text x="525.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">the accounts</text>
+  <rect x="675" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="745.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">db: SQL Server</text>
+  <text x="745.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">SELECT on Accounts</text>
+  <text x="745.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">reads rows from</text>
+  <text x="745.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">the volume files</text>
+  <rect x="895" y="100" width="140" height="100" rx="9" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="965.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">answer</text>
+  <text x="965.0" y="135" text-anchor="middle" font-size="9.5" fill="#444444">200 + JSON list of</text>
+  <text x="965.0" y="149" text-anchor="middle" font-size="9.5" fill="#444444">the 3 demo accounts,</text>
+  <text x="965.0" y="163" text-anchor="middle" font-size="9.5" fill="#444444">back the same way</text>
+  <line x1="155" y1="150.0" x2="233" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="195.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">host port</text>
+  <text x="195.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">8080 -&gt; 80</text>
+  <line x1="375" y1="150.0" x2="453" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="415.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">network name</text>
+  <text x="415.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">api</text>
+  <line x1="595" y1="150.0" x2="673" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="635.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">SQL as</text>
+  <text x="635.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">bank_app</text>
+  <line x1="815" y1="150.0" x2="893" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="855.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">rows</text>
+  <text x="855.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">back</text>
+  <rect x="15" y="270" width="140" height="100" rx="9" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="85.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">compose down</text>
+  <text x="85.0" y="305" text-anchor="middle" font-size="9.5" fill="#444444">containers + network</text>
+  <text x="85.0" y="319" text-anchor="middle" font-size="9.5" fill="#444444">removed; volume</text>
+  <text x="85.0" y="333" text-anchor="middle" font-size="9.5" fill="#444444">sqldata stays</text>
+  <rect x="235" y="270" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="305.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">compose up</text>
+  <text x="305.0" y="305" text-anchor="middle" font-size="9.5" fill="#7f4e00">after a 100.50 deposit</text>
+  <text x="305.0" y="319" text-anchor="middle" font-size="9.5" fill="#7f4e00">balance 5100.50 kept;</text>
+  <text x="305.0" y="333" text-anchor="middle" font-size="9.5" fill="#7f4e00">demo rows not doubled</text>
+  <rect x="455" y="270" width="140" height="100" rx="9" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="525.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">compose down -v</text>
+  <text x="525.0" y="305" text-anchor="middle" font-size="9.5" fill="#1c4587">also deletes the</text>
+  <text x="525.0" y="319" text-anchor="middle" font-size="9.5" fill="#1c4587">volume: the database</text>
+  <text x="525.0" y="333" text-anchor="middle" font-size="9.5" fill="#1c4587">is gone</text>
+  <line x1="155" y1="320.0" x2="233" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="195.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">up again</text>
+  <line x1="375" y1="320.0" x2="453" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="415.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">down -v</text>
+  <polyline points="965.0,200 965.0,235 85.0,235 85.0,268" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540" y="229" text-anchor="middle" font-size="9" fill="#333">when you are done</text>
+  <text x="40" y="400" font-size="10.5" fill="#444"><tspan font-weight="bold">Checked by running it: </tspan>GET / -&gt; 200 from nginx; GET /api/accounts -&gt; the JSON list; an unknown id -&gt; 404 problem+json from the API.</text>
+  <text x="40" y="418" font-size="10" font-style="italic" fill="#888">If the api container is stopped, nginx answers 502 Bad Gateway for /api/...: the web server is fine, the thing behind it is not.</text>
+</svg>

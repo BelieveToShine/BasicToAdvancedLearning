@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 784" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="784" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Fetching data — Flow: loading, answer, and the "ignore" flag</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: you post a letter to the bank (fetch) and the reply may arrive late. The flag decides whether you still want the reply.</text>
+  <rect x="30" y="66" width="290" height="70" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="44" cy="80" r="9" fill="#674ea7"/><text x="44" y="84" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="183.0" y="84" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">RENDER #1</text>
+  <text x="175.0" y="100" text-anchor="middle" font-size="9.5" fill="#3d2a6b">state = { status: 'loading' }</text>
+  <text x="175.0" y="114" text-anchor="middle" font-size="9.5" fill="#3d2a6b">page shows "Loading accounts…"</text>
+  <rect x="30" y="170" width="290" height="70" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="44" cy="184" r="9" fill="#3d85c6"/><text x="44" y="188" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="183.0" y="188" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT runs after commit</text>
+  <text x="175.0" y="204" text-anchor="middle" font-size="9.5" fill="#1c4587">let ignore = false;  load();</text>
+  <text x="175.0" y="218" text-anchor="middle" font-size="9.5" fill="#1c4587">(the effect itself is not async)</text>
+  <line x1="175" y1="136" x2="175" y2="168" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="183" y="158" font-size="9.5" font-style="italic" fill="#444">commit, then the effect</text>
+  <rect x="560" y="66" width="300" height="134" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="710.0" y="86" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">3  WEB API</text>
+  <rect x="570" y="98" width="280" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="578" y="114.5" font-size="10" fill="#444444">GET /api/accounts</text>
+  <rect x="570" y="128" width="280" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="578" y="144.5" font-size="10" fill="#444444">[{accountId, customerName, accountNumber,</text>
+  <rect x="570" y="158" width="280" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="578" y="174.5" font-size="10" fill="#444444">  accountType, balance}]</text>
+  <polyline points="320,205 440,205 440,118 558,118" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="448" y="198" font-size="9.5" font-style="italic" fill="#444">await fetch('/api/accounts')</text>
+  <line x1="710" y1="200" x2="710" y2="232" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="718" y="222" font-size="9.5" font-style="italic" fill="#444">response arrives</text>
+  <polygon points="710,233 810,275 710,317 610,275" fill="#fff2cc" stroke="#bf9000" stroke-width="1.6"/>
+  <text x="710" y="279" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">response.ok ?</text>
+  <rect x="30" y="280" width="290" height="74" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="44" cy="294" r="9" fill="#e69138"/><text x="44" y="298" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="183.0" y="298" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">NO: throw Error(...)</text>
+  <text x="175.0" y="314" text-anchor="middle" font-size="9.5" fill="#7f4e00">'The server answered 500'</text>
+  <text x="175.0" y="328" text-anchor="middle" font-size="9.5" fill="#7f4e00">catch → if (!ignore) status: error</text>
+  <line x1="610" y1="275" x2="440" y2="275" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="440,275 440,317 322,317" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="520" y="267" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">no: 4xx / 5xx</text>
+  <rect x="30" y="396" width="290" height="56" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="44" cy="410" r="9" fill="#674ea7"/><text x="44" y="414" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="183.0" y="414" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render: "Could not load accounts…"</text>
+  <text x="175.0" y="430" text-anchor="middle" font-size="9.5" fill="#3d2a6b">role="alert" message</text>
+  <line x1="175" y1="354" x2="175" y2="394" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="183" y="381" font-size="9.5" font-style="italic" fill="#444">state changed</text>
+  <rect x="560" y="350" width="300" height="56" rx="10" fill="#ffffff" stroke="#999999" stroke-width="1.6"/>
+  <circle cx="574" cy="364" r="9" fill="#999999"/><text x="574" y="368" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="718.0" y="368" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">YES: parse JSON</text>
+  <text x="710.0" y="384" text-anchor="middle" font-size="9.5" fill="#333333">accounts = await response.json()</text>
+  <line x1="710" y1="317" x2="710" y2="348" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="718" y="345" font-size="9.5" font-style="italic" fill="#444">yes</text>
+  <polygon points="710,428 810,470 710,512 610,470" fill="#fff2cc" stroke="#bf9000" stroke-width="1.6"/>
+  <text x="710" y="474" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">ignore ?</text>
+  <line x1="710" y1="406" x2="710" y2="426" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="340" y="445" width="200" height="50" rx="10" fill="#ffffff" stroke="#999999" stroke-width="1.6"/>
+  <circle cx="354" cy="459" r="9" fill="#999999"/><text x="354" y="463" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="448.0" y="463" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">true: answer thrown away</text>
+  <line x1="610" y1="470" x2="542" y2="470" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="570" y="462" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">true</text>
+  <rect x="560" y="540" width="300" height="56" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="574" cy="554" r="9" fill="#e69138"/><text x="574" y="558" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">8</text>
+  <text x="718.0" y="558" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">false: setState success</text>
+  <text x="710.0" y="574" text-anchor="middle" font-size="9.5" fill="#7f4e00">{ status: 'success', data: accounts }</text>
+  <line x1="710" y1="512" x2="710" y2="538" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="718" y="524" font-size="9.5" font-style="italic" fill="#444">false</text>
+  <rect x="560" y="630" width="300" height="56" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="574" cy="644" r="9" fill="#674ea7"/><text x="574" y="648" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">9</text>
+  <text x="718.0" y="648" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render: table of accounts</text>
+  <text x="710.0" y="664" text-anchor="middle" font-size="9.5" fill="#3d2a6b">one &lt;tr&gt; per account</text>
+  <line x1="710" y1="596" x2="710" y2="628" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="718" y="618" font-size="9.5" font-style="italic" fill="#444">state changed</text>
+  <rect x="30" y="520" width="480" height="126" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="270.0" y="540" text-anchor="middle" font-size="10" font-weight="bold" fill="#1c4587">Why "ignore" exists (Reload clicked twice)</text>
+  <rect x="40" y="552" width="460" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="48" y="568.5" font-size="10" fill="#1c4587">run #1 started request A, run #2 started request B</text>
+  <rect x="40" y="582" width="460" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="48" y="598.5" font-size="10" fill="#1c4587">run #1's CLEANUP set its own ignore = true</text>
+  <rect x="40" y="612" width="460" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="48" y="628.5" font-size="10" fill="#1c4587">if A answers after B, A's diamond says ignore = true: thrown away</text>
+  <text x="40" y="710" font-size="10" font-style="italic" fill="#888">In development StrictMode runs the effect twice, so two requests appear and the first answer is ignored (the request itself still completes).</text>
+  <text x="40" y="728" font-size="10" font-style="italic" fill="#888">Tests use a fake fetch (vi.fn): no real network. Proved: loading, data, rejected fetch, ok:false, late answer ignored, answer after unmount ignored.</text>
+  <text x="40" y="746" font-size="10" font-style="italic" fill="#888">Colours: purple = render / calculated values, orange = state, blue = effect or cleanup, grey dashed = DOM / browser / outside React.</text>
+</svg>

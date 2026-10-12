@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="580" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">TheWholeApp: Memory: where the data lives</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: account 6 (ACC-2002, just opened, 10.00 deposited) and a 50.00 withdrawal refused with 422. Nothing was written for the refusal.</text>
+  <g font-size="11" fill="#333"><rect x="61.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="81.0" y="71">props (read-only, from the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="305.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="325.0" y="71">state (owned by a component)</text></g>
+  <g font-size="11" fill="#333"><rect x="513.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="533.0" y="71">derived / formatted</text></g>
+  <g font-size="11" fill="#333"><rect x="667.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="687.0" y="71">DOM (browser output)</text></g>
+  <g font-size="11" fill="#333"><rect x="827.0" y="60" width="14" height="14" rx="2" fill="#e8edf3" stroke="#4a5d70"/><text x="847.0" y="71">SQL Server rows (outside the browser)</text></g>
+  <rect x="30" y="84" width="1090" height="118" rx="10" fill="#f4f6f8" stroke="#4a5d70" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,143.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">SQL SERVER</text>
+  <rect x="30" y="234" width="1090" height="150" rx="10" fill="#fafafa" stroke="#bbbbbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <text transform="translate(48,309.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">REACT STATE</text>
+  <rect x="30" y="416" width="1090" height="100" rx="10" fill="#f4f4f4" stroke="#999999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text transform="translate(48,466.0) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DOM</text>
+  <rect x="505" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="585.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Accounts row</text>
+  <text x="585.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">6 ACC-2002 Savings</text>
+  <text x="585.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">Balance 10.00</text>
+  <text x="585.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">owner: Ben Carter</text>
+  <rect x="720" y="106" width="160" height="84" rx="8" fill="#e8edf3" stroke="#4a5d70" stroke-width="1.5"/>
+  <text x="800.0" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">Transactions rows</text>
+  <text x="800.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">6 Deposit 10.00 (acct 6)</text>
+  <text x="800.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">no row for the refused</text>
+  <text x="800.0" y="170" text-anchor="middle" font-size="9.5" fill="#333">50.00 withdrawal</text>
+  <rect x="75" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="155.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">BankApp state</text>
+  <text x="155.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">screen = {name: "detail",</text>
+  <text x="155.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">id: 6}</text>
+  <text x="155.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">one flag chooses the screen</text>
+  <rect x="290" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="370.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">AccountScreen</text>
+  <text x="370.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">props: id = 6</text>
+  <text x="370.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">state: version = 1</text>
+  <text x="370.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">key = 6</text>
+  <rect x="505" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">account (useLoad)</text>
+  <text x="585.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">data.balance = 10</text>
+  <text x="585.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">data.accountNumber =</text>
+  <text x="585.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">"ACC-2002"</text>
+  <rect x="720" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="800.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">txns (useLoad)</text>
+  <text x="800.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">data = [ {transactionId,</text>
+  <text x="800.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">kind: "Deposit",</text>
+  <text x="800.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">amount: 10} ]</text>
+  <rect x="935" y="258" width="160" height="100" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="1015.0" y="275" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">MoneyForm state</text>
+  <text x="1015.0" y="292" text-anchor="middle" font-size="9.5" fill="#333">kind "Withdrawal"</text>
+  <text x="1015.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">amount "50"</text>
+  <text x="1015.0" y="322" text-anchor="middle" font-size="9.5" fill="#333">error: 422 (ApiError)</text>
+  <rect x="75" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="155.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">the screen</text>
+  <text x="155.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;h3&gt;Account 6&lt;/h3&gt;</text>
+  <rect x="505" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="585.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">summary line</text>
+  <text x="585.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;strong&gt;10.00&lt;/strong&gt;</text>
+  <rect x="720" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="800.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">table body</text>
+  <text x="800.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">&lt;tr&gt; Deposit 10.00</text>
+  <rect x="935" y="440" width="160" height="64" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="1015.0" y="457" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#222">red box</text>
+  <text x="1015.0" y="474" text-anchor="middle" font-size="9.5" fill="#333">422 Insufficient funds</text>
+  <polyline points="555.0,190 555.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="549.0" y="228.0" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">GET account</text>
+  <polyline points="770.0,190 770.0,258" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="764.0" y="228.0" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">GET transactions</text>
+  <polyline points="1015.0,258 1015.0,224 830.0,224 830.0,190" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="1009.0" y="218" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">POST {Withdrawal, 50}</text>
+  <polyline points="235,308 290,308" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="262.5" y="291" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">decides which</text>
+  <text x="262.5" y="302" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">child</text>
+  <polyline points="450,340 505,340" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="477.5" y="323" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">props id and</text>
+  <text x="477.5" y="334" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">version</text>
+  <polyline points="155.0,358 155.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="161.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="585.0,358 585.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="591.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="800.0,358 800.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="806.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <polyline points="1015.0,358 1015.0,440" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="1021.0" y="403.0" font-size="9.5" font-style="italic" fill="#444">renders</text>
+  <text x="40" y="534" font-size="10.5" font-style="italic" fill="#777">The 422 is shown from the error held in MoneyForm state; the balance shown above it still comes from the last GET (10.00): it never changed.</text>
+  <text x="40" y="552" font-size="10.5" font-style="italic" fill="#777">screen, version, typed text and errors live only in the browser tab and vanish on refresh; accounts and transactions are in SQL Server.</text>
+</svg>

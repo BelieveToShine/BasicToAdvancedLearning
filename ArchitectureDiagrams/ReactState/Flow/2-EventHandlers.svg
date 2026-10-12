@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="640" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Event handlers — Flow: a customer rings the service bell</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">You hand React the function; React calls it, with an event, when the bell rings.</text>
+  <g font-size="10.5" fill="#333"><rect x="90" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="110" y="61">Render (component function runs)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="299.2" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="319.2" y="61">Event</text></g>
+  <g font-size="10.5" fill="#333"><rect x="357.2" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="377.2" y="61">State change</text></g>
+  <g font-size="10.5" fill="#333"><rect x="454.4" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="474.4" y="61">DOM / screen</text></g>
+  <rect x="60" y="80" width="480" height="56" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="300.0" y="98" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Page shows: buttons, a note input, a form</text>
+  <text x="300.0" y="115" text-anchor="middle" font-size="9.5" fill="#333">onClick={handleClick}: the function itself is passed, not called</text>
+  <line x1="300.0" y1="136" x2="300.0" y2="176" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="308.0" y="159.0" font-size="9" font-style="italic" fill="#555">user clicks the button</text>
+  <rect x="60" y="176" width="480" height="56" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="300.0" y="194" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">React calls your handler, e.g. handleClick(event)</text>
+  <text x="300.0" y="211" text-anchor="middle" font-size="9.5" fill="#333">event.type = "click"; event.target = the &lt;button&gt;</text>
+  <line x1="300.0" y1="232" x2="300.0" y2="272" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="308.0" y="255.0" font-size="9" font-style="italic" fill="#555">handler calls addToLog</text>
+  <rect x="60" y="272" width="480" height="56" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.8"/>
+  <text x="300.0" y="290" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">setLog(previous =&gt; [...previous, text])</text>
+  <text x="300.0" y="307" text-anchor="middle" font-size="9.5" fill="#333">a new array replaces the old one</text>
+  <line x1="300.0" y1="328" x2="300.0" y2="368" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="308.0" y="351.0" font-size="9" font-style="italic" fill="#555">re-render</text>
+  <rect x="60" y="368" width="480" height="56" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="300.0" y="386" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render: log has one more line</text>
+  <line x1="300.0" y1="424" x2="300.0" y2="464" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="308.0" y="447.0" font-size="9" font-style="italic" fill="#555">returns JSX</text>
+  <rect x="60" y="464" width="480" height="56" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="300.0" y="482" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Screen: the Event log list shows the new line</text>
+  <rect x="640" y="160" width="230" height="92" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="755.0" y="178" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">If the event is a submit</text>
+  <text x="755.0" y="195" text-anchor="middle" font-size="9.5" fill="#333">handleSubmit(event) first calls</text>
+  <text x="755.0" y="210" text-anchor="middle" font-size="9.5" fill="#333">event.preventDefault(), so the</text>
+  <text x="755.0" y="225" text-anchor="middle" font-size="9.5" fill="#333">browser does not reload the page</text>
+  <line x1="540" y1="204" x2="638" y2="204" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="589" y="196" text-anchor="middle" font-size="9" font-style="italic" fill="#555">or: form submit</text>
+  <text x="30" y="600" font-size="10.5" fill="#444"><tspan font-weight="bold">onClick={handleClick()} would run the function during rendering, not on click. </tspan>Pass handleClick, or wrap it: () =&gt; handleDeposit(5).</text>
+</svg>

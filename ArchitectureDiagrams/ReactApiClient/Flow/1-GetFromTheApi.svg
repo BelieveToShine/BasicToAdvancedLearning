@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 882" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="882" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">GET from the API — Flow: loading, then data (or an error)</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: you ask the front desk for the list (fetch), they hand you an envelope (Response), then you open it (json()).</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">AccountsList component</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser + Vite</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#674ea7"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">First render</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#3d2a6b">state = { status: 'loading', ... }</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#3d2a6b">page shows 'Loading accounts…'</text>
+  <rect x="24" y="198" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="212" r="9" fill="#3d85c6"/><text x="38" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="159.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">Effect runs after the commit</text>
+  <text x="151.5" y="232" text-anchor="middle" font-size="9.5" fill="#1c4587">let ignore = false</text>
+  <text x="151.5" y="246" text-anchor="middle" font-size="9.5" fill="#1c4587">starts load(): await fetch('/api/accounts')</text>
+  <line x1="151.5" y1="164" x2="151.5" y2="196" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="186" font-size="9.5" font-style="italic" fill="#444">after the first render</text>
+  <rect x="293" y="304" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="318" r="9" fill="#888888"/><text x="307" y="322" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="428.5" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">GET /api/accounts</text>
+  <text x="420.5" y="338" text-anchor="middle" font-size="9.5" fill="#444444">same origin as the page (Vite server)</text>
+  <text x="420.5" y="352" text-anchor="middle" font-size="9.5" fill="#444444">Vite forwards it to the API</text>
+  <polyline points="279,234.0 420.5,234.0 420.5,302" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="292" font-size="9.5" font-style="italic" fill="#444">request leaves</text>
+  <rect x="562" y="410" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="424" r="9" fill="#888888"/><text x="576" y="428" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="697.5" y="428" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Answer: 200 + JSON array</text>
+  <text x="689.5" y="444" text-anchor="middle" font-size="9.5" fill="#444444">Content-Type: application/json</text>
+  <text x="689.5" y="458" text-anchor="middle" font-size="9.5" fill="#444444">body: 3 accounts (seeded bank)</text>
+  <polyline points="548,340.0 689.5,340.0 689.5,408" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="398" font-size="9.5" font-style="italic" fill="#444">forwarded</text>
+  <rect x="293" y="516" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="530" r="9" fill="#888888"/><text x="307" y="534" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="428.5" y="534" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch RESOLVES: step 1 done</text>
+  <text x="420.5" y="550" text-anchor="middle" font-size="9.5" fill="#444444">response.status 200, response.ok true</text>
+  <text x="420.5" y="564" text-anchor="middle" font-size="9.5" fill="#444444">headers arrived; body not read yet</text>
+  <polyline points="562,446.0 420.5,446.0 420.5,514" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="504" font-size="9.5" font-style="italic" fill="#444">answer passed back</text>
+  <rect x="24" y="622" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="636" r="9" fill="#3d85c6"/><text x="38" y="640" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="159.5" y="640" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">await response.json(): step 2</text>
+  <text x="151.5" y="656" text-anchor="middle" font-size="9.5" fill="#1c4587">reads the body, parses the JSON</text>
+  <text x="151.5" y="670" text-anchor="middle" font-size="9.5" fill="#1c4587">ignore false: setState({status:success})</text>
+  <polyline points="293,552.0 151.5,552.0 151.5,620" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="610" font-size="9.5" font-style="italic" fill="#444">Response object</text>
+  <rect x="24" y="728" width="255" height="72" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="38" cy="742" r="9" fill="#674ea7"/><text x="38" y="746" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="159.5" y="746" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render again</text>
+  <text x="151.5" y="762" text-anchor="middle" font-size="9.5" fill="#3d2a6b">table of 3 rows, key = accountId</text>
+  <text x="151.5" y="776" text-anchor="middle" font-size="9.5" fill="#3d2a6b">shows "Step 1 gave: status 200, ok true"</text>
+  <line x1="151.5" y1="694" x2="151.5" y2="726" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="716" font-size="9.5" font-style="italic" fill="#444">state changed</text>
+  <text x="40" y="836" font-size="10" font-style="italic" fill="#888">Failure paths (not drawn as arrows): fetch REJECTS (no answer) -&gt; "API not reachable"; ok false -&gt; "The server answered N" (status 502 with a</text>
+  <text x="40" y="854" font-size="10" font-style="italic" fill="#888">plain-text body is the Vite proxy saying the API is down -&gt; also "API not reachable"). The ignore flag and the single state object are Topic 23.</text>
+</svg>

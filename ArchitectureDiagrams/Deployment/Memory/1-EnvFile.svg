@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 556" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="556" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Deployment — Step 1: Configuration and secrets — Memory: where configuration and data live</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot after `cp .env.example .env` and `docker compose up`: the password is in .env and in the running containers, not in the images.</text>
+  <g font-size="11" fill="#333"><rect x="88" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="108" y="71">FILES on your computer</text></g>
+  <g font-size="11" fill="#333"><rect x="276" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="296" y="71">IMAGE layers (read-only)</text></g>
+  <g font-size="11" fill="#333"><rect x="476" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="496" y="71">ENVIRONMENT of a running container</text></g>
+  <g font-size="11" fill="#333"><rect x="738" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="758" y="71">VOLUME (outlives containers)</text></g>
+  <rect x="15" y="92" width="132" height="106" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="133.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">FILES</text>
+  <text x="81" y="147.0" text-anchor="middle" font-size="9.5" fill="#274e13">on your computer</text>
+  <text x="81" y="161.0" text-anchor="middle" font-size="9.5" fill="#274e13">(the repository)</text>
+  <rect x="15" y="238" width="132" height="92" rx="8" fill="#efe9f8" stroke="#674ea7" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="272.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">IMAGE LAYERS</text>
+  <text x="81" y="286.0" text-anchor="middle" font-size="9.5" fill="#3d2a6b">built once,</text>
+  <text x="81" y="300.0" text-anchor="middle" font-size="9.5" fill="#3d2a6b">read-only</text>
+  <rect x="15" y="370" width="132" height="106" rx="8" fill="#fff3e6" stroke="#e69138" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="411.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ENVIRONMENT</text>
+  <text x="81" y="425.0" text-anchor="middle" font-size="9.5" fill="#7f4e00">of the running</text>
+  <text x="81" y="439.0" text-anchor="middle" font-size="9.5" fill="#7f4e00">containers</text>
+  <rect x="612" y="96" width="190" height="98" rx="9" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="622" y="114" font-size="10.5" font-weight="bold" fill="#274e13">.env.example</text>
+  <text x="622" y="131" font-size="9" fill="#274e13">committed to git</text>
+  <text x="622" y="145" font-size="9" fill="#274e13">placeholders only (CHANGE_ME_...)</text>
+  <rect x="838" y="96" width="190" height="98" rx="9" fill="#b6d7a8" stroke="#cc0000" stroke-width="2"/>
+  <text x="848" y="114" font-size="10.5" font-weight="bold" fill="#274e13">.env</text>
+  <text x="848" y="131" font-size="9" fill="#274e13">git-ignored (see .gitignore)</text>
+  <text x="848" y="145" font-size="9" fill="#274e13">MSSQL_SA_PASSWORD=&lt;yours&gt;</text>
+  <text x="848" y="159" font-size="9" fill="#274e13">APP_DB_PASSWORD=&lt;yours&gt;</text>
+  <text x="848" y="173" font-size="9" fill="#274e13">WEB_PORT=8080 ...</text>
+  <rect x="160" y="242" width="190" height="84" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="170" y="260" font-size="10.5" font-weight="bold" fill="#3d2a6b">API image</text>
+  <text x="170" y="277" font-size="9" fill="#3d2a6b">no password inside: its</text>
+  <text x="170" y="291" font-size="9" fill="#3d2a6b">environment has only ASPNETCORE_*</text>
+  <text x="170" y="305" font-size="9" fill="#3d2a6b">and DOTNET_* values (checked)</text>
+  <rect x="386" y="242" width="190" height="84" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="396" y="260" font-size="10.5" font-weight="bold" fill="#3d2a6b">Web image</text>
+  <text x="396" y="277" font-size="9" fill="#3d2a6b">no password inside</text>
+  <text x="396" y="291" font-size="9" fill="#3d2a6b">(React files + nginx.conf)</text>
+  <rect x="160" y="374" width="190" height="98" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="170" y="392" font-size="10.5" font-weight="bold" fill="#7f4e00">api container</text>
+  <text x="170" y="409" font-size="9" fill="#7f4e00">BTAL_SQLSERVER=</text>
+  <text x="170" y="423" font-size="9" fill="#7f4e00">Server=db,1433;User Id=bank_app;</text>
+  <text x="170" y="437" font-size="9" fill="#7f4e00">Password=&lt;APP_DB_PASSWORD&gt;;</text>
+  <text x="170" y="451" font-size="9" fill="#7f4e00">Initial Catalog=Bank</text>
+  <rect x="386" y="374" width="190" height="98" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="396" y="392" font-size="10.5" font-weight="bold" fill="#7f4e00">db-init container</text>
+  <text x="396" y="409" font-size="9" fill="#7f4e00">MSSQL_SA_PASSWORD</text>
+  <text x="396" y="423" font-size="9" fill="#7f4e00">APP_DB_USER, APP_DB_PASSWORD</text>
+  <text x="396" y="437" font-size="9" fill="#7f4e00">DB_NAME=Bank_FullStackBank</text>
+  <text x="396" y="451" font-size="9" fill="#7f4e00">SEED_DEMO_DATA=true</text>
+  <rect x="612" y="374" width="190" height="98" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="622" y="392" font-size="10.5" font-weight="bold" fill="#7f4e00">db container</text>
+  <text x="622" y="409" font-size="9" fill="#7f4e00">MSSQL_SA_PASSWORD</text>
+  <text x="622" y="423" font-size="9" fill="#7f4e00">ACCEPT_EULA=Y</text>
+  <line x1="802" y1="145.0" x2="836" y2="145.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="820.0" y="139.0" text-anchor="middle" font-size="8.5" fill="#333">cp</text>
+  <polyline points="938,194 938,350.0" fill="none" stroke="#555" stroke-width="1.6"/>
+  <polyline points="260,350.0 938,350.0" fill="none" stroke="#555" stroke-width="1.6"/>
+  <line x1="260" y1="350.0" x2="260" y2="372" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="486" y1="350.0" x2="486" y2="372" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="712" y1="350.0" x2="712" y2="372" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="266" y="345.0" text-anchor="start" font-size="9" fill="#333">compose reads .env, fills the ${...} in docker-compose.yml and sets these variables when it starts each container</text>
+  <text x="40" y="498" font-size="10.5" fill="#444"><tspan font-weight="bold">The images stay secret-free: </tspan>anyone who gets the image gets no password. Verified with docker image inspect and docker history.</text>
+  <text x="40" y="516" font-size="10" font-style="italic" fill="#888">It is still visible to anyone on this machine who can run docker compose config or docker inspect, or read process arguments.</text>
+  <text x="40" y="534" font-size="10" font-style="italic" fill="#888">A missing required value stops compose before anything starts (${MSSQL_SA_PASSWORD:?...}). The API appends _FullStackBank to the catalog: Bank becomes Bank_FullStackBank.</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 1070" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="1070" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Proxy and CORS — Flow: the same GET, through the proxy and directly</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: the proxy is a mail room in your own building; going direct is posting to another building, and the guard (browser) reads the reply first.</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Page (React)</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Vite dev server</text>
+  <rect x="831" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="958.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#3d85c6"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">A  fetch('/api/accounts')</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#1c4587">relative URL</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#1c4587">page origin http://localhost:5173</text>
+  <rect x="293" y="198" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="212" r="9" fill="#888888"/><text x="307" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="428.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Same origin: no CORS check</text>
+  <text x="420.5" y="232" text-anchor="middle" font-size="9.5" fill="#444444">request goes to the page's own server</text>
+  <text x="420.5" y="246" text-anchor="middle" font-size="9.5" fill="#444444">DevTools shows ...:5173/api/accounts</text>
+  <polyline points="279,128.0 420.5,128.0 420.5,196" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="186" font-size="9.5" font-style="italic" fill="#444">resolved against the page</text>
+  <rect x="562" y="304" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="318" r="9" fill="#888888"/><text x="576" y="322" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="697.5" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Proxy forwards the request</text>
+  <text x="689.5" y="338" text-anchor="middle" font-size="9.5" fill="#444444">server to server: no browser rules</text>
+  <text x="689.5" y="352" text-anchor="middle" font-size="9.5" fill="#444444">API sees Host of its own address</text>
+  <polyline points="548,234.0 689.5,234.0 689.5,302" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="292" font-size="9.5" font-style="italic" fill="#444">GET</text>
+  <rect x="831" y="410" width="255" height="58" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="845" cy="424" r="9" fill="#888888"/><text x="845" y="428" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="966.5" y="428" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Answer 200 + JSON</text>
+  <text x="958.5" y="444" text-anchor="middle" font-size="9.5" fill="#444444">a real run: API answered 200</text>
+  <polyline points="817,340.0 958.5,340.0 958.5,408" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="966.5" y="398" font-size="9.5" font-style="italic" fill="#444">forwarded</text>
+  <rect x="293" y="502" width="255" height="58" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="516" r="9" fill="#888888"/><text x="307" y="520" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="428.5" y="520" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Browser lets the page read it</text>
+  <text x="420.5" y="536" text-anchor="middle" font-size="9.5" fill="#444444">same origin: allowed</text>
+  <polyline points="831,439.0 420.5,439.0 420.5,500" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="490" font-size="9.5" font-style="italic" fill="#444">passed back</text>
+  <rect x="24" y="594" width="255" height="58" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="608" r="9" fill="#3d85c6"/><text x="38" y="612" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="159.5" y="612" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">B  fetch('http://localhost:5080')</text>
+  <text x="151.5" y="628" text-anchor="middle" font-size="9.5" fill="#1c4587">other port = other origin</text>
+  <polyline points="293,531.0 151.5,531.0 151.5,592" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="582" font-size="9.5" font-style="italic" fill="#444">now the direct call</text>
+  <rect x="831" y="686" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="845" cy="700" r="9" fill="#888888"/><text x="845" y="704" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="966.5" y="704" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">GET reaches the API: answer 200</text>
+  <text x="958.5" y="720" text-anchor="middle" font-size="9.5" fill="#444444">no Access-Control-Allow-Origin header</text>
+  <text x="958.5" y="734" text-anchor="middle" font-size="9.5" fill="#444444">in the API log: the GET arrived</text>
+  <polyline points="279,623.0 958.5,623.0 958.5,684" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="966.5" y="674" font-size="9.5" font-style="italic" fill="#444">a GET is "simple": sent at once</text>
+  <rect x="293" y="792" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="806" r="9" fill="#888888"/><text x="307" y="810" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">8</text>
+  <text x="428.5" y="810" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Browser blocks the answer</text>
+  <text x="420.5" y="826" text-anchor="middle" font-size="9.5" fill="#444444">no permission header for this origin</text>
+  <text x="420.5" y="840" text-anchor="middle" font-size="9.5" fill="#444444">the page may not read it</text>
+  <polyline points="831,722.0 420.5,722.0 420.5,790" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="780" font-size="9.5" font-style="italic" fill="#444">answer returns</text>
+  <rect x="24" y="898" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="912" r="9" fill="#3d85c6"/><text x="38" y="916" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">9</text>
+  <text x="159.5" y="916" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">fetch rejects: TypeError</text>
+  <text x="151.5" y="932" text-anchor="middle" font-size="9.5" fill="#1c4587">no status, no body, no reason</text>
+  <text x="151.5" y="946" text-anchor="middle" font-size="9.5" fill="#1c4587">the console says why (CORS or no server)</text>
+  <polyline points="293,828.0 151.5,828.0 151.5,896" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="886" font-size="9.5" font-style="italic" fill="#444">rejected promise</text>
+  <text x="40" y="1006" font-size="10" font-style="italic" fill="#888">Direct POST with Content-Type: application/json is not "simple": the browser first sends OPTIONS (preflight). In the real run the API answered that</text>
+  <text x="40" y="1024" font-size="10" font-style="italic" fill="#888">OPTIONS with 405 and the browser never sent the POST. The BROWSER enforces CORS; the API only sends or omits headers; curl ignores it.</text>
+  <text x="40" y="1042" font-size="10" font-style="italic" fill="#888">Dev proxy and `vite preview` have it; a deployed site needs a reverse proxy for /api, or an API that sends CORS headers (a later topic).</text>
+</svg>

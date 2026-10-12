@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 432" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="432" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Navigation and search params: Sub-level Flow: a switchboard operator</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">Code can dial a number too (navigate), and the query string is a note clipped to the call.</text>
+  <g font-size="11" fill="#333"><rect x="235.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="255.0" y="71">browser / user</text></g>
+  <g font-size="11" fill="#333"><rect x="359.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="379.0" y="71">router state</text></g>
+  <g font-size="11" fill="#333"><rect x="471.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="491.0" y="71">computed by the router</text></g>
+  <g font-size="11" fill="#333"><rect x="643.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="663.0" y="71">your component / DOM output</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Click "Open account 2"</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">an ordinary &lt;button&gt;</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">with an onClick</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">navigate("/accounts/2")</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">from useNavigate();</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">navigate(-1) = one step back</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Router location</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">pathname = "/accounts/2"</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">a new history entry</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">NavLink "Accounts"</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">URL at or below its "to"?</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">yes: class "active" + aria-current</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Click "Savings"</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">&lt;button&gt; calls</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">setSearchParams({ type: "Savings" })</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">/accounts?type=Savings</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">the filter now lives in the URL</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">so a refresh or a link keeps it</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">type = "Savings"</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">a string (null if absent)</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">List: Asha Rao, Chen Li</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">Ben Carter (Current) hidden</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">calls</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">pushes</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">NavLink asks</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">URL becomes</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">get("type")</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">filter</text>
+  <text x="40" y="390" font-size="10.5" font-style="italic" fill="#777">Top row: moving from code and the NavLink highlight. Bottom row: a filter stored in the query string.</text>
+  <text x="40" y="408" font-size="10.5" font-style="italic" fill="#777">Test: at /accounts/2 the "Accounts" NavLink (no "end" prop) still has the class "active".</text>
+</svg>

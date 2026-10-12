@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 470" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="470" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Deployment — Step 4: Start the stack with docker compose — Flow</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">docker compose up: every arrow is a depends_on condition; a service waits until the one before it is ready.</text>
+  <g font-size="11" fill="#333"><rect x="131" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="151" y="71">files / source</text></g>
+  <g font-size="11" fill="#333"><rect x="270" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="290" y="71">image (built, read-only)</text></g>
+  <g font-size="11" fill="#333"><rect x="471" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="491" y="71">running container</text></g>
+  <g font-size="11" fill="#333"><rect x="628" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="648" y="71">volume (data)</text></g>
+  <g font-size="11" fill="#333"><rect x="762" y="60" width="14" height="14" rx="2" fill="#f1f1f1" stroke="#777777"/><text x="782" y="71">process / command</text></g>
+  <rect x="15" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="85.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">db starts</text>
+  <text x="85.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">SQL Server 2022</text>
+  <text x="85.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">volume sqldata mounted</text>
+  <text x="85.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">no published port</text>
+  <rect x="235" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="305.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">db healthy</text>
+  <text x="305.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">health check passes</text>
+  <text x="305.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">(first start: about</text>
+  <text x="305.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">15-20 seconds)</text>
+  <rect x="455" y="100" width="140" height="100" rx="9" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="525.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">db-init runs</text>
+  <text x="525.0" y="135" text-anchor="middle" font-size="9.5" fill="#444444">init.sh: create DB,</text>
+  <text x="525.0" y="149" text-anchor="middle" font-size="9.5" fill="#444444">run 01-schema.sql,</text>
+  <text x="525.0" y="163" text-anchor="middle" font-size="9.5" fill="#444444">create login, demo data</text>
+  <rect x="675" y="100" width="140" height="100" rx="9" fill="#f1f1f1" stroke="#777777" stroke-width="1.5"/>
+  <text x="745.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">db-init exits 0</text>
+  <text x="745.0" y="135" text-anchor="middle" font-size="9.5" fill="#444444">"service_completed_</text>
+  <text x="745.0" y="149" text-anchor="middle" font-size="9.5" fill="#444444">successfully" is true</text>
+  <text x="745.0" y="163" text-anchor="middle" font-size="9.5" fill="#444444">the DB is ready</text>
+  <rect x="895" y="100" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="965.0" y="118" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">api starts</text>
+  <text x="965.0" y="135" text-anchor="middle" font-size="9.5" fill="#7f4e00">reads BTAL_SQLSERVER,</text>
+  <text x="965.0" y="149" text-anchor="middle" font-size="9.5" fill="#7f4e00">listens on 8080, no</text>
+  <text x="965.0" y="163" text-anchor="middle" font-size="9.5" fill="#7f4e00">migration (Production)</text>
+  <line x1="155" y1="150.0" x2="233" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="195.0" y="122.0" text-anchor="middle" font-size="9" fill="#333">sqlcmd</text>
+  <text x="195.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">SELECT 1</text>
+  <text x="195.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">ok?</text>
+  <line x1="375" y1="150.0" x2="453" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="415.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">depends_on:</text>
+  <text x="415.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">service_healthy</text>
+  <line x1="595" y1="150.0" x2="673" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="635.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">init.sh</text>
+  <text x="635.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">exit code?</text>
+  <line x1="815" y1="150.0" x2="893" y2="150.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="855.0" y="133.0" text-anchor="middle" font-size="9" fill="#333">api</text>
+  <text x="855.0" y="144.0" text-anchor="middle" font-size="9" fill="#333">may start</text>
+  <rect x="235" y="270" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="305.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">api healthy</text>
+  <text x="305.0" y="305" text-anchor="middle" font-size="9.5" fill="#7f4e00">bash sends GET /health</text>
+  <text x="305.0" y="319" text-anchor="middle" font-size="9.5" fill="#7f4e00">to 127.0.0.1:8080;</text>
+  <text x="305.0" y="333" text-anchor="middle" font-size="9.5" fill="#7f4e00">status 200 = healthy</text>
+  <rect x="455" y="270" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="525.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">web starts</text>
+  <text x="525.0" y="305" text-anchor="middle" font-size="9.5" fill="#7f4e00">nginx on port 80</text>
+  <text x="525.0" y="319" text-anchor="middle" font-size="9.5" fill="#7f4e00">published as</text>
+  <text x="525.0" y="333" text-anchor="middle" font-size="9.5" fill="#7f4e00">localhost:${WEB_PORT}</text>
+  <rect x="675" y="270" width="140" height="100" rx="9" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="745.0" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">web healthy</text>
+  <text x="745.0" y="305" text-anchor="middle" font-size="9.5" fill="#7f4e00">stack is up: open</text>
+  <text x="745.0" y="319" text-anchor="middle" font-size="9.5" fill="#7f4e00">http://localhost:8080/</text>
+  <text x="745.0" y="333" text-anchor="middle" font-size="9.5" fill="#7f4e00">(default WEB_PORT)</text>
+  <line x1="375" y1="320.0" x2="453" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="415.0" y="303.0" text-anchor="middle" font-size="9" fill="#333">depends_on:</text>
+  <text x="415.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">service_healthy</text>
+  <line x1="595" y1="320.0" x2="673" y2="320.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="635.0" y="303.0" text-anchor="middle" font-size="9" fill="#333">wget</text>
+  <text x="635.0" y="314.0" text-anchor="middle" font-size="9" fill="#333">127.0.0.1/</text>
+  <polyline points="965.0,200 965.0,235 305.0,235 305.0,268" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="953.0" y="229" text-anchor="end" font-size="9" fill="#333">process is up, now wait for it to answer</text>
+  <rect x="15" y="270" width="175" height="100" rx="9" fill="#f1f1f1" stroke="#cc0000" stroke-width="2"/>
+  <text x="102.5" y="288" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">if db-init exits non-zero</text>
+  <text x="102.5" y="305" text-anchor="middle" font-size="9.5" fill="#444444">compose stops here: api and</text>
+  <text x="102.5" y="319" text-anchor="middle" font-size="9.5" fill="#444444">web are never started</text>
+  <text x="102.5" y="333" text-anchor="middle" font-size="9.5" fill="#444444">(we triggered this on</text>
+  <text x="102.5" y="347" text-anchor="middle" font-size="9.5" fill="#444444">purpose with a bad name)</text>
+  <polyline points="485,200 485,220 102,220 102,268" fill="none" stroke="#cc0000" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="112" y="262" text-anchor="start" font-size="9" fill="#990000">exit code is not 0</text>
+  <text x="40" y="410" font-size="10.5" fill="#444"><tspan font-weight="bold">Plain depends_on only waits for a container to start; </tspan>conditions (service_healthy, service_completed_successfully) wait until it is actually ready.</text>
+  <text x="40" y="428" font-size="10" font-style="italic" fill="#888">The migration is a step here (db-init), not something the API does at startup: Program.cs runs MigrateAsync only when the environment is Development.</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="800" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">React Fundamentals — Sub-level Flow overview: building a bank page piece by piece</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Each lesson adds one idea to the same bank example. The arrow says why the next idea is needed.</text>
+  <text x="300" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="300" y1="54" x2="300" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="300,54 300,72 330,63" fill="#38761d"/>
+  <line x1="300" y1="92" x2="300" y2="100" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="40" y="100" width="520" height="64" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="300.0" y="127.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">01-Jsx.jsx — JSX</text>
+  <text x="300.0" y="140.5" text-anchor="middle" font-size="9.5" fill="#333">markup written as JavaScript: { }, className, Fragment</text>
+  <line x1="300" y1="164" x2="300" y2="218" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="312" y="189.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">one big blob is hard to reuse: name the piece</text>
+  <rect x="40" y="218" width="520" height="64" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="300.0" y="245.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">02-Components.jsx — Components</text>
+  <text x="300.0" y="258.5" text-anchor="middle" font-size="9.5" fill="#333">a named function that returns JSX: AccountCard, AccountList</text>
+  <line x1="300" y1="282" x2="300" y2="336" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="312" y="307.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">a reusable piece needs different data each use</text>
+  <rect x="40" y="336" width="520" height="64" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="300.0" y="363.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">03-Props.jsx — Props</text>
+  <text x="300.0" y="376.5" text-anchor="middle" font-size="9.5" fill="#333">read-only inputs; defaults; children; a function passed down</text>
+  <line x1="300" y1="400" x2="300" y2="454" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="312" y="425.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">real data is many items: repeat the piece per item</text>
+  <rect x="40" y="454" width="520" height="64" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="300.0" y="481.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#8a5a10">04-ListsAndKeys.jsx — Lists and keys</text>
+  <text x="300.0" y="494.5" text-anchor="middle" font-size="9.5" fill="#333">map an array into rows; stable keys keep the right DOM</text>
+  <line x1="300" y1="518" x2="300" y2="572" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="312" y="543.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">each item may need to look different</text>
+  <rect x="40" y="572" width="520" height="64" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="300.0" y="599.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#4a2e73">05-ConditionalRendering.jsx — Conditional rendering</text>
+  <text x="300.0" y="612.5" text-anchor="middle" font-size="9.5" fill="#333">&amp;&amp;, ternary, null; the 0 &amp;&amp; gotcha</text>
+  <line x1="300" y1="636" x2="300" y2="664" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300" y="672" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="300" y1="680" x2="300" y2="720" stroke="#333" stroke-width="2"/>
+  <polygon points="300,680 300,698 330,689" fill="#cc0000"/>
+  <rect x="640" y="130" width="220" height="54" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="750.0" y="152.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1a4a73">JSX in your file</text>
+  <text x="750.0" y="165.5" text-anchor="middle" font-size="9.5" fill="#333">what you write</text>
+  <line x1="750" y1="184" x2="750" y2="244" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="760" y="212.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">compiled to</text>
+  <text x="760" y="223.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">function calls</text>
+  <rect x="640" y="244" width="220" height="54" rx="8" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="750.0" y="266.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#4a2e73">React elements</text>
+  <text x="750.0" y="279.5" text-anchor="middle" font-size="9.5" fill="#333">plain objects</text>
+  <line x1="750" y1="298" x2="750" y2="358" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="760" y="326.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">React reads</text>
+  <text x="760" y="337.0" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">the description</text>
+  <rect x="640" y="358" width="220" height="54" rx="8" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="750.0" y="380.0" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#555">Real DOM</text>
+  <text x="750.0" y="393.5" text-anchor="middle" font-size="9.5" fill="#333">what the browser draws</text>
+  <text x="750" y="118" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">Under every lesson:</text>
+  <text x="30" y="764" font-size="10.5" fill="#444"><tspan font-weight="bold">One example, five ideas: </tspan>a bank statement that becomes cards, then a list of accounts, then pages that adapt to the data.</text>
+  <text x="30" y="781" font-size="10" font-style="italic" fill="#888">No Console output here: a React lesson prints into the page itself, and ReactFundamentals.test.jsx checks what it shows.</text>
+</svg>

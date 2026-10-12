@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 882" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="882" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">POST and refresh — Flow: submit, 201, then update the list</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: you hand the clerk a filled-in form (JSON body) and the right label (Content-Type); they give back a receipt (201 + Location).</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">OpenAccountForm</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">AccountsPage (parent)</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser + Vite</text>
+  <rect x="831" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="958.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#e69138"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Submit</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#7f4e00">e.preventDefault(); sending = true</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#7f4e00">button shows "Sending…", is disabled</text>
+  <rect x="24" y="198" width="255" height="86" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="212" r="9" fill="#3d85c6"/><text x="38" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="159.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">fetch POST '/api/accounts'</text>
+  <text x="151.5" y="232" text-anchor="middle" font-size="9.5" fill="#1c4587">headers: Content-Type: application/json</text>
+  <text x="151.5" y="246" text-anchor="middle" font-size="9.5" fill="#1c4587">body: JSON.stringify({ customerId: 1, ...})</text>
+  <text x="151.5" y="260" text-anchor="middle" font-size="9.5" fill="#1c4587">customerId is Number(...), not text</text>
+  <line x1="151.5" y1="164" x2="151.5" y2="196" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="186" font-size="9.5" font-style="italic" fill="#444">JS builds the request</text>
+  <rect x="562" y="318" width="255" height="58" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="332" r="9" fill="#888888"/><text x="576" y="336" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="697.5" y="336" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">POST sent to the Vite server</text>
+  <text x="689.5" y="352" text-anchor="middle" font-size="9.5" fill="#444444">forwarded to the API (lesson 5)</text>
+  <polyline points="279,241.0 689.5,241.0 689.5,316" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="306" font-size="9.5" font-style="italic" fill="#444">request leaves</text>
+  <rect x="831" y="410" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="845" cy="424" r="9" fill="#888888"/><text x="845" y="428" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="966.5" y="428" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Validate, INSERT, answer 201</text>
+  <text x="958.5" y="444" text-anchor="middle" font-size="9.5" fill="#444444">Location: http://.../api/accounts/24</text>
+  <text x="958.5" y="458" text-anchor="middle" font-size="9.5" fill="#444444">body: the new account, balance 0.00</text>
+  <polyline points="817,347.0 958.5,347.0 958.5,408" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="966.5" y="398" font-size="9.5" font-style="italic" fill="#444">forwarded</text>
+  <rect x="24" y="516" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="530" r="9" fill="#3d85c6"/><text x="38" y="534" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="159.5" y="534" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">response.ok: read body + Location</text>
+  <text x="151.5" y="550" text-anchor="middle" font-size="9.5" fill="#1c4587">account = await response.json()</text>
+  <text x="151.5" y="564" text-anchor="middle" font-size="9.5" fill="#1c4587">response.headers.get('Location')</text>
+  <polyline points="831,446.0 151.5,446.0 151.5,514" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="504" font-size="9.5" font-style="italic" fill="#444">answer passed back</text>
+  <rect x="293" y="622" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="307" cy="636" r="9" fill="#e69138"/><text x="307" y="640" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="428.5" y="640" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">onCreated(account)</text>
+  <text x="420.5" y="656" text-anchor="middle" font-size="9.5" fill="#7f4e00">A) setAccounts([...list, account])</text>
+  <text x="420.5" y="670" text-anchor="middle" font-size="9.5" fill="#7f4e00">B) load(): GET /api/accounts again</text>
+  <polyline points="279,552.0 420.5,552.0 420.5,620" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="610" font-size="9.5" font-style="italic" fill="#444">form tells its parent</text>
+  <rect x="293" y="728" width="255" height="72" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="307" cy="742" r="9" fill="#674ea7"/><text x="307" y="746" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="428.5" y="746" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">Render: new row on the page</text>
+  <text x="420.5" y="762" text-anchor="middle" font-size="9.5" fill="#3d2a6b">A: no extra request (GET count stays)</text>
+  <text x="420.5" y="776" text-anchor="middle" font-size="9.5" fill="#3d2a6b">B: GET count + 1, list = server truth</text>
+  <line x1="420.5" y1="694" x2="420.5" y2="726" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="716" font-size="9.5" font-style="italic" fill="#444">state changed</text>
+  <text x="40" y="836" font-size="10" font-style="italic" fill="#888">Without the Content-Type header fetch labels a string body text/plain and the API answers 415 (the demo button shows it). A non-2xx answer</text>
+  <text x="40" y="854" font-size="10" font-style="italic" fill="#888">shows its title and detail (lesson 3). While sending, both buttons are disabled so one click cannot become two POSTs (the 2nd would be a 409).</text>
+</svg>

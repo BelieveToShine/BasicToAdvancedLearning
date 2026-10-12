@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 800" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="800" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Cleanup — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: BalanceWatcher after the account changed to ACC-1002, and a Clock after 2 seconds.</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="336" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BalanceWatcher (accountId = ACC-1002)</text>
+  <rect x="560" y="104" width="460" height="336" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">FEED (a made-up source outside React)</text>
+  <rect x="50" y="116" width="410" height="66" rx="10" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">PROPS</text>
+  <rect x="60" y="148" width="390" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="68" y="164.5" font-size="10" fill="#274e13">accountId = 'ACC-1002'</text>
+  <rect x="50" y="196" width="410" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <rect x="60" y="228" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="244.5" font-size="10" fill="#7f4e00">balance = null   (none yet)</text>
+  <rect x="50" y="276" width="410" height="110" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="296" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT  [accountId]</text>
+  <text x="255.0" y="312" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">the cleanup is the function the last effect run returned</text>
+  <rect x="60" y="322" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="338.5" font-size="10" fill="#1c4587">cleanup React kept: () =&gt; unsubscribe ACC-1002</text>
+  <rect x="60" y="352" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="368.5" font-size="10" fill="#1c4587">deps remembered: ['ACC-1002']</text>
+  <rect x="580" y="196" width="420" height="170" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">the feed</text>
+  <rect x="590" y="228" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="244.5" font-size="10" fill="#444444">listeners: { ACC-1001: [ ],  ACC-1002: [callback] }</text>
+  <rect x="590" y="258" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="274.5" font-size="10" fill="#444444">listenerCount() = 1</text>
+  <rect x="590" y="288" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="304.5" font-size="10" fill="#444444">history: subscribe 1001, unsubscribe 1001, subscribe 1002</text>
+  <line x1="460" y1="349" x2="578" y2="349" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="341" font-size="9.5" font-style="italic" fill="#444">effect: subscribe(...)</text>
+  <line x1="578" y1="227" x2="462" y2="227" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="219" font-size="9.5" font-style="italic" fill="#444">publish -&gt; setBalance</text>
+  <rect x="30" y="484" width="450" height="216" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="478" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">Clock</text>
+  <rect x="560" y="484" width="460" height="216" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="478" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BROWSER TIMERS (outside React)</text>
+  <rect x="50" y="496" width="410" height="66" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="516" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">STATE</text>
+  <rect x="60" y="528" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="544.5" font-size="10" fill="#7f4e00">seconds = 2</text>
+  <rect x="50" y="576" width="410" height="88" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="596" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">EFFECT  []</text>
+  <rect x="60" y="608" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="624.5" font-size="10" fill="#1c4587">cleanup React kept: () =&gt; clearInterval(id)</text>
+  <rect x="580" y="496" width="420" height="168" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="516" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">timers</text>
+  <rect x="590" y="528" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="544.5" font-size="10" fill="#444444">setInterval #1, every 1000 ms: setSeconds(s =&gt; s + 1)</text>
+  <rect x="590" y="558" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="574.5" font-size="10" fill="#444444">pending timers = 1</text>
+  <line x1="578" y1="527" x2="462" y2="527" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="519" font-size="9.5" font-style="italic" fill="#444">tick: setSeconds</text>
+  <line x1="460" y1="619" x2="578" y2="619" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="611" font-size="9.5" font-style="italic" fill="#444">effect: setInterval</text>
+  <text x="40" y="730" font-size="10" font-style="italic" fill="#888">React keeps each cleanup function next to its effect. When accountId changes, or the component is removed, React calls the kept function BEFORE anything new starts.</text>
+  <text x="40" y="748" font-size="10" font-style="italic" fill="#888">A leaky watcher would leave its callback in the feed after unmount, and that callback would still point at a component that is gone.</text>
+</svg>

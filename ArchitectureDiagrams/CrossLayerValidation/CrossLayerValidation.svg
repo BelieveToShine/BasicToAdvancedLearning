@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 630" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="630" fill="#ffffff"/>
+  <text x="525.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">CrossLayerValidation — Architecture: three layers, one result object, five lessons</text>
+  <text x="525.0" y="38" text-anchor="middle" font-size="11" fill="#666">The browser, the API and the database each check; the page turns whatever comes back into the right message. Numbers 01-05 are the lesson files.</text>
+  <g font-size="10.5" fill="#333"><rect x="40" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="60" y="61">A check or rule runs</text></g>
+  <g font-size="10.5" fill="#333"><rect x="186.0" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="206.0" y="61">Request / user action</text></g>
+  <g font-size="10.5" fill="#333"><rect x="337.6" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="357.6" y="61">Stored / decided value</text></g>
+  <g font-size="10.5" fill="#333"><rect x="494.8" y="50" width="14" height="14" rx="2" fill="#f4cccc" stroke="#cc0000"/><text x="514.8" y="61">Refusal (error answer)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="652.0" y="50" width="14" height="14" rx="2" fill="#d9ead3" stroke="#6aa84f"/><text x="672.0" y="61">Allowed</text></g>
+  <g font-size="10.5" fill="#333"><rect x="725.2" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="745.2" y="61">Screen</text></g>
+  <rect x="40" y="90" width="300" height="96" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="190.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">BROWSER layer (lesson 01)</text>
+  <text x="190.0" y="125" text-anchor="middle" font-size="9.5" fill="#333">checkTransactionInBrowser, checkAccountInBrowser</text>
+  <text x="190.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">quick and friendly; can be skipped</text>
+  <text x="190.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">by a raw fetch, curl or a script</text>
+  <rect x="375" y="90" width="300" height="96" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="525.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">API layer (lessons 01-03)</text>
+  <text x="525.0" y="125" text-anchor="middle" font-size="9.5" fill="#333">[ApiController] + data annotations:</text>
+  <text x="525.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">400 before the action runs; 404, 409, 422</text>
+  <text x="525.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">ProblemDetails with title, detail, traceId</text>
+  <rect x="710" y="90" width="300" height="96" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.8"/>
+  <text x="860.0" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DATABASE layer (lesson 01)</text>
+  <text x="860.0" y="125" text-anchor="middle" font-size="9.5" fill="#333">UNIQUE index, CHECK, FOREIGN KEY</text>
+  <text x="860.0" y="140" text-anchor="middle" font-size="9.5" fill="#333">SQL errors 2601 / 547 -&gt; API answers 409</text>
+  <text x="860.0" y="155" text-anchor="middle" font-size="9.5" fill="#333">anything else -&gt; 500 without internals</text>
+  <line x1="340" y1="138" x2="373" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="357" y="130" text-anchor="middle" font-size="9" font-style="italic" fill="#555">fetch</text>
+  <line x1="675" y1="138" x2="708" y2="138" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="692" y="130" text-anchor="middle" font-size="9" font-style="italic" fill="#555">SQL</text>
+  <rect x="250" y="250" width="550" height="110" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.8"/>
+  <text x="525.0" y="268" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">bankApi.jsx - one result object for every answer</text>
+  <text x="525.0" y="285" text-anchor="middle" font-size="9.5" fill="#333">callApi(method, url, body) never throws: {network, ok, status, data, problem}</text>
+  <text x="525.0" y="300" text-anchor="middle" font-size="9.5" fill="#333">classify(result): field | business | conflict | notFound | server | gateway | network</text>
+  <text x="525.0" y="315" text-anchor="middle" font-size="9.5" fill="#333">splitProblemErrors(problem, fields): {byField, general}   friendlyMessage(result)</text>
+  <text x="525.0" y="330" text-anchor="middle" font-size="9.5" fill="#333">useAccounts(), ApiDown: "API not reachable - start it (see FullStackBank/README.md)"</text>
+  <line x1="525" y1="186" x2="525" y2="248" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="533" y="220" font-size="9" font-style="italic" fill="#555">HTTP answer (or none)</text>
+  <rect x="40" y="430" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="135.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">02 Field errors</text>
+  <text x="135.0" y="465" text-anchor="middle" font-size="9.5" fill="#333">400: message next to</text>
+  <text x="135.0" y="480" text-anchor="middle" font-size="9.5" fill="#333">the input, aria-invalid,</text>
+  <text x="135.0" y="495" text-anchor="middle" font-size="9.5" fill="#333">aria-describedby</text>
+  <rect x="250" y="430" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="345.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">03 Business rules</text>
+  <text x="345.0" y="465" text-anchor="middle" font-size="9.5" fill="#333">422 / 409: one message</text>
+  <text x="345.0" y="480" text-anchor="middle" font-size="9.5" fill="#333">for the whole form;</text>
+  <text x="345.0" y="495" text-anchor="middle" font-size="9.5" fill="#333">status picks the box</text>
+  <rect x="460" y="430" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="555.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">04 Unexpected</text>
+  <text x="555.0" y="465" text-anchor="middle" font-size="9.5" fill="#333">500 / 502 / network:</text>
+  <text x="555.0" y="480" text-anchor="middle" font-size="9.5" fill="#333">generic sentence;</text>
+  <text x="555.0" y="495" text-anchor="middle" font-size="9.5" fill="#333">ErrorBoundary for renders</text>
+  <rect x="670" y="430" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="765.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">05 Loading and retry</text>
+  <text x="765.0" y="465" text-anchor="middle" font-size="9.5" fill="#333">pending + ref guard,</text>
+  <text x="765.0" y="480" text-anchor="middle" font-size="9.5" fill="#333">Try again after failure,</text>
+  <text x="765.0" y="495" text-anchor="middle" font-size="9.5" fill="#333">no double deposit</text>
+  <rect x="880" y="430" width="130" height="84" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="945.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">01 Three layers</text>
+  <text x="945.0" y="465" text-anchor="middle" font-size="9.5" fill="#333">cards + table of</text>
+  <text x="945.0" y="480" text-anchor="middle" font-size="9.5" fill="#333">who said no</text>
+  <polyline points="330,360 330,395 135,395 135,428" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="345" y1="360" x2="345" y2="428" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="525,360 525,428" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="700,360 700,395 765,395 765,428" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="780,360 780,380 945,380 945,428" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="143" y="412" font-size="9" font-style="italic" fill="#555">status 400, errors</text>
+  <text x="352" y="412" font-size="9" font-style="italic" fill="#555">status 422 / 409</text>
+  <text x="533" y="412" font-size="9" font-style="italic" fill="#555">5xx, network</text>
+  <text x="727" y="412" text-anchor="end" font-size="9" font-style="italic" fill="#555">any answer</text>
+  <text x="953" y="372" text-anchor="middle" font-size="9" font-style="italic" fill="#555">all answers</text>
+  <text x="40" y="570" font-size="10.5" fill="#444"><tspan font-weight="bold">Lesson files: </tspan>01-ThreeLayers, 02-FieldErrorsFromProblemDetails, 03-BusinessRuleErrors, 04-UnexpectedErrors, 05-LoadingRetryAndDoubleSubmit</text>
+  <text x="40" y="588" font-size="10" font-style="italic" fill="#888">(src/lessons/CrossLayerValidation/); bankApi.jsx is shared, not a lesson. CrossLayerValidation.test.jsx proves the claims; the lessons call the real FullStackBank API through /api.</text>
+  <text x="40" y="606" font-size="10" font-style="italic" fill="#888">The whole page chain: a message appears where the status code says it belongs; the English text of an error is never parsed.</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 410" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="410" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Router: Sub-level Flow: a switchboard operator</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">The URL is the number dialled; the router is the operator who connects the call to a component. Lessons 2-5 add tools.</text>
+  <g font-size="11" fill="#333"><rect x="235.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="255.0" y="71">browser / user</text></g>
+  <g font-size="11" fill="#333"><rect x="359.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="379.0" y="71">router state</text></g>
+  <g font-size="11" fill="#333"><rect x="471.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="491.0" y="71">computed by the router</text></g>
+  <g font-size="11" fill="#333"><rect x="643.0" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="663.0" y="71">your component / DOM output</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Step A: URL changes</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">click on a Link, code calls</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">navigate(), or the page opens</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Step B: router location</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">pathname, search, state</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">kept in memory (MemoryRouter)</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Step C: &lt;Routes&gt; matches</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">the first Route whose path</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">fits the URL wins</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Step D: element on screen</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">only the changed part of</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">the DOM is updated</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Lesson 2: Params</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">/accounts/:id -&gt; useParams()</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">id is a string</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Lesson 3: Nested + layout</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">parent Route draws a frame</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">with &lt;Outlet /&gt;</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Lesson 4: Code + query</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">useNavigate, NavLink,</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">useSearchParams</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Lesson 5: Guard</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">&lt;Navigate replace&gt; when</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">not logged in (UX only)</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">router stores</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">compare with</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">renders its</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">lessons 2-5 extend this</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">builds on</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">builds on</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">builds on</text>
+  <text x="40" y="386" font-size="10.5" font-style="italic" fill="#777">Top row, Steps A-D = lesson 1 (one pipeline for every URL change). Bottom row = what lessons 2 to 5 add to that same pipeline.</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 654" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="654" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Custom hooks — Flow: one function, two callers, two private copies of the state</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: one recipe card (useFetch), two kitchens. Each kitchen cooks its own dish; changing one does not change the other.</text>
+  <rect x="30" y="56" width="840" height="40" rx="10" fill="#ffffff" stroke="#999999" stroke-width="1.6"/>
+  <text x="450.0" y="76" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333"></text>
+  <text x="450" y="73" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">useFetch(url) is written ONCE.   useAccounts() = useFetch('/api/accounts').</text>
+  <text x="450" y="88" text-anchor="middle" font-size="10" fill="#555">Every call below runs useState + useEffect again for that caller.</text>
+  <rect x="30" y="130" width="400" height="76" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="230.0" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">AccountsTable</text>
+  <rect x="40" y="162" width="380" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="48" y="178.5" font-size="10" fill="#3d2a6b">const { status, data, error, reload } = useAccounts();</text>
+  <rect x="30" y="260" width="400" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="230.0" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">useFetch instance — private to AccountsTable</text>
+  <rect x="40" y="292" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="308.5" font-size="10" fill="#7f4e00">state: { status: 'success', data: [2 accounts] }</text>
+  <rect x="40" y="322" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="338.5" font-size="10" fill="#7f4e00">reloadCount = 1   (Reload clicked once)</text>
+  <rect x="40" y="352" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="368.5" font-size="10" fill="#7f4e00">effect deps: [url, reloadCount]</text>
+  <line x1="90" y1="206" x2="90" y2="258" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="98" y="235" font-size="9.5" font-style="italic" fill="#444">calls useAccounts()</text>
+  <line x1="330" y1="260" x2="330" y2="208" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="322" y="235" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">returns { status, data, ... }</text>
+  <rect x="470" y="130" width="400" height="76" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="670.0" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">TotalBalance</text>
+  <rect x="480" y="162" width="380" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="488" y="178.5" font-size="10" fill="#3d2a6b">const total = data.reduce(...)   (calculated in render)</text>
+  <rect x="470" y="260" width="400" height="126" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="670.0" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">useFetch instance — private to TotalBalance</text>
+  <rect x="480" y="292" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="488" y="308.5" font-size="10" fill="#7f4e00">state: { status: 'success', data: [2 accounts] }</text>
+  <rect x="480" y="322" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="488" y="338.5" font-size="10" fill="#7f4e00">reloadCount = 0   (never reloaded)</text>
+  <rect x="480" y="352" width="380" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="488" y="368.5" font-size="10" fill="#7f4e00">effect deps: [url, reloadCount]</text>
+  <line x1="530" y1="206" x2="530" y2="258" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="538" y="235" font-size="9.5" font-style="italic" fill="#444">calls useAccounts()</text>
+  <line x1="770" y1="260" x2="770" y2="208" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="762" y="235" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">returns { status, data, ... }</text>
+  <rect x="30" y="440" width="840" height="126" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="450.0" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">WEB API — requests made in the test (fetch called 3 times)</text>
+  <rect x="40" y="472" width="820" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="48" y="488.5" font-size="10" fill="#444444">#1  GET /api/accounts   from AccountsTable on mount</text>
+  <rect x="40" y="502" width="820" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="48" y="518.5" font-size="10" fill="#444444">#2  GET /api/accounts   from TotalBalance on mount</text>
+  <rect x="40" y="532" width="820" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="48" y="548.5" font-size="10" fill="#444444">#3  GET /api/accounts   from AccountsTable after "Reload the table"</text>
+  <line x1="90" y1="386" x2="90" y2="438" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="98" y="418" font-size="9.5" font-style="italic" fill="#444">effect: fetch('/api/accounts')</text>
+  <line x1="330" y1="440" x2="330" y2="388" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="322" y="418" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">answer: setState</text>
+  <line x1="530" y1="386" x2="530" y2="438" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="538" y="418" font-size="9.5" font-style="italic" fill="#444">effect: fetch('/api/accounts')</text>
+  <line x1="770" y1="440" x2="770" y2="388" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="762" y="418" text-anchor="end" font-size="9.5" font-style="italic" fill="#444">answer: setState</text>
+  <text x="40" y="598" font-size="10" font-style="italic" fill="#888">Reloading the table made request #3 only: the total did not ask again and kept its own data (proved in the tests).</text>
+  <text x="40" y="616" font-size="10" font-style="italic" fill="#888">In development StrictMode runs each effect twice, so the page itself makes 4 requests; the first answer of each hook is ignored.</text>
+  <text x="40" y="634" font-size="10" font-style="italic" fill="#888">Colours: purple = render / calculated values, orange = state, blue = effect or cleanup, grey dashed = DOM / browser / outside React.</text>
+</svg>

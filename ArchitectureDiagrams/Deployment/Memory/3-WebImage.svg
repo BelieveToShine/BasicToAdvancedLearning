@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 522" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="522" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Deployment — Step 3: Build the web image — Memory: where configuration and data live</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot after `docker compose build web`: Node builds the files, nginx serves them; the proxy target lives in a file inside the image.</text>
+  <g font-size="11" fill="#333"><rect x="88" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="108" y="71">FILES on your computer</text></g>
+  <g font-size="11" fill="#333"><rect x="276" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="296" y="71">IMAGE layers (read-only)</text></g>
+  <g font-size="11" fill="#333"><rect x="476" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="496" y="71">ENVIRONMENT of a running container</text></g>
+  <g font-size="11" fill="#333"><rect x="738" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="758" y="71">VOLUME (outlives containers)</text></g>
+  <rect x="15" y="92" width="132" height="78" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="119.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">FILES</text>
+  <text x="81" y="133.0" text-anchor="middle" font-size="9.5" fill="#274e13">on your computer</text>
+  <text x="81" y="147.0" text-anchor="middle" font-size="9.5" fill="#274e13">(the repository)</text>
+  <rect x="15" y="210" width="132" height="106" rx="8" fill="#efe9f8" stroke="#674ea7" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="251.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">IMAGE LAYERS</text>
+  <text x="81" y="265.0" text-anchor="middle" font-size="9.5" fill="#3d2a6b">built once,</text>
+  <text x="81" y="279.0" text-anchor="middle" font-size="9.5" fill="#3d2a6b">read-only</text>
+  <rect x="15" y="356" width="132" height="106" rx="8" fill="#fff3e6" stroke="#e69138" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="81" y="397.0" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">ENVIRONMENT</text>
+  <text x="81" y="411.0" text-anchor="middle" font-size="9.5" fill="#7f4e00">of the running</text>
+  <text x="81" y="425.0" text-anchor="middle" font-size="9.5" fill="#7f4e00">containers</text>
+  <rect x="160" y="96" width="190" height="70" rx="9" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="170" y="114" font-size="10.5" font-weight="bold" fill="#274e13">frontend/</text>
+  <text x="170" y="131" font-size="9" fill="#274e13">src/, package.json,</text>
+  <text x="170" y="145" font-size="9" fill="#274e13">package-lock.json</text>
+  <rect x="386" y="96" width="190" height="70" rx="9" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="396" y="114" font-size="10.5" font-weight="bold" fill="#274e13">nginx.conf</text>
+  <text x="396" y="131" font-size="9" fill="#274e13">location /api/ -&gt; api:8080</text>
+  <text x="396" y="145" font-size="9" fill="#274e13">location / -&gt; index.html</text>
+  <rect x="612" y="96" width="190" height="70" rx="9" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="622" y="114" font-size="10.5" font-weight="bold" fill="#274e13">Dockerfile.web</text>
+  <text x="622" y="131" font-size="9" fill="#274e13">FROM node AS build ...</text>
+  <text x="622" y="145" font-size="9" fill="#274e13">FROM nginx AS runtime ...</text>
+  <rect x="160" y="214" width="190" height="98" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="170" y="232" font-size="10.5" font-weight="bold" fill="#3d2a6b">stage 1 "build"</text>
+  <text x="170" y="249" font-size="9" fill="#3d2a6b">node:22-alpine; npm ci -&gt;</text>
+  <text x="170" y="263" font-size="9" fill="#3d2a6b">node_modules</text>
+  <text x="170" y="277" font-size="9" fill="#3d2a6b">npm run build -&gt; /app/dist</text>
+  <text x="170" y="291" font-size="9" fill="#3d2a6b">DISCARDED after the build</text>
+  <rect x="386" y="214" width="190" height="98" rx="9" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="396" y="232" font-size="10.5" font-weight="bold" fill="#3d2a6b">Web image = stage 2</text>
+  <text x="396" y="249" font-size="9" fill="#3d2a6b">nginx:alpine; html/ = dist,</text>
+  <text x="396" y="263" font-size="9" fill="#3d2a6b">conf.d/default.conf = nginx.conf</text>
+  <text x="396" y="277" font-size="9" fill="#3d2a6b">no Node, no source code</text>
+  <rect x="386" y="360" width="190" height="98" rx="9" fill="#f9cb9c" stroke="#cc0000" stroke-width="2"/>
+  <text x="396" y="378" font-size="10.5" font-weight="bold" fill="#7f4e00">web container (at run time)</text>
+  <text x="396" y="395" font-size="9" fill="#7f4e00">no environment settings needed:</text>
+  <text x="396" y="409" font-size="9" fill="#7f4e00">the proxy target api:8080 is in</text>
+  <text x="396" y="423" font-size="9" fill="#7f4e00">nginx.conf; WEB_PORT only picks</text>
+  <text x="396" y="437" font-size="9" fill="#7f4e00">the published port</text>
+  <line x1="260" y1="166" x2="260" y2="212" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="268" y="193.0" text-anchor="start" font-size="9" fill="#333">COPY</text>
+  <line x1="486" y1="166" x2="486" y2="212" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="494" y="193.0" text-anchor="start" font-size="9" fill="#333">COPY</text>
+  <line x1="350" y1="263.0" x2="384" y2="263.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="368.0" y="257.0" text-anchor="middle" font-size="8.5" fill="#333">dist/</text>
+  <line x1="486" y1="312" x2="486" y2="358" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="494" y="339.0" text-anchor="start" font-size="9" fill="#333">docker compose up</text>
+  <text x="40" y="484" font-size="10.5" fill="#444"><tspan font-weight="bold">Configuration as a file: </tspan>the address of the API (api:8080) is part of nginx.conf and so part of the image; the React code itself contains no server address.</text>
+  <text x="40" y="502" font-size="10" font-style="italic" fill="#888">The image is about 94 MB.</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 648" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="648" fill="#ffffff"/>
+  <text x="525" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">ReactState — Memory overview: where the data lives</text>
+  <text x="525" y="46" text-anchor="middle" font-size="12" fill="#666">One concrete instant from each lesson (values taken from the lesson tests). Data flows left to right: state/props, then derived values, then the DOM.</text>
+  <g font-size="11" fill="#333"><rect x="60" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="80" y="71">State (kept by React)</text></g>
+  <g font-size="11" fill="#333"><rect x="236" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="256" y="71">Props (read-only, from parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="466" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="486" y="71">Derived / this-render values</text></g>
+  <g font-size="11" fill="#333"><rect x="684" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="4 3"/><text x="704" y="71">DOM / browser</text></g>
+  <text x="125.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">LESSON</text>
+  <text x="385.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a10">STATE — kept by React</text>
+  <text x="645.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3d2a6b">DERIVED or PROPS</text>
+  <text x="915.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="810" y="116" width="210" height="420" rx="10" fill="#f4f4f4" stroke="#888888" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="915.0" y="130" text-anchor="middle" font-size="10" font-weight="bold" fill="#555">DOM (browser)</text>
+  <rect x="30" y="132" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="148" font-size="10" font-weight="bold" fill="#333333">01 useState</text>
+  <text x="38" y="163" font-size="10" fill="#333333">balance survives renders</text>
+  <rect x="290" y="132" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="148" font-size="10" font-weight="bold" fill="#7f4e00">balance = 120</text>
+  <text x="298" y="163" font-size="10" fill="#7f4e00">(kept between renders)</text>
+  <text x="820" y="154" font-size="10" fill="#333">State balance: 120</text>
+  <line x1="480" y1="162.0" x2="808" y2="162.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="644.0" y="157.0" text-anchor="middle" font-size="9" fill="#555">shown as</text>
+  <rect x="30" y="216" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="232" font-size="10" font-weight="bold" fill="#333333">02 Event handlers</text>
+  <text x="38" y="247" font-size="10" fill="#333333">handlers call the setters</text>
+  <rect x="290" y="216" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="232" font-size="10" font-weight="bold" fill="#7f4e00">note = "hello"</text>
+  <text x="298" y="247" font-size="10" fill="#7f4e00">log = 7 lines</text>
+  <text x="820" y="238" font-size="10" fill="#333">input: hello</text>
+  <text x="820" y="253" font-size="10" fill="#333">Event log: 7 &lt;li&gt;</text>
+  <line x1="480" y1="246.0" x2="808" y2="246.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="644.0" y="241.0" text-anchor="middle" font-size="9" fill="#555">shown as</text>
+  <rect x="30" y="300" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="316" font-size="10" font-weight="bold" fill="#333333">03 State updates</text>
+  <text x="38" y="331" font-size="10" fill="#333333">a render sees a snapshot</text>
+  <rect x="290" y="300" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="316" font-size="10" font-weight="bold" fill="#7f4e00">balance = 130</text>
+  <text x="298" y="331" font-size="10" fill="#7f4e00">after click 2b: 3 queued</text>
+  <text x="298" y="346" font-size="10" fill="#7f4e00">updates applied, 1 render</text>
+  <text x="820" y="322" font-size="10" fill="#333">Balance: 130</text>
+  <line x1="480" y1="330.0" x2="808" y2="330.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="644.0" y="325.0" text-anchor="middle" font-size="9" fill="#555">shown as</text>
+  <rect x="30" y="384" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="400" font-size="10" font-weight="bold" fill="#333333">04 Controlled inputs</text>
+  <text x="38" y="415" font-size="10" fill="#333333">message is not stored</text>
+  <rect x="290" y="384" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="400" font-size="10" font-weight="bold" fill="#7f4e00">text = "abc"</text>
+  <text x="298" y="415" font-size="10" fill="#7f4e00">submitted = true</text>
+  <rect x="550" y="384" width="190" height="60" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="558" y="400" font-size="10" font-weight="bold" fill="#3d2a6b">message =</text>
+  <text x="558" y="415" font-size="10" fill="#3d2a6b">"Enter a number like</text>
+  <text x="558" y="430" font-size="10" fill="#3d2a6b">25 or 25.50 ..."</text>
+  <text x="820" y="406" font-size="10" fill="#333">alert: Enter a number</text>
+  <text x="820" y="421" font-size="10" fill="#333">like 25 or 25.50...</text>
+  <line x1="480" y1="414.0" x2="548" y2="414.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="409.0" text-anchor="middle" font-size="9" fill="#555">validate</text>
+  <line x1="740" y1="414.0" x2="808" y2="414.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="774.0" y="409.0" text-anchor="middle" font-size="9" fill="#555">shown as</text>
+  <rect x="30" y="468" width="190" height="60" rx="8" fill="#eeeeee" stroke="#999999" stroke-width="1.5"/>
+  <text x="38" y="484" font-size="10" font-weight="bold" fill="#333333">05 Objects and arrays</text>
+  <text x="38" y="499" font-size="10" fill="#333333">parent owns the array</text>
+  <rect x="290" y="468" width="190" height="60" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="298" y="484" font-size="10" font-weight="bold" fill="#7f4e00">accounts = [Asha 110,</text>
+  <text x="298" y="499" font-size="10" fill="#7f4e00"> Ben 250] (new array)</text>
+  <rect x="550" y="468" width="190" height="60" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="558" y="484" font-size="10" font-weight="bold" fill="#274e13">children get accounts</text>
+  <text x="558" y="499" font-size="10" fill="#274e13">as a read-only prop</text>
+  <text x="820" y="490" font-size="10" fill="#333">Asha Rao: 110</text>
+  <text x="820" y="505" font-size="10" fill="#333">Total: 360</text>
+  <line x1="480" y1="498.0" x2="548" y2="498.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="514.0" y="493.0" text-anchor="middle" font-size="9" fill="#555">passed down</text>
+  <line x1="740" y1="498.0" x2="808" y2="498.0" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="774.0" y="493.0" text-anchor="middle" font-size="9" fill="#555">shown as</text>
+  <text x="30" y="570" font-size="10.5" fill="#444"><tspan font-weight="bold">State lives in React, tied to the component; </tspan>props are passed down read-only from the parent; derived values are rebuilt on every render.</text>
+  <text x="30" y="588" font-size="10" font-style="italic" fill="#888">The DOM is the browser's copy of what the last render produced; it is updated by React, never edited by the lesson code.</text>
+</svg>

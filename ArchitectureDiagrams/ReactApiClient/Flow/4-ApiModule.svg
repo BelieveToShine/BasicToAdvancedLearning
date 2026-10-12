@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 974" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="974" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">API module — Flow: a 409 travels from the server to the screen as an ApiError</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: api.js is the post office counter: components hand over a parcel and get back either the answer or a standard "return to sender" note.</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">OpenAccountPanel</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">api.js</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser + Vite</text>
+  <rect x="831" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="958.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#e69138"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">submit: api.createAccount(form)</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#7f4e00">no fetch, no URL, no header here</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#7f4e00">try { await ... } catch (err)</text>
+  <rect x="293" y="198" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="307" cy="212" r="9" fill="#3d85c6"/><text x="307" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="428.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">request("POST", "/accounts", body)</text>
+  <text x="420.5" y="232" text-anchor="middle" font-size="9.5" fill="#1c4587">Accept + Content-Type headers</text>
+  <text x="420.5" y="246" text-anchor="middle" font-size="9.5" fill="#1c4587">JSON.stringify(body)</text>
+  <polyline points="279,128.0 420.5,128.0 420.5,196" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="186" font-size="9.5" font-style="italic" fill="#444">the only place that calls fetch</text>
+  <rect x="562" y="304" width="255" height="58" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="318" r="9" fill="#888888"/><text x="576" y="322" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="697.5" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch('/api/accounts', ...)</text>
+  <text x="689.5" y="338" text-anchor="middle" font-size="9.5" fill="#444444">forwarded to the API by the proxy</text>
+  <polyline points="548,234.0 689.5,234.0 689.5,302" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="292" font-size="9.5" font-style="italic" fill="#444">request leaves</text>
+  <rect x="831" y="396" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="845" cy="410" r="9" fill="#888888"/><text x="845" y="414" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="966.5" y="414" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Duplicate account number: 409</text>
+  <text x="958.5" y="430" text-anchor="middle" font-size="9.5" fill="#444444">application/problem+json</text>
+  <text x="958.5" y="444" text-anchor="middle" font-size="9.5" fill="#444444">title 'Duplicate value'</text>
+  <polyline points="817,333.0 958.5,333.0 958.5,394" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="966.5" y="384" font-size="9.5" font-style="italic" fill="#444">forwarded</text>
+  <rect x="293" y="502" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="307" cy="516" r="9" fill="#3d85c6"/><text x="307" y="520" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="428.5" y="520" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">readBody, then ok is false</text>
+  <text x="420.5" y="536" text-anchor="middle" font-size="9.5" fill="#1c4587">errorFromResponse(response, data)</text>
+  <text x="420.5" y="550" text-anchor="middle" font-size="9.5" fill="#1c4587">kind = conflict, status = 409</text>
+  <polyline points="831,432.0 420.5,432.0 420.5,500" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="490" font-size="9.5" font-style="italic" fill="#444">answer passed back</text>
+  <rect x="293" y="608" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="307" cy="622" r="9" fill="#3d85c6"/><text x="307" y="626" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="428.5" y="626" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">throw new ApiError({...})</text>
+  <text x="420.5" y="642" text-anchor="middle" font-size="9.5" fill="#1c4587">kind, status, title, detail,</text>
+  <text x="420.5" y="656" text-anchor="middle" font-size="9.5" fill="#1c4587">fieldErrors, traceId</text>
+  <line x1="420.5" y1="574" x2="420.5" y2="606" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="596" font-size="9.5" font-style="italic" fill="#444">same shape for every failure</text>
+  <rect x="24" y="714" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="728" r="9" fill="#e69138"/><text x="38" y="732" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="159.5" y="732" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">catch (err): setError(err)</text>
+  <text x="151.5" y="748" text-anchor="middle" font-size="9.5" fill="#7f4e00">err instanceof ApiError: true</text>
+  <text x="151.5" y="762" text-anchor="middle" font-size="9.5" fill="#7f4e00">state error = the ApiError</text>
+  <polyline points="293,644.0 151.5,644.0 151.5,712" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="702" font-size="9.5" font-style="italic" fill="#444">rejected promise</text>
+  <rect x="24" y="820" width="255" height="72" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="38" cy="834" r="9" fill="#674ea7"/><text x="38" y="838" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">8</text>
+  <text x="159.5" y="838" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">ErrorView reads err.kind</text>
+  <text x="151.5" y="854" text-anchor="middle" font-size="9.5" fill="#3d2a6b">shows: 'Duplicate value — ... (status 409)'</text>
+  <text x="151.5" y="868" text-anchor="middle" font-size="9.5" fill="#3d2a6b">validation would list fieldErrors</text>
+  <line x1="151.5" y1="786" x2="151.5" y2="818" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="808" font-size="9.5" font-style="italic" fill="#444">render</text>
+  <text x="40" y="928" font-size="10" font-style="italic" fill="#888">A rejected fetch becomes ApiError kind network (status 0); a plain-text 502/503/504 also becomes network (the dev proxy, API down); a TypeError from a bug</text>
+  <text x="40" y="946" font-size="10" font-style="italic" fill="#888">in our own code is NOT an ApiError and is labelled "Unexpected error in the front end". Success returns { status, data, location }; 204 gives data null.</text>
+</svg>

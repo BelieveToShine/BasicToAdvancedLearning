@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 988" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1110" height="988" fill="#ffffff"/>
+  <text x="555.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Status codes in the UI — Flow: the lab's "422" button, call by call</text>
+  <text x="555.0" y="38" text-anchor="middle" font-size="11" fill="#666">Metaphor: the answer has a stamp (status) that decides which desk it goes to; the body is the paperwork behind the stamp.</text>
+  <rect x="24" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="151.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">StatusLab component</text>
+  <rect x="293" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="420.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Browser + Vite</text>
+  <rect x="562" y="50" width="255" height="22" rx="6" fill="#eef1f6" stroke="#999" stroke-width="1.2"/>
+  <text x="689.5" y="65" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333">Bank Web API</text>
+  <rect x="24" y="92" width="255" height="72" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <circle cx="38" cy="106" r="9" fill="#e69138"/><text x="38" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <text x="159.5" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Click "422"</text>
+  <text x="151.5" y="126" text-anchor="middle" font-size="9.5" fill="#7f4e00">SCENARIOS[422]() runs three real calls</text>
+  <text x="151.5" y="140" text-anchor="middle" font-size="9.5" fill="#7f4e00">running = "422"</text>
+  <rect x="562" y="198" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="212" r="9" fill="#888888"/><text x="576" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <text x="697.5" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Setup: POST /api/accounts</text>
+  <text x="689.5" y="232" text-anchor="middle" font-size="9.5" fill="#444444">answer 201: new account, balance 0.00</text>
+  <text x="689.5" y="246" text-anchor="middle" font-size="9.5" fill="#444444">(a fresh account has no money)</text>
+  <polyline points="279,128.0 689.5,128.0 689.5,196" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="186" font-size="9.5" font-style="italic" fill="#444">1st call via fetch + proxy</text>
+  <rect x="562" y="304" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="318" r="9" fill="#888888"/><text x="576" y="322" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <text x="697.5" y="322" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">POST .../transactions</text>
+  <text x="689.5" y="338" text-anchor="middle" font-size="9.5" fill="#444444">body: { kind: Withdrawal, amount: 10 }</text>
+  <text x="689.5" y="352" text-anchor="middle" font-size="9.5" fill="#444444">valid request, account exists</text>
+  <line x1="689.5" y1="270" x2="689.5" y2="302" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="292" font-size="9.5" font-style="italic" fill="#444">2nd call</text>
+  <rect x="562" y="410" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="424" r="9" fill="#888888"/><text x="576" y="428" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <text x="697.5" y="428" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Business rule says no: 422</text>
+  <text x="689.5" y="444" text-anchor="middle" font-size="9.5" fill="#444444">Content-Type: application/problem+json</text>
+  <text x="689.5" y="458" text-anchor="middle" font-size="9.5" fill="#444444">title 'Insufficient funds', detail text</text>
+  <line x1="689.5" y1="376" x2="689.5" y2="408" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="398" font-size="9.5" font-style="italic" fill="#444">API checks the balance</text>
+  <rect x="293" y="516" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="307" cy="530" r="9" fill="#888888"/><text x="307" y="534" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <text x="428.5" y="534" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">fetch RESOLVES: 422 is an answer</text>
+  <text x="420.5" y="550" text-anchor="middle" font-size="9.5" fill="#444444">status 422, response.ok false</text>
+  <text x="420.5" y="564" text-anchor="middle" font-size="9.5" fill="#444444">nothing was rejected</text>
+  <polyline points="562,446.0 420.5,446.0 420.5,514" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="428.5" y="504" font-size="9.5" font-style="italic" fill="#444">answer passed back</text>
+  <rect x="24" y="622" width="255" height="72" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <circle cx="38" cy="636" r="9" fill="#3d85c6"/><text x="38" y="640" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <text x="159.5" y="640" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">readBody: type has json -&gt; parse</text>
+  <text x="151.5" y="656" text-anchor="middle" font-size="9.5" fill="#1c4587">entry = { status: 422, ok: false,</text>
+  <text x="151.5" y="670" text-anchor="middle" font-size="9.5" fill="#1c4587">  body: { title, detail, ... } }</text>
+  <polyline points="293,552.0 151.5,552.0 151.5,620" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="610" font-size="9.5" font-style="italic" fill="#444">Response handed over</text>
+  <rect x="562" y="728" width="255" height="72" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="576" cy="742" r="9" fill="#888888"/><text x="576" y="746" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <text x="697.5" y="746" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">Tidy-up: DELETE the account -&gt; 204</text>
+  <text x="689.5" y="762" text-anchor="middle" font-size="9.5" fill="#444444">no body: readBody returns null</text>
+  <text x="689.5" y="776" text-anchor="middle" font-size="9.5" fill="#444444">response.json() would have thrown</text>
+  <polyline points="279,658.0 689.5,658.0 689.5,726" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="697.5" y="716" font-size="9.5" font-style="italic" fill="#444">the lab cleans up</text>
+  <rect x="24" y="834" width="255" height="72" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <circle cx="38" cy="848" r="9" fill="#674ea7"/><text x="38" y="852" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">8</text>
+  <text x="159.5" y="852" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">guideFor(422): what the UI does</text>
+  <text x="151.5" y="868" text-anchor="middle" font-size="9.5" fill="#3d2a6b">"valid request, a rule refused it:</text>
+  <text x="151.5" y="882" text-anchor="middle" font-size="9.5" fill="#3d2a6b"> show detail"  (row highlighted)</text>
+  <polyline points="562,764.0 151.5,764.0 151.5,832" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="159.5" y="822" font-size="9.5" font-style="italic" fill="#444">after all calls: status picks the reaction</text>
+  <text x="40" y="942" font-size="10" font-style="italic" fill="#888">Same pattern for every code: 200 list, 201 created, 204 no body, 400 field errors, 404 missing, 409 clash; "No answer" is a rejected fetch with no status at all.</text>
+  <text x="40" y="960" font-size="10" font-style="italic" fill="#888">The highlighted (2nd) row is the answer being taught; the setup and tidy-up calls are listed too, nothing is hidden.</text>
+</svg>

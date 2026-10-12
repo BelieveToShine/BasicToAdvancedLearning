@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 726" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="726" fill="#ffffff"/>
+  <text x="540.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">MoneyForm: Sub-level Flow: ordering at a restaurant</text>
+  <text x="540.0" y="46" text-anchor="middle" font-size="12" fill="#666">Placing an order that changes the pantry. Afterwards the diner asks again what is in stock instead of guessing.</text>
+  <g font-size="11" fill="#333"><rect x="233.0" y="60" width="14" height="14" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="253.0" y="71">React (browser)</text></g>
+  <g font-size="11" fill="#333"><rect x="363.0" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="383.0" y="71">React state</text></g>
+  <g font-size="11" fill="#333"><rect x="469.0" y="60" width="14" height="14" rx="2" fill="#fffbe8" stroke="#f1c232"/><text x="489.0" y="71">Vite dev-server proxy</text></g>
+  <g font-size="11" fill="#333"><rect x="635.0" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="655.0" y="71">Web API (C#)</text></g>
+  <g font-size="11" fill="#333"><rect x="747.0" y="60" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#999999"/><text x="767.0" y="71">SQL Server</text></g>
+  <rect x="40" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Submit the form</text>
+  <text x="135.0" y="134" text-anchor="middle" font-size="10" fill="#333">kind "Deposit", amount "25.5"</text>
+  <text x="135.0" y="149" text-anchor="middle" font-size="10" fill="#333">(input text)</text>
+  <rect x="310" y="100" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="405.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">onSubmit handler</text>
+  <text x="405.0" y="134" text-anchor="middle" font-size="10" fill="#333">preventDefault, busy = true</text>
+  <text x="405.0" y="149" text-anchor="middle" font-size="10" fill="#333">Number("25.5") = 25.5</text>
+  <rect x="580" y="100" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="675.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">fetch POST + body</text>
+  <text x="675.0" y="134" text-anchor="middle" font-size="10" fill="#333">/api/accounts/2/transactions</text>
+  <text x="675.0" y="149" text-anchor="middle" font-size="10" fill="#333">{kind:"Deposit",amount:25.5}</text>
+  <rect x="850" y="100" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="945.0" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Controller</text>
+  <text x="945.0" y="134" text-anchor="middle" font-size="10" fill="#333">body valid? account there?</text>
+  <text x="945.0" y="149" text-anchor="middle" font-size="10" fill="#333">funds enough (withdrawals)?</text>
+  <rect x="40" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="135.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">EF SaveChanges</text>
+  <text x="135.0" y="288" text-anchor="middle" font-size="10" fill="#333">UPDATE Accounts balance +</text>
+  <text x="135.0" y="303" text-anchor="middle" font-size="10" fill="#333">INSERT Transactions: one unit</text>
+  <rect x="310" y="254" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="405.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server</text>
+  <text x="405.0" y="288" text-anchor="middle" font-size="10" fill="#333">Accounts #2: 1200.50 -&gt; 1226.00</text>
+  <text x="405.0" y="303" text-anchor="middle" font-size="10" fill="#333">Transactions: new row #5</text>
+  <rect x="580" y="254" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">201 Created + JSON</text>
+  <text x="675.0" y="288" text-anchor="middle" font-size="10" fill="#333">{transactionId:5, kind,</text>
+  <text x="675.0" y="303" text-anchor="middle" font-size="10" fill="#333">amount, createdAt}: no balance</text>
+  <rect x="850" y="254" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="945.0" y="271" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Handler: success</text>
+  <text x="945.0" y="288" text-anchor="middle" font-size="10" fill="#333">setDone(...), amount cleared</text>
+  <text x="945.0" y="303" text-anchor="middle" font-size="10" fill="#333">onDone() -&gt; version + 1</text>
+  <rect x="40" y="408" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="135.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Parent re-renders</text>
+  <text x="135.0" y="442" text-anchor="middle" font-size="10" fill="#333">version changed, so the deps</text>
+  <text x="135.0" y="457" text-anchor="middle" font-size="10" fill="#333">of both useLoad calls did</text>
+  <rect x="310" y="408" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="405.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Two GETs again</text>
+  <text x="405.0" y="442" text-anchor="middle" font-size="10" fill="#333">/api/accounts/2 and</text>
+  <text x="405.0" y="457" text-anchor="middle" font-size="10" fill="#333">/api/accounts/2/transactions</text>
+  <rect x="580" y="408" width="190" height="84" rx="8" fill="#f4f4f4" stroke="#999999" stroke-width="1.5"/>
+  <text x="675.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">SQL Server</text>
+  <text x="675.0" y="442" text-anchor="middle" font-size="10" fill="#333">reads the balance: 1226.00</text>
+  <text x="675.0" y="457" text-anchor="middle" font-size="10" fill="#333">newest transaction first</text>
+  <rect x="850" y="408" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="945.0" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Render: new balance</text>
+  <text x="945.0" y="442" text-anchor="middle" font-size="10" fill="#333">1226.00 shown; list has</text>
+  <text x="945.0" y="457" text-anchor="middle" font-size="10" fill="#333">#5 on top</text>
+  <rect x="40" y="562" width="190" height="84" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="135.0" y="579" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Withdraw 1000000</text>
+  <text x="135.0" y="596" text-anchor="middle" font-size="10" fill="#333">same trip as above...</text>
+  <text x="135.0" y="611" text-anchor="middle" font-size="10" fill="#333">POST ... {Withdrawal,1000000}</text>
+  <rect x="310" y="562" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="405.0" y="579" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Rule check</text>
+  <text x="405.0" y="596" text-anchor="middle" font-size="10" fill="#333">balance 1226.00 is less</text>
+  <text x="405.0" y="611" text-anchor="middle" font-size="10" fill="#333">than 1000000.00: write nothing</text>
+  <rect x="580" y="562" width="190" height="84" rx="8" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="675.0" y="579" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">422 + problem+json</text>
+  <text x="675.0" y="596" text-anchor="middle" font-size="10" fill="#333">title "Insufficient funds",</text>
+  <text x="675.0" y="611" text-anchor="middle" font-size="10" fill="#333">detail names the balance</text>
+  <rect x="850" y="562" width="190" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="945.0" y="579" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">Handler: failure</text>
+  <text x="945.0" y="596" text-anchor="middle" font-size="10" fill="#333">setError(e): red box shown,</text>
+  <text x="945.0" y="611" text-anchor="middle" font-size="10" fill="#333">no onDone: balance unchanged</text>
+  <polyline points="230,142.0 310,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">handler</text>
+  <polyline points="500,142.0 580,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">api.js</text>
+  <polyline points="770,142.0 850,142.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="134.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">via proxy</text>
+  <polyline points="945.0,184 945.0,219.0 135.0,219.0 135.0,254" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="213.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">all ok</text>
+  <polyline points="230,296.0 310,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="500,296.0 580,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">done</text>
+  <polyline points="770,296.0 850,296.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="288.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">resolves</text>
+  <polyline points="945.0,338 945.0,373.0 135.0,373.0 135.0,408" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="367.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">re-render</text>
+  <polyline points="230,450.0 310,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">effects run</text>
+  <polyline points="500,450.0 580,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">SQL</text>
+  <polyline points="770,450.0 850,450.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="442.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">answers</text>
+  <polyline points="945.0,492 945.0,527.0 135.0,527.0 135.0,562" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="521.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">other case</text>
+  <polyline points="230,604.0 310,604.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="270.0" y="596.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">controller</text>
+  <polyline points="500,604.0 580,604.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="540.0" y="596.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">422</text>
+  <polyline points="770,604.0 850,604.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="810.0" y="596.0" text-anchor="middle" font-size="9.5" font-style="italic" fill="#444">catch</text>
+  <text x="40" y="686" font-size="10.5" font-style="italic" fill="#777">Rows 1-3: a successful deposit (real run, account 2). Row 4: a withdrawal the rule refuses. React never adds 25.50 to the balance itself.</text>
+  <text x="40" y="704" font-size="10.5" font-style="italic" fill="#777">The button is disabled while busy so a double click cannot send the order twice (test).</text>
+</svg>

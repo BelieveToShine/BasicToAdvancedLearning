@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 860" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="860" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">API module — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Instant: AccountsPanel after "Delete ACC-1001" was answered 409 (a real run: the account has transactions).</text>
+  <g font-size="11" fill="#333"><rect x="247" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="267" y="71">Props</text></g>
+  <g font-size="11" fill="#333"><rect x="307" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="327" y="71">State</text></g>
+  <g font-size="11" fill="#333"><rect x="367" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="387" y="71">Derived</text></g>
+  <g font-size="11" fill="#333"><rect x="438" y="60" width="14" height="14" rx="2" fill="#fff2cc" stroke="#bf9000"/><text x="458" y="71">Ref</text></g>
+  <g font-size="11" fill="#333"><rect x="487" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="507" y="71">Effect / cleanup</text></g>
+  <g font-size="11" fill="#333"><rect x="609" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="629" y="71">DOM / browser / outside React</text></g>
+  <rect x="30" y="104" width="450" height="646" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="255.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">AccountsPanel + api.js</text>
+  <rect x="560" y="104" width="460" height="646" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="790.0" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">BROWSER, NETWORK, SERVER (outside React)</text>
+  <rect x="50" y="116" width="410" height="140" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="255.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">api.js  (module, loaded once)</text>
+  <text x="255.0" y="152" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">no per-component state here</text>
+  <rect x="60" y="162" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="178.5" font-size="10" fill="#1c4587">BASE = '/api'</text>
+  <rect x="60" y="192" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="208.5" font-size="10" fill="#1c4587">request / readBody / errorFromResponse / class ApiError</text>
+  <rect x="60" y="222" width="390" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="68" y="238.5" font-size="10" fill="#1c4587">api.deleteAccount(id)</text>
+  <rect x="50" y="272" width="410" height="140" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="292" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">AccountsPanel  STATE</text>
+  <text x="255.0" y="308" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">the list did not change: nothing was deleted</text>
+  <rect x="60" y="318" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="334.5" font-size="10" fill="#7f4e00">accounts = [ 7 accounts, ACC-1001 still the first ]</text>
+  <rect x="60" y="348" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="364.5" font-size="10" fill="#7f4e00">version = 0</text>
+  <rect x="60" y="378" width="390" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="394.5" font-size="10" fill="#7f4e00">error = the ApiError below</text>
+  <rect x="50" y="428" width="410" height="178" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="255.0" y="448" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">the ApiError  (an object)</text>
+  <text x="255.0" y="464" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">same shape for every failure</text>
+  <rect x="60" y="474" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="491.5" font-size="10" fill="#7f4e00">kind = 'conflict'   status = 409</text>
+  <rect x="60" y="506" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="523.5" font-size="10" fill="#7f4e00">title = 'Account has transactions'</text>
+  <rect x="60" y="538" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="555.5" font-size="10" fill="#7f4e00">detail = 'Account 1 has transaction history and cannot be deleted.'</text>
+  <rect x="60" y="570" width="390" height="28" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="68" y="587.5" font-size="10" fill="#7f4e00">fieldErrors = { }   traceId = '00-...'</text>
+  <rect x="50" y="626" width="410" height="84" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.6"/>
+  <text x="255.0" y="646" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3d2a6b">DERIVED  (not stored)</text>
+  <text x="255.0" y="662" text-anchor="middle" font-size="9" font-style="italic" fill="#3d2a6b">ErrorView text, chosen from error.kind</text>
+  <rect x="60" y="672" width="390" height="26" rx="4" fill="#efe9f8" stroke="#674ea7" stroke-width="1"/>
+  <text x="68" y="688.5" font-size="10" fill="#3d2a6b">'Account has transactions — Account 1 ... (status 409)'</text>
+  <rect x="580" y="116" width="420" height="130" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">REQUEST</text>
+  <rect x="590" y="148" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="164.5" font-size="10" fill="#444444">DELETE /api/accounts/1</text>
+  <rect x="590" y="178" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="194.5" font-size="10" fill="#444444">no body, so no Content-Type header</text>
+  <rect x="590" y="208" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="224.5" font-size="10" fill="#444444">Accept: application/json</text>
+  <rect x="580" y="290" width="420" height="106" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="310" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">SQL SERVER</text>
+  <rect x="590" y="322" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="338.5" font-size="10" fill="#444444">Accounts row 1 still exists: it has Transactions rows</text>
+  <rect x="590" y="352" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="368.5" font-size="10" fill="#444444">(the rule is checked by the API; the DB also has foreign keys)</text>
+  <rect x="580" y="440" width="420" height="140" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="790.0" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">RESPONSE</text>
+  <text x="790.0" y="476" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">read by readBody into a plain object</text>
+  <rect x="590" y="486" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="502.5" font-size="10" fill="#444444">409 Conflict</text>
+  <rect x="590" y="516" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="532.5" font-size="10" fill="#444444">Content-Type: application/problem+json</text>
+  <rect x="590" y="546" width="400" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="598" y="562.5" font-size="10" fill="#444444">body: { title, status: 409, detail, traceId }</text>
+  <line x1="460" y1="190" x2="578" y2="190" stroke="#555" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="470" y="182" font-size="9.5" font-style="italic" fill="#444">request() sends</text>
+  <line x1="790" y1="246" x2="790" y2="288" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="271.0" font-size="9.5" font-style="italic" fill="#444">API: account has history</text>
+  <line x1="790" y1="396" x2="790" y2="438" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="421.0" font-size="9.5" font-style="italic" fill="#444">answers 409</text>
+  <line x1="578" y1="510" x2="462" y2="510" stroke="#555" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="470" y="502" font-size="9.5" font-style="italic" fill="#444">builds the error</text>
+  <text x="40" y="790" font-size="10" font-style="italic" fill="#888">The component never saw a Response, a header or a status number except through the ApiError. A 204 would have resolved with nothing and the list would reload (version + 1).</text>
+  <text x="40" y="808" font-size="10" font-style="italic" fill="#888">ErrorView receives the error as a PROP; it is read-only there. The same ApiError type carries 400 fieldErrors, 404, 422, 5xx and network failures.</text>
+</svg>

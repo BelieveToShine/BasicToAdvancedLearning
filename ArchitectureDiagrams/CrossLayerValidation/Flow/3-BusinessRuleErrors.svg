@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 630" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="630" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">BusinessRuleErrors — Flow: the status code chooses where the message goes</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Same form, three different answers. 400 points at an input; 422 and 409 describe the whole situation.</text>
+  <g font-size="10.5" fill="#333"><rect x="40" y="50" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="60" y="61">A check or rule runs</text></g>
+  <g font-size="10.5" fill="#333"><rect x="186.0" y="50" width="14" height="14" rx="2" fill="#fff2cc" stroke="#f1c232"/><text x="206.0" y="61">Request / user action</text></g>
+  <g font-size="10.5" fill="#333"><rect x="337.6" y="50" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="357.6" y="61">Stored / decided value</text></g>
+  <g font-size="10.5" fill="#333"><rect x="494.8" y="50" width="14" height="14" rx="2" fill="#f4cccc" stroke="#cc0000"/><text x="514.8" y="61">Refusal (error answer)</text></g>
+  <g font-size="10.5" fill="#333"><rect x="652.0" y="50" width="14" height="14" rx="2" fill="#d9ead3" stroke="#6aa84f"/><text x="672.0" y="61">Allowed</text></g>
+  <g font-size="10.5" fill="#333"><rect x="725.2" y="50" width="14" height="14" rx="2" fill="#f4f4f4" stroke="#888888" stroke-dasharray="6 4"/><text x="745.2" y="61">Screen</text></g>
+  <rect x="300" y="84" width="300" height="50" rx="8" fill="#fff2cc" stroke="#f1c232" stroke-width="1.8"/>
+  <text x="450.0" y="102" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f6000">Send: POST .../transactions</text>
+  <text x="450.0" y="119" text-anchor="middle" font-size="9.5" fill="#333">kind + amount from the form</text>
+  <rect x="40" y="200" width="250" height="84" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="165.0" y="218" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">400 field error</text>
+  <text x="165.0" y="235" text-anchor="middle" font-size="9.5" fill="#333">amount -5 breaks a rule that</text>
+  <text x="165.0" y="250" text-anchor="middle" font-size="9.5" fill="#333">the request alone shows</text>
+  <text x="165.0" y="265" text-anchor="middle" font-size="9.5" fill="#333">errors: {amount: [...]}</text>
+  <rect x="325" y="200" width="250" height="84" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="450.0" y="218" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">422 business rule</text>
+  <text x="450.0" y="235" text-anchor="middle" font-size="9.5" fill="#333">valid request, valid account,</text>
+  <text x="450.0" y="250" text-anchor="middle" font-size="9.5" fill="#333">but no overdraft:</text>
+  <text x="450.0" y="265" text-anchor="middle" font-size="9.5" fill="#333">balance 5000.00 &lt; 5001.00</text>
+  <rect x="610" y="200" width="250" height="84" rx="8" fill="#f4cccc" stroke="#cc0000" stroke-width="1.8"/>
+  <text x="735.0" y="218" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7a0000">409 conflict</text>
+  <text x="735.0" y="235" text-anchor="middle" font-size="9.5" fill="#333">clashes with existing data:</text>
+  <text x="735.0" y="250" text-anchor="middle" font-size="9.5" fill="#333">duplicate number, delete of an</text>
+  <text x="735.0" y="265" text-anchor="middle" font-size="9.5" fill="#333">account with history</text>
+  <polyline points="380,134 380,166 165,166 165,198" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="172" y="160" font-size="9" font-style="italic" fill="#555">status 400</text>
+  <line x1="450" y1="134" x2="450" y2="198" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458" y="170" font-size="9" font-style="italic" fill="#555">status 422</text>
+  <polyline points="520,134 520,166 735,166 735,198" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="728" y="160" text-anchor="end" font-size="9" font-style="italic" fill="#555">status 409</text>
+  <rect x="40" y="340" width="250" height="70" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="165.0" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">Under the Amount input</text>
+  <text x="165.0" y="375" text-anchor="middle" font-size="9.5" fill="#333">aria-invalid, aria-describedby</text>
+  <text x="165.0" y="390" text-anchor="middle" font-size="9.5" fill="#333">the user edits that field</text>
+  <rect x="325" y="340" width="250" height="70" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="450.0" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">FormMessage above the form</text>
+  <text x="450.0" y="375" text-anchor="middle" font-size="9.5" fill="#333">"Business rule (422)" + title</text>
+  <text x="450.0" y="390" text-anchor="middle" font-size="9.5" fill="#333">+ detail; no input marked</text>
+  <rect x="610" y="340" width="250" height="70" rx="8" fill="#f4f4f4" stroke="#888888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="735.0" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444">FormMessage above the form</text>
+  <text x="735.0" y="375" text-anchor="middle" font-size="9.5" fill="#333">"Conflict (409)" + title</text>
+  <text x="735.0" y="390" text-anchor="middle" font-size="9.5" fill="#333">+ detail</text>
+  <line x1="165" y1="284" x2="165" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="173" y="316" font-size="9" font-style="italic" fill="#555">classify = field</text>
+  <line x1="450" y1="284" x2="450" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458" y="316" font-size="9" font-style="italic" fill="#555">classify = business</text>
+  <line x1="735" y1="284" x2="735" y2="338" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="743" y="316" font-size="9" font-style="italic" fill="#555">classify = conflict</text>
+  <rect x="40" y="470" width="820" height="84" rx="8" fill="#f9cb9c" stroke="#e69138" stroke-width="1.8"/>
+  <text x="450.0" y="488" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Why 422 and 409 differ in this API (FullStackBank/README.md)</text>
+  <text x="450.0" y="505" text-anchor="middle" font-size="9.5" fill="#333">422: the request is fine, a business rule (no overdraft) refuses it.</text>
+  <text x="450.0" y="520" text-anchor="middle" font-size="9.5" fill="#333">409: the data's identity or a simultaneous change gets in the way. Other APIs use 409 for insufficient funds too:</text>
+  <text x="450.0" y="535" text-anchor="middle" font-size="9.5" fill="#333">both are defensible; pick one rule and use it consistently.</text>
+  <text x="30" y="600" font-size="10.5" fill="#444"><tspan font-weight="bold">The delete button first reads the transactions: </tspan>it only sends DELETE when the account has history, so nothing is ever removed on this page.</text>
+</svg>

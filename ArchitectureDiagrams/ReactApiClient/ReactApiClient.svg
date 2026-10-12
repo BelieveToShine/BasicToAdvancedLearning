@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 900" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="900" fill="#ffffff"/>
+  <text x="550.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">ReactApiClient — Architecture: calling the Web API from React</text>
+  <text x="550.0" y="46" text-anchor="middle" font-size="12" fill="#666">Five lessons, each exists because the previous one hit a limit. Right: the path of one request, from component to database.</text>
+  <g font-size="11" fill="#333"><rect x="323" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="343" y="71">Component state</text></g>
+  <g font-size="11" fill="#333"><rect x="439" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="459" y="71">api.js (lesson 4)</text></g>
+  <g font-size="11" fill="#333"><rect x="566" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888888" stroke-dasharray="4 3"/><text x="586" y="71">Browser / server (outside React)</text></g>
+  <rect x="30" y="92" width="620" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="340.0" y="112" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Lesson 1 — 01-GetFromTheApi.jsx: GET from the API</text>
+  <rect x="40" y="124" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="140.5" font-size="10" fill="#7f4e00">const response = await fetch('/api/accounts');   // step 1: status + headers</text>
+  <rect x="40" y="154" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="170.5" font-size="10" fill="#7f4e00">const accounts = await response.json();            // step 2: the body</text>
+  <rect x="30" y="228" width="620" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="340.0" y="248" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Lesson 2 — 02-PostAndRefresh.jsx: POST, then refresh</text>
+  <rect x="40" y="260" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="276.5" font-size="10" fill="#7f4e00">fetch(url, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(x) })</text>
+  <rect x="40" y="290" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="306.5" font-size="10" fill="#7f4e00">201 + Location + body; then setAccounts([...list, account])  OR  GET again</text>
+  <rect x="30" y="364" width="620" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="340.0" y="384" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Lesson 3 — 03-StatusCodesInTheUi.jsx: status codes</text>
+  <rect x="40" y="396" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="412.5" font-size="10" fill="#7f4e00">if (!response.ok) ...   // 2xx only;  response.status says WHICH failure</text>
+  <rect x="40" y="426" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="442.5" font-size="10" fill="#7f4e00">204 has no body; 400 has errors{}; 404 / 409 / 422 / 5xx; fetch rejected = no answer</text>
+  <rect x="30" y="500" width="620" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="340.0" y="520" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Lesson 4 — 04-ApiModule.jsx + api.js: one API module</text>
+  <rect x="40" y="532" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="548.5" font-size="10" fill="#7f4e00">const accounts = await api.listAccounts();     // components never see fetch</text>
+  <rect x="40" y="562" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="578.5" font-size="10" fill="#7f4e00">catch (err) { err instanceof ApiError; err.kind, err.fieldErrors }</text>
+  <rect x="30" y="636" width="620" height="96" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="340.0" y="656" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">Lesson 5 — 05-ProxyAndCors.jsx: proxy and CORS</text>
+  <rect x="40" y="668" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="684.5" font-size="10" fill="#7f4e00">relative '/api/...' -&gt; same origin -&gt; Vite proxy -&gt; API (no CORS needed)</text>
+  <rect x="40" y="698" width="600" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="48" y="714.5" font-size="10" fill="#7f4e00">direct http://localhost:5080 -&gt; other origin -&gt; browser blocks the reading</text>
+  <line x1="340" y1="188" x2="340" y2="226" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="352" y="212" font-size="9.5" font-style="italic" fill="#444">a read works; now we must CHANGE something on the server</text>
+  <line x1="340" y1="324" x2="340" y2="362" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="352" y="348" font-size="9.5" font-style="italic" fill="#444">the answers differ: 201, 400, 409, 422... what should the screen do?</text>
+  <line x1="340" y1="460" x2="340" y2="498" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="352" y="484" font-size="9.5" font-style="italic" fill="#444">every component repeats fetch, headers, JSON and status checks</text>
+  <line x1="340" y1="596" x2="340" y2="634" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="352" y="620" font-size="9.5" font-style="italic" fill="#444">why did we call /api and not the API's real address?</text>
+  <rect x="720" y="92" width="340" height="118" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.6"/>
+  <text x="890.0" y="112" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">REACT COMPONENTS</text>
+  <text x="890.0" y="128" text-anchor="middle" font-size="9" font-style="italic" fill="#7f4e00">lessons 1-3 call fetch, lesson 4 calls api.*</text>
+  <rect x="730" y="138" width="320" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="738" y="154.5" font-size="10" fill="#7f4e00">AccountsList, OpenAccountForm, StatusLab ...</text>
+  <rect x="730" y="168" width="320" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="738" y="184.5" font-size="10" fill="#7f4e00">hold state: status / data / error</text>
+  <rect x="720" y="250" width="340" height="118" rx="10" fill="#cfe2f3" stroke="#3d85c6" stroke-width="1.6"/>
+  <text x="890.0" y="270" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1c4587">api.js  (lesson 4)</text>
+  <text x="890.0" y="286" text-anchor="middle" font-size="9" font-style="italic" fill="#1c4587">the only file that calls fetch</text>
+  <rect x="730" y="296" width="320" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="738" y="312.5" font-size="10" fill="#1c4587">BASE path, headers, JSON in/out</text>
+  <rect x="730" y="326" width="320" height="26" rx="4" fill="#e8f1fb" stroke="#3d85c6" stroke-width="1"/>
+  <text x="738" y="342.5" font-size="10" fill="#1c4587">throws ApiError { kind, status, fieldErrors }</text>
+  <rect x="720" y="408" width="340" height="118" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="890.0" y="428" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">BROWSER  fetch()  (lessons 1-3, 5)</text>
+  <text x="890.0" y="444" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">outside React</text>
+  <rect x="730" y="454" width="320" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="738" y="470.5" font-size="10" fill="#444444">resolves with a Response, or rejects</text>
+  <rect x="730" y="484" width="320" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="738" y="500.5" font-size="10" fill="#444444">enforces the same-origin rule / CORS</text>
+  <rect x="720" y="566" width="340" height="96" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="890.0" y="586" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">VITE DEV SERVER  (lesson 5)</text>
+  <text x="890.0" y="602" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">the page's own origin</text>
+  <rect x="730" y="612" width="320" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="738" y="628.5" font-size="10" fill="#444444">proxy '/api' -&gt; the API (server to server)</text>
+  <rect x="720" y="702" width="340" height="118" rx="10" fill="#f3f3f3" stroke="#888888" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="890.0" y="722" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">BANK WEB API  -&gt;  SQL SERVER</text>
+  <text x="890.0" y="738" text-anchor="middle" font-size="9" font-style="italic" fill="#444444">its own origin, no CORS setup</text>
+  <rect x="730" y="748" width="320" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="738" y="764.5" font-size="10" fill="#444444">FullStackBank/Api: JSON + status codes</text>
+  <rect x="730" y="778" width="320" height="26" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="738" y="794.5" font-size="10" fill="#444444">errors are application/problem+json</text>
+  <line x1="830.0" y1="210" x2="830.0" y2="248" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="838.0" y="234" font-size="9.5" font-style="italic" fill="#444">calls api.*</text>
+  <line x1="830.0" y1="368" x2="830.0" y2="406" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="838.0" y="392" font-size="9.5" font-style="italic" fill="#444">request(...)</text>
+  <line x1="830.0" y1="526" x2="830.0" y2="564" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="838.0" y="550" font-size="9.5" font-style="italic" fill="#444">relative URL /api/...</text>
+  <line x1="830.0" y1="662" x2="830.0" y2="700" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="838.0" y="686" font-size="9.5" font-style="italic" fill="#444">forwards the request</text>
+  <text x="40" y="846" font-size="10" font-style="italic" fill="#888">Every lesson page calls the relative URL /api/... so it works through the Vite proxy; with the API stopped each page shows "API not reachable — start it (see FullStackBank/README.md)".</text>
+  <text x="40" y="864" font-size="10" font-style="italic" fill="#888">Claims are proved in frontend/src/lessons/ReactApiClient/ReactApiClient.test.jsx (fetch mocked) and checked against the real API in a headless browser.</text>
+</svg>

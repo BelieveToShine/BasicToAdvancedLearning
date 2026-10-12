@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 662" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="662" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Fundamentals — 05 Conditional rendering — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: "Empty the account" was pressed. Both panels got the same empty list; what they draw differs.</text>
+  <g font-size="11" fill="#333"><rect x="30" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="50" y="71">Props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="284" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="304" y="71">State (owned by the component)</text></g>
+  <g font-size="11" fill="#333"><rect x="494" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="514" y="71">Derived / computed during render</text></g>
+  <g font-size="11" fill="#333"><rect x="715" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="735" y="71">Module data (file level)</text></g>
+  <g font-size="11" fill="#333"><rect x="891" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888" stroke-dasharray="3 2"/><text x="911" y="71">DOM / browser</text></g>
+  <text x="270.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">COMPONENTS — functions React calls, and the data each one holds</text>
+  <text x="842.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="84" y="110" width="416" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="128" font-size="11" font-weight="bold" fill="#222">Lesson()  — the parent page</text>
+  <rect x="94" y="136" width="396" height="38" rx="6" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="102" y="152" font-size="10" font-weight="bold" fill="#7f4e00">state  list   (preview, Topic 22)</text>
+  <text x="102" y="166" font-size="10" fill="#7f4e00">[ ]      (was 2 transactions before the button press)</text>
+  <rect x="84" y="224" width="416" height="172" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="242" font-size="11" font-weight="bold" fill="#222">TransactionList()  — buggy:  length &amp;&amp; &lt;ul&gt;</text>
+  <rect x="94" y="250" width="396" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="102" y="266" font-size="10" font-weight="bold" fill="#274e13">props  transactions</text>
+  <text x="102" y="280" font-size="10" fill="#274e13">[ ]</text>
+  <rect x="94" y="296" width="396" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="312" font-size="10" font-weight="bold" fill="#3d2a6b">transactions.length</text>
+  <text x="102" y="326" font-size="10" fill="#3d2a6b">0   (a number, not a boolean)</text>
+  <rect x="94" y="342" width="396" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="358" font-size="10" font-weight="bold" fill="#3d2a6b">transactions.length &amp;&amp; &lt;ul&gt;…&lt;/ul&gt;</text>
+  <text x="102" y="372" font-size="10" fill="#3d2a6b">0   (&amp;&amp; returns the first falsy value, here the number 0)</text>
+  <rect x="84" y="410" width="416" height="172" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="96" y="428" font-size="11" font-weight="bold" fill="#222">TransactionList()  — fixed:  length &gt; 0 ? … : …</text>
+  <rect x="94" y="436" width="396" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="102" y="452" font-size="10" font-weight="bold" fill="#274e13">props  transactions</text>
+  <text x="102" y="466" font-size="10" fill="#274e13">[ ]</text>
+  <rect x="94" y="482" width="396" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="498" font-size="10" font-weight="bold" fill="#3d2a6b">transactions.length &gt; 0</text>
+  <text x="102" y="512" font-size="10" fill="#3d2a6b">false   (a real boolean)</text>
+  <rect x="94" y="528" width="396" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="102" y="544" font-size="10" font-weight="bold" fill="#3d2a6b">the ternary picks its second branch</text>
+  <text x="102" y="558" font-size="10" fill="#3d2a6b">&lt;p&gt;No transactions yet.&lt;/p&gt;</text>
+  <polyline points="84,176 60,176 60,258 83,258" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <polyline points="84,176 60,176 60,444 83,444" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="68" y="204" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">props down: the same empty list</text>
+  <rect x="644" y="264" width="376" height="70" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="832.0" y="284" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — buggy-panel</text>
+  <text x="654" y="304" font-size="10" fill="#333">&lt;h3&gt;length &amp;&amp; ... (the bug)&lt;/h3&gt;</text>
+  <text x="654" y="319" font-size="10" font-weight="bold" fill="#cc0000">0     ← React draws the number 0 as text</text>
+  <rect x="644" y="450" width="376" height="70" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="832.0" y="470" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — fixed-panel</text>
+  <text x="654" y="490" font-size="10" fill="#333">&lt;h3&gt;length &gt; 0 ? ... : ... (fixed)&lt;/h3&gt;</text>
+  <text x="654" y="505" font-size="10" fill="#333">&lt;p&gt;No transactions yet.&lt;/p&gt;</text>
+  <line x1="500" y1="304" x2="643" y2="304" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="297" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <line x1="500" y1="490" x2="643" y2="490" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="483" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <text x="832.0" y="536" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">true, false, null and undefined draw nothing;</text>
+  <text x="832.0" y="549" text-anchor="middle" font-size="9.5" font-style="italic" fill="#777">numbers and strings (even 0) are drawn</text>
+  <text x="30" y="618" font-size="10.5" fill="#444"><tspan font-weight="bold">Nothing is stored for the condition: </tspan>length, the &amp;&amp; result and the ternary are recomputed from the props on every render.</text>
+  <text x="30" y="635" font-size="10" font-style="italic" fill="#888">Test proof: &gt; 05 Conditional rendering (container text is "0" for the buggy list, "No transactions yet." for the fixed one).</text>
+</svg>

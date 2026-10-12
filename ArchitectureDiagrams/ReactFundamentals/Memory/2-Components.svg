@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 640" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1050" height="640" fill="#ffffff"/>
+  <text x="525.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">React Fundamentals — 02 Components — Memory: where the data lives</text>
+  <text x="525.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: AccountList has rendered; React called AccountCard three times, once per use of the tag.</text>
+  <g font-size="11" fill="#333"><rect x="30" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="50" y="71">Props (read-only, owned by the parent)</text></g>
+  <g font-size="11" fill="#333"><rect x="284" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="304" y="71">State (owned by the component)</text></g>
+  <g font-size="11" fill="#333"><rect x="494" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="514" y="71">Derived / computed during render</text></g>
+  <g font-size="11" fill="#333"><rect x="715" y="60" width="14" height="14" rx="2" fill="#cfe2f3" stroke="#3d85c6"/><text x="735" y="71">Module data (file level)</text></g>
+  <g font-size="11" fill="#333"><rect x="891" y="60" width="14" height="14" rx="2" fill="#f3f3f3" stroke="#888" stroke-dasharray="3 2"/><text x="911" y="71">DOM / browser</text></g>
+  <text x="270.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#3f6b3f">COMPONENTS — functions React calls, and the data each one holds</text>
+  <text x="842.0" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">DOM — what the browser shows</text>
+  <rect x="40" y="110" width="460" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="128" font-size="11" font-weight="bold" fill="#222">AccountList()  — no props, no state</text>
+  <rect x="50" y="136" width="440" height="38" rx="6" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5"/>
+  <text x="58" y="152" font-size="10" font-weight="bold" fill="#3d2a6b">elements it returned</text>
+  <text x="58" y="166" font-size="10" fill="#3d2a6b">&lt;AccountCard … /&gt; × 3   (three separate uses)</text>
+  <rect x="40" y="214" width="460" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="232" font-size="11" font-weight="bold" fill="#222">AccountCard() call #1</text>
+  <rect x="50" y="240" width="440" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="58" y="256" font-size="10" font-weight="bold" fill="#274e13">props  (this use’s own inputs)</text>
+  <text x="58" y="270" font-size="10" fill="#274e13">{ owner: 'Asha Rao', number: 'SAV-1001', balance: 454.5 }</text>
+  <rect x="40" y="306" width="460" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="324" font-size="11" font-weight="bold" fill="#222">AccountCard() call #2</text>
+  <rect x="50" y="332" width="440" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="58" y="348" font-size="10" font-weight="bold" fill="#274e13">props  (this use’s own inputs)</text>
+  <text x="58" y="362" font-size="10" fill="#274e13">{ owner: 'Ben Carter', number: 'CUR-2001', balance: 1200 }</text>
+  <rect x="40" y="398" width="460" height="80" rx="10" fill="#fafafa" stroke="#777" stroke-width="1.5"/>
+  <text x="52" y="416" font-size="11" font-weight="bold" fill="#222">AccountCard() call #3</text>
+  <rect x="50" y="424" width="440" height="38" rx="6" fill="#b6d7a8" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="58" y="440" font-size="10" font-weight="bold" fill="#274e13">props  (this use’s own inputs)</text>
+  <text x="58" y="454" font-size="10" fill="#274e13">{ owner: 'Chen Li', number: 'SAV-3001', balance: 0 }</text>
+  <polyline points="500,176 526,176 526,254.0 501,254.0" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <polyline points="500,176 526,176 526,346.0 501,346.0" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <polyline points="500,176 526,176 526,438.0 501,438.0" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="534" y="220" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">props passed down:</text>
+  <text x="534" y="231" text-anchor="start" font-size="9.5" font-style="italic" fill="#555">one set per use</text>
+  <rect x="664" y="380" width="356" height="175" rx="10" fill="#f3f3f3" stroke="#888" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="842.0" y="400" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">document — real elements React created</text>
+  <text x="674" y="420" font-size="10" fill="#333">&lt;div style="border: …"&gt;</text>
+  <text x="674" y="435" font-size="10" fill="#333">  &lt;strong&gt;Asha Rao&lt;/strong&gt;</text>
+  <text x="674" y="450" font-size="10" fill="#333">  &lt;div&gt;Account SAV-1001&lt;/div&gt;</text>
+  <text x="674" y="465" font-size="10" fill="#333">  &lt;div&gt;Balance 454.50&lt;/div&gt;</text>
+  <text x="674" y="480" font-size="10" fill="#333">&lt;/div&gt;</text>
+  <text x="674" y="495" font-size="10" fill="#333">&lt;div&gt; … Ben Carter · CUR-2001 · Balance 1200.00 &lt;/div&gt;</text>
+  <text x="674" y="510" font-size="10" fill="#333">&lt;div&gt; … Chen Li · SAV-3001 · Balance 0.00 &lt;/div&gt;</text>
+  <text x="674" y="525" font-size="10" fill="#333"></text>
+  <text x="674" y="540" font-size="10" fill="#999">AccountList itself adds one wrapping &lt;div&gt; around the three</text>
+  <line x1="500" y1="470" x2="663" y2="470" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="582" y="464" text-anchor="middle" font-size="9.5" font-style="italic" fill="#555">React writes</text>
+  <text x="30" y="600" font-size="10.5" fill="#444"><tspan font-weight="bold">Same function, three separate sets of inputs: </tspan>each AccountCard call gets its own props object, so Ben’s balance can never end up on Asha’s card.</text>
+  <text x="30" y="617" font-size="10" font-style="italic" fill="#888">Test proof: ReactFundamentals.test.jsx &gt; 02 Components (three &lt;strong&gt; names, Balance 454.50 / 1200.00 / 0.00).</text>
+</svg>
