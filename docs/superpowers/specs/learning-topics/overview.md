@@ -32,11 +32,12 @@ ArchitectureDiagrams/<Topic>/   (one Flow + one Memory SVG per ExplainX(), same 
 | 5 | OOP | `OOP/` | classes & objects, constructors (and overloads), encapsulation, references vs copies, static members — running example `BankAccount` (+ static `Bank`) |
 | 6 | OOP Advanced | `OOPAdvanced/` | inheritance, polymorphism (`virtual`/`override`), abstract classes, interfaces — running family `Account` → `SavingsAccount`/`CurrentAccount`, abstract `Transaction`, `IInterestBearing` |
 | 7 | Exception Handling | `ExceptionHandling/` | `try`/`catch`, catch order, `finally`, custom exceptions — running example `SafeAccount` + `InsufficientFundsException` |
+| 8 | File I/O | `FileIO/` | `File.WriteAllText`/`ReadAllText`, `StreamWriter`/`StreamReader` with `using`, `Path.Combine` and `File.Exists`, `FileNotFoundException` — running example: a one-line bank statement in the temp folder |
 
 ## Running it locally
 - Prerequisite: .NET 9 SDK.
 - From `BasicToAdvancedLearning.Console/`: `dotnet build` then `dotnet run`. `Program.cs` runs exactly
-  one topic (currently `ExceptionHandlingExample`); change the type after `new` to run another.
+  one topic (currently `FileIOExample`); change the type after `new` to run another.
 - Topics that call `Console.ReadLine()` (Programming Basics) need stdin — pipe input when running
   non-interactively.
 - Diagrams are plain SVG: open in any browser. Verify with `powershell -ExecutionPolicy Bypass -File scripts/verify-topic.ps1 -Topic <Topic>` (and `scripts/verify-docs.ps1` for the docs).
@@ -57,6 +58,9 @@ None. There are no config keys, environment variables, or connection strings yet
 - Topic 7's `SafeAccount.cs` and `InsufficientFundsException.cs` sit beside `ExceptionHandlingDemo.cs`; neither
   defines an `ExplainX()` method. `Memory/4-CustomExceptions.svg` is the topic's one locked-shape exception
   (4 frames, shown at the instant of the throw).
+- Topic 8 touches the real file system, so every method works on ONE file in `Path.GetTempPath()` and deletes it in a
+  `finally` (or straight after use). Every Memory diagram adds a dashed "OUTSIDE .NET" box (file handle + disk) under
+  the Heap — a recorded addition to the locked shape (see `rules/verification.md`).
 - Open question: whether to add a runtime topic picker or keep the deliberate one-line swap (it doubles
   as the polymorphism teaching example).
 

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 452" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="452" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Write and read text — Memory: Stack / Heap / Static</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainWriteAndReadText() is running, right after File.ReadAllText returned and was printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1095" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="264" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="124" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">FileIODemo.ExplainWriteAndReadText() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">path → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">summary → pointer  (string)</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">readBack → pointer  (string)</text>
+  <rect x="50" y="252" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="272" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">FileIOExample.Explain()</text>
+  <text x="220" y="288" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="312" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="332" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="348" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="250" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="163" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;temp folder&gt;/bta-statement.txt"</text>
+  <rect x="460" y="184" width="250" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="203" text-anchor="middle" font-size="10" fill="#7f4e00">"Anita: balance 500"</text>
+  <rect x="460" y="224" width="250" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="243" text-anchor="middle" font-size="10" fill="#7f4e00">"Anita: balance 500"</text>
+  <text x="724" y="244" font-size="9.5" font-style="italic" fill="#a06a1f">← equal text, but a NEW string object</text>
+  <rect x="460" y="300" width="440" height="76" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="680.0" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the operating system's disk</text>
+  <text x="474" y="340" font-size="9.5" font-weight="bold" fill="#333333">file bta-statement.txt now holds:  Anita: balance 500</text>
+  <text x="474" y="356" font-size="9.5" fill="#333333">WriteAllText copied the text OUT; ReadAllText copied it back IN.</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,189 432,189 432,199 458,199" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,219 420,219 420,239 458,239" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1050" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1095" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1095" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="400" font-size="10.5" fill="#444"><tspan font-weight="bold">The file lives on DISK, outside the program's memory. </tspan>File.WriteAllText copied summary's text out to disk; File.ReadAllText copied it back in, into a brand-new string (readBack).</text>
+  <text x="40" y="418" font-size="10" font-style="italic" fill="#888">Neither call keeps the file open: each opens and closes it itself. The finally block's File.Delete has not run yet at this instant.</text>
+</svg>

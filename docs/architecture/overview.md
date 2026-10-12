@@ -14,7 +14,7 @@ scripts/                                        ← verify-topic.ps1, verify-doc
 ArchitectureDiagrams/<TopicFolder>/            ← mandatory SVGs per topic (see rules/diagram-standards.md)
 docs/                                          ← this documentation tree
 ```
-Existing topic folders: `ProgrammingBasics/`, `ControlFlow/`, `MethodsAndParameters/`, `Collections/`, `OOP/`, `OOPAdvanced/`, `ExceptionHandling/`.
+Existing topic folders: `ProgrammingBasics/`, `ControlFlow/`, `MethodsAndParameters/`, `Collections/`, `OOP/`, `OOPAdvanced/`, `ExceptionHandling/`, `FileIO/`.
 Note the Topic 1 files are named `ProgrammingBasics.cs` / `ProgrammingBasicsExample.cs` (no `Demo`
 suffix) — newer topics use `<Topic>Demo.cs`; new topics follow the newer convention. A topic may also hold
 helper-class files beside its demo (Topic 5: `BankAccount.cs`, `Bank.cs`; Topic 6: six class/interface files; Topic 7: `SafeAccount.cs`, `InsufficientFundsException.cs`) as long as they define no `ExplainX()` methods.

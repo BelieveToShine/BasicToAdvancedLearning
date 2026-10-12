@@ -10,7 +10,24 @@ scratch. Update this file whenever a topic starts, finishes, or the plan changes
 (path is machine-specific — see the clone you are in). Builds clean, 0 warnings/errors. Remote:
 https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `master`).
 
-**Done this session (Topic 7 — Exception handling):**
+**Done this session (Topic 8 — File I/O basics):**
+- Topic 8 implemented + explained with 11 diagrams (see the tracker row below). One tiny bank statement
+  (`bta-statement.txt`) is written, read and deleted in the OS temp folder by every method, so running the
+  lesson never leaves files behind or touches the repo. `Program.cs` now runs Topic 8 (`FileIOExample`).
+- Topic 8 decisions (all five from the old plan list were settled): folder/namespace `FileIO` (no segment
+  shadows `File` or `Path`); methods `WriteAndReadText`, `LinesAndStreams`, `PathsAndExistence`, `FileErrors`;
+  Flow metaphors: a filing-cabinet drawer, a water pipe with a tap, postal address labels, a lost-property desk.
+- **Recorded addition to the locked shape:** every Topic 8 Memory diagram adds a dashed grey "OUTSIDE .NET —
+  the operating system / the disk" box under the Heap column. It shows what is NOT .NET memory: the open file
+  handle and the file on disk. The Stack, Heap and Static columns and the 3 frames are unchanged. Listed in
+  `verification.md`.
+- A stream is drawn honestly as a doorway: `StreamReader` → `FileStream` are Heap objects, simplified (a
+  "(decoder and buffer not shown)" / "(internals simplified)" caption says so), and the handle behind them is in
+  the outside box. `using` is shown by the `writer` going out of scope after its `Dispose()` (Memory/2 footer).
+- `Memory/3-PathsAndExistence.svg` is the first Memory diagram where the interesting fact (does the file
+  exist?) is not in any variable — the footer says `File.Exists` asks the disk every time.
+
+**Earlier session (Topic 7 — Exception handling):**
 - Topic 7 implemented + explained with 11 diagrams (see the tracker row below). The bank thread continues
   with `SafeAccount`, whose `Withdraw()` THROWS (a built-in `ArgumentOutOfRangeException`, or the custom
   `InsufficientFundsException : Exception` carrying a `Shortfall`) instead of returning `false` like Topic 5's
@@ -85,22 +102,23 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** pick Topic 8 (File I/O basics) and follow the "Add a new topic" runbook below.
+**Next:** pick Topic 9 (LINQ fundamentals) and follow the "Add a new topic" runbook below.
 
-**Decisions to settle in the Topic 8 plan (get the human's approval before building)** — the docs
+**Decisions to settle in the Topic 9 plan (get the human's approval before building)** — the docs
 deliberately do not pre-decide these, so propose an answer for each and ask:
-1. Folder/namespace name (e.g. `FileIO` — avoid a segment that shadows a BCL type: a namespace segment named
-   `File` or `Path` would break unqualified `File.*` / `Path.*`, see gotcha 1).
-2. The `ExplainX()` method list (title implies reading/writing text, line-by-line streams, paths and existence
-   checks; `using`/`Dispose` and file errors from Topic 7 are the natural extras) and the running example — a
-   bank transaction log or statement. Write to the OS temp folder and clean up, so a demo run never leaves
-   files in the repo.
-3. How Memory diagrams show a stream: the .NET object is on the Heap but it wraps an operating-system file
-   handle that is NOT on the Heap — decide how to draw that honestly (a labelled "outside the CLR" box?), and
-   what `using` / `Dispose` looks like at the instant it runs.
+1. Folder/namespace name (e.g. `LinqFundamentals` — avoid a segment named `Linq`, which would sit beside
+   `System.Linq` and invite confusion, see gotcha 1).
+2. The `ExplainX()` method list (title implies filtering with `Where`, projecting with `Select`, ordering,
+   aggregating with `Count`/`Sum`/`Average`, `First`/`Any`; deferred execution and `ToList()` are the big
+   judgement call) and the running example — a list of bank transactions is the natural thread (Topic 4's
+   `List<T>` and Topic 6's classes are prerequisites).
+3. How Memory diagrams show a LINQ query: `Where`/`Select` return a small iterator object that holds a pointer
+   to the source and the lambda — nothing runs until you enumerate (deferred execution); `ToList()` builds a
+   new list. Decide how a lambda (closure) appears on the Heap, and what instant to snapshot.
 4. Flow-diagram metaphors (used so far: lockers, filmstrip, pinboard, checkpoints, signpost, blueprint-and-stamp,
    assembly line, teller window, house keys, noticeboard, family tree, remote, form, wall socket, safety net,
-   sorting chutes, toll booth, stairwell — pick fresh ones).
+   sorting chutes, toll booth, stairwell, filing cabinet, water pipe, address labels, lost-property desk —
+   pick fresh ones; a conveyor with filters or a coffee-machine pipeline would suit LINQ).
 5. Branch name (see `rules/checkin-and-pr.md`).
 
 ## Topic tracker
@@ -119,7 +137,7 @@ Status: ✅ Done · 🔶 In progress · ⬜ Pending.
 | 5 | OOP — classes, objects, constructors, encapsulation | ✅ | `OOP/` | `OOP.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–5 (ClassesAndObjects, Constructors, Encapsulation, ReferencesVsCopies, StaticMembers) — 13 files. One running example (a `BankAccount`, plus a static `Bank`) threads through all five. Flow diagrams use 5 fresh metaphors (blueprint and stamp, assembly line, teller window and vault, house keys, town noticeboard). `Memory/5-StaticMembers.svg` is the first diagram with real Static content; `Memory/4-ReferencesVsCopies.svg` is the key one (two pointers, one object) |
 | 6 | OOP advanced — inheritance, polymorphism, interfaces, abstract classes | ✅ | `OOPAdvanced/` | `OOPAdvanced.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (Inheritance, Polymorphism, AbstractClasses, Interfaces) — 11 files. One running family (`Account` → `SavingsAccount`/`CurrentAccount`; abstract `Transaction`; interface `IInterestBearing` with `SavingsAccount` and `FixedDeposit`) threads through all four. Flow diagrams use 4 fresh metaphors (family tree, universal remote, form with a blank, wall socket and plugs). `Memory/1-Inheritance.svg` is the key one (parent + own fields in one Heap box); `Memory/2`–`4` show arrays of pointers to different classes |
 | 7 | Exception handling | ✅ | `ExceptionHandling/` | `ExceptionHandling.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (TryCatch, CatchOrder, Finally, CustomExceptions) — 11 files. One running example (`SafeAccount.Withdraw` throwing a built-in and a custom `InsufficientFundsException`) threads through methods 2–4. Flow diagrams use 4 fresh metaphors (safety net, sorting chutes, toll booth, parcel up a stairwell). `Memory/4-CustomExceptions.svg` is the key one and a recorded locked-shape exception (4 frames at the instant of the throw) |
-| 8 | File I/O basics | ⬜ | | |
+| 8 | File I/O basics | ✅ | `FileIO/` | `FileIO.svg` (architecture) + `Flow/0-Overview.svg` + `Memory/0-Overview.svg`, plus a numbered pair per method 1–4 (WriteAndReadText, LinesAndStreams, PathsAndExistence, FileErrors) — 11 files. One running example (a one-line bank statement in the temp folder, always deleted afterwards). Flow diagrams use 4 fresh metaphors (filing cabinet, water pipe, address labels, lost-property desk). Every Memory diagram adds a dashed "OUTSIDE .NET" box for the file handle and the disk — a recorded addition to the locked shape; `Memory/2-LinesAndStreams.svg` is the key one (StreamReader → FileStream → OS handle) |
 | 9 | LINQ fundamentals | ⬜ | | |
 
 ### Phase 2 — SQL & Database
@@ -207,6 +225,14 @@ Real lessons found while building this, worth knowing so they're never rediscove
 10. **Catch clauses are checked top to bottom, and `catch (Exception)` matches everything** — it must be last, or
     the compiler rejects the clause after it (CS0160). `finally` runs on success AND failure, which is why its
     `Console.WriteLine` appears once per lap in the output.
+11. **File demos write to the OS temp folder and clean up in `finally`.** Topic 8 uses `Path.GetTempPath()` plus one
+    constant file name and always `File.Delete`s it, so a run never leaves files behind or writes into the repo.
+    Never print the full temp path in a diagram: it differs per operating system (`/tmp/…` vs `C:\Users\…`) —
+    the diagrams write `"<temp folder>/…"`.
+12. **`using` is what closes a stream.** `using (StreamWriter writer = …) { … }` calls `Dispose()` at the closing
+    brace, flushing the buffered text to disk and releasing the file. A stream you forget to dispose can keep a
+    file locked; a stream left un-flushed can lose its last lines. `ReadLine()` returns `null` at the end of the
+    file — that is the loop's stop signal.
 
 ## Add a new topic — runbook
 

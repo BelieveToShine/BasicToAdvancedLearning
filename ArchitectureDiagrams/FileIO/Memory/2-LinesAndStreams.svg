@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 518" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="518" fill="#ffffff"/>
+  <text x="600.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">Streams — Memory: Stack / Heap / Static</text>
+  <text x="600.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainLinesAndStreams() is running, inside the reader's using block, just after line 2 was read and printed.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="760" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1145" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="294" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="154" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">FileIODemo.ExplainLinesAndStreams() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">path → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">lineCount = 2</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">reader → pointer  (StreamReader)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">line → pointer  (string)</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">FileIOExample.Explain()</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="250" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="163" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;temp folder&gt;/bta-statement.txt"</text>
+  <rect x="460" y="197" width="290" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="219" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">StreamReader — reader</text>
+  <rect x="472" y="229" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="246" font-size="10" fill="#7f4e00">_stream → pointer (FileStream)</text>
+  <text x="474" y="270" font-size="8.5" font-style="italic" fill="#a06a1f">(decoder and buffer not shown)</text>
+  <rect x="800" y="197" width="270" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="935.0" y="219" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">FileStream</text>
+  <rect x="812" y="229" width="246" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="820" y="246" font-size="10" fill="#7f4e00">handle → OS file handle</text>
+  <text x="814" y="270" font-size="8.5" font-style="italic" fill="#a06a1f">(internals simplified)</text>
+  <line x1="750" y1="242" x2="798" y2="242" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="460" y="320" width="250" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="585.0" y="339" text-anchor="middle" font-size="10" fill="#7f4e00">"Withdraw 900 (refused)"</text>
+  <text x="466" y="366" font-size="9.5" font-style="italic" fill="#a06a1f">↑ read from the file: a new string object</text>
+  <rect x="800" y="330" width="330" height="112" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="965.0" y="350" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the operating system</text>
+  <text x="814" y="370" font-size="9.5" fill="#333333">open file handle (read position: after line 2)</text>
+  <text x="814" y="386" font-size="9.5" font-weight="bold" fill="#333333">bta-statement.txt on disk:</text>
+  <text x="814" y="402" font-size="9.5" fill="#333333">  Deposit 200</text>
+  <text x="814" y="418" font-size="9.5" fill="#333333">  Withdraw 900 (refused)</text>
+  <text x="814" y="434" font-size="9.5" fill="#333333">  Withdraw 100</text>
+  <line x1="935" y1="279" x2="935" y2="328" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="219" x2="458" y2="219" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <polyline points="378,249 432,249 432,335 458,335" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1100" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1145" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1145" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="466" font-size="10.5" fill="#444"><tspan font-weight="bold">StreamReader and FileStream are .NET objects on the Heap; the file handle and the file are NOT. </tspan>The stream is only a doorway to the operating system — which is why it must be closed (disposed), not just forgotten.</text>
+  <text x="40" y="484" font-size="10" font-style="italic" fill="#888">writer and its using block are already over: Dispose() at the closing brace flushed the three lines to disk and released that handle. `line` is a new string read from the file; lineCount counts 2 so far.</text>
+</svg>

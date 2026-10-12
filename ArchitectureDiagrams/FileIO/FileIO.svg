@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1280" height="560" fill="#ffffff"/>
+  <text x="640" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a237e">C# File I/O — Text, Streams, Paths, Errors</text>
+  <text x="640" y="48" text-anchor="middle" font-size="12" fill="#666">FileIODemo.cs holds the logic; every method works on one file in the temp folder and deletes it afterwards. Each box is one Explain*() method — see Flow/0-Overview.svg.</text>
+  <g font-size="10" fill="#333"><rect x="150" y="62" width="12" height="12" rx="2" fill="#e8f4fb" stroke="#3d85c6"/><text x="166" y="72">Write / read text</text></g>
+  <g font-size="10" fill="#333"><rect x="300" y="62" width="12" height="12" rx="2" fill="#eaf6ea" stroke="#6aa84f"/><text x="316" y="72">Streams</text></g>
+  <g font-size="10" fill="#333"><rect x="380" y="62" width="12" height="12" rx="2" fill="#fdebd9" stroke="#e69138"/><text x="396" y="72">Paths</text></g>
+  <g font-size="10" fill="#333"><rect x="450" y="62" width="12" height="12" rx="2" fill="#f0eaf7" stroke="#8e63ce"/><text x="466" y="72">File errors</text></g>
+  <rect x="30" y="100" width="290" height="250" rx="10" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="175" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a4a73">1 · Write and read text</text>
+  <text x="175" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a86ab">ExplainWriteAndReadText()</text>
+  <rect x="42" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#b8d9ef" stroke-width="1"/>
+  <text x="50" y="168" font-size="9" fill="#333">File.WriteAllText(path, summary);</text>
+  <text x="50" y="190" font-size="9" fill="#333">string readBack = File.ReadAllText(path);</text>
+  <text x="175" y="268" text-anchor="middle" font-size="9.5" fill="#1a4a73">The whole file in one call: write a</text>
+  <text x="175" y="284" text-anchor="middle" font-size="9.5" fill="#1a4a73">string, read it back as a new one.</text>
+  <rect x="340" y="100" width="290" height="250" rx="10" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="485" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#274e13">2 · Streams</text>
+  <text x="485" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#5a8a4a">ExplainLinesAndStreams()</text>
+  <rect x="352" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#bfe0b0" stroke-width="1"/>
+  <text x="360" y="168" font-size="9" fill="#333">using (StreamWriter writer = …)</text>
+  <text x="360" y="190" font-size="9" fill="#333">while ((line = reader.ReadLine()) != null)</text>
+  <text x="485" y="268" text-anchor="middle" font-size="9.5" fill="#274e13">A file one line at a time; using closes</text>
+  <text x="485" y="284" text-anchor="middle" font-size="9.5" fill="#274e13">the stream at the closing brace.</text>
+  <rect x="650" y="100" width="290" height="250" rx="10" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="795" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">3 · Paths and existence</text>
+  <text x="795" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#b9803f">ExplainPathsAndExistence()</text>
+  <rect x="662" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#f3d3ac" stroke-width="1"/>
+  <text x="670" y="168" font-size="9" fill="#333">Path.Combine(folder, StatementFileName)</text>
+  <text x="670" y="190" font-size="9" fill="#333">bool existsNow = File.Exists(path);</text>
+  <text x="795" y="268" text-anchor="middle" font-size="9.5" fill="#8a5a10">Build an address with Path.Combine; ask</text>
+  <text x="795" y="284" text-anchor="middle" font-size="9.5" fill="#8a5a10">the disk with File.Exists.</text>
+  <rect x="960" y="100" width="290" height="250" rx="10" fill="#f0eaf7" stroke="#8e63ce" stroke-width="1.5"/>
+  <text x="1105" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a2e73">4 · File errors</text>
+  <text x="1105" y="138" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a72ab">ExplainFileErrors()</text>
+  <rect x="972" y="148" width="266" height="86" rx="6" fill="#ffffff" stroke="#dccbef" stroke-width="1"/>
+  <text x="980" y="168" font-size="9" fill="#333">catch (FileNotFoundException ex)</text>
+  <text x="980" y="190" font-size="9" fill="#333">bool canRead = File.Exists(missingPath);</text>
+  <text x="1105" y="268" text-anchor="middle" font-size="9.5" fill="#4a2e73">A missing file throws (Topic 7); File.</text>
+  <text x="1105" y="284" text-anchor="middle" font-size="9.5" fill="#4a2e73">Exists lets you ask first instead.</text>
+  <text x="40" y="395" font-size="11" fill="#444"><tspan font-weight="bold">The example the lesson builds:</tspan> a one-line bank statement saved as bta-statement.txt in the temp folder, then deleted — nothing is left behind and nothing is written into the repo.</text>
+  <text x="40" y="440" font-size="11" fill="#444"><tspan font-weight="bold">Program.cs → ILearningTopic → FileIOExample.Explain()</tspan> calls all four methods above, in this order — see Flow/0-Overview.svg for the exact call/return trace.</text>
+  <text x="40" y="460" font-size="10.5" font-style="italic" fill="#888">Every method (1–4) gets its own Flow/&lt;N&gt;-&lt;Name&gt;.svg AND Memory/&lt;N&gt;-&lt;Name&gt;.svg — same numbering, so the two folders line up.</text>
+</svg>

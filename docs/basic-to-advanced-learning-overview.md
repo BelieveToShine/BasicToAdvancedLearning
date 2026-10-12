@@ -14,8 +14,8 @@ Planned track (see [`ROADMAP.md`](ROADMAP.md) for per-topic status):
 5. React frontend — 21–25
 6. Full-stack integration — 26–28
 
-Currently done: topics 1–7 (Programming Basics, Control Flow, Methods & Parameters, Collections, OOP, OOP advanced, Exception handling).
-Next: topic 8 (File I/O basics).
+Currently done: topics 1–8 (Programming Basics, Control Flow, Methods & Parameters, Collections, OOP, OOP advanced, Exception handling, File I/O).
+Next: topic 9 (LINQ fundamentals).
 
 ## Whole-system architecture
 ```

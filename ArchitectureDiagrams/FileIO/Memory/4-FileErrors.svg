@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 478" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1150" height="478" fill="#ffffff"/>
+  <text x="575.0" y="26" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a237e">File errors — Memory: Stack / Heap / Static</text>
+  <text x="575.0" y="46" text-anchor="middle" font-size="12" fill="#666">Snapshot: ExplainFileErrors() is running, inside the catch block, after File.ReadAllText threw.</text>
+  <g font-size="11" fill="#333"><rect x="200" y="60" width="14" height="14" rx="2" fill="#b6d7a8" stroke="#6aa84f"/><text x="220" y="71">Stack</text></g>
+  <g font-size="11" fill="#333"><rect x="380" y="60" width="14" height="14" rx="2" fill="#f9cb9c" stroke="#e69138"/><text x="400" y="71">Heap</text></g>
+  <g font-size="11" fill="#333"><rect x="560" y="60" width="14" height="14" rx="2" fill="#d5c9ea" stroke="#674ea7"/><text x="580" y="71">Static</text></g>
+  <text x="220" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3f6b3f">STACK — call frames (top = currently executing)</text>
+  <text x="700" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#8a5a10">HEAP</text>
+  <text x="1095" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#3d2a6b">STATIC</text>
+  <rect x="30" y="108" width="380" height="294" rx="10" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="50" y="118" width="340" height="154" rx="8" fill="#b6d7a8" stroke="#6aa84f" stroke-width="2"/>
+  <text x="220" y="136" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">FileIODemo.ExplainFileErrors() — ACTIVE</text>
+  <rect x="62" y="146" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="163" font-size="10" fill="#1b3d1b">missingPath → pointer  (string)</text>
+  <rect x="62" y="176" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="193" font-size="10" fill="#1b3d1b">text — declared in try, never assigned</text>
+  <rect x="62" y="206" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="223" font-size="10" fill="#1b3d1b">ex → pointer  (FileNotFoundException)</text>
+  <rect x="62" y="236" width="316" height="26" rx="4" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1"/>
+  <text x="70" y="253" font-size="10" fill="#1b3d1b">canRead — declared later, not reached yet</text>
+  <rect x="50" y="282" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="302" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">FileIOExample.Explain()</text>
+  <text x="220" y="318" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for the call above to return</text>
+  <rect x="50" y="342" width="340" height="50" rx="8" fill="#dcecdc" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c6b4c">Program.cs (Main)</text>
+  <text x="220" y="378" text-anchor="middle" font-size="9.5" fill="#6b8a6b">paused — waiting for topic.Explain() to return</text>
+  <rect x="460" y="144" width="280" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="600.0" y="163" text-anchor="middle" font-size="10" fill="#7f4e00">"&lt;temp folder&gt;/bta-no-such-file.txt"</text>
+  <rect x="460" y="197" width="290" height="82" rx="10" fill="#f9cb9c" stroke="#e69138" stroke-width="1.5"/>
+  <text x="605.0" y="219" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f4e00">FileNotFoundException — ex</text>
+  <rect x="472" y="229" width="266" height="26" rx="4" fill="#fff3e6" stroke="#e69138" stroke-width="1"/>
+  <text x="480" y="246" font-size="10" fill="#7f4e00">Message → pointer (string)</text>
+  <text x="474" y="270" font-size="8.5" font-style="italic" fill="#a06a1f">(a few more internal fields not shown)</text>
+  <rect x="790" y="227" width="260" height="30" rx="6" fill="#fff3e6" stroke="#e69138" stroke-width="1.5"/>
+  <text x="920.0" y="246" text-anchor="middle" font-size="10" fill="#7f4e00">"(message text from .NET)"</text>
+  <line x1="750" y1="242" x2="788" y2="242" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="460" y="320" width="440" height="62" rx="10" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="680.0" y="340" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#444444">OUTSIDE .NET — the operating system's disk</text>
+  <text x="474" y="360" font-size="9.5" font-weight="bold" fill="#333333">bta-no-such-file.txt: there is NO such file</text>
+  <line x1="378" y1="159" x2="458" y2="159" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="378" y1="219" x2="458" y2="219" stroke="#555" stroke-width="1.4" marker-end="url(#a)"/>
+  <rect x="1050" y="118" width="90" height="130" rx="10" fill="#d5c9ea" stroke="#674ea7" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.25"/>
+  <text x="1095" y="150" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">Nothing</text>
+  <text x="1095" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#3d2a6b">here yet</text>
+  <text x="40" y="426" font-size="10.5" fill="#444"><tspan font-weight="bold">The file is missing on DISK, so File.ReadAllText had nothing to read and threw — `text` was never assigned. </tspan>`ex` points at the exception object, just like Topic 7.</text>
+  <text x="40" y="444" font-size="10" font-style="italic" fill="#888">canRead comes after the catch block: File.Exists will ask the disk and answer false WITHOUT throwing, which is the other way to handle a missing file. The exception message wording is .NET's own, so it is not quoted here.</text>
+</svg>

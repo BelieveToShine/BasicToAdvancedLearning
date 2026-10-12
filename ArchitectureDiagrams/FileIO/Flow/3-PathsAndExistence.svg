@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 830" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#333"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="830" fill="#ffffff"/>
+  <text x="450.0" y="20" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a237e">Paths and existence — Sub-level Flow: building an address, checking the mailbox</text>
+  <text x="450.0" y="38" text-anchor="middle" font-size="11" fill="#666">Path.Combine glues the pieces into a full path; File.Exists asks the disk — each time — whether the file is there.</text>
+  <text x="450" y="50" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#274e13">START</text>
+  <line x1="450" y1="54" x2="450" y2="92" stroke="#333" stroke-width="2"/>
+  <polygon points="450,54 450,72 480,63" fill="#38761d"/>
+  <line x1="450" y1="92" x2="450" y2="96" stroke="#333" stroke-width="1.6"/>
+  <polyline points="450,96 250,96 250,104" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="450,96 650,96 650,104" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="100" y="106" width="300" height="44" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="250" y="133" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f6000">folder = Path.GetTempPath();</text>
+  <rect x="500" y="106" width="300" height="44" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="650" y="133" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f6000">StatementFileName = "bta-statement.txt"</text>
+  <line x1="250" y1="150" x2="250" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="650" y1="150" x2="650" y2="190" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="250" y="192" width="400" height="50" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="450" y="214" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#274e13">Path.Combine(folder, StatementFileName)</text>
+  <text x="450" y="231" text-anchor="middle" font-size="9.5" fill="#555">joins the pieces with this operating system's separator</text>
+  <line x1="450" y1="242" x2="450" y2="282" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="250" y="284" width="400" height="46" rx="8" fill="#e8f4fb" stroke="#3d85c6" stroke-width="1.5"/>
+  <text x="450" y="304" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1a4a73">path = the full address (a string)</text>
+  <text x="450" y="320" text-anchor="middle" font-size="9" fill="#555">Console.WriteLine: file name and extension (.txt)</text>
+  <polyline points="450,330 450,360 210,360 210,376" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="376" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="402" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">bool existedBefore = File.Exists(path);</text>
+  <line x1="360" y1="398" x2="560" y2="398" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="560" y="376" width="280" height="44" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="700" y="402" text-anchor="middle" font-size="9.5" fill="#333">no file yet → False</text>
+  <line x1="210" y1="420" x2="210" y2="440" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="440" width="300" height="44" rx="8" fill="#fffbe8" stroke="#f1c232" stroke-width="1.5"/>
+  <text x="210" y="466" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">File.WriteAllText(path, "Anita: …");</text>
+  <line x1="360" y1="462" x2="560" y2="462" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="560" y="440" width="280" height="44" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="700" y="466" text-anchor="middle" font-size="9.5" fill="#333">letter posted: the file exists</text>
+  <line x1="210" y1="484" x2="210" y2="504" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="504" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="530" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">bool existsNow = File.Exists(path);</text>
+  <line x1="360" y1="526" x2="560" y2="526" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="560" y="504" width="280" height="44" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="700" y="530" text-anchor="middle" font-size="9.5" fill="#333">letter inside → True</text>
+  <line x1="210" y1="548" x2="210" y2="568" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="568" width="300" height="44" rx="8" fill="#fdebd9" stroke="#e69138" stroke-width="1.5"/>
+  <text x="210" y="594" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">File.Delete(path);</text>
+  <line x1="360" y1="590" x2="560" y2="590" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="560" y="568" width="280" height="44" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="700" y="594" text-anchor="middle" font-size="9.5" fill="#333">letter removed: the file is gone</text>
+  <line x1="210" y1="612" x2="210" y2="632" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <rect x="60" y="632" width="300" height="44" rx="8" fill="#eaf6ea" stroke="#6aa84f" stroke-width="1.5"/>
+  <text x="210" y="658" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#333">bool existsAfterDelete = File.Exists(path);</text>
+  <line x1="360" y1="654" x2="560" y2="654" stroke="#777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <rect x="560" y="632" width="280" height="44" rx="8" fill="#f1f1f1" stroke="#777777" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="700" y="658" text-anchor="middle" font-size="9.5" fill="#333">mailbox empty again → False</text>
+  <text x="460" y="384" text-anchor="middle" font-size="9" font-style="italic" fill="#777">asks the operating system</text>
+  <line x1="210" y1="676" x2="210" y2="712" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="726" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#990000">END</text>
+  <line x1="210" y1="734" x2="210" y2="774" stroke="#333" stroke-width="2"/>
+  <polygon points="210,734 210,752 240,743" fill="#cc0000"/>
+  <text x="30" y="790" font-size="10.5" fill="#444"><tspan font-weight="bold">Same call, three different answers:</tspan> File.Exists does not remember anything — it asks the disk each time, so its answer follows the file's life.</text>
+  <text x="30" y="808" font-size="10" font-style="italic" fill="#888">Console.WriteLine prints the name/extension line and the final "Before writing: False, after writing: True, after deleting: False" line — two lines. Heading banner not drawn.</text>
+</svg>
