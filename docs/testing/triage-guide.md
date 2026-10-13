@@ -6,7 +6,7 @@ Back to [`README.md`](README.md). Work through the questions in order. Always st
 ## 1. Classify
 | Symptom | Most likely class | Look at |
 |---|---|---|
-| `cannot connect to SQL Server`, `Login failed`, certificate error | **Environment** — connection string / server not running / firewall | [§2 Environment](#2-environment-problems) |
+| `cannot connect to SQL Server`, `Login failed`, `pre-login handshake` / certificate error (add `TrustServerCertificate=True`) | **Environment** — connection string / server not running / firewall | [§2 Environment](#2-environment-problems) |
 | `CREATE DATABASE permission denied` | **Environment** — login rights | run `sql/00-create-lesson-databases.sql` as a DBA, or use a login with `dbcreator` |
 | DIFF only in lines with an error **message text** (the part after "SQL Server refused it (error 547): …") | **Environment** — server version/language/collation wording | [§3](#3-diff-in-sql-server-wording) |
 | DIFF in row **order**, decimals, dates, or sort-dependent output | **Environment (collation)** or a real **lesson bug** (missing `ORDER BY`) | [§3](#3-diff-in-sql-server-wording) |

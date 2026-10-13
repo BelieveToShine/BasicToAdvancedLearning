@@ -1,6 +1,6 @@
 # Verification status board (single source of truth — update after every testing run)
 
-**How to use:** read this before testing to see what is still open; after testing, change the rows you actually verified
+**How to use:** (to add a third environment, copy a row of §1, change the first column and paste your report's link) read this before testing to see what is still open; after testing, change the rows you actually verified
 (date, commit, where, report file) and add new findings. Never mark a row "verified" without a result report in
 [`results/`](results/README.md) that shows it.
 

@@ -6,6 +6,7 @@
     pwsh tests/e2e/run-e2e.ps1 -Only SqlCrud,AdoNet
     pwsh tests/e2e/run-e2e.ps1 -SkipApi -SkipFrontend -SkipSqlScripts -NoSql
     (golden files are refreshed only with the bash runner: tests/e2e/run-e2e.sh --update-golden)
+  Run ONE runner at a time (lock folder tests/e2e/.run.lock). Program.cs must have no uncommitted changes.
   Exit code: 0 = every executed check passed, 1 = at least one FAIL/DIFF, 2 = cannot start (preflight).
   Differences from the bash runner: console output is compared after folding line endings (CRLF -> LF) and every non-ASCII
   character to '?', because a Windows console may not print the lessons' arrows/dashes/degree signs in UTF-8.
@@ -18,6 +19,13 @@ param(
 $ErrorActionPreference = 'Continue'
 $Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 $E2E = Join-Path $Root 'tests/e2e'; $Act = Join-Path $E2E 'actual'; $Console = Join-Path $Root 'BasicToAdvancedLearning.Console'
+$ProgramChanges = (& git -C $Root status --porcelain -- BasicToAdvancedLearning.Console/Program.cs 2>$null)
+if ($ProgramChanges) { Write-Host 'BasicToAdvancedLearning.Console/Program.cs has uncommitted changes; the runner rewires and then restores it with git, which would destroy them. Commit or stash it first.'; exit 2 }
+$Lock = Join-Path $E2E '.run.lock'
+if (Test-Path $Lock) { Write-Host 'Another run is in progress (lock folder tests/e2e/.run.lock). If it is stale, delete that folder and retry.'; exit 2 }
+New-Item -ItemType Directory -Path $Lock | Out-Null
+$env:MSBUILDDISABLENODEREUSE = '1'; $env:DOTNET_CLI_USE_MSBUILD_SERVER = '0'; $env:UseSharedCompilation = 'false'   # do not leave build servers running
+$OrigArgs = ($PSBoundParameters.GetEnumerator() | ForEach-Object { if ($_.Value -is [switch]) { "-$($_.Key)" } else { "-$($_.Key) $($_.Value -join ',')" } }) -join ' '
 if (Test-Path $Act) { Remove-Item -Recurse -Force -LiteralPath $Act }
 New-Item -ItemType Directory -Force -Path $Act | Out-Null
 $script:Rows = New-Object System.Collections.Generic.List[object]
@@ -96,6 +104,7 @@ try {
     }
     Restore-Program
 
+    if ($SkipSqlScripts -or $NoSql -or $Only.Count -gt 0) { Add-Row 'sql scripts 01-04' 'SKIP' 'not run (-SkipSqlScripts, -NoSql or -Only)' }
     if (-not $SkipSqlScripts -and -not $NoSql -and $Only.Count -eq 0) {
         Write-Host '== SQL scripts (sql/01..04 in a throwaway database)'
         $sqlcmd = $null; $sqlArgs = @()
@@ -123,6 +132,7 @@ try {
         }
     }
 
+    if ($SkipApi -or $NoSql -or $Only.Count -gt 0) { Add-Row 'api smoke test' 'SKIP' 'not run (-SkipApi, -NoSql or -Only)' }
     if (-not $SkipApi -and -not $NoSql -and $Only.Count -eq 0) {
         Write-Host '== FullStackBank API + smoke.sh'
         $dll = Join-Path $Root 'FullStackBank/Api/bin/Debug/net9.0/FullStackBank.Api.dll'
@@ -147,6 +157,7 @@ try {
         }
     }
 
+    if ($SkipFrontend -or $Only.Count -gt 0) { Add-Row 'frontend tests' 'SKIP' 'not run (-SkipFrontend or -Only)' }
     if (-not $SkipFrontend -and $Only.Count -eq 0) {
         Write-Host '== Frontend (vitest + build)'
         if ($NodeV -eq 'none') { Add-Row 'frontend tests' 'SKIP' 'node is not installed' }
@@ -169,20 +180,23 @@ try {
         Pop-Location
     }
 }
-finally { Restore-Program }
+finally { Restore-Program; if (Test-Path $Lock) { Remove-Item -Recurse -Force -LiteralPath $Lock } }
 
 # ---- report
 $count = { param($r) @($script:Rows | Where-Object { $_.Result -eq $r }).Count }
 $P = (& $count 'PASS') + (& $count 'UPDATED'); $F = & $count 'FAIL'; $D = & $count 'DIFF'; $S = & $count 'SKIP'; $WN = & $count 'WARN'
 $repDir = Join-Path $Root 'docs/testing/results'; New-Item -ItemType Directory -Force -Path $repDir | Out-Null
-$rep = Join-Path $repDir "$Sha-$HostName.md"
+$rep = Join-Path $repDir "$Sha-$HostName.md"; $n = 2
+while (Test-Path $rep) { $rep = Join-Path $repDir "$Sha-$HostName-$n.md"; $n++ }   # never overwrite an earlier report
+$Dirty = @(& git -C $Root status --porcelain 2>$null | Where-Object { $_ -notmatch ' (docs/testing/results/|tests/e2e/actual/)' }).Count
 $sqlVer = if ($NoSql) { 'none' } elseif ($env:E2E_SQL_VERSION) { $env:E2E_SQL_VERSION } else { '(not recorded: put the output of SELECT @@VERSION here)' }
 $md = @("# E2E result — $Date on $HostName (commit $Sha)", '',
         "- commit: ``$Sha``  ·  dotnet: ``$DotnetV``  ·  node: ``$NodeV``  ·  roll-forward used: $Roll",
+        "- command: ``tests/e2e/run-e2e.ps1 $OrigArgs``  ·  uncommitted changes in the working tree when the report was written: $Dirty file(s) (0 = the commit above is exactly what was tested)",
         "- SQL Server: $sqlVer", "- totals: PASS $P · DIFF $D · FAIL $F · WARN $WN · SKIP $S", '',
         '| Check | Result | Notes |', '|---|---|---|')
 foreach ($r in $script:Rows) { $md += "| $($r.Name) | $($r.Result) | $(($r.Note) -replace '\|', '\|') |" }
 $md += ''; $md += 'Diffs and raw outputs: `tests/e2e/actual/` (git-ignored). Triage every DIFF/FAIL with `docs/testing/triage-guide.md`.'
 Set-Content -LiteralPath $rep -Value $md
-Write-Host ''; Write-Host "PASS $P · DIFF $D · FAIL $F · WARN $WN · SKIP $S   -> report: docs/testing/results/$Sha-$HostName.md"
+Write-Host ''; Write-Host "PASS $P · DIFF $D · FAIL $F · WARN $WN · SKIP $S   -> report: docs/testing/results/$(Split-Path -Leaf $rep)"
 if ($F -eq 0 -and $D -eq 0) { exit 0 } else { exit 1 }

@@ -6,7 +6,7 @@ Read [`README.md`](README.md) first if you have not (it explains the kit); keep 
 ## Step 0 — Prerequisites
 | Need | Check | Notes |
 |---|---|---|
-| Git + this repo cloned, on `master` (`git pull`) | `git log -1` | work on a branch if you will push fixes |
+| Git + this repo cloned, on `master` (`git pull`) | `git log -1` | work on a branch if you will push fixes. `BasicToAdvancedLearning.Console/Program.cs` must have **no uncommitted changes** (the runner rewires it and restores it with git — it refuses to start otherwise). Run **one runner at a time** (a lock folder `tests/e2e/.run.lock` enforces it) |
 | **.NET 9 SDK** | `dotnet --list-sdks` shows `9.0.x` | with only a newer SDK/runtime the runner sets `DOTNET_ROLL_FORWARD=Major` and **says so in the report** — please get a real 9 for the final run |
 | **Node 22 + npm** | `node --version` | only for the frontend checks (`--skip-frontend` to omit) |
 | `bash` + `curl` | `bash --version` | for `FullStackBank/smoke.sh` (Windows: Git-Bash) |
@@ -44,7 +44,8 @@ $env:BTAL_SQLSERVER = 'Server=localhost,1433;User Id=sa;Password=<Strong#Passw0r
 sqlcmd -S localhost,1433 -U sa -P '<…>' -C -b -Q "CREATE DATABASE bank_scratch"
 for f in 01-bank-schema 02-bank-seed 03-verify-bank-schema; do sqlcmd -S localhost,1433 -U sa -P '<…>' -C -b -d bank_scratch -i sql/$f.sql; done
 ```
-Expected: `ALL CHECKS PASSED`. Details: [`../../sql/README.md`](../../sql/README.md). (The runner does this automatically in a throwaway database.)
+Docker-only host (no local `sqlcmd`; the container cannot read host files with `-i`, so feed the file on stdin): `docker exec -i sql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P '<pw>' -b -d bank_scratch < sql/$f.sql`.
+Expected: `ALL CHECKS PASSED`. Details: [`../../sql/README.md`](../../sql/README.md). Drop `bank_scratch` afterwards (`DROP DATABASE bank_scratch`). (The runner does the same automatically in a throwaway database it drops itself.)
 
 ## Step 4 — Run everything
 ```bash
@@ -63,6 +64,7 @@ and runs `smoke.sh` twice → `vitest` + `vite build` → `docker compose config
 | `SKIP` | not run (missing tool/permission/flag) | allowed, but must be written down in `status.md` as **not verified** |
 | `WARN` | ran but no golden file | add the lesson to the manifest and golden folder |
 
+Notes: the build step is `--no-incremental` (≈5 s extra even with `--only`); checks you excluded (`--only`, `--no-sql`, `--skip-*`) appear as explicit `SKIP` rows; the report file is **never overwritten** (`<commit>-<host>.md`, then `-2`, `-3`…) and its header records the command line and whether the working tree was dirty (a report with dirty files > 0 does not describe the commit exactly). The DIFF note counts changed lines on **both** sides, so one replaced line reads as 2; in `<Lesson>.diff` a `-` line is the golden file and `+` is this run (the PowerShell runner prints `<=` golden / `=>` this run).
 Exit code: `0` all executed checks passed · `1` something failed or differs · `2` could not start (preflight).
 Typical connection failures: login failed (user/password), `TrustServerCertificate=True` missing for a self-signed server certificate, wrong port, firewall, the login lacks `CREATE DATABASE` (then run `sql/00-…` as a DBA).
 
@@ -74,7 +76,7 @@ cd frontend && npm install && npm run dev               # terminal 2: open the p
 ```
 In the lesson picker open, in order: **ReactApiClient / 01…05**, **FullStackBank / 01…05**, **CrossLayerValidation / 01…05**. Confirm for each: the page shows data
 (not the red "API not reachable" box), a deposit changes the balance, withdrawing too much shows the 422 message, a duplicate account number shows the 409 message,
-and stopping the API (Ctrl+C) makes the pages show the friendly "API not reachable" state. Record anything odd in `status.md` §3.
+and stopping the API (Ctrl+C) makes the pages show the friendly "API not reachable" state. Record anything odd in `status.md` §3. (The API's database keeps the ~10 extra accounts that earlier `smoke.sh` runs created — expected after a runner run; a fresh Docker volume in step 6 shows only the 3 demo accounts.)
 
 ## Step 6 — (optional, needs Docker) the full container stack
 ```bash
@@ -90,5 +92,5 @@ Follow `FullStackBank/deploy/README.md` for the explanations and the troubleshoo
 - [ ] [`status.md`](status.md): update §1/§2 rows you really verified (date, commit, report link); add findings to §3; keep §4 honest.
 - [ ] Every DIFF/FAIL is either fixed (re-run shows PASS) or listed as an open finding. Never leave one unexplained.
 - [ ] Fixes: lesson code + its diagrams + `tests/e2e/expected` + docs updated **together**; `scripts/verify-topic.ps1 -All -SkipBuild` still 0 FAIL and `scripts/verify-docs.ps1` 0 FAIL ([`../rules/verification.md`](../rules/verification.md)).
-- [ ] `git status` shows no `Program.cs` change and no secrets; commit (2-line message, no AI signature — repo rule) and push as the owner's workflow requires ([`../rules/checkin-and-pr.md`](../rules/checkin-and-pr.md)).
+- [ ] `git status` shows no `Program.cs` change and no secrets; **ask the owner before committing or pushing** (`CLAUDE.md`: never commit/push on your own; unless the owner has told this session to, e.g. in the prompt that started it). Commit messages are 2 lines, no AI signature ([`../rules/checkin-and-pr.md`](../rules/checkin-and-pr.md)).
 - [ ] Tell the owner: what passed, what differed, what is still unverified.

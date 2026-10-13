@@ -5,23 +5,30 @@
 #   tests/e2e/run-e2e.sh                     # everything
 #   tests/e2e/run-e2e.sh --only SqlCrud,AdoNet
 #   tests/e2e/run-e2e.sh --skip-api --skip-frontend --skip-sqlscripts --no-sql
+#   tests/e2e/run-e2e.sh --skip-docker-config
 #   tests/e2e/run-e2e.sh --update-golden     # DEV ONLY: overwrite tests/e2e/expected/*.txt with this run's output
+# Run ONE runner at a time (a lock folder tests/e2e/.run.lock enforces it). Program.cs must have no uncommitted changes.
 # Exit code: 0 = every executed check passed, 1 = at least one FAIL/DIFF, 2 = cannot start (preflight).
 set -u
+ORIG_ARGS="$*"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 E2E="$ROOT/tests/e2e"; ACT="$E2E/actual"; CONSOLE="$ROOT/BasicToAdvancedLearning.Console"
 ONLY=""; SKIP_API=0; SKIP_FE=0; SKIP_SQLS=0; NOSQL=0; UPDATE=0; DOCKER_CFG=1
 while [ $# -gt 0 ]; do case "$1" in
   --only) ONLY="$2"; shift;; --skip-api) SKIP_API=1;; --skip-frontend) SKIP_FE=1;; --skip-sqlscripts) SKIP_SQLS=1;;
   --no-sql) NOSQL=1;; --update-golden) UPDATE=1;; --skip-docker-config) DOCKER_CFG=0;;
-  -h|--help) sed -n 2,12p "$0"; exit 0;; *) echo "unknown option $1"; exit 2;; esac; shift; done
+  -h|--help) sed -n 2,15p "$0"; exit 0;; *) echo "unknown option $1"; exit 2;; esac; shift; done
 
+if [ -n "$(cd "$ROOT" && git status --porcelain -- BasicToAdvancedLearning.Console/Program.cs 2>/dev/null)" ]; then
+  echo "BasicToAdvancedLearning.Console/Program.cs has uncommitted changes; the runner rewires and then restores it with git, which would destroy them. Commit or stash it first."; exit 2; fi
+LOCK="$E2E/.run.lock"
+if ! mkdir "$LOCK" 2>/dev/null; then echo "Another run is in progress (lock folder tests/e2e/.run.lock). If it is stale, delete that folder and retry."; exit 2; fi
 # Start every run with an empty actual/ folder (git-ignored). The :? guards stop the shell if a variable is ever empty.
 rm -rf "${ACT:?}"; mkdir -p "${ACT:?}"
 declare -a NAMES RESULTS NOTES
 add() { NAMES+=("$1"); RESULTS+=("$2"); NOTES+=("$3"); printf '%-8s %-38s %s\n' "$2" "$1" "$3"; }
 API_PID=""
-restore() { (cd "$ROOT" && git checkout -q -- BasicToAdvancedLearning.Console/Program.cs 2>/dev/null); [ -n "$API_PID" ] && kill "$API_PID" 2>/dev/null; return 0; }
+restore() { (cd "$ROOT" && git checkout -q -- BasicToAdvancedLearning.Console/Program.cs 2>/dev/null); [ -n "$API_PID" ] && kill "$API_PID" 2>/dev/null; rmdir "$LOCK" 2>/dev/null; return 0; }
 trap restore EXIT
 
 echo "== Preflight"
@@ -29,7 +36,9 @@ HOST="$(hostname 2>/dev/null || echo unknown)"; DATE="$(date +%Y-%m-%d)"; SHA="$
 command -v dotnet >/dev/null || { echo "dotnet not found - install the .NET 9 SDK"; exit 2; }
 DOTNET_V="$(dotnet --version)"
 if dotnet --list-runtimes | grep -q "Microsoft.NETCore.App 9\."; then ROLL="no (a .NET 9 runtime is installed)"; else export DOTNET_ROLL_FORWARD=Major; ROLL="YES - no .NET 9 runtime found, using DOTNET_ROLL_FORWARD=Major (results are NOT net9 results)"; fi
+export MSBUILDDISABLENODEREUSE=1 DOTNET_CLI_USE_MSBUILD_SERVER=0 UseSharedCompilation=false   # do not leave build servers running
 NODE_V="$(node --version 2>/dev/null || echo none)"
+DIRTY="$(cd "$ROOT" && git status --porcelain 2>/dev/null | grep -v -E ' (docs/testing/results/|tests/e2e/actual/)' | wc -l | tr -d ' ')"
 echo "host=$HOST dotnet=$DOTNET_V node=$NODE_V commit=$SHA roll-forward: $ROLL"
 if [ "$NOSQL" = 0 ] && [ -z "${BTAL_SQLSERVER:-}" ]; then echo "BTAL_SQLSERVER is not set. Set it (see docs/testing/runbook.md step 2) or pass --no-sql."; exit 2; fi
 
@@ -52,7 +61,7 @@ while IFS=$'\t' read -r T NEEDS STDIN PHASE; do
   if [ "$STDIN" = "-" ]; then IN=/dev/null; else printf "$STDIN" > "$ACT/$T.in"; IN="$ACT/$T.in"; fi
   ( cd "$CONSOLE" && timeout 600 dotnet run -v q < "$IN" > "$ACT/$T.txt" 2>&1 ); RC=$?
   # The database name appears in some SQL Server error messages and depends on the reader's Initial Catalog: normalise it.
-  if [ -n "$CAT" ]; then sed -i.bak "s/${CAT}_${T}/<DB>/g" "$ACT/$T.txt"; fi
+  if [ -n "$CAT" ]; then sed -i.bak "s/${CAT}_${T}/<DB>/g" "$ACT/$T.txt"; rm -f "${ACT:?}/${T:?}.txt.bak"; fi
   if grep -q "Could not connect to SQL Server" "$ACT/$T.txt"; then NOCONN=1; add "lesson $T" FAIL "cannot connect to SQL Server: $(grep -m1 'Could not connect' "$ACT/$T.txt" | cut -c1-150)"; continue; fi
   if grep -q "Set the BTAL_SQLSERVER" "$ACT/$T.txt" && [ "$NEEDS" = yes ]; then add "lesson $T" FAIL "lesson skipped itself: BTAL_SQLSERVER missing"; continue; fi
   if [ "$UPDATE" = 1 ]; then cp "$ACT/$T.txt" "$E2E/expected/$T.txt"; add "lesson $T" UPDATED "golden file overwritten"; continue; fi
@@ -63,6 +72,7 @@ while IFS=$'\t' read -r T NEEDS STDIN PHASE; do
 done < "$E2E/manifest.tsv"
 (cd "$ROOT" && git checkout -q -- BasicToAdvancedLearning.Console/Program.cs)
 
+if [ "$SKIP_SQLS" = 1 ] || [ "$NOSQL" = 1 ] || [ -n "$ONLY" ]; then add "sql scripts 01-04" SKIP "not run (--skip-sqlscripts, --no-sql or --only)"; fi
 if [ "$SKIP_SQLS" = 0 ] && [ "$NOSQL" = 0 ] && [ -z "$ONLY" ]; then
   echo "== SQL scripts (sql/01..04 in a throwaway database)"
   # sqlcmd command: E2E_SQLCMD wins (e.g. "docker exec -i sql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P ..."),
@@ -88,6 +98,7 @@ if [ "$SKIP_SQLS" = 0 ] && [ "$NOSQL" = 0 ] && [ -z "$ONLY" ]; then
   fi
 fi
 
+if [ "$SKIP_API" = 1 ] || [ "$NOSQL" = 1 ] || [ -n "$ONLY" ]; then add "api smoke test" SKIP "not run (--skip-api, --no-sql or --only)"; fi
 if [ "$SKIP_API" = 0 ] && [ "$NOSQL" = 0 ] && [ -z "$ONLY" ]; then
   echo "== FullStackBank API + smoke.sh"
   DLL="$ROOT/FullStackBank/Api/bin/Debug/net9.0/FullStackBank.Api.dll"
@@ -104,6 +115,7 @@ if [ "$SKIP_API" = 0 ] && [ "$NOSQL" = 0 ] && [ -z "$ONLY" ]; then
   fi
 fi
 
+if [ "$SKIP_FE" = 1 ] || [ -n "$ONLY" ]; then add "frontend tests" SKIP "not run (--skip-frontend or --only)"; fi
 if [ "$SKIP_FE" = 0 ] && [ -z "$ONLY" ]; then
   echo "== Frontend (vitest + build)"
   if [ "$NODE_V" = none ]; then add "frontend tests" SKIP "node is not installed"
@@ -123,15 +135,18 @@ fi
 # ---- report
 P=0; F=0; D=0; S=0; WN=0
 for r in "${RESULTS[@]}"; do case "$r" in PASS|UPDATED) P=$((P+1));; FAIL) F=$((F+1));; DIFF) D=$((D+1));; SKIP) S=$((S+1));; WARN) WN=$((WN+1));; esac; done
-REP="$ROOT/docs/testing/results/$SHA-$HOST.md"; mkdir -p "$ROOT/docs/testing/results"
+mkdir -p "$ROOT/docs/testing/results"; REP="$ROOT/docs/testing/results/$SHA-$HOST.md"; N=2
+while [ -e "$REP" ]; do REP="$ROOT/docs/testing/results/$SHA-$HOST-$N.md"; N=$((N+1)); done   # never overwrite an earlier report
 {
   echo "# E2E result — $DATE on $HOST (commit $SHA)"; echo
   echo "- commit: \`$SHA\`  ·  dotnet: \`$DOTNET_V\`  ·  node: \`$NODE_V\`  ·  roll-forward used: $ROLL"
+  echo "- command: \`tests/e2e/run-e2e.sh $ORIG_ARGS\`  ·  uncommitted changes in the working tree when the run started: $DIRTY file(s) (0 = the commit above is exactly what was tested)"
   echo "- SQL Server: $( [ "$NOSQL" = 1 ] && echo none || echo "${E2E_SQL_VERSION:-(not recorded: put the output of SELECT @@VERSION here)}")"
   echo "- totals: PASS $P · DIFF $D · FAIL $F · WARN $WN · SKIP $S"; echo
   echo "| Check | Result | Notes |"; echo "|---|---|---|"
   for i in "${!NAMES[@]}"; do echo "| ${NAMES[$i]} | ${RESULTS[$i]} | ${NOTES[$i]//|/\\|} |"; done
   echo; echo "Diffs and raw outputs: \`tests/e2e/actual/\` (git-ignored). Triage every DIFF/FAIL with \`docs/testing/triage-guide.md\`."
 } > "$REP"
+dotnet build-server shutdown >/dev/null 2>&1 || true
 echo; echo "PASS $P · DIFF $D · FAIL $F · WARN $WN · SKIP $S   -> report: ${REP#$ROOT/}"
 if [ $F = 0 ] && [ $D = 0 ]; then exit 0; else exit 1; fi

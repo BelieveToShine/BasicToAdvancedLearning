@@ -11,7 +11,7 @@ The lessons create everything they need **themselves** (each in its own scratch 
 | `01-bank-schema.sql` | creates `Customers`, `Accounts`, `Transactions` with named PK/FK/UNIQUE/CHECK/DEFAULT constraints, only what is missing | yes | no |
 | `02-bank-seed.sql` | inserts sample rows (4 customers, 4 accounts, 5 transactions) into tables that are still empty | yes | no |
 | `03-verify-bank-schema.sql` | read-only PASS/FAIL rows for every table, every named constraint, and balance = sum of transactions; fails the run (`THROW`) on any FAIL | yes | no |
-| `04-reset-bank.sql` | drops the three tables (children first) in the **current** database; refuses system databases | yes | **yes** |
+| `04-reset-bank.sql` | drops the three tables (children first) in the **current** database; refuses system databases and any database whose name does not look like a scratch one (contains `scratch`/`test`/`e2e`, or starts with `BasicToAdvancedLearning_`) | yes | **yes** |
 | `99-drop-lesson-databases.sql` | drops the lesson databases named by `00`; does nothing until you change `@Confirm` to `N'YES'` | yes | **yes** |
 
 ## Run them
@@ -19,7 +19,7 @@ Any T-SQL tool works (SSMS, Azure Data Studio, `sqlcmd`). With `sqlcmd`, `-b` ma
 ```bash
 S="-S localhost,1433 -U sa -P '<password>' -C -b"                 # -C trusts a self-signed server certificate
 sqlcmd $S -i sql/00-create-lesson-databases.sql                   # optional (DBA); edit @DbBase = your Initial Catalog first
-sqlcmd $S -Q "CREATE DATABASE bank_scratch"                        # a scratch database for the bank tables
+sqlcmd $S -Q "CREATE DATABASE bank_scratch"                        # a scratch database for the bank tables (drop it when done: DROP DATABASE bank_scratch)
 for f in 01-bank-schema 02-bank-seed 03-verify-bank-schema; do sqlcmd $S -d bank_scratch -i sql/$f.sql; done
 ```
 Docker without a local `sqlcmd`: `docker exec -i sql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P '<password>' -b -d bank_scratch < sql/01-bank-schema.sql`.
