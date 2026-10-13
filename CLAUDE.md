@@ -28,6 +28,7 @@ For how a unit of work runs end to end, see [`docs/aidlc.md`](docs/aidlc.md).
 - Diagrams (mandatory 3 per topic) → [`docs/rules/diagrams.md`](docs/rules/diagrams.md), which points to
   the full [`docs/rules/diagram-standards.md`](docs/rules/diagram-standards.md)
 - Verifying / reviewing work → [`docs/rules/verification.md`](docs/rules/verification.md)
+- **Testing end to end against a real SQL Server (or Docker), or told to "run/verify everything" → [`docs/testing/README.md`](docs/testing/README.md)** (runner, `sql/` scripts, status board, triage guide — start there, you need no chat history)
 - **Changing a rule, this file, `docs/aidlc.md` or a script; recording an owner decision; writing "verified" in
   a report → [`docs/rules/governance.md`](docs/rules/governance.md) (read it at the start of every session).**
   Short version: a feature task never justifies editing a rule — *propose* it in
