@@ -1,0 +1,26 @@
+
+===================================================
+1. Write and read text — the whole file in one call
+===================================================
+Wrote 18 characters to bta-statement.txt
+Read back: Anita: balance 500
+
+=======================================================
+2. Streams — a file one line at a time, closed by using
+=======================================================
+  line 1: Deposit 200
+  line 2: Withdraw 900 (refused)
+  line 3: Withdraw 100
+Read 3 lines
+
+============================================================
+3. Paths and existence — building an address and checking it
+============================================================
+File name: bta-statement.txt, extension: .txt
+Before writing: False, after writing: True, after deleting: False
+
+====================================================
+4. File errors — a missing file is a normal surprise
+====================================================
+Caught a FileNotFoundException: that file does not exist
+File.Exists says: False — checking first can avoid the exception

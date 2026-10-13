@@ -1,0 +1,73 @@
+
+=== 1. Request and response — the anatomy of one exchange ===
+Request  method : GET
+Request  path   : /api/accounts
+Request  query  : ?owner=Asha
+Request  header : Accept: application/json
+Response status : 200 OK
+Response header : Content-Type: application/json; charset=utf-8
+Response body   : [{"id":1,"owner":"Asha Rao","balance":500.00}]
+Raw text the client sent:
+    GET /api/accounts/1 HTTP/1.1
+    Host: localhost
+    Connection: close
+Raw text the server sent back:
+    HTTP/1.1 200 OK
+    Connection: close
+    Content-Type: application/json; charset=utf-8
+    Server: Kestrel
+    Transfer-Encoding: chunked
+    
+    2c
+    {"id":1,"owner":"Asha Rao","balance":500.00}
+    0
+
+=== 2. HTTP methods — GET, POST, PUT, DELETE; safe vs idempotent ===
+Start: 3 accounts
+  GET    /api/accounts/1        -> 200 OK (2xx)  {"id":1,"owner":"Asha Rao","balance":500.00}
+  GET    /api/accounts/1        -> 200 OK (2xx)  {"id":1,"owner":"Asha Rao","balance":500.00}
+After GET twice: 3 accounts (safe: nothing changed)
+  POST   /api/accounts          -> 201 Created (2xx)  {"id":4,"owner":"Dana Ortiz","balance":100}
+  POST   /api/accounts          -> 201 Created (2xx)  {"id":5,"owner":"Dana Ortiz","balance":100}
+After POST twice: 5 accounts (not idempotent: two were created)
+  PUT    /api/accounts/2        -> 200 OK (2xx)  {"id":2,"owner":"Ben Carter","balance":900}
+  PUT    /api/accounts/2        -> 200 OK (2xx)  {"id":2,"owner":"Ben Carter","balance":900}
+After PUT twice: 5 accounts (idempotent: account 2 is simply replaced)
+  DELETE /api/accounts/3        -> 204 NoContent (2xx)
+  DELETE /api/accounts/3        -> 404 NotFound (4xx)
+After DELETE twice: 4 accounts (idempotent: account 3 is gone either way)
+  DELETE /api/accounts          -> 405 MethodNotAllowed (4xx)
+Allow header: GET, POST
+
+=== 3. Status codes — 2xx ok, 3xx moved, 4xx client's fault, 5xx server's fault ===
+  GET    /api/accounts/1        -> 200 OK (2xx)  {"id":1,"owner":"Asha Rao","balance":500.00}
+  POST   /api/accounts          -> 201 Created (2xx)  {"id":4,"owner":"Dana Ortiz","balance":100}
+  DELETE /api/accounts/3        -> 204 NoContent (2xx)
+  GET    /api/old-accounts      -> 301 MovedPermanently (3xx)
+  Location header on the 301: /api/accounts
+  POST   /api/accounts          -> 400 BadRequest (4xx)  "Owner is required and Balance cannot be negative."
+  GET    /api/accounts/999      -> 404 NotFound (4xx)
+  POST   /api/accounts (text/plain body) -> 415 UnsupportedMediaType (4xx)
+  GET    /api/crash             -> 500 InternalServerError (5xx)
+EnsureSuccessStatusCode threw HttpRequestException, StatusCode = 404
+
+=== 4. JSON bodies — serialize, deserialize, Content-Type ===
+Default options : {"Id":1,"Owner":"Asha Rao","Balance":500.00}
+Web options     : {"id":1,"owner":"Asha Rao","balance":500.00}
+Default options reading camelCase: Id = 0, Owner is null = True
+Web options reading camelCase    : Account { Id = 1, Owner = Asha Rao, Balance = 500.00 }
+  POST   /api/accounts          -> 201 Created (2xx)
+Response Content-Type: application/json; charset=utf-8
+Deserialized server reply: Account { Id = 4, Owner = Dana Ortiz, Balance = 100 }
+  POST   /api/accounts          -> 400 BadRequest (4xx)
+
+=== 5. REST resources — nouns in URLs, verbs as methods ===
+  GET    /api/accounts          -> 200 OK (2xx)  [{"id":1,"owner":"Asha Rao","balance":500.00},{"id":2,"owner":"Ben Carter","balance":1200.50},{"id":3,"owner":"Chen Li","balance":75.25}]
+  GET    /api/accounts/2        -> 200 OK (2xx)  {"id":2,"owner":"Ben Carter","balance":1200.50}
+  POST   /api/accounts          -> 201 Created (2xx)  {"id":4,"owner":"Dana Ortiz","balance":100}
+  Location header: /api/accounts/4
+  GET    /api/accounts/4        -> 200 OK (2xx)  {"id":4,"owner":"Dana Ortiz","balance":100}
+  PUT    /api/accounts/4        -> 200 OK (2xx)  {"id":4,"owner":"Dana Ortiz","balance":250}
+  DELETE /api/accounts/4        -> 204 NoContent (2xx)
+  GET    /api/accounts/4        -> 404 NotFound (4xx)
+  GET    /api/accounts/abc      -> 404 NotFound (4xx)

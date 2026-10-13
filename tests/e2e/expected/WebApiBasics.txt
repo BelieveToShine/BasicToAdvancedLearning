@@ -1,0 +1,55 @@
+
+1. Controller and action - how a request finds your code
+GET /api/accounts -> 200 OK  body: ["AC-1001","AC-1002"]
+GET /API/ACCOUNTS -> 200 OK  body: ["AC-1001","AC-1002"]
+POST /api/accounts -> 405 MethodNotAllowed  (empty body)
+
+2. Routing - URL templates, parameters and constraints
+GET /api/accounts/7 -> 200 OK  body: account 7
+GET /api/accounts/by-number/AC-1001 -> 200 OK  body: account number AC-1001
+GET /api/accounts/abc -> 404 NotFound  (empty body)
+GET /api/accounts/0 -> 404 NotFound  (empty body)
+GET /api/customers -> 404 NotFound  (empty body)
+GET /api/clash -> 500 InternalServerError  error: Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException
+
+3. Model binding - route, query string and JSON body
+GET /api/accounts/3/statement?last=2 -> 200 OK  body: statement for account 3: last 2 transactions
+GET /api/accounts/3/statement -> 200 OK  body: statement for account 3: last 5 transactions
+POST /api/accounts/3/deposits -> 200 OK  body: deposit 250.50 into account 3
+GET /api/accounts/3/statement?last=abc -> 400 BadRequest  ProblemDetails status=400, with an errors entry
+POST /api/accounts/3/deposits -> 400 BadRequest  ProblemDetails status=400, with an errors entry
+POST /api/accounts/3/deposits -> 400 BadRequest  ProblemDetails status=400, with an errors entry
+GET /api/plain/3/statement?last=abc -> 200 OK  body: statement for account 3: last 5 transactions
+POST /api/plain/3/deposits -> 200 OK  body: deposit 0 into account 3
+
+4. Action results - return the object (200), NotFound, CreatedAtAction, BadRequest, NoContent
+GET /api/accounts/1 -> 200 OK  body: {"accountId":1,"accountNumber":"AC-1001","accountType":"Savings","balance":500}
+GET /api/accounts/99 -> 404 NotFound  ProblemDetails status=404
+POST /api/accounts -> 201 Created  Location: /api/accounts/3  body: {"accountId":3,"accountNumber":"AC-1003","accountType":"Savings","balance":0}
+POST /api/accounts -> 400 BadRequest  body: AccountType must be Savings or Current
+DELETE /api/accounts/3 -> 204 NoContent  (empty body)
+GET /api/accounts/3 -> 404 NotFound  ProblemDetails status=404
+
+5. Dependency injection - the controller asks, the container supplies
+Registered with AddSingleton:
+    [server] a new InMemoryAccountStore was created
+    [server] a new StoreAccountsController was created
+GET /api/accounts -> 200 OK  2 accounts: AC-1001, AC-1002
+    [server] a new StoreAccountsController was created
+POST /api/accounts -> 201 Created  Location: /api/accounts/3  body: {"accountId":3,"accountNumber":"AC-1003","accountType":"Savings","balance":0}
+    [server] a new StoreAccountsController was created
+GET /api/accounts -> 200 OK  3 accounts: AC-1001, AC-1002, AC-1003
+Registered with AddScoped (one store per request):
+    [server] a new InMemoryAccountStore was created
+    [server] a new StoreAccountsController was created
+GET /api/accounts -> 200 OK  2 accounts: AC-1001, AC-1002
+    [server] a new InMemoryAccountStore was created
+    [server] a new StoreAccountsController was created
+POST /api/accounts -> 201 Created  Location: /api/accounts/3  body: {"accountId":3,"accountNumber":"AC-1003","accountType":"Savings","balance":0}
+    [server] a new InMemoryAccountStore was created
+    [server] a new StoreAccountsController was created
+GET /api/accounts -> 200 OK  2 accounts: AC-1001, AC-1002
+
+6. Service lifetimes - Singleton, Scoped, Transient
+GET /api/lifetimes -> 200 OK  body: controller got: singleton #1, scoped #2, transient #3 | reporter got: singleton #1, scoped #2, transient #4
+GET /api/lifetimes -> 200 OK  body: controller got: singleton #1, scoped #5, transient #6 | reporter got: singleton #1, scoped #5, transient #7

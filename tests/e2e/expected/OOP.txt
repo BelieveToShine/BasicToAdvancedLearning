@@ -1,0 +1,38 @@
+
+==============================================================
+1. Classes & Objects — one blueprint, many independent objects
+==============================================================
+Anita has 500 in the account
+Ravi has 1200 in the account
+After Anita deposits 250 -> Anita has 750 in the account
+Ravi is unaffected       -> Ravi has 1200 in the account
+
+============================================================
+2. Constructors — setting an object up the moment it is born
+============================================================
+Anita has 500 in the account
+Ravi has 0 in the account
+Meena has 0 in the account  (the -50 was clamped)
+
+=================================================
+3. Encapsulation — the object guards its own data
+=================================================
+Owner, read through a property: Anita
+Deposit of -20 accepted? False (balance still 500)
+Withdraw of 900 accepted? False (balance still 500)
+Withdraw of 200 accepted? True (balance now 300)
+
+============================================================
+4. References vs Copies — a variable is a key, not the house
+============================================================
+Deposited 100 via accountB -> accountA sees: Anita has 600 in the account
+Same object? accountA & accountB: True
+Same object? accountA & accountC: False
+accountC is untouched: Anita has 500 in the account
+
+========================================================
+5. Static Members — one copy shared by the whole program
+========================================================
+Bank name (static): KeyBank
+Anita has 500 in the account / Ravi has 1200 in the account
+Accounts opened so far (static counter): 2

@@ -1,0 +1,22 @@
+# Topic	NeedsSql	Stdin	Phase
+# Stdin: "-" = none; otherwise the text piped to the lesson (\n = newline).
+ProgrammingBasics	no	Vivek\n28\n	1
+ControlFlow	no	-	1
+MethodsAndParameters	no	-	1
+Collections	no	-	1
+OOP	no	-	1
+OOPAdvanced	no	-	1
+ExceptionHandling	no	-	1
+FileIO	no	-	1
+LinqFundamentals	no	-	1
+RelationalConcepts	yes	-	2
+SqlBasics	yes	-	2
+SqlCrud	yes	-	2
+AdoNet	yes	-	3
+EfCoreBasics	yes	-	3
+EfCoreCrud	yes	-	3
+HttpAndRest	no	-	4
+WebApiBasics	no	-	4
+WebApiCrud	yes	-	4
+ApiTesting	no	-	4
+JwtAuth	no	-	4

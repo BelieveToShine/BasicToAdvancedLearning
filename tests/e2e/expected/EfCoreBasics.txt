@@ -1,0 +1,97 @@
+
+=============================================================
+1. Model classes - plain C# objects that EF Core maps to rows
+=============================================================
+Asha Rao has 1 account(s): ACC-1001
+The account's owner is the same object: True
+CustomerId is still 0: no row has been saved
+
+===========================================================
+2. DbContext and DbSet - what the conventions alone produce
+===========================================================
+CREATE TABLE [Customers] (
+    [CustomerId] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([CustomerId])
+);
+GO
+
+
+CREATE TABLE [Accounts] (
+    [AccountId] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [AccountNumber] nvarchar(max) NOT NULL,
+    [AccountType] nvarchar(max) NOT NULL,
+    [Balance] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Accounts] PRIMARY KEY ([AccountId]),
+    CONSTRAINT [FK_Accounts_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([CustomerId]) ON DELETE CASCADE
+);
+GO
+
+
+CREATE INDEX [IX_Accounts_CustomerId] ON [Accounts] ([CustomerId]);
+GO
+The disposed context refuses further use (ObjectDisposedException)
+
+=======================================================
+3. Fluent API - OnModelCreating refines the conventions
+=======================================================
+-     [FullName] nvarchar(max) NOT NULL,
+-     [Email] nvarchar(max) NOT NULL,
+-     [AccountNumber] nvarchar(max) NOT NULL,
+-     [AccountType] nvarchar(max) NOT NULL,
+-     CONSTRAINT [FK_Accounts_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([CustomerId]) ON DELETE CASCADE
++     [FullName] nvarchar(100) NOT NULL,
++     [Email] nvarchar(200) NOT NULL,
++     [AccountNumber] nvarchar(20) NOT NULL,
++     [AccountType] nvarchar(20) NOT NULL,
++     CONSTRAINT [FK_Accounts_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([CustomerId]) ON DELETE NO ACTION
++ CREATE UNIQUE INDEX [IX_Accounts_AccountNumber] ON [Accounts] ([AccountNumber]);
++ CREATE UNIQUE INDEX [IX_Customers_Email] ON [Customers] ([Email]);
+
+=============================================================
+4. Migrations - the database structure, versioned in C# files
+=============================================================
+Migrations found in the code: 20261012172636_InitialCreate
+Applied to the database yet: (none)
+Pending (in code, not applied): 20261012172636_InitialCreate
+Applied after Migrate(): 20261012172636_InitialCreate
+Pending after Migrate(): (none)
+Tables in the database now:
+  TABLE_NAME           
+  ---------------------
+  __EFMigrationsHistory
+  Accounts             
+  Customers            
+  (3 rows)
+EF Core's own record of what it has applied:
+  MigrationId                 
+  ----------------------------
+  20261012172636_InitialCreate
+  (1 row)
+
+===================================================
+5. EnsureCreated vs Migrate - pick one per database
+===================================================
+Order A: EnsureCreated() created the tables: True
+Tables after EnsureCreated():
+  TABLE_NAME
+  ----------
+  Accounts  
+  Customers 
+  (2 rows)
+Migrate() failed (SQL Server error 2714): the tables were already there
+Tables after the failed Migrate():
+  TABLE_NAME           
+  ---------------------
+  __EFMigrationsHistory
+  Accounts             
+  Customers            
+  (3 rows)
+  RowsInHistory
+  -------------
+  0            
+  (1 row)
+Order B: after Migrate(), EnsureCreated() created anything: False

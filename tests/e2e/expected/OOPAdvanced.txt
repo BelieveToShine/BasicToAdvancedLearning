@@ -1,0 +1,29 @@
+
+======================================================
+1. Inheritance — a child reuses what its parent offers
+======================================================
+Anita's savings balance (inherited): 1500
+Anita's interest rate (added by the child): 6%
+Ravi's overdraft limit (added by the child): 200
+
+===================================================
+2. Polymorphism — one call, the real object decides
+===================================================
+Anita has 1000 (savings, 6% interest) -> monthly fee 0
+Ravi has 300 (current, overdraft limit 200) -> monthly fee 10
+Meena has 50 -> monthly fee 5
+Total monthly fees: 15
+
+================================================================
+3. Abstract Classes — a template that cannot be built on its own
+================================================================
+Deposited 200 -> balance 700
+Withdrawal of 900 refused -> balance 700
+Withdrew 100 -> balance 600
+
+=============================================
+4. Interfaces — a contract any class can sign
+=============================================
+SavingsAccount earns 5 this month
+FixedDeposit earns 40 this month
+Total interest: 45

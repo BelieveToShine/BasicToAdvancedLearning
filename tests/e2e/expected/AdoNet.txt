@@ -1,0 +1,45 @@
+
+=========================================================
+1. Connection and command — opening the line, sending SQL
+=========================================================
+Before Open(): Closed
+After Open():  Open
+CREATE TABLE ran. ExecuteNonQuery returned -1.
+INSERT ran. ExecuteNonQuery returned 3 (rows added).
+Rows now in Customers: 3
+
+=====================================================
+2. Parameters — values travel separately from the SQL
+=====================================================
+Inserted a customer whose name has an apostrophe: 1 row affected.
+Glued SQL: INSERT INTO dbo.ScratchNames (Name) VALUES ('Ravi'); DROP TABLE dbo.ScratchVictim; --')
+ScratchVictim exists before: True
+ScratchVictim exists after the glued INSERT: False  <-- SQL injection
+With a parameter, ScratchVictim exists: True
+The stored name is just text: Ravi'); DROP TABLE dbo.ScratchVictim; --
+
+===========================================
+3. Reading rows — a reader walks the result
+===========================================
+  Asha Rao: ACC-1001 holds 1000.00
+  Asha Rao: ACC-1002 holds 250.50
+  Ben Carter: ACC-2001 holds 500.00
+  Chen Li: no account yet (the account columns are NULL)
+Total across all accounts: 1750.50
+
+================================
+4. Transactions — all or nothing
+================================
+Before:  ACC-1001 1000.00, ACC-1002 250.50, ACC-2001 500.00
+Transfer 200.00 from ACC-1001 to ACC-2001:
+  debit  ACC-1001: UPDATE changed 1 row(s)
+  credit ACC-2001: UPDATE changed 1 row(s)
+  Commit(): both steps kept.
+  After:   ACC-1001 800.00, ACC-1002 250.50, ACC-2001 700.00
+Transfer 200.00 from ACC-1001 to ACC-9999:
+  debit  ACC-1001: UPDATE changed 1 row(s)
+  credit ACC-9999: UPDATE changed 0 row(s)
+  FAILED: Account ACC-9999 does not exist.
+  Inside the transaction: ACC-1001 600.00, ACC-1002 250.50, ACC-2001 700.00
+  Rollback(): the debit is undone too.
+  After:   ACC-1001 800.00, ACC-1002 250.50, ACC-2001 700.00

@@ -1,0 +1,42 @@
+
+=== 1. Authentication vs authorization - 401 and 403 ===
+  GET /api/reports/daily  no token              -> 401 Unauthorized   (who are you?)
+  GET /api/reports/daily  asha (a Customer)     -> 403 Forbidden      (I know you - but not you)
+  GET /api/reports/daily  chen (a Manager)      -> 200 OK
+
+=== 2. What is a JWT - three parts, readable by anyone, protected from changes ===
+  The token has 3 parts joined by dots: header . payload . signature
+  header fields : alg, typ
+  header says   : alg = HS256, typ = JWT
+  payload fields: aud, exp, iat, iss, name, nbf, role, sub
+  payload says  : sub = asha, role = Customer  (read WITHOUT any key)
+  so never put passwords or other secrets in claims.
+  signature is 32 bytes; rebuilt from header.payload + key matches: True
+  payload really changed: True
+  genuine token (Customer) -> 403 Forbidden   (token accepted; a Customer may not see the report)
+  forged token (says Manager, old signature) -> 401 Unauthorized   (token itself refused)
+
+=== 3. Logging in - POST /login returns a signed token ===
+  POST /login asha + wrong password   -> 401 Unauthorized
+  POST /login nobody + any password   -> 401 Unauthorized
+  POST /login asha + right password   -> 200 OK
+  claims: sub = asha, name = Asha Rao, role = Customer
+  iss = BtalBank (who made it), aud = BtalBankApi (who it is for)
+  exp - nbf = 900 seconds (15 minutes of life)
+
+=== 4. Protecting endpoints - [Authorize], [AllowAnonymous], Roles ===
+  GET /api/status          [AllowAnonymous]            no token        -> 200 OK: The bank is open.
+  GET /api/accounts/me     [Authorize]                 no token        -> 401 Unauthorized
+  GET /api/accounts/me     [Authorize]                 asha's token    -> 200 OK: Hello Asha Rao, your role is Customer.
+  GET /api/reports/daily   [Authorize(Roles=Manager)]  asha's token    -> 403 Forbidden
+  GET /api/reports/daily   [Authorize(Roles=Manager)]  chen's token    -> 200 OK: Daily report: 3 accounts opened.
+  GET /api/accounts/me     [Authorize]                 "Bearer <junk>" -> 401 Unauthorized
+  GET /api/accounts/me     [Authorize]                 "Basic <token>" -> 401 Unauthorized
+  the 401 for 'no token' names the scheme to use (WWW-Authenticate starts with Bearer): True
+
+=== 5. Token lifetime - exp, expired tokens and ClockSkew ===
+  ClockSkew = 0 min:  fresh token (expires in 15 min)  -> 200 OK
+  ClockSkew = 0 min:  token that expired 1 min ago     -> 401 Unauthorized
+  the 401 says why (WWW-Authenticate mentions invalid_token): True
+  ClockSkew = 5 min:  token that expired 1 min ago     -> 200 OK   (inside the 5 minute slack)
+  ClockSkew = 5 min:  token that expired 10 min ago    -> 401 Unauthorized

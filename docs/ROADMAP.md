@@ -19,6 +19,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - **Everything below was run against SQL Server 2022 in Docker, on a .NET 10 runtime with the `net9.0` target (roll-forward).
   Nothing has been run against the owner's own SQL Server, and no console lesson has been run on a net9 runtime** (only the
   `FullStackBank` API image ran on `aspnet:9.0` inside Docker) — please do that first.
+- **To close that gap, any session with a SQL Server (or Docker) follows [`testing/README.md`](testing/README.md)** — one-command runner, golden outputs, `sql/` scripts, status board, triage guide.
 - **Checks that exist:** 20 console topics run twice each with identical output; `FullStackBank/smoke.sh` (38 checks); 234 vitest tests;
   every SVG parses as XML; `verify-topic.ps1 -All` 0 FAIL / 25 WARN; `verify-docs.ps1` 0 FAIL. **Not covered by any script:** the React and
   Deployment diagrams (`verify-topic.ps1` only scans the console project), and the visual quality of all new diagrams — reviewers rendered
@@ -154,7 +155,7 @@ https://github.com/BelieveToShine/BasicToAdvancedLearning (default branch `maste
 - Memory diagrams are now mandatory PER METHOD (not just where the story differs) — retrofitted Topic 1
   to match: it now has the same `Flow/`+`Memory/` folder layout and per-method files as Topic 2.
 
-**Next:** all 28 planned topics are built. What is left is the owner's review and these decisions (details in
+**Next:** all 28 planned topics are built. First, run the end-to-end kit on a real SQL Server ([`testing/README.md`](testing/README.md); results go to `testing/status.md`). What is left after that is the owner's review and these decisions (details in
 [`review-recommendations.md`](review-recommendations.md)): confirm or change the provisional choices listed in the
 status snapshot (R15), run the SQL / API / container lessons against the owner's own SQL Server (nothing so far ran against it),
 and decide which of the proposed script and rule improvements (R14) to adopt. Adding a topic 29+ follows the runbook

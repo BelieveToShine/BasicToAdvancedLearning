@@ -1,0 +1,43 @@
+
+=========================
+1. Variables & Data Types
+=========================
+age (int)        = 28
+price (double)   = 499.99
+salary (decimal) = 55000.50
+isActive (bool)  = True
+grade (char)     = A
+name (string)    = Vivek
+country (var, inferred as string) = India
+
+Rule of thumb: int for counting, decimal for money, double for scientific/graphics math.
+
+============
+2. Operators
+============
+-- Arithmetic: perform a calculation --
+10 + 3 = 13
+10 - 3 = 7
+10 * 3 = 30
+10 / 3 = 3   <- both operands are int, so the result truncates (no decimals)
+10 % 3 = 1   <- remainder left over after division
+
+-- Comparison: always produce true/false --
+10 > 3  = True
+10 == 3 = False
+10 != 3 = True
+
+-- Logical: combine true/false values --
+hasTicket && hasId = False   <- AND: both sides must be true
+hasTicket || hasId = True   <- OR: at least one side must be true
+!hasId             = True   <- NOT: flips the value
+
+-- Assignment: store or update a value --
+score        = 5
+score += 3  -> 8
+
+=================
+3. Input & Output
+=================
+Enter your name: Enter your age: 
+Hello Vivek, next year you will be 29.

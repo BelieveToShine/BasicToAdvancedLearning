@@ -1,0 +1,312 @@
+Setting up the bank tables (dropped and re-created on every run)...
+Seeded 22 rows: 4 customers, 6 accounts, 12 transactions.
+
+==============================================================
+1. SELECT and WHERE — choose the columns, then choose the rows
+==============================================================
+
+  SQL:
+    SELECT *
+    FROM Accounts
+    ORDER BY AccountId
+  Result:
+  AccountId | CustomerId | AccountNumber | AccountType | Balance
+  ----------+------------+---------------+-------------+--------
+  1         | 1          | ACC-1001      | Savings     | 1500.00
+  2         | 1          | ACC-1002      | Current     | 250.00 
+  3         | 2          | ACC-2001      | Savings     | 3200.00
+  4         | 2          | ACC-2002      | Current     | 0.00   
+  5         | 3          | ACC-3001      | Current     | 800.00 
+  6         | 3          | ACC-3002      | Savings     | 0.00   
+  (6 rows)
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    ORDER BY AccountId
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-1001      | 1500.00
+  ACC-1002      | 250.00 
+  ACC-2001      | 3200.00
+  ACC-2002      | 0.00   
+  ACC-3001      | 800.00 
+  ACC-3002      | 0.00   
+  (6 rows)
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    WHERE AccountType = 'Savings'
+    ORDER BY AccountId
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-1001      | 1500.00
+  ACC-2001      | 3200.00
+  ACC-3002      | 0.00   
+  (3 rows)
+
+  SQL:
+    SELECT AccountNumber, AccountType, Balance
+    FROM Accounts
+    WHERE AccountType <> 'Savings' AND Balance > 100
+    ORDER BY AccountId
+  Result:
+  AccountNumber | AccountType | Balance
+  --------------+-------------+--------
+  ACC-1002      | Current     | 250.00 
+  ACC-3001      | Current     | 800.00 
+  (2 rows)
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    WHERE Balance = 0 OR Balance > 3000
+    ORDER BY AccountId
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-2001      | 3200.00
+  ACC-2002      | 0.00   
+  ACC-3002      | 0.00   
+  (3 rows)
+
+==============================================
+2. Handy filters — IN, BETWEEN, LIKE, and NULL
+==============================================
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    WHERE AccountNumber IN ('ACC-1001', 'ACC-3001')
+    ORDER BY AccountId
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-1001      | 1500.00
+  ACC-3001      | 800.00 
+  (2 rows)
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    WHERE Balance BETWEEN 250 AND 1500
+    ORDER BY AccountId
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-1001      | 1500.00
+  ACC-1002      | 250.00 
+  ACC-3001      | 800.00 
+  (3 rows)
+
+  SQL:
+    SELECT CustomerId, FullName
+    FROM Customers
+    WHERE FullName LIKE 'C%'
+    ORDER BY CustomerId
+  Result:
+  CustomerId | FullName
+  -----------+---------
+  3          | Chen Li 
+  (1 row)
+
+  SQL:
+    SELECT CustomerId, FullName
+    FROM Customers
+    WHERE FullName LIKE 'B_n%'
+    ORDER BY CustomerId
+  Result:
+  CustomerId | FullName  
+  -----------+-----------
+  2          | Ben Carter
+  (1 row)
+
+  SQL:
+    SELECT 'matched' AS Result
+    WHERE NULL = NULL
+  Result:
+  Result
+  ------
+  (0 rows)
+
+  SQL:
+    SELECT 'matched' AS Result
+    WHERE NULL IS NULL
+  Result:
+  Result 
+  -------
+  matched
+  (1 row)
+
+==========================================================
+3. ORDER BY and TOP — decide the order, take the first few
+==========================================================
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-1001      | 1500.00
+  ACC-1002      | 250.00 
+  ACC-2001      | 3200.00
+  ACC-2002      | 0.00   
+  ACC-3001      | 800.00 
+  ACC-3002      | 0.00   
+  (6 rows)
+
+  SQL:
+    SELECT AccountNumber, Balance
+    FROM Accounts
+    ORDER BY Balance DESC, AccountNumber
+  Result:
+  AccountNumber | Balance
+  --------------+--------
+  ACC-2001      | 3200.00
+  ACC-1001      | 1500.00
+  ACC-3001      | 800.00 
+  ACC-1002      | 250.00 
+  ACC-2002      | 0.00   
+  ACC-3002      | 0.00   
+  (6 rows)
+
+  SQL:
+    SELECT TOP 3 TransactionId, AccountId, Amount, Kind
+    FROM Transactions
+    ORDER BY Amount DESC, TransactionId
+  Result:
+  TransactionId | AccountId | Amount  | Kind   
+  --------------+-----------+---------+--------
+  6             | 3         | 3000.00 | Deposit
+  1             | 1         | 1000.00 | Deposit
+  11            | 5         | 900.00  | Deposit
+  (3 rows)
+
+=============================================
+4. JOIN — Customers and Accounts side by side
+=============================================
+
+  SQL:
+    SELECT c.FullName, a.AccountNumber, a.AccountType
+    FROM Customers c
+    INNER JOIN Accounts a ON a.CustomerId = c.CustomerId
+    ORDER BY c.CustomerId, a.AccountId
+  Result:
+  FullName   | AccountNumber | AccountType
+  -----------+---------------+------------
+  Asha Rao   | ACC-1001      | Savings    
+  Asha Rao   | ACC-1002      | Current    
+  Ben Carter | ACC-2001      | Savings    
+  Ben Carter | ACC-2002      | Current    
+  Chen Li    | ACC-3001      | Current    
+  Chen Li    | ACC-3002      | Savings    
+  (6 rows)
+
+  SQL:
+    SELECT c.FullName, a.AccountNumber, a.AccountType
+    FROM Customers c
+    LEFT JOIN Accounts a ON a.CustomerId = c.CustomerId
+    ORDER BY c.CustomerId, a.AccountId
+  Result:
+  FullName   | AccountNumber | AccountType
+  -----------+---------------+------------
+  Asha Rao   | ACC-1001      | Savings    
+  Asha Rao   | ACC-1002      | Current    
+  Ben Carter | ACC-2001      | Savings    
+  Ben Carter | ACC-2002      | Current    
+  Chen Li    | ACC-3001      | Current    
+  Chen Li    | ACC-3002      | Savings    
+  Dana Smith | NULL          | NULL       
+  (7 rows)
+
+  SQL:
+    SELECT c.FullName
+    FROM Customers c
+    LEFT JOIN Accounts a ON a.CustomerId = c.CustomerId
+    WHERE a.AccountId IS NULL
+  Result:
+  FullName  
+  ----------
+  Dana Smith
+  (1 row)
+
+================================================================
+5. Aggregates and GROUP BY — many rows in, one row per group out
+================================================================
+
+  SQL:
+    SELECT COUNT(*) AS Accounts, SUM(Balance) AS TotalBalance, AVG(Balance) AS AverageBalance,
+           MIN(Balance) AS Lowest, MAX(Balance) AS Highest
+    FROM Accounts
+  Result:
+  Accounts | TotalBalance | AverageBalance | Lowest | Highest
+  ---------+--------------+----------------+--------+--------
+  6        | 5750.00      | 958.333333     | 0.00   | 3200.00
+  (1 row)
+
+  SQL:
+    SELECT AccountType, COUNT(*) AS Accounts, SUM(Balance) AS Total
+    FROM Accounts
+    GROUP BY AccountType
+    ORDER BY AccountType
+  Result:
+  AccountType | Accounts | Total  
+  ------------+----------+--------
+  Current     | 3        | 1050.00
+  Savings     | 3        | 4700.00
+  (2 rows)
+
+  SQL:
+    SELECT c.FullName, COUNT(*) AS JoinedRows, COUNT(a.AccountId) AS Accounts, SUM(a.Balance) AS Total
+    FROM Customers c
+    LEFT JOIN Accounts a ON a.CustomerId = c.CustomerId
+    GROUP BY c.CustomerId, c.FullName
+    ORDER BY c.CustomerId
+  Result:
+  FullName   | JoinedRows | Accounts | Total  
+  -----------+------------+----------+--------
+  Asha Rao   | 2          | 2        | 1750.00
+  Ben Carter | 2          | 2        | 3200.00
+  Chen Li    | 2          | 2        | 800.00 
+  Dana Smith | 1          | 0        | NULL   
+  (4 rows)
+
+=======================================================
+6. WHERE vs HAVING — and the order SQL really thinks in
+=======================================================
+
+  SQL:
+    SELECT AccountType, COUNT(*) AS Accounts, SUM(Balance) AS Total
+    FROM Accounts
+    WHERE Balance > 0
+    GROUP BY AccountType
+    HAVING SUM(Balance) > 2000
+    ORDER BY Total DESC
+  Result:
+  AccountType | Accounts | Total  
+  ------------+----------+--------
+  Savings     | 2        | 4700.00
+  (1 row)
+
+Logical order: FROM (with its JOINs) -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY (then TOP).
+It is the order to REASON in; SQL Server may run the steps differently inside, but the answer is the same.
+
+  SQL:
+    SELECT AccountType
+    FROM Accounts
+    WHERE SUM(Balance) > 2000
+    GROUP BY AccountType
+  Result:
+  SQL Server refused it (error 147): An aggregate may not appear in the WHERE clause unless it is in a subquery contained in a HAVING clause or a select list, and the column being aggregated is an outer reference.
+
+  SQL:
+    SELECT AccountType, SUM(Balance) AS Total
+    FROM Accounts
+    WHERE Total > 2000
+    GROUP BY AccountType
+  Result:
+  SQL Server refused it (error 207): Invalid column name 'Total'.

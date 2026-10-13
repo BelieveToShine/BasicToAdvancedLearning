@@ -1,0 +1,45 @@
+
+======================
+1. If / Else If / Else
+======================
+42°C — it's hot outside.
+
+=========
+2. Switch
+=========
+Wednesday
+
+===========
+3. For Loop
+===========
+Counting 1 to 5:
+  i = 1
+  i = 2
+  i = 3
+  i = 4
+  i = 5
+
+=============
+4. While Loop
+=============
+Counting down:
+  3...
+  2...
+  1...
+  Liftoff!
+
+================
+5. Do-While Loop
+================
+do-while always runs at least once:
+  Attempt #1
+  Attempt #2
+  Attempt #3
+
+===============
+6. Foreach Loop
+===============
+Walking through an array:
+  Apple
+  Banana
+  Cherry

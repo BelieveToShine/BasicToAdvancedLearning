@@ -1,0 +1,27 @@
+
+============================================
+1. Where and Select — filter, then transform
+============================================
+All amounts:           200, -900, 50, 1200, -75
+Deposits only (Where): 200, 50, 1200
+Labels (Select):       +200, +50, +1200
+
+=======================================================
+2. Ordering and aggregates — sort it, then boil it down
+=======================================================
+Sorted (OrderBy):      -900, -75, 50, 200, 1200
+Original is untouched: 200, -900, 50, 1200, -75
+Sum 475, largest 1200, withdrawals 2
+
+=====================================
+3. Asking questions — Any, All, First
+=====================================
+Any withdrawal? True.  All deposits? False
+First amount over 1000: 1200
+Nothing over 5000, so FirstOrDefault gives the default: 0
+
+========================================================
+4. Deferred execution — a query is a plan, not an answer
+========================================================
+snapshot (taken before 75 was added): 3 deposits
+deposits (re-run just now):           4 deposits

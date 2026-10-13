@@ -19,6 +19,8 @@ the type after `new` (two lines — the comment in `Program.cs` shows how).
 | `ArchitectureDiagrams/<Topic>/` | The diagrams for that topic. Open the `.svg` files in a browser. Start with the architecture file, then `Flow/` and `Memory/`. |
 | `frontend/` | The React lessons (topics 21–28) — Vite + React; needs Node 22. |
 | `FullStackBank/` | The real bank Web API used by topics 25–27 (`Api/`), its smoke test, and the Docker setup for topic 28 (`deploy/`, needs Docker). |
+| `sql/` | Hand-run T-SQL scripts: create, seed, verify and reset the bank tables; pre-create the lesson databases. |
+| `tests/e2e/` | The end-to-end runner (bash and PowerShell) and the golden outputs. |
 | `docs/` | The plan (`ROADMAP.md`), rules and specs. Start at `docs/README.md`. |
 
 ## React lessons (topics 21–28)
@@ -29,6 +31,9 @@ npm run dev      # the lesson picker; pick a lesson on the left
 npx vitest run   # the tests that prove each lesson's claims
 ```
 Topics 25–27 call the real bank API: start it first (`cd FullStackBank/Api && dotnet run`, with `BTAL_SQLSERVER` set; see `FullStackBank/README.md`). Topic 28's container setup is in `FullStackBank/deploy/README.md`.
+
+## Testing everything against a real SQL Server
+Start at [`docs/testing/README.md`](docs/testing/README.md): one command (`tests/e2e/run-e2e.sh` or `run-e2e.ps1`) builds, runs every lesson against golden outputs, runs the `sql/` scripts, the real API's smoke test and the frontend tests, and writes a report. `sql/` holds the T-SQL scripts that create/seed/verify the bank tables by hand.
 
 ## Topics
 See the tracker in [`docs/ROADMAP.md`](docs/ROADMAP.md) for what is done and what is coming next.

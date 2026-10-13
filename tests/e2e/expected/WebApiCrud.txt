@@ -1,0 +1,84 @@
+
+=== 1. DbContext in dependency injection — one context per request ===
+Same scope, asked twice  -> same object? True
+Different scope          -> same object? False
+WARNING: EnsureDeleted drops the ENTIRE database in the connection string (here: this lesson's own scratch database).
+Database recreated and seeded. Accounts table now:
+  AccountId | CustomerId | AccountNumber | AccountType | Balance
+  ----------+------------+---------------+-------------+--------
+  1         | 1          | ACC-1001      | Savings     | 500.00 
+  2         | 2          | ACC-1002      | Current     | 1200.50
+  3         | 3          | ACC-1003      | Savings     | 75.00  
+  (3 rows)
+Server is listening.
+
+=== 2. Read endpoints — GET, 404, and DTOs instead of entities ===
+EF Core turns the Select(...) into this SQL:
+SELECT [a].[AccountId], [c].[FullName] AS [CustomerName], [a].[AccountNumber], [a].[AccountType], [a].[Balance]
+FROM [Accounts] AS [a]
+INNER JOIN [Customers] AS [c] ON [a].[CustomerId] = [c].[CustomerId]
+GET /api/accounts  ->  200 OK
+  body: [{"accountId":1,"customerName":"Asha Rao","accountNumber":"ACC-1001","accountType":"Savings","balance":500.00},{"accountId":2,"customerName":"Ben Carter","accountNumber":"ACC-1002","accountType":"Current","balance":1200.50},{"accountId":3,"customerName":"Chen Li","accountNumber":"ACC-1003","accountType":"Savings","balance":75.00}]
+GET /api/accounts/1  ->  200 OK
+  body: {"accountId":1,"customerName":"Asha Rao","accountNumber":"ACC-1001","accountType":"Savings","balance":500.00}
+GET /api/accounts/99  ->  404 NotFound
+  problem: status 404, title "Not Found"
+Status numbers: list 200, one 200, missing 404.
+The 404 body is a ProblemDetails (the standard shape for HTTP errors) because of [ApiController].
+
+=== 3. Create endpoint — POST, validation, 201 + Location ===
+POST /api/accounts  ->  201 Created
+  Location: /api/accounts/4
+  body: {"accountId":4,"customerName":"Chen Li","accountNumber":"ACC-1004","accountType":"Current","balance":20.00}
+Following the Location header: GET /api/accounts/4
+GET /api/accounts/4  ->  200 OK
+  body: {"accountId":4,"customerName":"Chen Li","accountNumber":"ACC-1004","accountType":"Current","balance":20.00}
+POST /api/accounts  ->  400 BadRequest
+  problem: status 400, title "One or more validation errors occurred."
+  error on AccountNumber: AccountNumber must be 6 to 20 characters.
+  error on AccountType: AccountType must be Savings or Current.
+  error on Balance: Balance must be between 0 and 1000000.
+POST /api/accounts  ->  400 BadRequest
+  problem: status 400, title "One or more validation errors occurred."
+  error on CustomerId: No customer with that CustomerId.
+POST /api/accounts  ->  409 Conflict
+  problem: status 409, title "Conflict"
+  detail: That AccountNumber is already used by another account.
+Accounts table afterwards (the bad requests added nothing):
+  AccountId | CustomerId | AccountNumber | AccountType | Balance
+  ----------+------------+---------------+-------------+--------
+  1         | 1          | ACC-1001      | Savings     | 500.00 
+  2         | 2          | ACC-1002      | Current     | 1200.50
+  3         | 3          | ACC-1003      | Savings     | 75.00  
+  4         | 3          | ACC-1004      | Current     | 20.00  
+  (4 rows)
+
+=== 4. Update and delete — PUT, DELETE, 204, 404 and 409 ===
+PUT /api/accounts/2  ->  204 NoContent
+The body of that 204 is 0 characters long.
+GET /api/accounts/2  ->  200 OK
+  body: {"accountId":2,"customerName":"Ben Carter","accountNumber":"ACC-1002","accountType":"Savings","balance":1500.00}
+PUT /api/accounts/99  ->  404 NotFound
+  problem: status 404, title "Not Found"
+DELETE /api/accounts/3  ->  204 NoContent
+DELETE /api/accounts/3  ->  404 NotFound
+  problem: status 404, title "Not Found"
+The same delete sent straight to SQL Server:
+  SQL Server refused it: error number 547 (a foreign key points at this row)
+DELETE /api/accounts/1  ->  409 Conflict
+  problem: status 409, title "Conflict"
+  detail: Another row depends on this one (or this one points at a row that does not exist).
+The API answered 409 instead of crashing with a 500.
+Accounts table afterwards:
+  AccountId | CustomerId | AccountNumber | AccountType | Balance
+  ----------+------------+---------------+-------------+--------
+  1         | 1          | ACC-1001      | Savings     | 500.00 
+  2         | 2          | ACC-1002      | Savings     | 1500.00
+  4         | 3          | ACC-1004      | Current     | 20.00  
+  (3 rows)
+Transactions table afterwards (untouched):
+  TransactionId | AccountId | Amount  | Kind   
+  --------------+-----------+---------+--------
+  1             | 1         | 500.00  | Deposit
+  2             | 2         | 1200.50 | Deposit
+  (2 rows)

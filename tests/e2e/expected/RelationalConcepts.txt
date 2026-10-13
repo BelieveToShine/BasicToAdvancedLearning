@@ -1,0 +1,272 @@
+
+=== 1. Tables, rows and columns — a grid with a fixed shape ===
+(Starting fresh: dropping the lesson's tables if they exist.)
+  sql> CREATE TABLE Customers (
+  sql>     CustomerId INT,
+  sql>     FullName   NVARCHAR(100),
+  sql>     Email      NVARCHAR(200)
+  sql> )
+  sql> INSERT INTO Customers (CustomerId, FullName, Email) VALUES
+  sql>     (1, 'Asha Rao',    'asha@example.com'),
+  sql>     (2, 'Ben Carter',  'ben@example.com'),
+  sql>     (3, 'Chen Li',     'chen@example.com')
+  sql> SELECT CustomerId, FullName, Email FROM Customers ORDER BY CustomerId
+  CustomerId | FullName   | Email           
+  -----------+------------+-----------------
+  1          | Asha Rao   | asha@example.com
+  2          | Ben Carter | ben@example.com 
+  3          | Chen Li    | chen@example.com
+  (3 rows)
+The shape of the table (its columns and their types):
+  sql> SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH AS MaxLength
+  sql> FROM INFORMATION_SCHEMA.COLUMNS
+  sql> WHERE TABLE_NAME = 'Customers'
+  sql> ORDER BY ORDINAL_POSITION
+  COLUMN_NAME | DATA_TYPE | MaxLength
+  ------------+-----------+----------
+  CustomerId  | int       | NULL     
+  FullName    | nvarchar  | 100      
+  Email       | nvarchar  | 200      
+  (3 rows)
+Nothing stops us adding customer 1 a second time:
+  sql> INSERT INTO Customers (CustomerId, FullName, Email) VALUES (1, 'Asha Rao', 'asha@example.com')
+  sql> SELECT CustomerId, FullName FROM Customers ORDER BY CustomerId, FullName
+  CustomerId | FullName  
+  -----------+-----------
+  1          | Asha Rao  
+  1          | Asha Rao  
+  2          | Ben Carter
+  3          | Chen Li   
+  (4 rows)
+Which row is 'the' customer 1? The table cannot tell. Next: primary keys.
+
+=== 2. Primary keys — every row gets a unique ID ===
+(Starting fresh: dropping the lesson's tables if they exist.)
+  sql> CREATE TABLE Customers (
+  sql>     CustomerId INT IDENTITY(1,1) CONSTRAINT PK_Customers PRIMARY KEY,
+  sql>     FullName   NVARCHAR(100),
+  sql>     Email      NVARCHAR(200)
+  sql> )
+  sql> INSERT INTO Customers (FullName, Email) VALUES
+  sql>     ('Asha Rao',   'asha@example.com'),
+  sql>     ('Ben Carter', 'ben@example.com'),
+  sql>     ('Chen Li',    'chen@example.com')
+  sql> SELECT CustomerId, FullName FROM Customers ORDER BY CustomerId
+  CustomerId | FullName  
+  -----------+-----------
+  1          | Asha Rao  
+  2          | Ben Carter
+  3          | Chen Li   
+  (3 rows)
+  sql> INSERT INTO Customers (FullName, Email) VALUES ('Asha Rao', 'asha.rao@other.example')
+  sql> SELECT CustomerId, FullName, Email FROM Customers WHERE FullName = 'Asha Rao' ORDER BY CustomerId
+  CustomerId | FullName | Email                 
+  -----------+----------+-----------------------
+  1          | Asha Rao | asha@example.com      
+  4          | Asha Rao | asha.rao@other.example
+  (2 rows)
+Now try to reuse an id that is taken:
+  sql> SET IDENTITY_INSERT Customers ON;
+  sql> INSERT INTO Customers (CustomerId, FullName, Email) VALUES (1, 'Impostor', 'impostor@example.com');
+  SQL Server refused it (error 2627): Violation of PRIMARY KEY constraint 'PK_Customers'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (1).
+The table still holds 4 customers; the bad row was never stored.
+
+=== 3. Foreign keys — a link that may only point at a row that exists ===
+(Starting fresh: dropping the lesson's tables if they exist.)
+  sql> CREATE TABLE Customers (
+  sql>     CustomerId INT IDENTITY(1,1) CONSTRAINT PK_Customers PRIMARY KEY,
+  sql>     FullName   NVARCHAR(100),
+  sql>     Email      NVARCHAR(200)
+  sql> )
+  sql> CREATE TABLE Accounts (
+  sql>     AccountId     INT IDENTITY(1,1) CONSTRAINT PK_Accounts PRIMARY KEY,
+  sql>     CustomerId    INT CONSTRAINT FK_Accounts_Customers FOREIGN KEY REFERENCES Customers (CustomerId),
+  sql>     AccountNumber NVARCHAR(20),
+  sql>     Balance       DECIMAL(18,2)
+  sql> )
+  sql> INSERT INTO Customers (FullName, Email) VALUES
+  sql>     ('Asha Rao',   'asha@example.com'),
+  sql>     ('Ben Carter', 'ben@example.com'),
+  sql>     ('Chen Li',    'chen@example.com')
+  sql> INSERT INTO Accounts (CustomerId, AccountNumber, Balance) VALUES
+  sql>     (1, 'ACC-1001', 1200.00),
+  sql>     (1, 'ACC-1002',  300.00),
+  sql>     (2, 'ACC-2001',   50.00)
+Each account joined to its owner:
+  sql> SELECT c.FullName, a.AccountNumber, a.Balance
+  sql> FROM Accounts a
+  sql> JOIN Customers c ON c.CustomerId = a.CustomerId
+  sql> ORDER BY a.AccountId
+  FullName   | AccountNumber | Balance
+  -----------+---------------+--------
+  Asha Rao   | ACC-1001      | 1200.00
+  Asha Rao   | ACC-1002      | 300.00 
+  Ben Carter | ACC-2001      | 50.00  
+  (3 rows)
+1) An account for a customer that does not exist:
+  sql> INSERT INTO Accounts (CustomerId, AccountNumber, Balance) VALUES (99, 'ACC-9999', 0)
+  SQL Server refused it (error 547): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Accounts_Customers". The conflict occurred in database "<DB>", table "dbo.Customers", column 'CustomerId'.
+2) Deleting a customer who still owns accounts:
+  sql> DELETE FROM Customers WHERE CustomerId = 1
+  SQL Server refused it (error 547): The DELETE statement conflicted with the REFERENCE constraint "FK_Accounts_Customers". The conflict occurred in database "<DB>", table "dbo.Accounts", column 'CustomerId'.
+  sql> DELETE FROM Customers WHERE FullName = 'Chen Li'
+Deleting Chen (no accounts) worked: 1 row deleted.
+
+=== 4. Constraints and NULL — rules the database enforces ===
+(Starting fresh: dropping the lesson's tables if they exist.)
+  sql> CREATE TABLE Customers (
+  sql>     CustomerId INT IDENTITY(1,1) CONSTRAINT PK_Customers PRIMARY KEY,
+  sql>     FullName   NVARCHAR(100) NOT NULL,
+  sql>     Email      NVARCHAR(200) NOT NULL CONSTRAINT UQ_Customers_Email UNIQUE,
+  sql>     CreatedAt  DATETIME2     NOT NULL DEFAULT SYSUTCDATETIME()
+  sql> )
+  sql> CREATE TABLE Accounts (
+  sql>     AccountId     INT IDENTITY(1,1) CONSTRAINT PK_Accounts PRIMARY KEY,
+  sql>     CustomerId    INT           NOT NULL CONSTRAINT FK_Accounts_Customers FOREIGN KEY REFERENCES Customers (CustomerId),
+  sql>     AccountNumber NVARCHAR(20)  NOT NULL CONSTRAINT UQ_Accounts_AccountNumber UNIQUE,
+  sql>     AccountType   NVARCHAR(20)  NOT NULL CONSTRAINT CK_Accounts_AccountType CHECK (AccountType IN ('Savings', 'Current')),
+  sql>     Balance       DECIMAL(18,2) NOT NULL DEFAULT 0
+  sql> )
+  sql> INSERT INTO Customers (FullName, Email) VALUES ('Asha Rao', 'asha@example.com')
+  sql> INSERT INTO Accounts (CustomerId, AccountNumber, AccountType) VALUES (1, 'ACC-1001', 'Savings')
+  sql> SELECT c.FullName, a.AccountNumber, a.Balance,
+  sql>        CASE WHEN c.CreatedAt IS NULL THEN 'missing' ELSE 'filled in by DEFAULT' END AS CreatedAt
+  sql> FROM Customers c JOIN Accounts a ON a.CustomerId = c.CustomerId
+  FullName | AccountNumber | Balance | CreatedAt           
+  ---------+---------------+---------+---------------------
+  Asha Rao | ACC-1001      | 0.00    | filled in by DEFAULT
+  (1 row)
+UNIQUE: a second customer with the same email (error 2627):
+  sql> INSERT INTO Customers (FullName, Email) VALUES ('Another Asha', 'asha@example.com')
+  SQL Server refused it (error 2627): Violation of UNIQUE KEY constraint 'UQ_Customers_Email'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (asha@example.com).
+NOT NULL: a customer with no name (error 515):
+  sql> INSERT INTO Customers (FullName, Email) VALUES (NULL, 'noname@example.com')
+  SQL Server refused it (error 515): Cannot insert the value NULL into column 'FullName', table '<DB>.dbo.Customers'; column does not allow nulls. INSERT fails.
+CHECK: an account type that is not Savings or Current (error 547):
+  sql> INSERT INTO Accounts (CustomerId, AccountNumber, AccountType) VALUES (1, 'ACC-1002', 'Gold')
+  SQL Server refused it (error 547): The INSERT statement conflicted with the CHECK constraint "CK_Accounts_AccountType". The conflict occurred in database "<DB>", table "dbo.Accounts", column 'AccountType'.
+NULL means 'no value'. Add an OPTIONAL Phone column (no NOT NULL):
+  sql> ALTER TABLE Customers ADD Phone NVARCHAR(20) NULL
+  sql> INSERT INTO Customers (FullName, Email, Phone) VALUES
+  sql>     ('Ben Carter', 'ben@example.com', NULL),
+  sql>     ('Chen Li',    'chen@example.com', '')
+  sql> UPDATE Customers SET Phone = '555-0101' WHERE FullName = 'Asha Rao'
+  sql> SELECT FullName, Phone, LEN(Phone) AS PhoneLength FROM Customers ORDER BY CustomerId
+  FullName   | Phone    | PhoneLength
+  -----------+----------+------------
+  Asha Rao   | 555-0101 | 8          
+  Ben Carter | NULL     | NULL       
+  Chen Li    |          | 0          
+  (3 rows)
+WHERE Phone = NULL finds nobody:
+  sql> SELECT FullName FROM Customers WHERE Phone = NULL
+  FullName
+  --------
+  (0 rows)
+WHERE Phone IS NULL finds Ben:
+  sql> SELECT FullName FROM Customers WHERE Phone IS NULL
+  FullName  
+  ----------
+  Ben Carter
+  (1 row)
+WHERE Phone = '' finds Chen (empty text is a value, NULL is not):
+  sql> SELECT FullName FROM Customers WHERE Phone = ''
+  FullName
+  --------
+  Chen Li 
+  (1 row)
+
+=== 5. Normalization — store each fact in one place ===
+(Starting fresh: dropping the lesson's tables if they exist.)
+  sql> CREATE TABLE BankFlat (
+  sql>     RowId           INT IDENTITY(1,1) PRIMARY KEY,
+  sql>     CustomerName    NVARCHAR(100),
+  sql>     CustomerEmail   NVARCHAR(200),
+  sql>     AccountNumber   NVARCHAR(20),
+  sql>     AccountType     NVARCHAR(20),
+  sql>     TransactionKind NVARCHAR(10),
+  sql>     Amount          DECIMAL(18,2)
+  sql> )
+  sql> INSERT INTO BankFlat (CustomerName, CustomerEmail, AccountNumber, AccountType, TransactionKind, Amount) VALUES
+  sql>     ('Asha Rao',   'asha@example.com', 'ACC-1001', 'Savings', 'Deposit',  1000.00),
+  sql>     ('Asha Rao',   'asha@example.com', 'ACC-1001', 'Savings', 'Deposit',   200.00),
+  sql>     ('Asha Rao',   'asha@example.com', 'ACC-1002', 'Current', 'Deposit',   500.00),
+  sql>     ('Asha Rao',   'asha@example.com', 'ACC-1002', 'Current', 'Withdrawal', 200.00),
+  sql>     ('Ben Carter', 'ben@example.com',  'ACC-2001', 'Current', 'Deposit',    50.00)
+The flat table: Asha's name and email are copied onto every one of her rows.
+  sql> SELECT RowId, CustomerName, CustomerEmail, AccountNumber, TransactionKind, Amount FROM BankFlat ORDER BY RowId
+  RowId | CustomerName | CustomerEmail    | AccountNumber | TransactionKind | Amount 
+  ------+--------------+------------------+---------------+-----------------+--------
+  1     | Asha Rao     | asha@example.com | ACC-1001      | Deposit         | 1000.00
+  2     | Asha Rao     | asha@example.com | ACC-1001      | Deposit         | 200.00 
+  3     | Asha Rao     | asha@example.com | ACC-1002      | Deposit         | 500.00 
+  4     | Asha Rao     | asha@example.com | ACC-1002      | Withdrawal      | 200.00 
+  5     | Ben Carter   | ben@example.com  | ACC-2001      | Deposit         | 50.00  
+  (5 rows)
+Asha changes her email, but we only fix row 1 (an update anomaly):
+  sql> UPDATE BankFlat SET CustomerEmail = 'asha.rao@newmail.example' WHERE RowId = 1
+  sql> SELECT DISTINCT CustomerName, CustomerEmail FROM BankFlat WHERE CustomerName = 'Asha Rao' ORDER BY CustomerEmail
+  CustomerName | CustomerEmail           
+  -------------+-------------------------
+  Asha Rao     | asha.rao@newmail.example
+  Asha Rao     | asha@example.com        
+  (2 rows)
+  sql> DROP TABLE BankFlat
+  sql> CREATE TABLE Customers (
+  sql>     CustomerId INT IDENTITY(1,1) CONSTRAINT PK_Customers PRIMARY KEY,
+  sql>     FullName   NVARCHAR(100) NOT NULL,
+  sql>     Email      NVARCHAR(200) NOT NULL CONSTRAINT UQ_Customers_Email UNIQUE,
+  sql>     CreatedAt  DATETIME2     NOT NULL DEFAULT SYSUTCDATETIME()
+  sql> )
+  sql> CREATE TABLE Accounts (
+  sql>     AccountId     INT IDENTITY(1,1) CONSTRAINT PK_Accounts PRIMARY KEY,
+  sql>     CustomerId    INT           NOT NULL CONSTRAINT FK_Accounts_Customers FOREIGN KEY REFERENCES Customers (CustomerId),
+  sql>     AccountNumber NVARCHAR(20)  NOT NULL CONSTRAINT UQ_Accounts_AccountNumber UNIQUE,
+  sql>     AccountType   NVARCHAR(20)  NOT NULL CONSTRAINT CK_Accounts_AccountType CHECK (AccountType IN ('Savings', 'Current')),
+  sql>     Balance       DECIMAL(18,2) NOT NULL DEFAULT 0
+  sql> )
+  sql> CREATE TABLE Transactions (
+  sql>     TransactionId BIGINT IDENTITY(1,1) CONSTRAINT PK_Transactions PRIMARY KEY,
+  sql>     AccountId     INT           NOT NULL CONSTRAINT FK_Transactions_Accounts FOREIGN KEY REFERENCES Accounts (AccountId),
+  sql>     Amount        DECIMAL(18,2) NOT NULL,
+  sql>     Kind          NVARCHAR(10)  NOT NULL CONSTRAINT CK_Transactions_Kind CHECK (Kind IN ('Deposit', 'Withdrawal')),
+  sql>     CreatedAt     DATETIME2     NOT NULL DEFAULT SYSUTCDATETIME()
+  sql> )
+  sql> INSERT INTO Customers (FullName, Email) VALUES
+  sql>     ('Asha Rao',   'asha@example.com'),
+  sql>     ('Ben Carter', 'ben@example.com'),
+  sql>     ('Chen Li',    'chen@example.com')
+  sql> INSERT INTO Accounts (CustomerId, AccountNumber, AccountType, Balance) VALUES
+  sql>     (1, 'ACC-1001', 'Savings', 1200.00),
+  sql>     (1, 'ACC-1002', 'Current',  300.00),
+  sql>     (2, 'ACC-2001', 'Current',   50.00)
+  sql> INSERT INTO Transactions (AccountId, Amount, Kind) VALUES
+  sql>     (1, 1000.00, 'Deposit'),
+  sql>     (1,  200.00, 'Deposit'),
+  sql>     (2,  500.00, 'Deposit'),
+  sql>     (2,  200.00, 'Withdrawal'),
+  sql>     (3,   50.00, 'Deposit')
+Normalized: the same email change is one UPDATE on one row:
+  sql> UPDATE Customers SET Email = 'asha.rao@newmail.example' WHERE FullName = 'Asha Rao'
+1 row changed.
+  sql> SELECT CustomerId, FullName, Email FROM Customers ORDER BY CustomerId
+  CustomerId | FullName   | Email                   
+  -----------+------------+-------------------------
+  1          | Asha Rao   | asha.rao@newmail.example
+  2          | Ben Carter | ben@example.com         
+  3          | Chen Li    | chen@example.com        
+  (3 rows)
+Joining the three tables gives the flat view back, always consistent:
+  sql> SELECT c.FullName, c.Email, a.AccountNumber, t.Kind, t.Amount
+  sql> FROM Transactions t
+  sql> JOIN Accounts  a ON a.AccountId  = t.AccountId
+  sql> JOIN Customers c ON c.CustomerId = a.CustomerId
+  sql> ORDER BY t.TransactionId
+  FullName   | Email                    | AccountNumber | Kind       | Amount 
+  -----------+--------------------------+---------------+------------+--------
+  Asha Rao   | asha.rao@newmail.example | ACC-1001      | Deposit    | 1000.00
+  Asha Rao   | asha.rao@newmail.example | ACC-1001      | Deposit    | 200.00 
+  Asha Rao   | asha.rao@newmail.example | ACC-1002      | Deposit    | 500.00 
+  Asha Rao   | asha.rao@newmail.example | ACC-1002      | Withdrawal | 200.00 
+  Ben Carter | ben@example.com          | ACC-2001      | Deposit    | 50.00  
+  (5 rows)

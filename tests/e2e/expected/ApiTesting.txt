@@ -1,0 +1,61 @@
+
+1. What is OpenAPI? — the API described as a JSON document
+GET /swagger/v1/swagger.json -> 200 (application/json; charset=utf-8)
+openapi: 3.0.4  (the OpenAPI format version; depends on the library)
+info: title "Bank API", version "v1"
+  path /api/accounts
+    GET    Lists every account
+    POST   Opens a new account with a zero balance
+  path /api/accounts/{id}
+    GET    Gets one account by its id
+    DELETE (no summary)
+  path /api/accounts/{id}/deposit
+    POST   Adds money to an account
+5 operations in total. The document describes the API; it does not run it.
+
+2. Swagger UI — a web page built from the OpenAPI document
+GET /swagger/index.html -> 200 (text/html; charset=utf-8)
+  HTML mentions /api/accounts: False  (as expected: the page is only a frame)
+  GET /swagger/index.js -> 200; it names /swagger/v1/swagger.json: True
+GET /swagger -> 301 (Location header: swagger/index.html)
+In the browser: open an endpoint, click 'Try it out', fill in the parameters, click 'Execute'.
+The page then sends a real HTTP request and shows the curl command, URL, status and body.
+
+3. Documenting endpoints — attributes become response codes in the JSON
+  GET    /api/accounts                documents: 200
+  POST   /api/accounts                documents: 201, 400
+  GET    /api/accounts/{id}           documents: 200, 404
+  DELETE /api/accounts/{id}           documents: 200
+  POST   /api/accounts/{id}/deposit   documents: 200, 400, 404
+  description of GET /api/accounts/{id}: Returns 404 when no account has that id.
+  real DELETE /api/accounts/2 -> 204, and again -> 404 (the JSON says only 200)
+  accountType pattern in the JSON: ^(Savings|Current)$
+  real POST with accountType Gold -> 400
+
+4. Postman collection and .http file — saved requests, replayed
+(The files are for an API run as its own program; this lesson has none, so it replays them against the in-process copy.)
+Loaded bank-api.postman_collection.json from the file in the ApiTesting folder
+  embedded copy matches the file: True
+Collection "Bank API (Topic 19)": 8 requests
+  GET    /api/accounts                expected 200, actual 200  match
+  GET    /api/accounts/1              expected 200, actual 200  match
+  GET    /api/accounts/999            expected 404, actual 404  match
+  POST   /api/accounts                expected 201, actual 201  match
+  POST   /api/accounts                expected 400, actual 400  match
+  POST   /api/accounts/1/deposit      expected 200, actual 200  match
+  POST   /api/accounts/1/deposit      expected 400, actual 400  match
+  DELETE /api/accounts/3              expected 204, actual 204  match
+Loaded bank-api.http from the file in the ApiTesting folder
+  embedded copy matches the file: True
+.http file: 8 requests; same method + URL list as the collection: True
+
+5. Manual vs automated — the same check, written as code
+  PASS  GET /api/accounts returns 200  [status 200]
+  PASS    ...and lists 2 accounts  [2 accounts]
+  PASS  POST /api/accounts returns 201  [status 201]
+  PASS    ...with a Location header /api/accounts/3  [Location /api/accounts/3]
+  PASS  Deposit 50.25 into account 1 gives balance 550.25  [balance 550.25]
+  FAIL  (wrong on purpose) GET /api/accounts/999 returns 200  [status 404]
+5 passed, 1 failed (the one failure is the deliberately wrong check)
+Real test projects usually use xUnit with WebApplicationFactory, which runs the API in memory
+inside the test and needs no port (not used in this lesson, so not run here).

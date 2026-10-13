@@ -1,0 +1,50 @@
+
+=====================================
+1. Arrays — a fixed-size row of boxes
+=====================================
+Number of scores (Length): 5
+First score (index 0): 85
+Last score (index 4): 95
+Score at index 2, after a re-check: 80
+All scores:
+  85
+  92
+  80
+  60
+  95
+
+====================================================
+2. List<T> — a row of boxes that can grow and shrink
+====================================================
+Tasks after adding 3: 3
+Tasks after inserting one: 4
+Tasks after removing one: 3
+Contains "Call mom"? True
+Task at index 0: Buy groceries
+Remaining tasks:
+  - Buy groceries
+  - Walk the dog
+  - Call mom
+
+==================================================================
+3. Dictionary<TKey, TValue> — look things up by name, not position
+==================================================================
+Contacts saved: 2
+Vivek's number: 9876543210
+Do we have Rahul's number? False
+Everyone in the phone book:
+  Vivek -> 9876543210
+  Anita -> 9123456789
+
+============================================
+4. Collection Safety — check before you leap
+============================================
+Index 10 is out of range (valid: 0 to 4).
+Rahul isn't in the phone book.
+
+================================
+5. Choosing the Right Collection
+================================
+Know the exact count, and it won't change?      -> Array        (examScores)
+Items get added/removed over time?              -> List<T>      (todoList)
+Need to look things up by a unique name/id?     -> Dictionary<K,V> (phoneBook)

@@ -1,0 +1,34 @@
+
+================
+1. Method Basics
+================
+AddNumbers(5, 3) returned 8
+Hello, Vivek!
+
+===================================
+2. Parameters — Value vs ref vs out
+===================================
+After TryDoubleByValue: number = 10  (unchanged)
+After DoubleByRef: number = 20  (changed!)
+ParseInput out result: parsed = 42
+
+==============================
+3. Optional & Named Parameters
+==============================
+Hello, Vivek!
+Good morning, Vivek!
+Welcome, Vivek!
+
+=====================
+4. The params Keyword
+=====================
+Sum() = 0
+Sum(1, 2, 3) = 6
+Sum(10, 20, 30, 40) = 100
+
+=====================
+5. Method Overloading
+=====================
+Describe(5) -> a single number: 5
+Describe(5, 10) -> a range: 5 to 10
+Describe("Vivek") -> a piece of text: "Vivek"

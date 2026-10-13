@@ -1,0 +1,185 @@
+
+=== 1. Add and SaveChanges — create rows from objects ===
+Database dropped and recreated (EnsureDeleted removes the WHOLE database, so use a scratch one): Customers, Accounts and Transactions are empty.
+  (here: this lesson's own scratch database)
+New object: CustomerId = 0, CreatedAt set by us? False
+After Add:  state = Added, SQL commands sent so far = 0
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    INSERT INTO [Customers] ([Email], [FullName])
+    OUTPUT INSERTED.[CustomerId], INSERTED.[CreatedAt]
+    VALUES (@p0, @p1);
+    -- @p0 = asha@example.com
+    -- @p1 = Asha Rao
+SaveChanges wrote 1 row(s).
+After save: CustomerId = 1, CreatedAt filled in by the database? True, state = Unchanged
+Second SaveChanges wrote 5 rows (2 customers + 3 accounts) in 2 SQL command(s): EF groups statements.
+Ben's accounts now have ids 2 and 3, both with CustomerId 2 (the foreign key was filled in).
+Third SaveChanges wrote 2 rows (2 deposits).
+
+=== 2. Querying with LINQ — a query is SQL waiting to run ===
+Query built. SQL commands sent so far: 0
+ToQueryString() gives:
+    SELECT [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+    WHERE [c].[FullName] LIKE N'B%' OR [c].[FullName] LIKE N'C%'
+    ORDER BY [c].[FullName]
+Still no SQL sent: 0
+  SQL #1:
+    SELECT [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+    WHERE [c].[FullName] LIKE N'B%' OR [c].[FullName] LIKE N'C%'
+    ORDER BY [c].[FullName]
+After ToList: 1 command(s) sent, 2 customers: Ben Carter, Chen Li
+  SQL #1:
+    SELECT [c].[FullName]
+    FROM [Customers] AS [c]
+    ORDER BY [c].[FullName]
+Names only: Asha Rao, Ben Carter, Chen Li
+  SQL #1:
+    SELECT TOP(1) [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+    WHERE [c].[Email] = N'nobody@example.com'
+FirstOrDefault for an unknown email: null
+  SQL #1:
+    SELECT TOP(1) [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+    WHERE [c].[CustomerId] = @__p_0
+    -- @__p_0 = 1
+Find(1) -> Asha Rao; SQL commands used: 1
+Find(1) again -> Asha Rao; SQL commands used: 0; same object? True
+
+IQueryable vs IEnumerable — where does the Where run?
+  SQL #1:
+    SELECT [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+    WHERE [c].[FullName] LIKE N'B%'
+  Where on the IQueryable: 1 row(s) came back.
+  SQL #1:
+    SELECT [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName]
+    FROM [Customers] AS [c]
+  Where after AsEnumerable: 1 row(s) kept, but every Customer row was read first.
+
+=== 3. Related data — Include, the N+1 trap, and Select ===
+Without Include (1 command):
+  Asha Rao: Accounts.Count = 0
+  Ben Carter: Accounts.Count = 0
+  Chen Li: Accounts.Count = 0
+  (Ben really has 2 accounts: the list is empty only because it was never loaded.)
+With Include, EF sends this SQL:
+  SQL #1:
+    SELECT [c].[CustomerId], [c].[CreatedAt], [c].[Email], [c].[FullName], [a].[AccountId], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CustomerId]
+    FROM [Customers] AS [c]
+    LEFT JOIN [Accounts] AS [a] ON [c].[CustomerId] = [a].[CustomerId]
+    ORDER BY [c].[FullName], [c].[CustomerId]
+With Include (1 command, a LEFT JOIN so customers without accounts still appear):
+  Asha Rao: Accounts.Count = 1
+  Ben Carter: Accounts.Count = 2
+  Chen Li: Accounts.Count = 0
+N+1 loop: found 3 accounts using 4 SQL commands (1 + one per customer).
+Select with counts and sums, EF sends this SQL:
+  SQL #1:
+    SELECT [c].[FullName], (
+        SELECT COUNT(*)
+        FROM [Accounts] AS [a]
+        WHERE [c].[CustomerId] = [a].[CustomerId]) AS [AccountCount], (
+        SELECT COALESCE(SUM([a0].[Balance]), 0.0)
+        FROM [Accounts] AS [a0]
+        WHERE [c].[CustomerId] = [a0].[CustomerId]) AS [TotalBalance]
+    FROM [Customers] AS [c]
+    ORDER BY [c].[FullName]
+  Asha Rao: 1 account(s), total balance 500.00
+  Ben Carter: 2 account(s), total balance 1250.00
+  Chen Li: 0 account(s), total balance 0.00
+Select used 1 command.
+
+=== 4. Updating — the change tracker notices edits ===
+Loaded ACC-2001: balance 250.00, state = Unchanged
+After edit: state = Modified, Balance modified? True, AccountNumber modified? False
+  original Balance = 250.00, current Balance = 350.00
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    UPDATE [Accounts] SET [Balance] = @p0
+    OUTPUT 1
+    WHERE [AccountId] = @p1;
+    -- @p1 = 2
+    -- @p0 = 350.00
+SaveChanges wrote 1 row; the UPDATE set only the changed column. State is now Unchanged.
+SaveChanges again with nothing changed wrote 0 rows, SQL commands: 0.
+AsNoTracking object edited to 400.00: state = Detached
+SaveChanges wrote 0 rows using 0 SQL commands — the edit was not saved.
+Balance in the database: 350.00
+After Update(detached): state = Modified
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    UPDATE [Accounts] SET [AccountNumber] = @p0, [AccountType] = @p1, [Balance] = @p2, [CustomerId] = @p3
+    OUTPUT 1
+    WHERE [AccountId] = @p4;
+    -- @p4 = 2
+    -- @p0 = ACC-2001
+    -- @p1 = Current
+    -- @p2 = 400.00
+    -- @p3 = 2
+SaveChanges wrote 1 row.
+
+=== 5. Removing rows — and what the foreign keys say ===
+After Remove: state = Deleted
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    DELETE FROM [Customers]
+    OUTPUT 1
+    WHERE [CustomerId] = @p0;
+    -- @p0 = 3
+SaveChanges wrote 1 row.
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    DELETE FROM [Customers]
+    OUTPUT 1
+    WHERE [CustomerId] = @p0;
+    -- @p0 = 2
+Removing Ben failed: DbUpdateException, SQL Server error number 547.
+  SQL #1:
+    SET NOCOUNT ON;
+    DELETE FROM [Accounts]
+    OUTPUT 1
+    WHERE [AccountId] = @p0;
+    DELETE FROM [Accounts]
+    OUTPUT 1
+    WHERE [AccountId] = @p1;
+    DELETE FROM [Customers]
+    OUTPUT 1
+    WHERE [CustomerId] = @p2;
+    -- @p0 = 2
+    -- @p1 = 3
+    -- @p2 = 2
+Accounts removed together with the customer: SaveChanges wrote 3 rows.
+  SQL #1:
+    SET IMPLICIT_TRANSACTIONS OFF;
+    SET NOCOUNT ON;
+    DELETE FROM [Accounts]
+    OUTPUT 1
+    WHERE [AccountId] = @p0;
+    -- @p0 = 1
+Account ACC-1001 had 2 transactions. SaveChanges wrote 1 row; transactions left in the table: 0.
+
+=== 6. SaveChanges is all or nothing ===
+  SQL #1:
+    SET NOCOUNT ON;
+    UPDATE [Customers] SET [FullName] = @p0
+    OUTPUT 1
+    WHERE [CustomerId] = @p1;
+    INSERT INTO [Customers] ([Email], [FullName])
+    OUTPUT INSERTED.[CustomerId], INSERTED.[CreatedAt]
+    VALUES (@p2, @p3);
+    -- @p1 = 1
+    -- @p0 = Asha R. Rao
+    -- @p2 = asha@example.com
+    -- @p3 = Dev Again
+SaveChanges failed: SQL Server error number 2601.
+Name stored for asha@example.com: Asha Rao
+Customers in the table: 1

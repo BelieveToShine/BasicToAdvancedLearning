@@ -1,0 +1,27 @@
+
+==============================================
+1. try / catch — a safety net under risky code
+==============================================
+Caught a FormatException: The input string 'abc' was not in a correct format.
+The program carried on instead of crashing.
+
+=======================================================
+2. Catch order — most specific first, most general last
+=======================================================
+-5: refused, that is not a positive amount
+900: refused, short by 400
+Withdrew 100; balance is now 400
+
+=========================================================
+3. finally — clean-up that runs on success and on failure
+=========================================================
+Withdrew 100
+Session 1 closed
+Refused 900: Not enough money: short by 500
+Session 2 closed
+
+=========================================================
+4. Custom exceptions — throw your own, with data attached
+=========================================================
+Anita's withdrawal failed: short by 400
+Balance is untouched: 500

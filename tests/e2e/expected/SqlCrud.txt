@@ -1,0 +1,166 @@
+Setup: dropped and recreated the empty tables Customers, Accounts and Transactions.
+
+=======================
+1. INSERT — adding rows
+=======================
+INSERT one row: 1 row affected
+INSERT two rows in one statement: 2 rows affected
+  CustomerId | FullName   | Email            | CreatedAt        
+  -----------+------------+------------------+------------------
+  1          | Asha Rao   | asha@example.com | filled by DEFAULT
+  2          | Ben Carter | ben@example.com  | filled by DEFAULT
+  3          | Chen Li    | chen@example.com | filled by DEFAULT
+  (3 rows)
+Open Asha's account, then use its new AccountId for the first deposit:
+  NewAccountId
+  ------------
+  1           
+  (1 row)
+Two more accounts, with OUTPUT showing what was stored:
+  AccountId | AccountNumber | Balance
+  ----------+---------------+--------
+  2         | CUR-2001      | 0.00   
+  3         | SAV-3001      | 0.00   
+  (2 rows)
+
+================================================
+2. UPDATE — changing rows, and why WHERE matters
+================================================
+UPDATE ... WHERE CustomerId = 1: 1 row affected
+  CustomerId | FullName | Email               
+  -----------+----------+---------------------
+  1          | Asha Rao | asha.rao@example.com
+  (1 row)
+A WHERE that matches no row (CustomerId 999):
+  RowsAffected
+  ------------
+  0           
+  (1 row)
+The scratch copy before the mistake:
+  AccountId | AccountNumber | Balance
+  ----------+---------------+--------
+  1         | SAV-1001      | 500.00 
+  2         | CUR-2001      | 0.00   
+  3         | SAV-3001      | 0.00   
+  (3 rows)
+UPDATE with NO WHERE: 3 rows affected (we meant 1)
+  AccountId | AccountNumber | Balance
+  ----------+---------------+--------
+  1         | SAV-1001      | 475.00 
+  2         | CUR-2001      | -25.00 
+  3         | SAV-3001      | -25.00 
+  (3 rows)
+
+==================================================
+3. DELETE — removing rows, children before parents
+==================================================
+Rows per table before deleting Dev:
+  TableName    | TotalRows
+  -------------+----------
+  Customers    | 4        
+  Accounts     | 4        
+  Transactions | 2        
+  (3 rows)
+Delete the customer first?
+  SQL Server refused it (error 547): The DELETE statement conflicted with the REFERENCE constraint "FK_Accounts_Customers". The conflict occurred in database "<DB>", table "dbo.Accounts", column 'CustomerId'.
+Delete the account first?
+  SQL Server refused it (error 547): The DELETE statement conflicted with the REFERENCE constraint "FK_Transactions_Accounts". The conflict occurred in database "<DB>", table "dbo.Transactions", column 'AccountId'.
+Deleted children first: 1 ledger row, 1 account, 1 customer
+  TableName    | TotalRows
+  -------------+----------
+  Customers    | 3        
+  Accounts     | 3        
+  Transactions | 1        
+  (3 rows)
+TRUNCATE the customers table?
+  SQL Server refused it (error 4712): Cannot truncate table 'Customers' because it is being referenced by a FOREIGN KEY constraint.
+
+=============================================================
+4. Transactions — a transfer that fully happens or not at all
+=============================================================
+Balances before the transfer of 200.00 from Asha to Ben:
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 500.00 
+  CUR-2001      | 0.00   
+  SAV-3001      | 0.00   
+  (3 rows)
+After COMMIT — both balances moved, and the ledger has both rows:
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 300.00 
+  CUR-2001      | 200.00 
+  SAV-3001      | 0.00   
+  (3 rows)
+  AccountNumber | Kind       | Amount
+  --------------+------------+-------
+  SAV-1001      | Deposit    | 500.00
+  SAV-1001      | Withdrawal | 200.00
+  CUR-2001      | Deposit    | 200.00
+  (3 rows)
+A transfer of 900.00 from Asha — the balance goes negative, so we ROLLBACK:
+  Moment                  | AshaBalance
+  ------------------------+------------
+  inside, after the debit | -600.00    
+  after the ROLLBACK      | 300.00     
+  (2 rows)
+
+============================================================
+5. SET XACT_ABORT ON — one failure undoes the whole transfer
+============================================================
+XACT_ABORT OFF: the typo statement fails, the rest carries on and commits:
+  SQL Server refused it (error 547): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Accounts". The conflict occurred in database "<DB>", table "dbo.Accounts", column 'AccountId'.
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 250.00 
+  CUR-2001      | 250.00 
+  SAV-3001      | 0.00   
+  (3 rows)
+  AccountNumber | Kind       | Amount
+  --------------+------------+-------
+  SAV-1001      | Deposit    | 500.00
+  SAV-1001      | Withdrawal | 200.00
+  CUR-2001      | Deposit    | 200.00
+  SAV-1001      | Withdrawal | 50.00 
+  (4 rows)
+Repaired by hand: 1 ledger row added. Balances are now 250.00 / 250.00.
+XACT_ABORT ON: the same typo undoes the whole transfer:
+  SQL Server refused it (error 547): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Accounts". The conflict occurred in database "<DB>", table "dbo.Accounts", column 'AccountId'.
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 250.00 
+  CUR-2001      | 250.00 
+  SAV-3001      | 0.00   
+  (3 rows)
+
+==============================================================
+6. Safe habits — look first, then change, then check the count
+==============================================================
+Preview: which rows does WHERE AccountType = 'Savings' hit?
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 250.00 
+  SAV-3001      | 0.00   
+  (2 rows)
+The bonus with its WHERE:
+  Outcome                       
+  ------------------------------
+  committed: 2 rows, as expected
+  (1 row)
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 260.00 
+  CUR-2001      | 250.00 
+  SAV-3001      | 10.00  
+  (3 rows)
+The same bonus with the WHERE forgotten:
+  Outcome                     
+  ----------------------------
+  rolled back: expected 2 rows
+  (1 row)
+  AccountNumber | Balance
+  --------------+--------
+  SAV-1001      | 260.00 
+  CUR-2001      | 250.00 
+  SAV-3001      | 10.00  
+  (3 rows)
